@@ -1,0 +1,122 @@
+{
+ "label": "decision_dove_mmlu",
+ "setting": "DOVE MMLU block, 5 models: five-shot \u2212 zero-shot",
+ "models": [
+  "Llama-3.2-1B-Instruct",
+  "Llama-3.2-3B-Instruct",
+  "Meta-Llama-3-8B-Instruct",
+  "Mistral-7B-Instruct-v0.3",
+  "OLMoE-1B-7B-0924-Instruct"
+ ],
+ "n_chosen": 2,
+ "discovery_units": [
+  "2533",
+  "1907",
+  "940",
+  "2039",
+  "2404",
+  "2052",
+  "1106",
+  "1685",
+  "1196",
+  "1040",
+  "1611",
+  "2170",
+  "1228",
+  "1990",
+  "373",
+  "824",
+  "1552",
+  "1243",
+  "796",
+  "1095",
+  "263",
+  "575",
+  "1645",
+  "185"
+ ],
+ "pilot_seed_labels": {
+  "2": "decision/dove_mmlu/K2",
+  "4": "decision/dove_mmlu/K4"
+ },
+ "units": "pp",
+ "design": {
+  "rules": [
+   "capability_1",
+   "capability_all",
+   "own_1",
+   "own_2",
+   "own_4",
+   "own_all",
+   "shrunk_2",
+   "shrunk_4"
+  ],
+  "pilot_sizes": [
+   1,
+   2,
+   4
+  ],
+  "n_sets": 200,
+  "rows": "row indices into discovery_units; distinct configurations only"
+ },
+ "slopes": {
+  "capability_1": {
+   "negative": 7,
+   "positive": 17,
+   "zero_or_undefined": 0
+  },
+  "shrunk_2": {
+   "fallback_constant": 0,
+   "psd_projection": 114
+  },
+  "shrunk_4": {
+   "fallback_constant": 0,
+   "psd_projection": 108
+  },
+  "capability_all": {
+   "negative": 0,
+   "positive": 1,
+   "zero_or_undefined": 0
+  }
+ },
+ "ties": {
+  "own_1": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 24
+  },
+  "capability_1": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 24
+  },
+  "own_2": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 200
+  },
+  "shrunk_2": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 200
+  },
+  "own_4": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 200
+  },
+  "shrunk_4": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 200
+  },
+  "own_all": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 1
+  },
+  "capability_all": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 1
+  }
+ },
+ "note": "choices fitted on discovery draws only, written before the validation draws are built",
+ "content_sha256": "7f04f7c3f33a8e57910702f6f69c1834749291602b155d6bb0d4c4abe18841ce",
+ "npz": "predictions_decision_dove_mmlu.npz",
+ "npz_sha256": "c5e672a7dbc35baa54333342d5ee7947ac34b2bf2bbdfcf27151fff1ad224930",
+ "created": "2026-11-17 19:36:56",
+ "sha256": "27ffbefc85a9413c831803922b3813a8de174cf98893b50372acffea641eb752"
+}

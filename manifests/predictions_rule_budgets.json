@@ -1,0 +1,8661 @@
+{
+ "label": "rule_budgets",
+ "created": "2026-11-17 09:39:52",
+ "units": "pp, uncentred predictions of each model's gain",
+ "methods": "rule budgets",
+ "note": "every pilot's predictions from discovery (or pilot) draws only; written before any validation array is built. Earlier analyses had read the validation draws, so this is not a fresh test",
+ "design": {
+  "n_pilots": 200,
+  "K": [
+   1,
+   2,
+   4
+  ],
+  "item_budgets": [
+   100,
+   300,
+   "all"
+  ],
+  "stream": "sampling.rng_for('rule-budgets', setting, K, n), n = 100, 300 or 'all'; per pilot the K draws (without replacement) first, then the item subsample",
+  "master_seed": 20261003,
+  "rules": {
+   "own_gain": "own gain",
+   "own_gain_shrunk": "own gain, shrunken",
+   "averaged_ols": "capability, linear in baseline",
+   "baseline_quadratic_index": "capability, quadratic in baseline plus the index"
+  },
+  "npz_arrays": "<key>positions (pilots, K) discovery positions; <key>items (pilots, n) item positions (absent for all items); <key><rule> (pilots, models) predictions, nan where the rule is not defined; <key>factor, <key>R (pilots,)",
+  "settings": {
+   "gsm8k30": {
+    "title": "GSM8K-29",
+    "group": "d2",
+    "models": [
+     "gemma-4-31b-it",
+     "meta-llama-3-8b-instruct",
+     "mistral-7b-instruct-v0.3",
+     "mistral-7b-instruct-v0.1",
+     "mistral-nemo-instruct-2407",
+     "mistral-small-3.1-24b-instruct-2503",
+     "phi-3-mini-4k-instruct",
+     "phi-3-medium-4k-instruct",
+     "phi-4",
+     "qwen2.5-7b-instruct",
+     "qwen3-8b",
+     "qwen3-30b-a3b-instruct-2507",
+     "qwen3.6-27b",
+     "gemma-2b-it",
+     "gemma-7b-it",
+     "gemma-3-12b-it",
+     "llama-3.1-8b-instruct",
+     "llama-2-7b-chat-hf",
+     "llama-2-13b-chat-hf",
+     "gemma-3-4b-it",
+     "gemma-2-9b-it",
+     "gemma-2-27b-it",
+     "gemma-3-27b-it",
+     "qwen3-30b-a3b",
+     "qwen3-14b",
+     "qwen3-32b",
+     "qwen3.5-9b",
+     "qwen3.5-35b-a3b",
+     "qwen3.6-35b-a3b"
+    ],
+    "M": 29,
+    "n_items": 1319,
+    "item_budgets": [
+     100,
+     300,
+     "all"
+    ],
+    "item_sampling": "simple random sample; items weigh equally",
+    "draws": "manifests/sampler_gsm8k.json (24 discovery units, 24 validation units)",
+    "discovery_configs": [
+     "ps-i07-f00",
+     "ps-i03-f05",
+     "ps-i05-f05",
+     "ps-i03-f06",
+     "ps-i02-f01",
+     "ps-i05-f05",
+     "ps-i04-f02",
+     "ps-i05-f01",
+     "ps-i07-f01",
+     "ps-i04-f05",
+     "ps-i02-f04",
+     "ps-i05-f04",
+     "ps-i00-f02",
+     "ps-i02-f01",
+     "ps-i02-f06",
+     "ps-i01-f00",
+     "ps-i05-f04",
+     "ps-i03-f00",
+     "ps-i05-f06",
+     "ps-i03-f05",
+     "ps-i07-f00",
+     "ps-i04-f03",
+     "ps-i01-f02",
+     "ps-i07-f05"
+    ],
+    "index": [
+     143.03,
+     116.35,
+     108.82,
+     112.0,
+     118.62,
+     127.52,
+     117.25,
+     121.17,
+     130.48,
+     118.52,
+     136.07,
+     137.29,
+     146.26,
+     93.68,
+     111.78,
+     123.53,
+     116.44,
+     98.52,
+     105.52,
+     115.86,
+     119.78,
+     122.1,
+     129.97,
+     136.12,
+     138.17,
+     138.44,
+     139.34,
+     142.52,
+     143.76
+    ]
+   },
+   "bbh": {
+    "title": "BIG-Bench Hard",
+    "group": "d2",
+    "models": [
+     "meta-llama-3-8b-instruct",
+     "mistral-7b-instruct-v0.3",
+     "mistral-7b-instruct-v0.1",
+     "mistral-nemo-instruct-2407",
+     "mistral-small-3.1-24b-instruct-2503",
+     "phi-3-mini-4k-instruct",
+     "phi-3-medium-4k-instruct",
+     "phi-4",
+     "qwen2.5-7b-instruct",
+     "qwen3-8b",
+     "qwen3-30b-a3b-instruct-2507",
+     "qwen3.6-27b",
+     "gemma-2b-it",
+     "gemma-7b-it",
+     "gemma-3-12b-it",
+     "llama-3.1-8b-instruct",
+     "llama-2-7b-chat-hf",
+     "llama-2-13b-chat-hf",
+     "gemma-3-4b-it",
+     "gemma-2-9b-it",
+     "gemma-2-27b-it",
+     "gemma-3-27b-it",
+     "qwen3-30b-a3b",
+     "qwen3-14b",
+     "qwen3-32b",
+     "qwen3.5-9b",
+     "qwen3.5-35b-a3b",
+     "qwen3.6-35b-a3b"
+    ],
+    "M": 28,
+    "n_items": 1350,
+    "item_budgets": [
+     100,
+     300,
+     "all"
+    ],
+    "item_sampling": "4 and 12 items from each of the 25 tasks; tasks weigh equally",
+    "draws": "manifests/sampler_bbh.json (24 discovery units, 24 validation units)",
+    "discovery_configs": [
+     "ps-i06-f06",
+     "ps-i00-f04",
+     "ps-i02-f01",
+     "ps-i00-f04",
+     "ps-i07-f02",
+     "ps-i07-f03",
+     "ps-i01-f06",
+     "ps-i01-f07",
+     "ps-i00-f06",
+     "ps-i02-f00",
+     "ps-i03-f00",
+     "ps-i04-f05",
+     "ps-i06-f01",
+     "ps-i04-f04",
+     "ps-i04-f04",
+     "ps-i02-f02",
+     "ps-i02-f06",
+     "ps-i01-f07",
+     "ps-i02-f03",
+     "ps-i03-f01",
+     "ps-i03-f00",
+     "ps-i03-f05",
+     "ps-i06-f01",
+     "ps-i02-f02"
+    ],
+    "index": [
+     116.35,
+     108.82,
+     112.0,
+     118.62,
+     127.52,
+     117.25,
+     121.17,
+     130.48,
+     118.52,
+     136.07,
+     137.29,
+     146.26,
+     93.68,
+     111.78,
+     123.53,
+     116.44,
+     98.52,
+     105.52,
+     115.86,
+     119.78,
+     122.1,
+     129.97,
+     136.12,
+     138.17,
+     138.44,
+     139.34,
+     142.52,
+     143.76
+    ]
+   },
+   "math": {
+    "title": "MATH-500",
+    "group": "d2",
+    "models": [
+     "gemma-4-31b-it",
+     "meta-llama-3-8b-instruct",
+     "mistral-7b-instruct-v0.3",
+     "mistral-7b-instruct-v0.1",
+     "mistral-nemo-instruct-2407",
+     "mistral-small-3.1-24b-instruct-2503",
+     "phi-3-mini-4k-instruct",
+     "phi-3-medium-4k-instruct",
+     "phi-4",
+     "qwen2.5-7b-instruct",
+     "qwen3-8b",
+     "qwen3-30b-a3b-instruct-2507",
+     "qwen3.6-27b",
+     "gemma-2b-it",
+     "gemma-7b-it",
+     "gemma-3-12b-it",
+     "llama-3.1-8b-instruct",
+     "llama-2-7b-chat-hf",
+     "llama-2-13b-chat-hf",
+     "gemma-3-4b-it",
+     "gemma-2-9b-it",
+     "gemma-2-27b-it",
+     "gemma-3-27b-it",
+     "qwen3-30b-a3b",
+     "qwen3-14b",
+     "qwen3-32b",
+     "qwen3.5-9b",
+     "qwen3.5-35b-a3b",
+     "qwen3.6-35b-a3b"
+    ],
+    "M": 29,
+    "n_items": 398,
+    "item_budgets": [
+     100,
+     300,
+     "all"
+    ],
+    "item_sampling": "simple random sample; items weigh equally",
+    "draws": "manifests/sampler_math.json (24 discovery units, 24 validation units)",
+    "discovery_configs": [
+     "ps-i00-f05",
+     "ps-i02-f03",
+     "ps-i03-f07",
+     "ps-i06-f01",
+     "ps-i01-f00",
+     "ps-i04-f00",
+     "ps-i06-f05",
+     "ps-i05-f02",
+     "ps-i02-f06",
+     "ps-i05-f04",
+     "ps-i02-f03",
+     "ps-i00-f03",
+     "ps-i02-f04",
+     "ps-i02-f00",
+     "ps-i06-f05",
+     "ps-i04-f05",
+     "ps-i06-f01",
+     "ps-i03-f00",
+     "ps-i03-f02",
+     "ps-i00-f04",
+     "ps-i02-f06",
+     "ps-i04-f07",
+     "ps-i05-f04",
+     "ps-i05-f02"
+    ],
+    "index": [
+     143.03,
+     116.35,
+     108.82,
+     112.0,
+     118.62,
+     127.52,
+     117.25,
+     121.17,
+     130.48,
+     118.52,
+     136.07,
+     137.29,
+     146.26,
+     93.68,
+     111.78,
+     123.53,
+     116.44,
+     98.52,
+     105.52,
+     115.86,
+     119.78,
+     122.1,
+     129.97,
+     136.12,
+     138.17,
+     138.44,
+     139.34,
+     142.52,
+     143.76
+    ]
+   },
+   "dove_mmlu": {
+    "title": "DOVE MMLU block",
+    "group": "dove_mmlu",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 5597,
+    "item_budgets": [
+     100,
+     300,
+     "all"
+    ],
+    "item_sampling": "simple random sample; scored with the block's subject weights 1 / (56 x subject size)",
+    "draws": "manifests/sampler_dove_mmlu.json (24 discovery draws, 24 validation draws)",
+    "discovery_configs": [
+     2533,
+     1907,
+     940,
+     2039,
+     2404,
+     2052,
+     1106,
+     1685,
+     1196,
+     1040,
+     1611,
+     2170,
+     1228,
+     1990,
+     373,
+     824,
+     1552,
+     1243,
+     796,
+     1095,
+     263,
+     575,
+     1645,
+     185
+    ],
+    "index": null
+   },
+   "dove:ai2_arc.arc_challenge": {
+    "title": "ai2_arc.arc_challenge",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2053,
+     524,
+     1478,
+     2317
+    ],
+    "index": null
+   },
+   "dove:ai2_arc.arc_easy": {
+    "title": "ai2_arc.arc_easy",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2402,
+     1905,
+     1660,
+     1227
+    ],
+    "index": null
+   },
+   "dove:hellaswag": {
+    "title": "hellaswag",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     209,
+     562,
+     740,
+     815
+    ],
+    "index": null
+   },
+   "dove:mmlu.abstract_algebra": {
+    "title": "mmlu.abstract_algebra",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2432,
+     685,
+     1063,
+     1841
+    ],
+    "index": null
+   },
+   "dove:mmlu.anatomy": {
+    "title": "mmlu.anatomy",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2674,
+     1849,
+     197,
+     1454
+    ],
+    "index": null
+   },
+   "dove:mmlu.astronomy": {
+    "title": "mmlu.astronomy",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2542,
+     895,
+     65,
+     1780
+    ],
+    "index": null
+   },
+   "dove:mmlu.business_ethics": {
+    "title": "mmlu.business_ethics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2200,
+     2496,
+     2728,
+     1927
+    ],
+    "index": null
+   },
+   "dove:mmlu.clinical_knowledge": {
+    "title": "mmlu.clinical_knowledge",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1203,
+     2105,
+     289,
+     619
+    ],
+    "index": null
+   },
+   "dove:mmlu.college_biology": {
+    "title": "mmlu.college_biology",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     121,
+     369,
+     1995,
+     1031
+    ],
+    "index": null
+   },
+   "dove:mmlu.college_chemistry": {
+    "title": "mmlu.college_chemistry",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2225,
+     644,
+     161,
+     2656
+    ],
+    "index": null
+   },
+   "dove:mmlu.college_computer_science": {
+    "title": "mmlu.college_computer_science",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2700,
+     2643,
+     2571,
+     1746
+    ],
+    "index": null
+   },
+   "dove:mmlu.college_mathematics": {
+    "title": "mmlu.college_mathematics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1068,
+     1958,
+     1601,
+     981
+    ],
+    "index": null
+   },
+   "dove:mmlu.college_medicine": {
+    "title": "mmlu.college_medicine",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     357,
+     2392,
+     2585,
+     2000
+    ],
+    "index": null
+   },
+   "dove:mmlu.computer_security": {
+    "title": "mmlu.computer_security",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2466,
+     1248,
+     1991,
+     1909
+    ],
+    "index": null
+   },
+   "dove:mmlu.conceptual_physics": {
+    "title": "mmlu.conceptual_physics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1728,
+     831,
+     1204,
+     1583
+    ],
+    "index": null
+   },
+   "dove:mmlu.econometrics": {
+    "title": "mmlu.econometrics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2181,
+     2228,
+     1246,
+     1515
+    ],
+    "index": null
+   },
+   "dove:mmlu.electrical_engineering": {
+    "title": "mmlu.electrical_engineering",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2564,
+     1560,
+     960,
+     951
+    ],
+    "index": null
+   },
+   "dove:mmlu.elementary_mathematics": {
+    "title": "mmlu.elementary_mathematics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1426,
+     1960,
+     123,
+     2086
+    ],
+    "index": null
+   },
+   "dove:mmlu.formal_logic": {
+    "title": "mmlu.formal_logic",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     124,
+     2070,
+     2508,
+     2296
+    ],
+    "index": null
+   },
+   "dove:mmlu.global_facts": {
+    "title": "mmlu.global_facts",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1114,
+     2208,
+     558,
+     1451
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_biology": {
+    "title": "mmlu.high_school_biology",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2159,
+     729,
+     2209,
+     1150
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_chemistry": {
+    "title": "mmlu.high_school_chemistry",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     345,
+     440,
+     2484,
+     602
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_computer_science": {
+    "title": "mmlu.high_school_computer_science",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     294,
+     2722,
+     2568,
+     247
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_european_history": {
+    "title": "mmlu.high_school_european_history",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     22,
+     2545,
+     2196,
+     2192
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_geography": {
+    "title": "mmlu.high_school_geography",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2093,
+     903,
+     607,
+     1697
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_government_and_politics": {
+    "title": "mmlu.high_school_government_and_politics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1434,
+     2382,
+     1818,
+     1635
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_macroeconomics": {
+    "title": "mmlu.high_school_macroeconomics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     389,
+     400,
+     552,
+     2154
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_mathematics": {
+    "title": "mmlu.high_school_mathematics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     307,
+     1568,
+     847,
+     2661
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_microeconomics": {
+    "title": "mmlu.high_school_microeconomics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1634,
+     1258,
+     1170,
+     2216
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_physics": {
+    "title": "mmlu.high_school_physics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1758,
+     2256,
+     869,
+     273
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_psychology": {
+    "title": "mmlu.high_school_psychology",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 99,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     777,
+     2481,
+     2653,
+     14
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_statistics": {
+    "title": "mmlu.high_school_statistics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2144,
+     2060,
+     164,
+     1896
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_us_history": {
+    "title": "mmlu.high_school_us_history",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1385,
+     807,
+     655,
+     1116
+    ],
+    "index": null
+   },
+   "dove:mmlu.high_school_world_history": {
+    "title": "mmlu.high_school_world_history",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     594,
+     2507,
+     1441,
+     1587
+    ],
+    "index": null
+   },
+   "dove:mmlu.human_aging": {
+    "title": "mmlu.human_aging",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1370,
+     1002,
+     2558,
+     2115
+    ],
+    "index": null
+   },
+   "dove:mmlu.human_sexuality": {
+    "title": "mmlu.human_sexuality",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1475,
+     2060,
+     693,
+     647
+    ],
+    "index": null
+   },
+   "dove:mmlu.international_law": {
+    "title": "mmlu.international_law",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2533,
+     2354,
+     667,
+     1185
+    ],
+    "index": null
+   },
+   "dove:mmlu.jurisprudence": {
+    "title": "mmlu.jurisprudence",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2444,
+     2386,
+     781,
+     2642
+    ],
+    "index": null
+   },
+   "dove:mmlu.logical_fallacies": {
+    "title": "mmlu.logical_fallacies",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1671,
+     1466,
+     2259,
+     1029
+    ],
+    "index": null
+   },
+   "dove:mmlu.machine_learning": {
+    "title": "mmlu.machine_learning",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     743,
+     582,
+     1090,
+     639
+    ],
+    "index": null
+   },
+   "dove:mmlu.management": {
+    "title": "mmlu.management",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1172,
+     2218,
+     951,
+     653
+    ],
+    "index": null
+   },
+   "dove:mmlu.marketing": {
+    "title": "mmlu.marketing",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1345,
+     438,
+     1887,
+     1126
+    ],
+    "index": null
+   },
+   "dove:mmlu.medical_genetics": {
+    "title": "mmlu.medical_genetics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1125,
+     2663,
+     1958,
+     2172
+    ],
+    "index": null
+   },
+   "dove:mmlu.miscellaneous": {
+    "title": "mmlu.miscellaneous",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1419,
+     84,
+     949,
+     2055
+    ],
+    "index": null
+   },
+   "dove:mmlu.moral_disputes": {
+    "title": "mmlu.moral_disputes",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2562,
+     2470,
+     186,
+     114
+    ],
+    "index": null
+   },
+   "dove:mmlu.moral_scenarios": {
+    "title": "mmlu.moral_scenarios",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     68,
+     2123,
+     833,
+     1479
+    ],
+    "index": null
+   },
+   "dove:mmlu.nutrition": {
+    "title": "mmlu.nutrition",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2404,
+     459,
+     2707,
+     967
+    ],
+    "index": null
+   },
+   "dove:mmlu.philosophy": {
+    "title": "mmlu.philosophy",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1147,
+     1774,
+     2411,
+     1407
+    ],
+    "index": null
+   },
+   "dove:mmlu.prehistory": {
+    "title": "mmlu.prehistory",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2315,
+     1705,
+     755,
+     2168
+    ],
+    "index": null
+   },
+   "dove:mmlu.professional_accounting": {
+    "title": "mmlu.professional_accounting",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     731,
+     387,
+     943,
+     337
+    ],
+    "index": null
+   },
+   "dove:mmlu.professional_law": {
+    "title": "mmlu.professional_law",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1717,
+     42,
+     3,
+     2179
+    ],
+    "index": null
+   },
+   "dove:mmlu.professional_medicine": {
+    "title": "mmlu.professional_medicine",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     708,
+     417,
+     213,
+     716
+    ],
+    "index": null
+   },
+   "dove:mmlu.professional_psychology": {
+    "title": "mmlu.professional_psychology",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     223,
+     2515,
+     2241,
+     1209
+    ],
+    "index": null
+   },
+   "dove:mmlu.security_studies": {
+    "title": "mmlu.security_studies",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1655,
+     2696,
+     1401,
+     1188
+    ],
+    "index": null
+   },
+   "dove:mmlu.sociology": {
+    "title": "mmlu.sociology",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2612,
+     2152,
+     2454,
+     2517
+    ],
+    "index": null
+   },
+   "dove:mmlu.us_foreign_policy": {
+    "title": "mmlu.us_foreign_policy",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 99,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     857,
+     2009,
+     547,
+     1320
+    ],
+    "index": null
+   },
+   "dove:mmlu.virology": {
+    "title": "mmlu.virology",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1546,
+     366,
+     313,
+     349
+    ],
+    "index": null
+   },
+   "dove:mmlu.world_religions": {
+    "title": "mmlu.world_religions",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2092,
+     2220,
+     1370,
+     603
+    ],
+    "index": null
+   },
+   "dove:mmlu_pro.biology": {
+    "title": "mmlu_pro.biology",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2358,
+     563,
+     96,
+     2327
+    ],
+    "index": null
+   },
+   "dove:mmlu_pro.business": {
+    "title": "mmlu_pro.business",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1293,
+     885,
+     640,
+     2626
+    ],
+    "index": null
+   },
+   "dove:mmlu_pro.chemistry": {
+    "title": "mmlu_pro.chemistry",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2091,
+     64,
+     174,
+     480
+    ],
+    "index": null
+   },
+   "dove:mmlu_pro.economics": {
+    "title": "mmlu_pro.economics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1848,
+     1224,
+     900,
+     2065
+    ],
+    "index": null
+   },
+   "dove:mmlu_pro.engineering": {
+    "title": "mmlu_pro.engineering",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     412,
+     2312,
+     1693,
+     112
+    ],
+    "index": null
+   },
+   "dove:mmlu_pro.history": {
+    "title": "mmlu_pro.history",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     279,
+     493,
+     281,
+     1718
+    ],
+    "index": null
+   },
+   "dove:mmlu_pro.math": {
+    "title": "mmlu_pro.math",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2491,
+     404,
+     2325,
+     2274
+    ],
+    "index": null
+   },
+   "dove:mmlu_pro.other": {
+    "title": "mmlu_pro.other",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1541,
+     2343,
+     390,
+     16
+    ],
+    "index": null
+   },
+   "dove:mmlu_pro.philosophy": {
+    "title": "mmlu_pro.philosophy",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2493,
+     2030,
+     1748,
+     2397
+    ],
+    "index": null
+   },
+   "dove:mmlu_pro.physics": {
+    "title": "mmlu_pro.physics",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2349,
+     353,
+     835,
+     1002
+    ],
+    "index": null
+   },
+   "dove:mmlu_pro.psychology": {
+    "title": "mmlu_pro.psychology",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2064,
+     1839,
+     29,
+     528
+    ],
+    "index": null
+   },
+   "dove:openbook_qa": {
+    "title": "openbook_qa",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     1941,
+     1039,
+     1572,
+     1806
+    ],
+    "index": null
+   },
+   "dove:social_iqa": {
+    "title": "social_iqa",
+    "group": "dove_tasks",
+    "models": [
+     "Llama-3.2-1B-Instruct",
+     "Llama-3.2-3B-Instruct",
+     "Meta-Llama-3-8B-Instruct",
+     "Mistral-7B-Instruct-v0.3",
+     "OLMoE-1B-7B-0924-Instruct"
+    ],
+    "M": 5,
+    "n_items": 100,
+    "item_budgets": [
+     "all"
+    ],
+    "item_sampling": "all items only",
+    "draws": "manifests/sampler_reliability_map_dove_tasks.json (4 pilot draws, 24 validation draws)",
+    "discovery_configs": [
+     2637,
+     1436,
+     783,
+     1513
+    ],
+    "index": null
+   }
+  },
+  "cells": [
+   {
+    "setting": "gsm8k30",
+    "K": 1,
+    "n": 100,
+    "key": "gsm8k30__K1__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "gsm8k30",
+     1,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "gsm8k30",
+    "K": 1,
+    "n": 300,
+    "key": "gsm8k30__K1__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "gsm8k30",
+     1,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "gsm8k30",
+    "K": 1,
+    "n": "all",
+    "key": "gsm8k30__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "gsm8k30",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 19,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "gsm8k30",
+    "K": 2,
+    "n": 100,
+    "key": "gsm8k30__K2__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "gsm8k30",
+     2,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9877891909769458,
+     "held_at_zero": 0,
+     "held_at_one": 4,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "gsm8k30",
+    "K": 2,
+    "n": 300,
+    "key": "gsm8k30__K2__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "gsm8k30",
+     2,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9905988212242705,
+     "held_at_zero": 0,
+     "held_at_one": 6,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "gsm8k30",
+    "K": 2,
+    "n": "all",
+    "key": "gsm8k30__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "gsm8k30",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 110,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9925395041260606,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "gsm8k30",
+    "K": 4,
+    "n": 100,
+    "key": "gsm8k30__K4__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "gsm8k30",
+     4,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9935032885421972,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "gsm8k30",
+    "K": 4,
+    "n": 300,
+    "key": "gsm8k30__K4__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "gsm8k30",
+     4,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9954276559934562,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "gsm8k30",
+    "K": 4,
+    "n": "all",
+    "key": "gsm8k30__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "gsm8k30",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 197,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9958784884016985,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "bbh",
+    "K": 1,
+    "n": 100,
+    "key": "bbh__K1__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "bbh",
+     1,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "bbh",
+    "K": 1,
+    "n": 300,
+    "key": "bbh__K1__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "bbh",
+     1,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "bbh",
+    "K": 1,
+    "n": "all",
+    "key": "bbh__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "bbh",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 18,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "bbh",
+    "K": 2,
+    "n": 100,
+    "key": "bbh__K2__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "bbh",
+     2,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9484511582618717,
+     "held_at_zero": 0,
+     "held_at_one": 1,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "bbh",
+    "K": 2,
+    "n": 300,
+    "key": "bbh__K2__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "bbh",
+     2,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9640068286620678,
+     "held_at_zero": 0,
+     "held_at_one": 2,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "bbh",
+    "K": 2,
+    "n": "all",
+    "key": "bbh__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "bbh",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 111,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9719382073550673,
+     "held_at_zero": 0,
+     "held_at_one": 1,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "bbh",
+    "K": 4,
+    "n": 100,
+    "key": "bbh__K4__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "bbh",
+     4,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9744879245307658,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "bbh",
+    "K": 4,
+    "n": 300,
+    "key": "bbh__K4__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "bbh",
+     4,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9828031522461527,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "bbh",
+    "K": 4,
+    "n": "all",
+    "key": "bbh__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "bbh",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 193,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9864436315037779,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "math",
+    "K": 1,
+    "n": 100,
+    "key": "math__K1__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "math",
+     1,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "math",
+    "K": 1,
+    "n": 300,
+    "key": "math__K1__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "math",
+     1,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "math",
+    "K": 1,
+    "n": "all",
+    "key": "math__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "math",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 18,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "math",
+    "K": 2,
+    "n": 100,
+    "key": "math__K2__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "math",
+     2,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9890458751785252,
+     "held_at_zero": 0,
+     "held_at_one": 3,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "math",
+    "K": 2,
+    "n": 300,
+    "key": "math__K2__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "math",
+     2,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9932192630787449,
+     "held_at_zero": 0,
+     "held_at_one": 3,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "math",
+    "K": 2,
+    "n": "all",
+    "key": "math__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "math",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 98,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9936159114336087,
+     "held_at_zero": 0,
+     "held_at_one": 2,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "math",
+    "K": 4,
+    "n": 100,
+    "key": "math__K4__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "math",
+     4,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9942696642992105,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "math",
+    "K": 4,
+    "n": 300,
+    "key": "math__K4__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "math",
+     4,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9964686191802505,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "math",
+    "K": 4,
+    "n": "all",
+    "key": "math__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols",
+     "baseline_quadratic_index"
+    ],
+    "stream": [
+     "rule-budgets",
+     "math",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 191,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9968661503037201,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove_mmlu",
+    "K": 1,
+    "n": 100,
+    "key": "dove_mmlu__K1__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove_mmlu",
+     1,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove_mmlu",
+    "K": 1,
+    "n": 300,
+    "key": "dove_mmlu__K1__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove_mmlu",
+     1,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove_mmlu",
+    "K": 1,
+    "n": "all",
+    "key": "dove_mmlu__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove_mmlu",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 24,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove_mmlu",
+    "K": 2,
+    "n": 100,
+    "key": "dove_mmlu__K2__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove_mmlu",
+     2,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.33456623475043246,
+     "held_at_zero": 79,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove_mmlu",
+    "K": 2,
+    "n": 300,
+    "key": "dove_mmlu__K2__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove_mmlu",
+     2,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.42693147151033384,
+     "held_at_zero": 56,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove_mmlu",
+    "K": 2,
+    "n": "all",
+    "key": "dove_mmlu__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove_mmlu",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 145,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4698317327410991,
+     "held_at_zero": 49,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove_mmlu",
+    "K": 4,
+    "n": 100,
+    "key": "dove_mmlu__K4__n100__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove_mmlu",
+     4,
+     100
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.3501035517782597,
+     "held_at_zero": 59,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove_mmlu",
+    "K": 4,
+    "n": 300,
+    "key": "dove_mmlu__K4__n300__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove_mmlu",
+     4,
+     300
+    ],
+    "pilots": 200,
+    "distinct_pilots": 200,
+    "factor": {
+     "defined": 200,
+     "mean": 0.43431795249777294,
+     "held_at_zero": 47,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove_mmlu",
+    "K": 4,
+    "n": "all",
+    "key": "dove_mmlu__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove_mmlu",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 195,
+    "factor": {
+     "defined": 200,
+     "mean": 0.5219886728437269,
+     "held_at_zero": 19,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:ai2_arc.arc_challenge",
+    "K": 1,
+    "n": "all",
+    "key": "dove-ai2_arc.arc_challenge__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:ai2_arc.arc_challenge",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:ai2_arc.arc_challenge",
+    "K": 2,
+    "n": "all",
+    "key": "dove-ai2_arc.arc_challenge__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:ai2_arc.arc_challenge",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.32608736887633927,
+     "held_at_zero": 18,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:ai2_arc.arc_challenge",
+    "K": 4,
+    "n": "all",
+    "key": "dove-ai2_arc.arc_challenge__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:ai2_arc.arc_challenge",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.5739891401760769,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:ai2_arc.arc_easy",
+    "K": 1,
+    "n": "all",
+    "key": "dove-ai2_arc.arc_easy__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:ai2_arc.arc_easy",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:ai2_arc.arc_easy",
+    "K": 2,
+    "n": "all",
+    "key": "dove-ai2_arc.arc_easy__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:ai2_arc.arc_easy",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.18108796350450343,
+     "held_at_zero": 139,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:ai2_arc.arc_easy",
+    "K": 4,
+    "n": "all",
+    "key": "dove-ai2_arc.arc_easy__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:ai2_arc.arc_easy",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:hellaswag",
+    "K": 1,
+    "n": "all",
+    "key": "dove-hellaswag__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:hellaswag",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:hellaswag",
+    "K": 2,
+    "n": "all",
+    "key": "dove-hellaswag__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:hellaswag",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.8974846520499693,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:hellaswag",
+    "K": 4,
+    "n": "all",
+    "key": "dove-hellaswag__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:hellaswag",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.943734948551412,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.abstract_algebra",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.abstract_algebra__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.abstract_algebra",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.abstract_algebra",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.abstract_algebra__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.abstract_algebra",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.44508725476949357,
+     "held_at_zero": 28,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.abstract_algebra",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.abstract_algebra__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.abstract_algebra",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6496586417535033,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.anatomy",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.anatomy__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.anatomy",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.anatomy",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.anatomy__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.anatomy",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.26024626150476443,
+     "held_at_zero": 94,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.anatomy",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.anatomy__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.anatomy",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.22920110192837434,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.astronomy",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.astronomy__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.astronomy",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.astronomy",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.astronomy__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.astronomy",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.5449194213624811,
+     "held_at_zero": 34,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.astronomy",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.astronomy__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.astronomy",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.7263166543422892,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.business_ethics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.business_ethics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.business_ethics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.business_ethics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.business_ethics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.business_ethics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.3136057632386511,
+     "held_at_zero": 102,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.business_ethics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.business_ethics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.business_ethics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.05106382978723405,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.clinical_knowledge",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.clinical_knowledge__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.clinical_knowledge",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.clinical_knowledge",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.clinical_knowledge__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.clinical_knowledge",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.2034028966634988,
+     "held_at_zero": 69,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.clinical_knowledge",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.clinical_knowledge__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.clinical_knowledge",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.36452599388379214,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_biology",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.college_biology__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_biology",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_biology",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.college_biology__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_biology",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.15054945054945054,
+     "held_at_zero": 164,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_biology",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.college_biology__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_biology",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_chemistry",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.college_chemistry__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_chemistry",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_chemistry",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.college_chemistry__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_chemistry",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.40429329091362604,
+     "held_at_zero": 103,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_chemistry",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.college_chemistry__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_chemistry",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6067746686303386,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_computer_science",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.college_computer_science__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_computer_science",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_computer_science",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.college_computer_science__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_computer_science",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.7639390295918241,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_computer_science",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.college_computer_science__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_computer_science",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.8777918246944795,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_mathematics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.college_mathematics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_mathematics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_mathematics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.college_mathematics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_mathematics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.45981956200190105,
+     "held_at_zero": 23,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_mathematics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.college_mathematics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_mathematics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.7563306729727068,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_medicine",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.college_medicine__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_medicine",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_medicine",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.college_medicine__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_medicine",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.2142853988516227,
+     "held_at_zero": 71,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.college_medicine",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.college_medicine__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.college_medicine",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.computer_security",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.computer_security__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.computer_security",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.computer_security",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.computer_security__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.computer_security",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.1811123651712814,
+     "held_at_zero": 76,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.computer_security",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.computer_security__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.computer_security",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.25617977528089897,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.conceptual_physics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.conceptual_physics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.conceptual_physics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.conceptual_physics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.conceptual_physics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.conceptual_physics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.17850049449510108,
+     "held_at_zero": 103,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.conceptual_physics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.conceptual_physics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.conceptual_physics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.02684563758389236,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.econometrics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.econometrics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.econometrics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.econometrics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.econometrics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.econometrics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.7740294359167305,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.econometrics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.econometrics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.econometrics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.8849532644599057,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.electrical_engineering",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.electrical_engineering__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.electrical_engineering",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.electrical_engineering",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.electrical_engineering__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.electrical_engineering",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9055551063274255,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.electrical_engineering",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.electrical_engineering__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.electrical_engineering",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9515418502202644,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.elementary_mathematics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.elementary_mathematics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.elementary_mathematics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.elementary_mathematics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.elementary_mathematics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.elementary_mathematics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.8208677146441218,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.elementary_mathematics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.elementary_mathematics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.elementary_mathematics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9148856392950881,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.formal_logic",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.formal_logic__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.formal_logic",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.formal_logic",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.formal_logic__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.formal_logic",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.5799495833657434,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.formal_logic",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.formal_logic__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.formal_logic",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.8192279679533866,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.global_facts",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.global_facts__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.global_facts",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.global_facts",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.global_facts__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.global_facts",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.22697228035557437,
+     "held_at_zero": 104,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.global_facts",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.global_facts__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.global_facts",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.15573179524152828,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_biology",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_biology__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_biology",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_biology",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_biology__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_biology",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.1558499166250497,
+     "held_at_zero": 135,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_biology",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_biology__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_biology",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_chemistry",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_chemistry__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_chemistry",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_chemistry",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_chemistry__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_chemistry",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.5008437608346294,
+     "held_at_zero": 90,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_chemistry",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_chemistry__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_chemistry",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.7298817141749082,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_computer_science",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_computer_science__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_computer_science",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_computer_science",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_computer_science__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_computer_science",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.5408454184760292,
+     "held_at_zero": 30,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_computer_science",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_computer_science__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_computer_science",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6824397655741266,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_european_history",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_european_history__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_european_history",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_european_history",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_european_history__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_european_history",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4083888986498914,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_european_history",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_european_history__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_european_history",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6506837151482864,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_geography",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_geography__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_geography",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_geography",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_geography__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_geography",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.38351887886464764,
+     "held_at_zero": 69,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_geography",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_geography__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_geography",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6115619677387034,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_government_and_politics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_government_and_politics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_government_and_politics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_government_and_politics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_government_and_politics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_government_and_politics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.3236227600229057,
+     "held_at_zero": 27,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_government_and_politics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_government_and_politics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_government_and_politics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.35008229257430556,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_macroeconomics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_macroeconomics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_macroeconomics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_macroeconomics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_macroeconomics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_macroeconomics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.27612468256926553,
+     "held_at_zero": 63,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_macroeconomics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_macroeconomics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_macroeconomics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.5010693553315002,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_mathematics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_mathematics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_mathematics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_mathematics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_mathematics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_mathematics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.25405768299698556,
+     "held_at_zero": 109,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_mathematics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_mathematics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_mathematics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.46831566548881026,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_microeconomics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_microeconomics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_microeconomics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_microeconomics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_microeconomics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_microeconomics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.41811162809115227,
+     "held_at_zero": 35,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_microeconomics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_microeconomics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_microeconomics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6575501049128138,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_physics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_physics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_physics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_physics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_physics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_physics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.35736795741306293,
+     "held_at_zero": 99,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_physics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_physics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_physics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4734299516908213,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_psychology",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_psychology__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_psychology",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_psychology",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_psychology__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_psychology",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.1898084963441914,
+     "held_at_zero": 139,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_psychology",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_psychology__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_psychology",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_statistics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_statistics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_statistics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_statistics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_statistics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_statistics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.42018579775991655,
+     "held_at_zero": 34,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_statistics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_statistics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_statistics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6880499574226511,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_us_history",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_us_history__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_us_history",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_us_history",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_us_history__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_us_history",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.09762928886969807,
+     "held_at_zero": 141,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_us_history",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_us_history__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_us_history",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_world_history",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.high_school_world_history__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_world_history",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_world_history",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.high_school_world_history__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_world_history",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.21344657605596026,
+     "held_at_zero": 96,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.high_school_world_history",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.high_school_world_history__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.high_school_world_history",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.human_aging",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.human_aging__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.human_aging",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.human_aging",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.human_aging__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.human_aging",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.23651059953046705,
+     "held_at_zero": 129,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.human_aging",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.human_aging__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.human_aging",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.15189873417721514,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.human_sexuality",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.human_sexuality__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.human_sexuality",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.human_sexuality",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.human_sexuality__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.human_sexuality",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.2215399802657386,
+     "held_at_zero": 107,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.human_sexuality",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.human_sexuality__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.human_sexuality",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.36719514582110013,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.international_law",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.international_law__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.international_law",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.international_law",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.international_law__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.international_law",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.12250555092837093,
+     "held_at_zero": 105,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.international_law",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.international_law__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.international_law",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.jurisprudence",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.jurisprudence__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.jurisprudence",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.jurisprudence",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.jurisprudence__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.jurisprudence",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.24427206627689316,
+     "held_at_zero": 124,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.jurisprudence",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.jurisprudence__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.jurisprudence",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.logical_fallacies",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.logical_fallacies__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.logical_fallacies",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.logical_fallacies",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.logical_fallacies__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.logical_fallacies",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6429390071666371,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.logical_fallacies",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.logical_fallacies__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.logical_fallacies",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.8280035760951793,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.machine_learning",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.machine_learning__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.machine_learning",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.machine_learning",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.machine_learning__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.machine_learning",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4697080080552772,
+     "held_at_zero": 24,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.machine_learning",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.machine_learning__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.machine_learning",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.7577077461781536,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.management",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.management__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.management",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.management",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.management__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.management",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.39609086508073815,
+     "held_at_zero": 59,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.management",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.management__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.management",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.642570281124498,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.marketing",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.marketing__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.marketing",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.marketing",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.marketing__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.marketing",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4089219324159771,
+     "held_at_zero": 106,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.marketing",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.marketing__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.marketing",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.5763293310463119,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.medical_genetics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.medical_genetics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.medical_genetics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.medical_genetics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.medical_genetics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.medical_genetics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.3239460418553892,
+     "held_at_zero": 65,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.medical_genetics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.medical_genetics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.medical_genetics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4788992365131304,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.miscellaneous",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.miscellaneous__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.miscellaneous",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.miscellaneous",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.miscellaneous__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.miscellaneous",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.27417176639785856,
+     "held_at_zero": 67,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.miscellaneous",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.miscellaneous__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.miscellaneous",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.29911624745071375,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.moral_disputes",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.moral_disputes__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.moral_disputes",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.moral_disputes",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.moral_disputes__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.moral_disputes",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.7832675483234062,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.moral_disputes",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.moral_disputes__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.moral_disputes",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.8800067459313601,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.moral_scenarios",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.moral_scenarios__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.moral_scenarios",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.moral_scenarios",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.moral_scenarios__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.moral_scenarios",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.8391987328710091,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.moral_scenarios",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.moral_scenarios__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.moral_scenarios",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9202802250988499,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.nutrition",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.nutrition__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.nutrition",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.nutrition",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.nutrition__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.nutrition",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.17140575229990773,
+     "held_at_zero": 105,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.nutrition",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.nutrition__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.nutrition",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4195466369379413,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.philosophy",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.philosophy__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.philosophy",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.philosophy",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.philosophy__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.philosophy",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.2675083796456329,
+     "held_at_zero": 102,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.philosophy",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.philosophy__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.philosophy",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.26454033771106905,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.prehistory",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.prehistory__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.prehistory",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.prehistory",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.prehistory__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.prehistory",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.30939270301731947,
+     "held_at_zero": 85,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.prehistory",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.prehistory__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.prehistory",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_accounting",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.professional_accounting__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_accounting",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_accounting",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.professional_accounting__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_accounting",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.2201494098063994,
+     "held_at_zero": 89,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_accounting",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.professional_accounting__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_accounting",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_law",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.professional_law__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_law",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_law",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.professional_law__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_law",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.2648720688593429,
+     "held_at_zero": 81,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_law",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.professional_law__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_law",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.31835205992509347,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_medicine",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.professional_medicine__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_medicine",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_medicine",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.professional_medicine__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_medicine",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.24479579526918663,
+     "held_at_zero": 126,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_medicine",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.professional_medicine__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_medicine",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_psychology",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.professional_psychology__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_psychology",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_psychology",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.professional_psychology__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_psychology",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.40443462876650366,
+     "held_at_zero": 25,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.professional_psychology",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.professional_psychology__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.professional_psychology",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6773174474230527,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.security_studies",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.security_studies__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.security_studies",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.security_studies",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.security_studies__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.security_studies",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4415692699103528,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.security_studies",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.security_studies__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.security_studies",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.5842528919451997,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.sociology",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.sociology__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.sociology",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.sociology",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.sociology__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.sociology",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.21479299793851203,
+     "held_at_zero": 96,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.sociology",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.sociology__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.sociology",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.19169577027551432,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.us_foreign_policy",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.us_foreign_policy__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.us_foreign_policy",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.us_foreign_policy",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.us_foreign_policy__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.us_foreign_policy",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.3298851174263521,
+     "held_at_zero": 102,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.us_foreign_policy",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.us_foreign_policy__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.us_foreign_policy",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.35796951988082953,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.virology",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.virology__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.virology",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.virology",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.virology__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.virology",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.05746938775510209,
+     "held_at_zero": 178,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.virology",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.virology__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.virology",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.world_religions",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu.world_religions__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.world_religions",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu.world_religions",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu.world_religions__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.world_religions",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4481067312680233,
+     "held_at_zero": 66,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu.world_religions",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu.world_religions__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu.world_religions",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6013149438924313,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.biology",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu_pro.biology__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.biology",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.biology",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu_pro.biology__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.biology",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4834050079985683,
+     "held_at_zero": 56,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.biology",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu_pro.biology__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.biology",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4747106592493128,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.business",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu_pro.business__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.business",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.business",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu_pro.business__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.business",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6847750396181302,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.business",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu_pro.business__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.business",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.8421583459404941,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.chemistry",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu_pro.chemistry__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.chemistry",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.chemistry",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu_pro.chemistry__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.chemistry",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.34533855334174246,
+     "held_at_zero": 34,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.chemistry",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu_pro.chemistry__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.chemistry",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.4122049510650544,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.economics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu_pro.economics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.economics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.economics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu_pro.economics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.economics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.48070591668336526,
+     "held_at_zero": 36,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.economics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu_pro.economics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.economics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.7175121201371644,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.engineering",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu_pro.engineering__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.engineering",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.engineering",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu_pro.engineering__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.engineering",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6976343978640105,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.engineering",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu_pro.engineering__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.engineering",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.8745631067961169,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.history",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu_pro.history__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.history",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.history",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu_pro.history__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.history",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.43407068877720545,
+     "held_at_zero": 34,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.history",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu_pro.history__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.history",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.5221835075493609,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.math",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu_pro.math__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.math",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.math",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu_pro.math__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.math",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.1814432744834138,
+     "held_at_zero": 129,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.math",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu_pro.math__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.math",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.other",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu_pro.other__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.other",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.other",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu_pro.other__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.other",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.423657360495461,
+     "held_at_zero": 38,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.other",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu_pro.other__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.other",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.5917658730158731,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.philosophy",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu_pro.philosophy__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.philosophy",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.philosophy",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu_pro.philosophy__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.philosophy",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.21928110572740372,
+     "held_at_zero": 93,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.philosophy",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu_pro.philosophy__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.philosophy",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.physics",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu_pro.physics__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.physics",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.physics",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu_pro.physics__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.physics",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.8591408101154537,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.physics",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu_pro.physics__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.physics",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.9166570958232841,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.psychology",
+    "K": 1,
+    "n": "all",
+    "key": "dove-mmlu_pro.psychology__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.psychology",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.psychology",
+    "K": 2,
+    "n": "all",
+    "key": "dove-mmlu_pro.psychology__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.psychology",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.47770144582908686,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:mmlu_pro.psychology",
+    "K": 4,
+    "n": "all",
+    "key": "dove-mmlu_pro.psychology__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:mmlu_pro.psychology",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.7121064589419018,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:openbook_qa",
+    "K": 1,
+    "n": "all",
+    "key": "dove-openbook_qa__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:openbook_qa",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:openbook_qa",
+    "K": 2,
+    "n": "all",
+    "key": "dove-openbook_qa__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:openbook_qa",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.10749185667752442,
+     "held_at_zero": 176,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:openbook_qa",
+    "K": 4,
+    "n": "all",
+    "key": "dove-openbook_qa__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:openbook_qa",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.0,
+     "held_at_zero": 200,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:social_iqa",
+    "K": 1,
+    "n": "all",
+    "key": "dove-social_iqa__K1__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:social_iqa",
+     1,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 4,
+    "factor": {
+     "defined": 0,
+     "mean": null,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": null
+    }
+   },
+   {
+    "setting": "dove:social_iqa",
+    "K": 2,
+    "n": "all",
+    "key": "dove-social_iqa__K2__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:social_iqa",
+     2,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 6,
+    "factor": {
+     "defined": 200,
+     "mean": 0.467459998057294,
+     "held_at_zero": 42,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   },
+   {
+    "setting": "dove:social_iqa",
+    "K": 4,
+    "n": "all",
+    "key": "dove-social_iqa__K4__nall__",
+    "rules": [
+     "own_gain",
+     "own_gain_shrunk",
+     "averaged_ols"
+    ],
+    "stream": [
+     "rule-budgets",
+     "dove:social_iqa",
+     4,
+     "all"
+    ],
+    "pilots": 200,
+    "distinct_pilots": 1,
+    "factor": {
+     "defined": 200,
+     "mean": 0.6906067574739077,
+     "held_at_zero": 0,
+     "held_at_one": 0,
+     "R_undefined": 0
+    }
+   }
+  ]
+ },
+ "content_sha256": "8a0c40e651960108aa566cdc833c3481f8508468c843cbc04ef043da00e0267b",
+ "npz": "predictions_rule_budgets.npz",
+ "npz_sha256": "cd337fffca1c2a01a4b57b95adb01aea2f64a090e4a4ec117904f50bc3e2e268",
+ "sha256": "598e967ef4ac0d69770f126a1cc884c02f09e4bff6e43de063321ecddca49282"
+}

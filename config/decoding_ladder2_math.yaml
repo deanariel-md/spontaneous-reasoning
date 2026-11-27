@@ -1,0 +1,31 @@
+# Size ladder, math: every arm of the panel's design on this benchmark in one run.
+# Each arm keeps its panel collection's decoding (src/ladder.py, MAIN_DECODING); the requested, chain-of-thought
+# and five-shot requested arms run at 7,000 new tokens, with cut_caps the panel's cap at which every output is
+# also kept cut at the token level. Written by scripts/build_ladder_requests.py.
+status: confirmed
+temperature: 0.0
+top_p: 1.0
+top_k: 0
+seed: 0
+max_new_tokens:
+  direct_answer: 7000
+  zero_shot_cot: 7000
+  forced_direct: 16
+  fewshot_forced: 16
+prefill:
+  forced_direct: \boxed{
+  fewshot_forced: \boxed{
+stop: []
+include_stop_str_in_output: false
+arm_overrides: {}
+cut_caps:
+  direct_answer: 1024
+  zero_shot_cot: 3072
+skip_special_tokens: true
+engine:
+  gpu_memory_utilization: 0.9
+  enable_prefix_caching: true
+  enforce_eager: false
+  max_num_seqs: null
+  max_num_batched_tokens: null
+  generation_config: auto

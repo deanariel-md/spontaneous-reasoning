@@ -1,0 +1,46 @@
+{
+ "scorer_version": "math-boxed/1.0.2",
+ "plan": "MATH-500 task",
+ "answer_format": "End your reply with a final line that contains \\boxed{<number>}.",
+ "rules": {
+  "text_normalization": "scoring.normalize_text (as GSM8K) before any extraction",
+  "normalize_answer": "src/math_task.py module doc, 'Numeric rule' steps 1-4: decorations removed, then an integer, decimal, \\frac/\\dfrac/\\tfrac or slash fraction; canonical reduced 'p/q' or 'p'",
+  "patterns": {
+   "degrees": "\\^\\s*\\{?\\s*\\\\circ\\s*\\}?|\\u00b0",
+   "unit": "\\\\(?:text|textrm|mathrm|mbox)\\s*\\{[A-Za-z .]*\\}(?:\\s*\\^\\s*\\{?\\s*[23]\\s*\\}?)?\\s*$",
+   "percent": "\\\\?%\\s*$",
+   "spacing": "\\\\[,!;:]|\\\\ |~",
+   "dollar": "^([-+]?)\\s*\\$\\s*([-+]?)",
+   "decimal": "(?P<s>[-+]?)(?P<n>(?:[0-9]{1,3}(?:,[0-9]{3})+|[0-9]+)(?:\\.[0-9]+)?|\\.[0-9]+)",
+   "frac": "(?P<s>[-+]?)\\\\[dt]?frac(?:\\{(?P<s1>[-+]?)(?P<a>[0-9]+)\\}|(?P<a1>[0-9]))(?:\\{(?P<s2>[-+]?)(?P<b>[0-9]+)\\}|(?P<b1>[0-9]))",
+   "slash": "(?P<s>[-+]?)(?P<a>[0-9]+)/(?P<b>[0-9]+)",
+   "wrappers": [
+    [
+     "$$",
+     "$$"
+    ],
+    [
+     "$",
+     "$"
+    ],
+    [
+     "\\(",
+     "\\)"
+    ],
+    [
+     "\\[",
+     "\\]"
+    ]
+   ]
+  },
+  "strict": "normalize_answer of the content of the last complete \\boxed{...} (bbh.boxed_contents); None without a box or when the content is not a number",
+  "lenient": "normalize_answer of the last match of the lenient pattern after '{,}' and LaTeX thin-space thousands are read as commas",
+  "lenient_pattern": "(?<![\\w\\\\])-?\\s*\\\\[dt]?frac\\s*(?:\\{\\s*-?[0-9]+\\s*\\}|[0-9])\\s*(?:\\{\\s*-?[0-9]+\\s*\\}|[0-9])|(?<![\\w./])-?[0-9]+\\s*/\\s*[0-9]+(?![0-9]|\\.[0-9])|(?<!\\w)-?(?:[0-9]{1,3}(?:,[0-9]{3})+(?![0-9])(?:\\.[0-9]+)?|[0-9]+(?:\\.[0-9]+)?|\\.[0-9]+)",
+  "thin_thousands": "(?<=[0-9]),?\\\\[,!;:]\\s*(?=[0-9]{3}(?![0-9]))",
+  "box_pattern": "\\\\boxed\\{ (bbh.boxed_contents)",
+  "compliance": "strict extraction succeeds",
+  "equality": "equal canonical strings (exact rational equality)",
+  "length": "numbers of any length are read exactly (Python's 4,300-digit limit on integer conversion is lifted inside normalize_answer)"
+ },
+ "rules_sha256": "23c99fb063b3f373013ae9786407cb8ce1ebfee370812d285c5de58b81b534e2"
+}

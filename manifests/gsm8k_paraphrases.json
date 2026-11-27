@@ -1,0 +1,96 @@
+{
+ "kind": "paraphrase_record",
+ "config_name": "gsm8k_bank_v1",
+ "request": {
+  "promptsuite_version": "3.0.7",
+  "field": "instruction",
+  "text": "Solve the following math word problem.",
+  "variations_per_field": 8,
+  "n_augments": 7,
+  "prompt_sha256": "961de0daec81bd12e4606353e4756978aca09c0082b73b2db90e8a8749605fef",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Can you help me write variations of an instruction prompt to an LLM for the following task description? \n\nIMPORTANT: The instruction may contain placeholders in curly braces like {subject}, {topic}, {field}, etc. These placeholders MUST be preserved EXACTLY as they appear in ALL variations.\n\nProvide 7 creative versions while:\n1. Preserving the original meaning and intent\n2. Keeping ALL placeholders {} unchanged in their exact positions\n3. Varying the instructional language around the placeholders\n4. NEVER introduce new placeholders - if the original has no placeholders, the variations must have none\n\nOutput only a Python list of strings with the alternatives. Do not include any explanation or additional text.\n\nOriginal instruction: '''Solve the following math word problem.'''"
+   }
+  ]
+ },
+ "response": {
+  "text": "```python\n[\n    \"Solve the given math word problem.\",\n    \"Find the solution to the math word problem.\",\n    \"Provide the answer to the math word problem.\",\n    \"Calculate the result of the math word problem.\",\n    \"Determine the outcome of the math word problem.\",\n    \"Compute the solution for the math word problem.\",\n    \"Resolve the math word problem with a step-by-step solution.\"\n]\n```",
+  "sha256": "33d8a3212ed106d1ad45eb35584f22e28a91acb307029f335e65125d7c361cf4",
+  "finish_reason": "stop",
+  "n_output_tokens": 87
+ },
+ "replay": {
+  "text": "[\n    \"Solve the given math word problem.\",\n    \"Find the solution to the math word problem.\",\n    \"Provide the answer to the math word problem.\",\n    \"Calculate the result of the math word problem.\",\n    \"Determine the outcome of the math word problem.\",\n    \"Compute the solution for the math word problem.\",\n    \"Resolve the math word problem with a step-by-step solution.\"\n]",
+  "sha256": "6f8d38b47c5f3ead7c83da787e66bf1bbc50d05e4209ece632282df818aaa744",
+  "code_fence_removed": true,
+  "note": "the Markdown code fence around the list is removed, because PromptSuite's ast.literal_eval cannot parse it"
+ },
+ "parsed": [
+  "Solve the given math word problem.",
+  "Find the solution to the math word problem.",
+  "Provide the answer to the math word problem.",
+  "Calculate the result of the math word problem.",
+  "Determine the outcome of the math word problem.",
+  "Compute the solution for the math word problem.",
+  "Resolve the math word problem with a step-by-step solution."
+ ],
+ "variants": [
+  "Solve the following math word problem.",
+  "Solve the given math word problem.",
+  "Find the solution to the math word problem.",
+  "Provide the answer to the math word problem.",
+  "Calculate the result of the math word problem.",
+  "Determine the outcome of the math word problem.",
+  "Compute the solution for the math word problem.",
+  "Resolve the math word problem with a step-by-step solution."
+ ],
+ "model": {
+  "key": "llama-3.3-70b-instruct-fp8",
+  "hf_id": "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic",
+  "revision": "f50dbad2c84590ca17dc51e207c34321b65ff14b",
+  "kernels": "batch_invariant",
+  "quantization": "compressed-tensors",
+  "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+  "rendered_prompt_sha256": "d4f3c239f69417d5eeeb928c766b59a6d0944bbb2b1d59b061442da897103224",
+  "run_id": "20261030T082259Z-a72b64",
+  "run_log": "data\\bank_candidates\\paraphrase\\runs\\paraphrase_run1\\llama-3.3-70b-instruct-fp8\\run_log-20261030T082259Z-a72b64.json",
+  "run_log_sha256": "43f6bfa0617f0f7364d18d265b94c6abf6e74a08b0dd1bf7e1a7664c815576d6",
+  "gpu": {
+   "count": 1,
+   "devices": [
+    {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+     "memory_mib": 97887
+    }
+   ],
+   "driver_version": "595.91.07",
+   "cuda_version_driver": "13.2",
+   "nvidia_smi": true
+  },
+  "versions": {
+   "vllm": "0.30.0",
+   "torch": "2.13.0",
+   "transformers": "5.16.1"
+  }
+ },
+ "repeat": {
+  "run_id": "20261030T082808Z-81ac22",
+  "run_log": "data\\bank_candidates\\paraphrase\\runs\\paraphrase_run2\\llama-3.3-70b-instruct-fp8\\run_log-20261030T082808Z-81ac22.json",
+  "run_log_sha256": "22c1c1b164da71d99224c3e9c8041ce30eb7b3a258d8aaa88dde605a7770b5a5",
+  "gpu": {
+   "count": 1,
+   "devices": [
+    {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+     "memory_mib": 97887
+    }
+   ],
+   "driver_version": "595.91.07",
+   "cuda_version_driver": "13.2",
+   "nvidia_smi": true
+  },
+  "identical": true
+ }
+}

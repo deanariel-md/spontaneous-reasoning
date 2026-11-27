@@ -1,0 +1,37 @@
+# Decoding for the forced-direct arm of MATH-500.
+# It equals config/decoding_forced.yaml except for the stop string. The GSM8K and BIG-Bench Hard runs stop at
+# the first "}", which closes their box because their answers hold no brace. 66 of the 398 MATH target answers are
+# fractions, 57 of them written \frac{p}{q} in the gold, and a stop at the first "}" would cut "\boxed{\frac{14}" before
+# the denominator. So this file has no stop string: the model continues the "\boxed{" prefill for at most 16 new tokens
+# or until its own end-of-turn token, and the registered MATH scorer reads the last complete \boxed{} of
+# "\boxed{" + output. The longest gold answer, written as \frac{p}{q} with the closing brace, is 13 tokens under the
+# 19 local tokenizers of the panel's families, so 16 tokens suffice for every item.
+#
+# status: confirmed on 3 November 2026 by the authors' decision of 30 October: the stop string is
+# dropped because a stop at the first "}" would score every fraction answer as unreadable in the forced arm only, which
+# would bias the forced-direct baseline against the items with fraction answers; with no stop string every answer can
+# close its box within the cap, and the prefill, the cap and the prompts stay those of the GSM8K and BIG-Bench Hard runs.
+status: confirmed
+
+temperature: 0.0
+top_p: 1.0
+top_k: 0
+seed: 0
+
+max_new_tokens:
+  forced_direct: 16
+
+prefill:
+  forced_direct: "\\boxed{"
+
+stop: []
+include_stop_str_in_output: false
+skip_special_tokens: true
+
+engine:
+  gpu_memory_utilization: 0.90
+  enable_prefix_caching: true
+  enforce_eager: false
+  max_num_seqs: null
+  max_num_batched_tokens: null
+  generation_config: auto

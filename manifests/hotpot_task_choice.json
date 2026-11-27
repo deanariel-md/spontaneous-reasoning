@@ -1,0 +1,33 @@
+{
+ "task": "hotpot",
+ "written": "2026-11-17",
+ "plan": "HotpotQA (third task)",
+ "rule": "The third task is short-answer multi-hop question answering over given passages, the task type of the one non-math short-answer dataset Sprague et al. ran themselves (MuSiQue; arXiv 2409.12183v3, Table 4). Among the public datasets of this type with public gold answers and an official exact-match and token-F1 scorer (HotpotQA distractor, 2WikiMultihopQA, MuSiQue-Ans), the study takes the most cited one.",
+ "correction": "HotpotQA is not one of Sprague et al.'s datasets. No model output on any candidate existed when this rule was written.",
+ "sprague_free_form": {
+  "GSM8K": "math",
+  "GSM8K-Hard": "math",
+  "MATH": "math",
+  "MuSiQue": "soft reasoning, short answer, zero-shot only, scored by a GPT-4o equivalence judge",
+  "BiGGen Bench": "free response, scored 1-5 by an LLM judge"
+ },
+ "citation_counts": {
+  "source": "Semantic Scholar Graph API, /graph/v1/paper/arXiv:<id>?fields=citationCount, read 2026-11-18",
+  "HotpotQA": {
+   "arxiv": "1809.09600",
+   "venue": "EMNLP 2018",
+   "citations": 6143
+  },
+  "2WikiMultihopQA": {
+   "arxiv": "2011.01060",
+   "venue": "COLING 2020",
+   "citations": 1962
+  },
+  "MuSiQue": {
+   "arxiv": "2108.00573",
+   "venue": "TACL 2022",
+   "citations": 1415
+  }
+ },
+ "chosen": "HotpotQA, distractor setting, development set"
+}

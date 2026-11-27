@@ -1,0 +1,44 @@
+# Size ladder pilot: one run per model holding all four tasks. Arm <task>.<arm> has the parameters of
+# <arm> in that task's ladder decoding (src/ladder.py, DECODING). Written by scripts/build_ladder_requests.py.
+status: confirmed
+temperature: 0.0
+top_p: 1.0
+top_k: 0
+seed: 0
+max_new_tokens:
+  gsm8k.direct_answer: 1024
+  gsm8k.zero_shot_cot: 3072
+  gsm8k.forced_direct: 16
+  math.direct_answer: 1024
+  math.zero_shot_cot: 3072
+  math.forced_direct: 16
+  bbh.direct_answer: 1024
+  bbh.zero_shot_cot: 3072
+  bbh.forced_direct: 16
+  hotpot.direct_answer: 1024
+  hotpot.zero_shot_cot: 1900
+  hotpot.forced_direct: 64
+prefill:
+  gsm8k.forced_direct: \boxed{
+  math.forced_direct: \boxed{
+  bbh.forced_direct: \boxed{
+  hotpot.forced_direct: \boxed{
+stop: []
+include_stop_str_in_output: false
+arm_overrides:
+  gsm8k.forced_direct:
+    stop:
+    - '}'
+    include_stop_str_in_output: true
+  bbh.forced_direct:
+    stop:
+    - '}'
+    include_stop_str_in_output: true
+skip_special_tokens: true
+engine:
+  gpu_memory_utilization: 0.9
+  enable_prefix_caching: true
+  enforce_eager: false
+  max_num_seqs: null
+  max_num_batched_tokens: null
+  generation_config: auto

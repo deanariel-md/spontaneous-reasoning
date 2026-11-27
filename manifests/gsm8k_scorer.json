@@ -1,0 +1,19 @@
+{
+ "scorer_version": "gsm8k-scorer/1.3.0",
+ "format_spec": {
+  "name": "boxed",
+  "template": "\\\\boxed\\{<NUM>\\}",
+  "case_sensitive": true,
+  "must_be_last_nonempty_line": true,
+  "leading_text_allowed": true,
+  "trailing_text_allowed": true,
+  "allow_final_period": false,
+  "on_multiple": "reject",
+  "allow_currency": true,
+  "allow_thousands_separator": true,
+  "strip_markup": false,
+  "strip_latex": true,
+  "description": "Registered by the format screening rule (manifests/gsm8k_format_selection.json). LaTeX '\\boxed{18}' anywhere on the last non-empty line, with surrounding text and '$' delimiters allowed; a closing display-math line after it, '\\$' and '\\boxed{$18$}' are tolerated."
+ },
+ "format_spec_sha256": "35c427b827d989df075146e5ef7a0c2f68896dad0b3b665fe452d5d722180be3"
+}

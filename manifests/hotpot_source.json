@@ -1,0 +1,27 @@
+{
+ "task": "hotpot",
+ "dataset": "HotpotQA (Yang et al. 2018, EMNLP), distractor setting, development set",
+ "plan": "HotpotQA (third task)",
+ "license": "CC BY-SA 4.0 (HotpotQA; hotpotqa/hotpot_qa card: cc-by-sa-4.0)",
+ "official_file": {
+  "name": "hotpot_dev_distractor_v1.json",
+  "url": "http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_dev_distractor_v1.json",
+  "status": "not fetched: the host curtis.ml.cmu.edu did not resolve (DNS) from the machine used"
+ },
+ "used": {
+  "repo": "hotpotqa/hotpot_qa",
+  "repo_type": "dataset",
+  "config": "distractor",
+  "split": "validation",
+  "revision": "1908d6afbbead072334abe2965f91bd2709910ab",
+  "file": "distractor/validation-00000-of-00001.parquet",
+  "bytes": 27452575,
+  "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+  "lfs_oid": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+  "local_path": "data/raw/hotpotqa/validation-00000-of-00001.parquet",
+  "url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/1908d6afbbead072334abe2965f91bd2709910ab/distractor/validation-00000-of-00001.parquet",
+  "downloaded": "2026-11-17",
+  "approval": "the official file, falling back to the hotpotqa/hotpot_qa distractor validation split"
+ },
+ "content": "7,405 items, all of level hard (the development set has only hard items); 5,918 bridge and 1,487 comparison; 458 answers are yes or no; 7,345 items have 10 paragraphs and 60 fewer"
+}

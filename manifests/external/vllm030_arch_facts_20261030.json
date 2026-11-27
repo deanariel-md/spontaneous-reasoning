@@ -1,0 +1,136 @@
+{
+ "vllm": "0.30.0",
+ "archs": {
+  "BaichuanForCausalLM": {
+   "supported": false
+  },
+  "FalconForCausalLM": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "Gemma2ForCausalLM": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "Gemma3ForConditionalGeneration": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "Gemma4ForConditionalGeneration": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "GemmaForCausalLM": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "LlamaForCausalLM": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "Mistral3ForConditionalGeneration": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "MistralForCausalLM": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "MixtralForCausalLM": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "Phi3ForCausalLM": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "Phi3SmallForCausalLM": {
+   "supported": false
+  },
+  "QWenLMHeadModel": {
+   "supported": false
+  },
+  "Qwen2ForCausalLM": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "Qwen3ForCausalLM": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "Qwen3MoeForCausalLM": {
+   "supported": true,
+   "is_hybrid": false,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "Qwen3_5ForConditionalGeneration": {
+   "supported": true,
+   "is_hybrid": true,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  },
+  "Qwen3_5MoeForConditionalGeneration": {
+   "supported": true,
+   "is_hybrid": true,
+   "has_inner_state": false,
+   "is_attention_free": false,
+   "supports_mamba_prefix_caching": false,
+   "is_text_generation_model": true
+  }
+ },
+ "date": "2026-10-30",
+ "source": "vllm.model_executor.models.registry.ModelRegistry of an installed vLLM 0.30.0 (Linux), read per architecture"
+}

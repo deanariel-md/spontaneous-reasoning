@@ -1,0 +1,26 @@
+# Reliability map. Written before any reliability-map value was computed; scripts/run_reliability_map.py reads it.
+#
+# Pilot draws for the 71 DOVE benchmarks. These benchmarks have no discovery and validation draws, so per
+# benchmark 4 pilot and 24 validation configurations are drawn from its common admissible configurations by the DOVE
+# sampler's rule (src/sampling.py: uniform over the benchmark's bank, with replacement, independent draws), from the
+# stream sampling.rng_for("registered_split", "reliability_map/<benchmark>", seed=seed): the pilot draws first, then
+# the validation draws. Only the configuration lists enter the draw, never a score. The draws are written once to
+# manifests/sampler_reliability_map_dove_tasks.json.
+seed: 20261101
+dove_tasks_pilot_draws: 4
+dove_tasks_validation_draws: 24
+
+# Pilot test. R is estimated from the first 2 and the first 4 pilot (discovery) draws, in the sampler's order.
+pilot_sizes: [2, 4]
+# K per validation group: agreement between two disjoint groups of K validation draws (K <= half the validation draws).
+group_sizes: [1, 2, 4, 8, 12]
+# The observed agreement at K >= 2 is the mean over this many random disjoint splits of the validation draws (one
+# stream per setting, from the seed above). The split of the first K against the next K is reported beside it.
+validation_splits: 2000
+# DOVE only: the bank's expected agreement between two independent K-draw evaluations, by Monte Carlo over the bank.
+bank_monte_carlo: 2000
+# Agreement targets for the number of prompts K a claim needs (Spearman-Brown with the Gaussian reference).
+agreement_targets: [0.80, 0.90]
+# A pilot estimate counts as usable for planning when its K for a target lies within this factor of the K from the
+# setting's full R (both finite).
+usable_factor: 2

@@ -1,0 +1,95 @@
+{
+ "kind": "paraphrase_record",
+ "config_name": "math_bank_v1",
+ "request": {
+  "promptsuite_version": "3.0.7",
+  "field": "instruction",
+  "text": "Solve the following math problem.",
+  "variations_per_field": 8,
+  "n_augments": 7,
+  "prompt_sha256": "e6fd65aa4f5151a4a3cdfa0cca280da2d1204a751c282ec0e564cd84a579a155",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Can you help me write variations of an instruction prompt to an LLM for the following task description? \n\nIMPORTANT: The instruction may contain placeholders in curly braces like {subject}, {topic}, {field}, etc. These placeholders MUST be preserved EXACTLY as they appear in ALL variations.\n\nProvide 7 creative versions while:\n1. Preserving the original meaning and intent\n2. Keeping ALL placeholders {} unchanged in their exact positions\n3. Varying the instructional language around the placeholders\n4. NEVER introduce new placeholders - if the original has no placeholders, the variations must have none\n\nOutput only a Python list of strings with the alternatives. Do not include any explanation or additional text.\n\nOriginal instruction: '''Solve the following math problem.'''"
+   }
+  ]
+ },
+ "response": {
+  "text": "```python\n[\n    \"Solve the following math problem.\",\n    \"Please solve the following math problem.\",\n    \"The task is to solve the following math problem.\",\n    \"Your goal is to solve the following math problem.\",\n    \"We need you to solve the following math problem.\",\n    \"Can you solve the following math problem?\",\n    \"The challenge is to solve the following math problem.\"\n]\n```",
+  "sha256": "2594fdb079cb054811487e30a08d7bb737ca3c0dea3f3fadd1807ac6a208e988",
+  "finish_reason": "stop",
+  "n_output_tokens": 83
+ },
+ "replay": {
+  "text": "[\n    \"Solve the following math problem.\",\n    \"Please solve the following math problem.\",\n    \"The task is to solve the following math problem.\",\n    \"Your goal is to solve the following math problem.\",\n    \"We need you to solve the following math problem.\",\n    \"Can you solve the following math problem?\",\n    \"The challenge is to solve the following math problem.\"\n]",
+  "sha256": "daa6baedada676db55f91ca2fc8147992a8aeb2a0655d7eb997f8312b0dd4b41",
+  "code_fence_removed": true,
+  "note": "the Markdown code fence around the list is removed, because PromptSuite's ast.literal_eval cannot parse it"
+ },
+ "parsed": [
+  "Solve the following math problem.",
+  "Please solve the following math problem.",
+  "The task is to solve the following math problem.",
+  "Your goal is to solve the following math problem.",
+  "We need you to solve the following math problem.",
+  "Can you solve the following math problem?",
+  "The challenge is to solve the following math problem."
+ ],
+ "variants": [
+  "Solve the following math problem.",
+  "Please solve the following math problem.",
+  "The task is to solve the following math problem.",
+  "Your goal is to solve the following math problem.",
+  "We need you to solve the following math problem.",
+  "Can you solve the following math problem?",
+  "The challenge is to solve the following math problem."
+ ],
+ "model": {
+  "key": "llama-3.3-70b-instruct-fp8",
+  "hf_id": "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic",
+  "revision": "f50dbad2c84590ca17dc51e207c34321b65ff14b",
+  "kernels": "batch_invariant",
+  "quantization": "compressed-tensors",
+  "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+  "rendered_prompt_sha256": "41d7e7f45bcf245a52c868e4483457f6070620497fdaf9b7bdebc3a54c6fce9b",
+  "run_id": "20261103T145741Z-c84962",
+  "run_log": "data\\d2_out\\paraphrase_math\\run1\\llama-3.3-70b-instruct-fp8\\run_log-20261103T145741Z-c84962.json",
+  "run_log_sha256": "a434cedca6cb315bb69545df60c3ad55498eef653704b97eb44efcc375515e69",
+  "gpu": {
+   "count": 1,
+   "devices": [
+    {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+     "memory_mib": 97887
+    }
+   ],
+   "driver_version": "595.91.07",
+   "cuda_version_driver": "13.2",
+   "nvidia_smi": true
+  },
+  "versions": {
+   "vllm": "0.30.0",
+   "torch": "2.13.0",
+   "transformers": "5.16.1"
+  }
+ },
+ "repeat": {
+  "run_id": "20261103T145741Z-9cd630",
+  "run_log": "data\\d2_out\\paraphrase_math\\run2\\llama-3.3-70b-instruct-fp8\\run_log-20261103T145741Z-9cd630.json",
+  "run_log_sha256": "aad5711bf3aed7e8b216b8426c2b5f130a8dc5c413536ed5c10a3f1bd863dda9",
+  "gpu": {
+   "count": 1,
+   "devices": [
+    {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+     "memory_mib": 97887
+    }
+   ],
+   "driver_version": "595.91.07",
+   "cuda_version_driver": "13.2",
+   "nvidia_smi": true
+  },
+  "identical": true
+ }
+}

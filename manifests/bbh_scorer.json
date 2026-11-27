@@ -1,0 +1,42 @@
+{
+ "scorer_version": "bbh-boxed/1.0.0",
+ "registration": "BIG-Bench Hard extension",
+ "answer_format": "End your reply with a final line that contains \\boxed{<answer>}.",
+ "rules": {
+  "text_normalization": "scoring.normalize_text (as GSM8K) before any extraction",
+  "strict": "content of the last complete \\boxed{...} in the output, braces matched (nesting counted, a backslash-escaped brace literal), boxes ordered by their opening; an unclosed \\boxed{ is not a box; the position of the box in the output is not constrained; content via normalize_answer; None without a box or when the content does not normalise",
+  "lenient": "the GSM8K lenient rule by answer type: the last answer-type token anywhere in the output, via normalize_answer; None without a token",
+  "lenient_tokens": {
+   "integer": "scoring.lenient_extract (gsm8k-scorer/1.3.0), the last number token",
+   "words": "either word of the task's pair, any case, not glued to a word character: (?<!\\w)(?:<w1>|<w2>)(?!\\w), IGNORECASE",
+   "letter": "(?<!\\w)(?:\\((?P<p>[A-Z])\\)|(?<!\\()(?P<b>[A-Z])\\)?)(?!\\w)"
+  },
+  "normalize_answer": {
+   "all": "surrounding whitespace removed after scoring.normalize_text",
+   "letter": "fullmatch \\((?P<p>[A-Z])\\)|(?P<b>[A-Z])\\)? after one final '.' is dropped; canonical '(X)'",
+   "words": "casefold equality with a word of the task's pair after one final '.' is dropped; canonical spelling of the pair",
+   "integer": "scoring.normalize_number"
+  },
+  "word_pairs": [
+   [
+    "True",
+    "False"
+   ],
+   [
+    "Yes",
+    "No"
+   ],
+   [
+    "valid",
+    "invalid"
+   ],
+   [
+    "yes",
+    "no"
+   ]
+  ],
+  "compliance": "strict extraction succeeds",
+  "box_pattern": "\\\\boxed\\{"
+ },
+ "rules_sha256": "bce9a967facd309ae3c2ed4b769a9c0811bd923fd7f268b7b86c294d6f94564a"
+}

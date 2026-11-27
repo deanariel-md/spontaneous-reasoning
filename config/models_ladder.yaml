@@ -1,0 +1,467 @@
+# Size ladder: four instruct checkpoints, thinking
+# off, run with the main panel's complete design (requested, chain-of-thought, forced and five-shot arms; GSM8K,
+# MATH-500, BIG-Bench Hard, HotpotQA; the panel's request files, items, configurations and decoding per arm, the
+# requested and chain-of-thought caps raised to 7,000 with a token-level cut at the panel's cap; strict and content
+# scoring). src/ladder.py holds the active list (MODELS) and the dropped one (DROPPED).
+# Revisions and file sizes read from the Hugging Face API on 22 November 2026. Chat-template sha256 values computed
+# from each repository's tokenizer files at the pinned revision with transformers (the method gives the main registry's
+# values: Llama-3.1-70B's template equals llama-3.1-8b-instruct's, e10ca381...; Qwen3.5-122B's equals qwen3.5-9b's,
+# a4aee8af...). Library versions: the d2 environment on the cluster, vLLM 0.30.0, torch 2.13.0+cu130, transformers
+# 5.16.1 (results/ladder/inventory.out); each run log records them.
+#
+# Every model has two keys: <key> with batch-invariant kernels (as the main panel), and <key>-dk with vLLM's default
+# kernels, which the pilot job runs only when the batch-invariant engine fails to load. The -dk key answers its base
+# key's request file (requests_model_key). The pilot check records which key loaded; the full jobs read it from
+# <out>/ladder/chosen/<key> (<out> is the run's output directory).
+#
+# max_model_len: the smallest multiple of 1,024, at least 8,192, that holds every request's prompt (rendered with the
+# model's own template) plus its arm's cap (7,000 on the raised arms); measured by scripts/ladder_prompt_lengths.py
+# (results/ladder/prompt_lengths.json). The runner checks every prompt again before generating.
+#
+# Fields beyond the main registry's (src/generation.py, "Size ladder"): pipeline_parallel_size, renderer, prefill_mode,
+# gpu_memory_utilization, quantization_source, requests_model_key, text_only. Each is absent from every main-panel entry.
+# Entries marked ladder_status: dropped are kept as the record of the outputs they produced; no job runs them.
+dataset2:
+  models:
+    # Llama ladder: llama-3.1-8b-instruct -> Llama-3.1-70B-Instruct, the same Llama 3.1 release. Meta publishes no FP8
+    # checkpoint of the 70B (its FP8 release is the 405B only); RedHatAI's FP8-dynamic quantization of Meta's model
+    # (compressed-tensors: FP8 weights per channel, activations per token at run time, lm_head in 16 bits,
+    # kv_cache_scheme null) keeps the KV cache in 16 bits as the panel does.
+    # NVIDIA's FP8 release (nvidia/Llama-3.1-70B-Instruct-FP8) is a ModelOpt checkpoint; not used. Weights 72.7 GB; at
+    # 0.95 of one 96 GB card about 17 GB is left for the KV cache (320 KB per token in 16 bits; the Llama-3.3 pilot
+    # measured 56,928 tokens). The model card names the base model meta-llama/Meta-Llama-3.1-70B-Instruct (now
+    # meta-llama/Llama-3.1-70B-Instruct) without a revision; base_model records Meta's repository at its current
+    # revision on 22 November 2026, whose chat template equals this checkpoint's.
+    llama-3.1-70b-instruct-fp8:
+      family: Llama
+      ladder_of: llama-3.1-8b-instruct
+      hf_id: RedHatAI/Meta-Llama-3.1-70B-Instruct-FP8-dynamic
+      base_model: meta-llama/Llama-3.1-70B-Instruct@1605565b47bb9346c5515c34102e054115b4f98b
+      revision: e5718dbb1f3c4ec839a87d8e434954f6339d9a07   # 72.7 GB safetensors
+      dtype: bfloat16
+      quantization: compressed-tensors
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 10240
+      tensor_parallel_size: 1
+      gpu_memory_utilization: 0.95
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: no native reasoning mode; the chat template has no thinking switch
+      kernels: batch_invariant
+    llama-3.1-70b-instruct-fp8-dk:
+      family: Llama
+      ladder_of: llama-3.1-8b-instruct
+      hf_id: RedHatAI/Meta-Llama-3.1-70B-Instruct-FP8-dynamic
+      base_model: meta-llama/Llama-3.1-70B-Instruct@1605565b47bb9346c5515c34102e054115b4f98b
+      revision: e5718dbb1f3c4ec839a87d8e434954f6339d9a07
+      dtype: bfloat16
+      quantization: compressed-tensors
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 10240
+      tensor_parallel_size: 1
+      gpu_memory_utilization: 0.95
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: no native reasoning mode; the chat template has no thinking switch
+      kernels: default
+      requests_model_key: llama-3.1-70b-instruct-fp8
+    # Qwen3.5 ladder: qwen3.5-9b -> qwen3.5-35b-a3b -> Qwen3.5-122B-A10B, one release. Qwen's official FP8 checkpoint
+    # (block FP8, 128 x 128, activations dynamic; Qwen reports it nearly identical to the original weights), 127.2 GB,
+    # tensor parallel 2 on two reserved cards (about 64 GB of weights per card at 0.92 leaves about 24 GB per card; only 12
+    # of the 48 layers have attention with a KV cache, 2 KV heads of 256, about 24 KB per token, the other 36 are linear
+    # attention with a fixed state per sequence). Thinking off exactly as the panel's Qwen3.5 entries
+    # (config/models_extension.yaml, qwen3.5-9b): chat_template_kwargs enable_thinking false, and the same engine limit
+    # max_num_seqs 512. Natively multimodal like them; run text-only (text_only: vLLM limit_mm_per_prompt 0).
+    # Batch-invariant kernels: vLLM 0.30.0 refuses them for linear-attention layers, so the pilot is expected to fall
+    # back to the -dk key, the panel's Qwen3.5 kernel mode (kernels: default).
+    qwen3.5-122b-a10b-fp8:
+      family: Qwen
+      ladder_of: qwen3.5-35b-a3b
+      hf_id: Qwen/Qwen3.5-122B-A10B-FP8
+      revision: a099dee70ccfcd8d5dda56aaa0b60cb8ecadabc9   # 127.2 GB safetensors
+      dtype: bfloat16
+      quantization: fp8
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 10240
+      tensor_parallel_size: 2
+      gpu_memory_utilization: 0.92
+      text_only: true
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs:
+          enable_thinking: false
+        system_prompt_token: null
+        rationale: null
+      kernels: batch_invariant
+      engine:
+        max_num_seqs: 512
+    qwen3.5-122b-a10b-fp8-dk:
+      family: Qwen
+      ladder_of: qwen3.5-35b-a3b
+      hf_id: Qwen/Qwen3.5-122B-A10B-FP8
+      revision: a099dee70ccfcd8d5dda56aaa0b60cb8ecadabc9
+      dtype: bfloat16
+      quantization: fp8
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 10240
+      tensor_parallel_size: 2
+      gpu_memory_utilization: 0.92
+      text_only: true
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs:
+          enable_thinking: false
+        system_prompt_token: null
+        rationale: null
+      kernels: default
+      engine:
+        max_num_seqs: 512
+      requests_model_key: qwen3.5-122b-a10b-fp8
+    # Mistral 3 ladder: Ministral 3 8B -> 14B (Instruct 2512) -> Mistral Large 3 (OpenRouter), one release. The
+    # repositories mistralai/Ministral-3-{8B,14B}-Instruct-2512 hold FP8 weights; the bfloat16 weights are the -BF16
+    # repositories, used here (bfloat16). Mistral3ForConditionalGeneration with a vision tower, as the
+    # panel's Mistral-Small-3.1-24B; run as that entry runs: tokenizer_mode hf, the Jinja chat template, the forced arm's
+    # \boxed{ opened as the assistant turn and continued (LLM.chat continue_final_message; the rendering ends
+    # "[/INST]\boxed{", checked with transformers). The template's default system message (the model's name, "Le
+    # Chat", and the literal text "{today}" and "{yesterday}") is used as the panel's Mistral models use theirs; it
+    # reads no clock (no strftime_now), so the vendor template is pinned as it is. 8B: 35.7 GB of safetensors (with the
+    # vision tower); 14B: 55.8 GB; one card each.
+    ministral-3-8b-instruct-2512:
+      family: Mistral
+      ladder_of: null                   # the bottom rung: no panel model is of the Mistral 3 release
+      hf_id: mistralai/Ministral-3-8B-Instruct-2512-BF16
+      revision: f6fae9795746f63c9be8344932f01275f3c63734   # 35.7 GB safetensors
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: hf
+      max_model_len: 10240
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: 74eeb55fd3341286ec3fd44e902b7120721acc81cd394e96b431f85e93a1ea56
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: an Instruct checkpoint (the Reasoning variant is a separate release); the chat template has no thinking switch
+      kernels: batch_invariant
+    ministral-3-8b-instruct-2512-dk:
+      family: Mistral
+      ladder_of: null                   # the bottom rung: no panel model is of the Mistral 3 release
+      hf_id: mistralai/Ministral-3-8B-Instruct-2512-BF16
+      revision: f6fae9795746f63c9be8344932f01275f3c63734
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: hf
+      max_model_len: 10240
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: 74eeb55fd3341286ec3fd44e902b7120721acc81cd394e96b431f85e93a1ea56
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: an Instruct checkpoint (the Reasoning variant is a separate release); the chat template has no thinking switch
+      kernels: default
+      requests_model_key: ministral-3-8b-instruct-2512
+    ministral-3-14b-instruct-2512:
+      family: Mistral
+      ladder_of: ministral-3-8b-instruct-2512
+      hf_id: mistralai/Ministral-3-14B-Instruct-2512-BF16
+      revision: 3cea74c1ebaf5ce5f5a2553de470e2ceab825142   # 55.8 GB safetensors
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: hf
+      max_model_len: 10240
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: 2f545122222db8bb43ca0ea0c49e9185320a8670f7d35575b0da0eb48b1e8970
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: an Instruct checkpoint (the Reasoning variant is a separate release); the chat template has no thinking switch
+      kernels: batch_invariant
+    ministral-3-14b-instruct-2512-dk:
+      family: Mistral
+      ladder_of: ministral-3-8b-instruct-2512
+      hf_id: mistralai/Ministral-3-14B-Instruct-2512-BF16
+      revision: 3cea74c1ebaf5ce5f5a2553de470e2ceab825142
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: hf
+      max_model_len: 10240
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: 2f545122222db8bb43ca0ea0c49e9185320a8670f7d35575b0da0eb48b1e8970
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: an Instruct checkpoint (the Reasoning variant is a separate release); the chat template has no thinking switch
+      kernels: default
+      requests_model_key: ministral-3-14b-instruct-2512
+    # ------------------------------------------------------------------------------------------------------------------
+    # Dropped on 22 November; these entries are unchanged apart from ladder_status and dropped_by.
+    # Their jobs were cancelled and the partial outputs are not analysed.
+    # ------------------------------------------------------------------------------------------------------------------
+    # Qwen ladder: qwen3-30b-a3b-instruct-2507 -> 235B-A22B-Instruct-2507, same release. 94 layers, 64 query heads and
+    # 4 KV heads: 64 heads do not split over 3 cards for tensor parallelism, so the 3 reserved cards run a 3-stage
+    # pipeline. Weights 236.4 GB of 3 x 96 GB; at 0.95 of each card about 11 GB per card is left for activations and
+    # the KV cache (192 KB per token in 16 bits over the 94 layers), which the pilot measures (vLLM's "KV cache" line).
+    # max_model_len 8,192 covers every prompt of the four benchmarks plus its cap (HotpotQA's longest prompt about
+    # 2,000 tokens plus 1,900; MATH-500's and BIG-Bench Hard's plus 3,072), as the main registries' 8,192 for MATH-500
+    # and HotpotQA did.
+    qwen3-235b-a22b-instruct-2507-fp8:
+      ladder_status: dropped
+      dropped_by: "dropped from the ladder (Qwen3-235B)"
+      family: Qwen
+      ladder_of: qwen3-30b-a3b-instruct-2507
+      hf_id: Qwen/Qwen3-235B-A22B-Instruct-2507-FP8
+      revision: e156cb4efae43fbee1a1ab073f946a1377e6b969   # 236.4 GB safetensors, block FP8 (e4m3, 128 x 128) as released
+      dtype: bfloat16
+      quantization: fp8
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 8192
+      tensor_parallel_size: 1
+      pipeline_parallel_size: 3
+      gpu_memory_utilization: 0.95
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: 64f85b198065d0fba2a81f37e10ed68161ce2c19a754c7100e67e0ca2ee9c326   # the same template as qwen3-30b-a3b-instruct-2507
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: no native reasoning mode (an Instruct-2507 checkpoint); the chat template has no thinking switch
+      kernels: batch_invariant
+    qwen3-235b-a22b-instruct-2507-fp8-dk:
+      ladder_status: dropped
+      dropped_by: "dropped from the ladder (Qwen3-235B)"
+      family: Qwen
+      ladder_of: qwen3-30b-a3b-instruct-2507
+      hf_id: Qwen/Qwen3-235B-A22B-Instruct-2507-FP8
+      revision: e156cb4efae43fbee1a1ab073f946a1377e6b969
+      dtype: bfloat16
+      quantization: fp8
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 8192
+      tensor_parallel_size: 1
+      pipeline_parallel_size: 3
+      gpu_memory_utilization: 0.95
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: 64f85b198065d0fba2a81f37e10ed68161ce2c19a754c7100e67e0ca2ee9c326
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: no native reasoning mode (an Instruct-2507 checkpoint); the chat template has no thinking switch
+      kernels: default
+    # Llama ladder: llama-3.1-8b-instruct -> Llama-3.3-70B-Instruct. Meta releases no FP8 checkpoint; RedHatAI's
+    # FP8-dynamic (compressed-tensors: FP8 weights per channel, activations per token at run time, lm_head in 16 bits)
+    # keeps the KV cache in 16 bits as the main panel does (NVIDIA's FP8 release also quantizes the KV cache:
+    # kv_cache_quant_algo FP8). Weights 72.7 GB; at 0.95 of one 96 GB card about 15 GB is left for the KV cache
+    # (320 KB per token in 16 bits). The chat template equals llama-3.1-8b-instruct's in the main registry.
+    llama-3.3-70b-instruct-fp8:
+      ladder_status: dropped
+      dropped_by: "dropped from the ladder (Llama-3.1-70B is used instead)"
+      family: Llama
+      ladder_of: llama-3.1-8b-instruct
+      hf_id: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+      base_model: meta-llama/Llama-3.3-70B-Instruct@6f6073b423013f6a7d4d9f39144961bfbfbc386b
+      revision: f50dbad2c84590ca17dc51e207c34321b65ff14b   # 72.7 GB safetensors
+      dtype: bfloat16
+      quantization: compressed-tensors
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 8192
+      tensor_parallel_size: 1
+      gpu_memory_utilization: 0.95
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: no native reasoning mode; the chat template has no thinking switch
+      kernels: batch_invariant
+    llama-3.3-70b-instruct-fp8-dk:
+      ladder_status: dropped
+      dropped_by: "dropped from the ladder (Llama-3.1-70B is used instead)"
+      family: Llama
+      ladder_of: llama-3.1-8b-instruct
+      hf_id: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+      base_model: meta-llama/Llama-3.3-70B-Instruct@6f6073b423013f6a7d4d9f39144961bfbfbc386b
+      revision: f50dbad2c84590ca17dc51e207c34321b65ff14b
+      dtype: bfloat16
+      quantization: compressed-tensors
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 8192
+      tensor_parallel_size: 1
+      gpu_memory_utilization: 0.95
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: no native reasoning mode; the chat template has no thinking switch
+      kernels: default
+    # gpt-oss ladder: gpt-oss-20b -> gpt-oss-120b. Its reasoning cannot be switched off: every arm runs at the
+    # lowest effort (reasoning_effort low), so the requested and chain-of-thought outputs carry an analysis channel
+    # before the final answer, and both count toward the arm's cap; the forced arm opens the final channel with
+    # \boxed{ (continue_final_message closed the box in 24 of 24 probe items, results/reasoning_panel/feasibility.md).
+    # This differs from every main-panel model and is flagged wherever the ladder is reported. The vendor template
+    # writes the date of the run (strftime_now); the pinned copy fixes it to 2026-11-22.
+    gpt-oss-120b:
+      ladder_status: dropped
+      dropped_by: "dropped from the ladder (gpt-oss-120b and gpt-oss-20b)"
+      family: gpt-oss
+      ladder_of: gpt-oss-20b
+      hf_id: openai/gpt-oss-120b
+      revision: b5c939de8f754692c1647ca79fbf85e8c1e70f8a   # 65.2 GB safetensors (MXFP4); original/ and metal/ not downloaded
+      dtype: bfloat16
+      quantization: gpt_oss_mxfp4                          # what vLLM 0.30.0 reported in the feasibility check
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 8192
+      tensor_parallel_size: 1
+      chat_template:
+        source: file
+        file: config/chat_templates/gpt-oss-120b.jinja
+        sha256: 88518b9c1bfaff3d5728eaa3626a269af765d56614d160ceac30e7f40c5af032
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs: {reasoning_effort: low}
+        system_prompt_token: null
+        rationale: null
+      reasoning_note: reasoning cannot be switched off; lowest effort in every arm
+      kernels: batch_invariant
+    gpt-oss-120b-dk:
+      ladder_status: dropped
+      dropped_by: "dropped from the ladder (gpt-oss-120b and gpt-oss-20b)"
+      family: gpt-oss
+      ladder_of: gpt-oss-20b
+      hf_id: openai/gpt-oss-120b
+      revision: b5c939de8f754692c1647ca79fbf85e8c1e70f8a
+      dtype: bfloat16
+      quantization: gpt_oss_mxfp4
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 8192
+      tensor_parallel_size: 1
+      chat_template:
+        source: file
+        file: config/chat_templates/gpt-oss-120b.jinja
+        sha256: 88518b9c1bfaff3d5728eaa3626a269af765d56614d160ceac30e7f40c5af032
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs: {reasoning_effort: low}
+        system_prompt_token: null
+        rationale: null
+      reasoning_note: reasoning cannot be switched off; lowest effort in every arm
+      kernels: default
+    # DeepSeek V4-Flash-0731 (thinking off). Released FP8 on 2 cards with tensor
+    # parallelism 2, as loaded in the feasibility check (results/reasoning_panel/feasibility.md: 842 s, 87.7 GB per card at
+    # 0.92, quantization deepseek_v4_fp8). The release ships no Jinja template; prompts are rendered by its own
+    # encoding/encoding_dsv4.py in chat mode (thinking false), which the runner checks against the engine tokenizer's
+    # rendering at load. The forced arm appends \boxed{ to the generation prompt as text (the suffix_box method: the box
+    # closed in 24 of 24 probe items; continue_final_message did not continue the turn, it closed it with an
+    # end-of-sentence token).
+    deepseek-v4-flash-0731:
+      ladder_status: dropped
+      dropped_by: "dropped from the ladder (DeepSeek V4-Flash-0731 on the GPU machines)"
+      family: deepseek
+      hf_id: deepseek-ai/DeepSeek-V4-Flash-0731
+      revision: 7872f01b1d1fe23eabc4c98b48bffcef5a386062   # 166.9 GB safetensors, released precision
+      dtype: bfloat16
+      quantization: deepseek_v4_fp8
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 8192
+      tensor_parallel_size: 2
+      gpu_memory_utilization: 0.92
+      chat_template:
+        source: renderer
+        file: null
+        sha256: abc0d26120250dda0ae077dc64aa28836026e61e970854aaeb792445e6a0dde6
+      renderer:
+        kind: deepseek_v4_encoding
+        file: encoding/encoding_dsv4.py
+        sha256: abc0d26120250dda0ae077dc64aa28836026e61e970854aaeb792445e6a0dde6
+      prefill_mode: suffix
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs: {thinking: false}
+        system_prompt_token: null
+        rationale: null
+      kernels: batch_invariant
+    deepseek-v4-flash-0731-dk:
+      ladder_status: dropped
+      dropped_by: "dropped from the ladder (DeepSeek V4-Flash-0731 on the GPU machines)"
+      family: deepseek
+      hf_id: deepseek-ai/DeepSeek-V4-Flash-0731
+      revision: 7872f01b1d1fe23eabc4c98b48bffcef5a386062
+      dtype: bfloat16
+      quantization: deepseek_v4_fp8
+      quantization_source: checkpoint
+      tokenizer_mode: auto
+      max_model_len: 8192
+      tensor_parallel_size: 2
+      gpu_memory_utilization: 0.92
+      chat_template:
+        source: renderer
+        file: null
+        sha256: abc0d26120250dda0ae077dc64aa28836026e61e970854aaeb792445e6a0dde6
+      renderer:
+        kind: deepseek_v4_encoding
+        file: encoding/encoding_dsv4.py
+        sha256: abc0d26120250dda0ae077dc64aa28836026e61e970854aaeb792445e6a0dde6
+      prefill_mode: suffix
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs: {thinking: false}
+        system_prompt_token: null
+        rationale: null
+      kernels: default

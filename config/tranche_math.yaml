@@ -1,0 +1,13 @@
+# The throughput and noise tranche of MATH-500 (MATH-500 task): eight
+# configurations drawn by seed from the frozen bank, both arms of the request files, the calibration items (MATH
+# training problems, as many as the numeric target items) and every retained model. It measures noise and cost only
+# and enters no reported estimate.
+#
+# Rule (scripts/draw_tranche_d2.py --task math), as for GSM8K and BIG-Bench Hard: the configurations are drawn by seed
+# from the ids of the frozen bank (manifests/math_bank.json) alone, uniformly and without replacement, with the stream
+# sampling.rng_for("math-tranche-configurations", seed). The draw is written once to manifests/math_tranche.json.
+# The seed was fixed here on 3 November 2026, before any MATH output existed.
+status: confirmed
+configurations: 8
+seed: 20261103
+calibration_items: 398      # the calibration set of manifests/math_items.json (the size of the numeric target set)

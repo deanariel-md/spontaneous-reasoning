@@ -1,0 +1,33 @@
+# Decoding for the constrained forced-direct arm on BIG-Bench Hard (the run was accepted on
+# 17 November 2026). config/decoding_forced.yaml unchanged (the collection's direct-answer prompts, the assistant
+# turn opened with "\boxed{", greedy, at most 16 new tokens, stop at the first "}" kept in the output), plus guided
+# decoding: each request's output must be one of the strings of its guided_json column (scripts/
+# build_constrained_forced.py), every one an answer of the task's type that the registered scorer reads inside the box,
+# followed by the closing "}". The constraint does not enter the prompt, so the rendered prompt is the forced arm's.
+status: confirmed
+
+temperature: 0.0
+top_p: 1.0
+top_k: 0
+seed: 0
+
+max_new_tokens:
+  forced_direct: 16
+
+prefill:
+  forced_direct: "\\boxed{"
+
+guided:
+  forced_direct: request
+
+stop: ["}"]
+include_stop_str_in_output: true
+skip_special_tokens: true
+
+engine:
+  gpu_memory_utilization: 0.90
+  enable_prefix_caching: true
+  enforce_eager: false
+  max_num_seqs: null
+  max_num_batched_tokens: null
+  generation_config: auto

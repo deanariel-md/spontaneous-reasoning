@@ -1,0 +1,228 @@
+{
+ "label": "hotpot_family",
+ "created": "2026-11-21 20:51:18",
+ "models": [
+  "gemma-4-31b-it",
+  "meta-llama-3-8b-instruct",
+  "mistral-7b-instruct-v0.3",
+  "mistral-7b-instruct-v0.1",
+  "mistral-nemo-instruct-2407",
+  "mistral-small-3.1-24b-instruct-2503",
+  "phi-3-mini-4k-instruct",
+  "phi-3-medium-4k-instruct",
+  "phi-4",
+  "qwen2.5-7b-instruct",
+  "qwen3-8b",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3.6-27b",
+  "gemma-2b-it",
+  "gemma-7b-it",
+  "gemma-3-12b-it",
+  "llama-3.1-8b-instruct",
+  "llama-2-7b-chat-hf",
+  "llama-2-13b-chat-hf",
+  "gemma-3-4b-it",
+  "gemma-2-9b-it",
+  "gemma-2-27b-it",
+  "gemma-3-27b-it",
+  "qwen3-30b-a3b",
+  "qwen3-14b",
+  "qwen3-32b",
+  "qwen3.5-9b",
+  "qwen3.5-35b-a3b",
+  "qwen3.6-35b-a3b"
+ ],
+ "units": "weights per model",
+ "design": {
+  "rules": [
+   "transport_linear",
+   "transport_quadratic_index",
+   "transport_index",
+   "target_own_1",
+   "random"
+  ],
+  "contrasts": {
+   "cot_req": {
+    "groups": {
+     "Gemma": [
+      "gemma-4-31b-it",
+      "gemma-2b-it",
+      "gemma-7b-it",
+      "gemma-3-12b-it",
+      "gemma-3-4b-it",
+      "gemma-2-9b-it",
+      "gemma-2-27b-it",
+      "gemma-3-27b-it"
+     ],
+     "Llama": [
+      "meta-llama-3-8b-instruct",
+      "llama-3.1-8b-instruct",
+      "llama-2-7b-chat-hf",
+      "llama-2-13b-chat-hf"
+     ],
+     "Mistral": [
+      "mistral-7b-instruct-v0.3",
+      "mistral-7b-instruct-v0.1",
+      "mistral-nemo-instruct-2407",
+      "mistral-small-3.1-24b-instruct-2503"
+     ],
+     "Phi": [
+      "phi-3-mini-4k-instruct",
+      "phi-3-medium-4k-instruct",
+      "phi-4"
+     ],
+     "Qwen": [
+      "qwen2.5-7b-instruct",
+      "qwen3-8b",
+      "qwen3-30b-a3b-instruct-2507",
+      "qwen3.6-27b",
+      "qwen3-30b-a3b",
+      "qwen3-14b",
+      "qwen3-32b",
+      "qwen3.5-9b",
+      "qwen3.5-35b-a3b",
+      "qwen3.6-35b-a3b"
+     ]
+    },
+    "n_chosen": {
+     "Gemma": 3,
+     "Llama": 1,
+     "Mistral": 1,
+     "Phi": 1,
+     "Qwen": 3
+    }
+   },
+   "cot_forced": {
+    "groups": {
+     "Gemma": [
+      "gemma-4-31b-it",
+      "gemma-2b-it",
+      "gemma-7b-it",
+      "gemma-3-12b-it",
+      "gemma-3-4b-it",
+      "gemma-2-9b-it",
+      "gemma-2-27b-it",
+      "gemma-3-27b-it"
+     ],
+     "Llama": [
+      "meta-llama-3-8b-instruct",
+      "llama-3.1-8b-instruct",
+      "llama-2-7b-chat-hf",
+      "llama-2-13b-chat-hf"
+     ],
+     "Mistral": [
+      "mistral-7b-instruct-v0.3",
+      "mistral-7b-instruct-v0.1",
+      "mistral-nemo-instruct-2407",
+      "mistral-small-3.1-24b-instruct-2503"
+     ],
+     "Phi": [
+      "phi-3-mini-4k-instruct",
+      "phi-3-medium-4k-instruct",
+      "phi-4"
+     ],
+     "Qwen": [
+      "qwen2.5-7b-instruct",
+      "qwen3-8b",
+      "qwen3-30b-a3b-instruct-2507",
+      "qwen3.6-27b",
+      "qwen3-30b-a3b",
+      "qwen3-14b",
+      "qwen3-32b",
+      "qwen3.5-9b",
+      "qwen3.5-35b-a3b",
+      "qwen3.6-35b-a3b"
+     ]
+    },
+    "n_chosen": {
+     "Gemma": 3,
+     "Llama": 1,
+     "Mistral": 1,
+     "Phi": 1,
+     "Qwen": 3
+    }
+   },
+   "fewshot": {
+    "groups": {
+     "Gemma": [
+      "gemma-4-31b-it",
+      "gemma-2b-it",
+      "gemma-7b-it",
+      "gemma-3-12b-it",
+      "gemma-3-4b-it",
+      "gemma-2-9b-it",
+      "gemma-2-27b-it",
+      "gemma-3-27b-it"
+     ],
+     "Llama": [
+      "meta-llama-3-8b-instruct",
+      "llama-3.1-8b-instruct",
+      "llama-2-7b-chat-hf",
+      "llama-2-13b-chat-hf"
+     ],
+     "Mistral": [
+      "mistral-7b-instruct-v0.3",
+      "mistral-7b-instruct-v0.1",
+      "mistral-nemo-instruct-2407",
+      "mistral-small-3.1-24b-instruct-2503"
+     ],
+     "Phi": [
+      "phi-3-mini-4k-instruct",
+      "phi-3-medium-4k-instruct",
+      "phi-4"
+     ],
+     "Qwen": [
+      "qwen2.5-7b-instruct",
+      "qwen3-8b",
+      "qwen3-30b-a3b-instruct-2507",
+      "qwen3.6-27b",
+      "qwen3-30b-a3b",
+      "qwen3-14b",
+      "qwen3-32b",
+      "qwen3.5-9b",
+      "qwen3.5-35b-a3b",
+      "qwen3.6-35b-a3b"
+     ]
+    },
+    "n_chosen": {
+     "Gemma": 3,
+     "Llama": 1,
+     "Mistral": 1,
+     "Phi": 1,
+     "Qwen": 3
+    }
+   }
+  },
+  "discovery_units": [
+   "ps-i07-f03",
+   "ps-i07-f02",
+   "ps-i05-f00",
+   "ps-i01-f00",
+   "ps-i05-f01",
+   "ps-i05-f06",
+   "ps-i01-f07",
+   "ps-i04-f00",
+   "ps-i03-f06",
+   "ps-i03-f04",
+   "ps-i02-f06",
+   "ps-i03-f00",
+   "ps-i05-f02",
+   "ps-i00-f01",
+   "ps-i07-f07",
+   "ps-i04-f06",
+   "ps-i03-f01",
+   "ps-i00-f00",
+   "ps-i03-f03",
+   "ps-i05-f06",
+   "ps-i06-f06",
+   "ps-i02-f07",
+   "ps-i01-f06",
+   "ps-i02-f01"
+  ]
+ },
+ "note": "fitted on HotpotQA discovery rows only and saved before any HotpotQA validation draw is scored",
+ "content_sha256": "51684832d305da6a8a7cbe2adeafe43d619b9043ed3013fbd06ad24a50e14d1e",
+ "npz": "predictions_hotpot_family.npz",
+ "npz_sha256": "4d5eee9366f7c87c95d026ef33db6bf1745231bee189e1b6811a35094abc2606",
+ "sha256": "b2378345fcf0dbb76fe79597276b06a7147d99511c8ea8cd1e0d5894cc565e34"
+}

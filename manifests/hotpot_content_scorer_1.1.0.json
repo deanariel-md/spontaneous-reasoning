@@ -1,0 +1,23 @@
+{
+ "scorer_version": "hotpot-content/1.1.0",
+ "beside": "hotpot-boxed/1.0.0",
+ "plan": "HotpotQA, content reading (22 November 2026)",
+ "answer_format": "End your reply with a final line that contains \\boxed{<answer>}.",
+ "placeholder": "<answer>",
+ "rules": {
+  "normalisation": "hotpot_evaluate_v1.py normalize_answer: lower case; characters of string.punctuation removed; \\b(a|an|the)\\b replaced by a space; white space collapsed",
+  "exact_match": "equal normalised strings",
+  "f1": "token F1 of the normalised strings; 0 when either normalises to yes, no or noanswer and they differ; 0 when no token is shared",
+  "box_pattern": "\\\\boxed\\s*\\{",
+  "wrapper_pattern": "\\\\(?:text|textbf|textit|textrm|mathrm|emph)\\s*\\{",
+  "answer_cue": "answer\\s*(?:is\\b\\s*:?|:)",
+  "lead_placeholder": "^\\s*<answer>\\s*[-:]?\\s*",
+  "bare_box_pattern": "(?<!\\\\)boxed\\s*\\{",
+  "placeholder_copy_pattern": "\\\\?boxed\\s*(<[^<>{}\\n]{0,40}>)\\}?",
+  "placeholder": "src/content_scoring.is_placeholder (content/1.2.0): a box is a placeholder when its content (wrappers, bold and '$' removed, whitespace collapsed, quotes and a final period dropped, case folded) is empty; or a slot name bare (^(?:(?:the|your|my|final|correct|chosen)\\s+)*(?:answer|number)(?:\\s+(?:here|goes\\s+here|will\\s+be\\s+here|letter|number|text))?$); or wholly in angle brackets a slot name (^(?:(?:the|your|my|final|correct|chosen)\\s+)*(?:answer|number|letter|option|choice|value|result|solution)(?:\\s+(?:here|goes\\s+here|will\\s+be\\s+here|letter|number|text))?$) or an option template (^(?:option|choice|letter)\\s*(?:\\(\\s*[a-z]\\s*\\)|[a-z])$). It is skipped as the answer box and removed from the text before the reading without a box, as is a brace-less copy.; or a content that, unwrapped and cleaned, normalises to '' or 'answer'",
+  "clean": "a leading copied '<answer>' (optional '-' or ':') removed, then angle brackets around the whole content",
+  "content": "the last complete box that is not a placeholder; else, on the text with every placeholder box (with or without its backslash) and every brace-less placeholder copy removed: a final unclosed box when there is no complete box at all; else the rest of the line after the last answer cue; else the last non-empty line, read inside its first complete backslash-less box when it holds one; each unwrapped and cleaned; None for an empty output",
+  "unchanged": "strict, lenient and compliance stay those of hotpot-boxed/1.0.0"
+ },
+ "rules_sha256": "0352fe9062542fa42124d8bec0d54396c85045cfe4580837f8d2329df556848f"
+}

@@ -1,0 +1,48 @@
+{
+ "kind": "paraphrase_review",
+ "record_sha256": "d8fc663957a45b1a76392124a321c36128e5dfb76dc660d6eed06d82fccd5b94",
+ "reviewers": [
+  "an AI assistant, for the authors (delegated on 30 October 2026; HotpotQA bank reviewed on 18 November 2026)"
+ ],
+ "date": "2026-11-18",
+ "question": "Does the variant ask for the same task as the original instruction, with nothing added or removed? keep or drop; a drop needs a note",
+ "original": "Answer the question with a short phrase, using the given passages.",
+ "verdicts": [
+  {
+   "text": "Respond with a brief phrase based on the provided passages.",
+   "verdict": "keep",
+   "note": "kept: 'brief phrase' keeps the short answer and 'based on the provided passages' keeps the passages; it does not name the question, which follows in the prompt"
+  },
+  {
+   "text": "Using the passages, provide a concise answer in phrase form.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "With the passages as reference, give a short phrase as your answer.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Please phrase your answer briefly, using information from the passages.",
+   "verdict": "keep",
+   "note": "kept: 'phrase your answer briefly' asks for a short answer, as the original's 'short phrase' does; it says nothing about working"
+  },
+  {
+   "text": "Give a short phrase that answers the question, using the passages for context.",
+   "verdict": "keep",
+   "note": "kept: 'for context' still asks the model to use the passages"
+  },
+  {
+   "text": "Provide a brief phrase in response, drawing from the given passages.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Phrase your answer concisely, utilizing the information found in the passages.",
+   "verdict": "keep",
+   "note": "kept: 'concisely' asks for a short answer, as the original's 'short phrase' does; it says nothing about working"
+  }
+ ],
+ "rule": "A variant is kept when it asks for the same task as the original and says nothing about how to answer. How much working to show belongs to the arm clauses, and the reply's form to the answer-format component, so a variant that speaks to either is dropped. For HotpotQA a variant is also kept only if it still asks for a short answer and for the use of the passages, the two requests of the original instruction. The verdicts read the texts alone; no output of any panel model on the bank existed when they were made."
+}

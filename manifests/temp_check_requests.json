@@ -1,0 +1,230 @@
+{
+  "purpose": "temperature 0.7 spot check on MATH-500",
+  "models_manifest": {
+    "path": "manifests/temp_check_models.json",
+    "sha256": "c4f77620394fa2a0ca4d830408a4ff9623e3f8f3e5b46cdbc35bcaf88ce1f552"
+  },
+  "templates": [
+    "ps-i00-f05",
+    "ps-i02-f03",
+    "ps-i03-f07",
+    "ps-i06-f01"
+  ],
+  "templates_rule": "the first 4 of manifests/sampler_math.json's discovery_config_ids (nested order: budget K uses the first K discovery units in the order listed); all distinct, each counted once",
+  "items": {
+    "source": "HuggingFaceH4/MATH-500 @ 6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be, target set",
+    "n_items": 398,
+    "canonical_sha256": "fba54f3d4e3594b93f03f78b76a8d2e6771dba1b23933d935e6e9037865b3f08"
+  },
+  "arms": [
+    "direct_answer",
+    "forced_direct",
+    "zero_shot_cot"
+  ],
+  "sampling": {
+    "temperature": 0.7,
+    "top_p": 1.0,
+    "top_k": "0 (off)",
+    "samples_per_prompt": 1,
+    "seed_rule": "sampling_seed = int(sha256('temp_check/t0.7|' + request_id)[:8], 16) mod 2**31"
+  },
+  "pilot": {
+    "rule": "8 items of template ps-i00-f05 in sha256 order of 'temp_check/pilot|' + item_id, three arms; run greedy and sampled in one job",
+    "items": [
+      "test/algebra/1934.json",
+      "test/algebra/2626.json",
+      "test/algebra/824.json",
+      "test/geometry/947.json",
+      "test/intermediate_algebra/1000.json",
+      "test/intermediate_algebra/337.json",
+      "test/number_theory/183.json",
+      "test/prealgebra/1807.json"
+    ]
+  },
+  "request_sources": "data/requests/math/<key>.parquet (direct_answer, zero_shot_cot) and data/requests/forced/math/<key>.parquet (forced_direct): the greedy run's rows unchanged",
+  "models": [
+    {
+      "family": "Gemma",
+      "model_key": "gemma-3-12b-it",
+      "cot_cap": 3072,
+      "decoding": "config/decoding_temp_check.yaml",
+      "decoding_sha256": "90af143817da2f41bf587e13373ba5e4c5ba0c7bb6f5b112597aea542bcfaad0",
+      "decoding_greedy": "config/decoding_temp_check_greedy.yaml",
+      "decoding_greedy_sha256": "88f1b7958f82bdc42f92b3bff1223430a7c522803fe1f618fb954c1c32e9dbe7",
+      "greedy_gpu": "NVIDIA RTX 6000 Ada Generation",
+      "greedy_run_ids": {
+        "collection": "20261106T081334Z-40ab07",
+        "forced": "20261106T083528Z-cbe2d7"
+      },
+      "files": {
+        "run": {
+          "path": "data/requests/temp_check/run/gemma-3-12b-it.parquet",
+          "sha256": "34d67dcda1c8e6b607e5496448ca795bba752f6627748709e0a23024ee643c49",
+          "rows": 4776
+        },
+        "pilot": {
+          "path": "data/requests/temp_check/pilot/gemma-3-12b-it.parquet",
+          "sha256": "5d4eef5dfa14dee070d924cdedc0f68b0e377bb42e147233c01138fe37c7538b",
+          "rows": 24
+        },
+        "pilot_greedy": {
+          "path": "data/requests/temp_check/pilot_greedy/gemma-3-12b-it.parquet",
+          "sha256": "2a05d45ec19a27f6082af73cb4625fed6881bb5d85cfad81b4013be076a4d5dc",
+          "rows": 24
+        }
+      },
+      "counts_by_arm": {
+        "direct_answer": 1592,
+        "forced_direct": 1592,
+        "zero_shot_cot": 1592
+      }
+    },
+    {
+      "family": "Llama",
+      "model_key": "llama-2-13b-chat-hf",
+      "cot_cap": 2900,
+      "decoding": "config/decoding_temp_check_4k.yaml",
+      "decoding_sha256": "6d1a59600ff1f3d0424dc9bf44fa825fbf3ad39d4429bb1fe01ecbeab8389064",
+      "decoding_greedy": "config/decoding_temp_check_greedy_4k.yaml",
+      "decoding_greedy_sha256": "8384c2929133250b5e87e937c7e2a186d116fedd95ada5ae2368eef856bea973",
+      "greedy_gpu": "NVIDIA RTX 6000 Ada Generation",
+      "greedy_run_ids": {
+        "collection": "20261105T205220Z-713db0",
+        "forced": "20261106T002449Z-be12ae"
+      },
+      "files": {
+        "run": {
+          "path": "data/requests/temp_check/run/llama-2-13b-chat-hf.parquet",
+          "sha256": "2c2805c80554fa08db87cdd5d883a6e71e6f23addd09e4dbf1a3a9d4e6684aeb",
+          "rows": 4776
+        },
+        "pilot": {
+          "path": "data/requests/temp_check/pilot/llama-2-13b-chat-hf.parquet",
+          "sha256": "96dbc9a9007b2ecb3ce1865ef69eff815fa1ffc21901a4d3a6b729060533e445",
+          "rows": 24
+        },
+        "pilot_greedy": {
+          "path": "data/requests/temp_check/pilot_greedy/llama-2-13b-chat-hf.parquet",
+          "sha256": "07c55612b0fa93feb8e9a1441073a6e2e2c06673eb8a5fb185647ea8012c7864",
+          "rows": 24
+        }
+      },
+      "counts_by_arm": {
+        "direct_answer": 1592,
+        "forced_direct": 1592,
+        "zero_shot_cot": 1592
+      }
+    },
+    {
+      "family": "Mistral",
+      "model_key": "mistral-nemo-instruct-2407",
+      "cot_cap": 3072,
+      "decoding": "config/decoding_temp_check.yaml",
+      "decoding_sha256": "90af143817da2f41bf587e13373ba5e4c5ba0c7bb6f5b112597aea542bcfaad0",
+      "decoding_greedy": "config/decoding_temp_check_greedy.yaml",
+      "decoding_greedy_sha256": "88f1b7958f82bdc42f92b3bff1223430a7c522803fe1f618fb954c1c32e9dbe7",
+      "greedy_gpu": "NVIDIA RTX 6000 Ada Generation",
+      "greedy_run_ids": {
+        "collection": "20261106T011350Z-a0dfb0",
+        "forced": "20261106T070920Z-584621"
+      },
+      "files": {
+        "run": {
+          "path": "data/requests/temp_check/run/mistral-nemo-instruct-2407.parquet",
+          "sha256": "43ce1011bff407581490758fa43cf136f82538f4b1481227f620f86d0ab59805",
+          "rows": 4776
+        },
+        "pilot": {
+          "path": "data/requests/temp_check/pilot/mistral-nemo-instruct-2407.parquet",
+          "sha256": "246b59d32a2d827460c25cb2f6e5fa6b2f7c27cd5906d04a5cf1cbc89bd37327",
+          "rows": 24
+        },
+        "pilot_greedy": {
+          "path": "data/requests/temp_check/pilot_greedy/mistral-nemo-instruct-2407.parquet",
+          "sha256": "9cad7dde9f476f256956b16018fe301f9c75a19a9d2d6d1e37c54079e29ac250",
+          "rows": 24
+        }
+      },
+      "counts_by_arm": {
+        "direct_answer": 1592,
+        "forced_direct": 1592,
+        "zero_shot_cot": 1592
+      }
+    },
+    {
+      "family": "Phi",
+      "model_key": "phi-3-medium-4k-instruct",
+      "cot_cap": 2900,
+      "decoding": "config/decoding_temp_check_4k.yaml",
+      "decoding_sha256": "6d1a59600ff1f3d0424dc9bf44fa825fbf3ad39d4429bb1fe01ecbeab8389064",
+      "decoding_greedy": "config/decoding_temp_check_greedy_4k.yaml",
+      "decoding_greedy_sha256": "8384c2929133250b5e87e937c7e2a186d116fedd95ada5ae2368eef856bea973",
+      "greedy_gpu": "NVIDIA RTX 6000 Ada Generation",
+      "greedy_run_ids": {
+        "collection": "20261105T174731Z-543238",
+        "forced": "20261105T183739Z-613e47"
+      },
+      "files": {
+        "run": {
+          "path": "data/requests/temp_check/run/phi-3-medium-4k-instruct.parquet",
+          "sha256": "d41ea99c1f2033953d7953d86829a47d065d405c6d9c5079979694fdda5da0be",
+          "rows": 4776
+        },
+        "pilot": {
+          "path": "data/requests/temp_check/pilot/phi-3-medium-4k-instruct.parquet",
+          "sha256": "dea83ad097ba8868f316a4599fdd835e0be37e880de55a24b032475bfc7079b5",
+          "rows": 24
+        },
+        "pilot_greedy": {
+          "path": "data/requests/temp_check/pilot_greedy/phi-3-medium-4k-instruct.parquet",
+          "sha256": "66e87b7f9351971206fda99898b692522d7b12d38b88161f80a19bb9252680dd",
+          "rows": 24
+        }
+      },
+      "counts_by_arm": {
+        "direct_answer": 1592,
+        "forced_direct": 1592,
+        "zero_shot_cot": 1592
+      }
+    },
+    {
+      "family": "Qwen",
+      "model_key": "qwen3-14b",
+      "cot_cap": 3072,
+      "decoding": "config/decoding_temp_check.yaml",
+      "decoding_sha256": "90af143817da2f41bf587e13373ba5e4c5ba0c7bb6f5b112597aea542bcfaad0",
+      "decoding_greedy": "config/decoding_temp_check_greedy.yaml",
+      "decoding_greedy_sha256": "88f1b7958f82bdc42f92b3bff1223430a7c522803fe1f618fb954c1c32e9dbe7",
+      "greedy_gpu": "NVIDIA RTX 6000 Ada Generation",
+      "greedy_run_ids": {
+        "collection": "20261105T052637Z-fe3279",
+        "forced": "20261105T054750Z-7138cd"
+      },
+      "files": {
+        "run": {
+          "path": "data/requests/temp_check/run/qwen3-14b.parquet",
+          "sha256": "3975d66bcba9a9b2d307d4332d26775942940a9ff338e0294067f4700105ff64",
+          "rows": 4776
+        },
+        "pilot": {
+          "path": "data/requests/temp_check/pilot/qwen3-14b.parquet",
+          "sha256": "d5df50a79e0082040250bf77b558b7b279d8ceb2fb3e5517308ac6fc789abe41",
+          "rows": 24
+        },
+        "pilot_greedy": {
+          "path": "data/requests/temp_check/pilot_greedy/qwen3-14b.parquet",
+          "sha256": "881d9ebe99da6a0542794e85aeb8918e760986e293cb5f8c5d35f03a60e9cc48",
+          "rows": 24
+        }
+      },
+      "counts_by_arm": {
+        "direct_answer": 1592,
+        "forced_direct": 1592,
+        "zero_shot_cot": 1592
+      }
+    }
+  ],
+  "n_generations": 23880,
+  "sha256": "0c2662d7dc224ec733330483f385e1bb4f344c82753d00dc840e4f73a2c316ce",
+  "written": "2026-11-25T13:30:50Z"
+}

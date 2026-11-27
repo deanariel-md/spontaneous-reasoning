@@ -1,0 +1,75 @@
+{
+ "kind": "arm_wording_wordings",
+ "rule": "screen of the arm wordings and choice of the four",
+ "chosen": {
+  "cot": [
+   {
+    "id": "cot0",
+    "text": "Let's think step by step.",
+    "source": "current trigger (config/promptsuite*.yaml)",
+    "current": true,
+    "screen_failed": false
+   },
+   {
+    "id": "cot1",
+    "text": "Let's think about this logically.",
+    "source": "Kojima et al. 2022, Table 4, row 3",
+    "current": false,
+    "screen_failed": false
+   },
+   {
+    "id": "cot2",
+    "text": "Let's solve this problem by splitting it into steps.",
+    "source": "Kojima et al. 2022, Table 4, row 4",
+    "current": false,
+    "screen_failed": false
+   },
+   {
+    "id": "cot3",
+    "text": "Let's be realistic and think step by step.",
+    "source": "Kojima et al. 2022, Table 4, row 5",
+    "current": false,
+    "screen_failed": false
+   }
+  ],
+  "dir": [
+   {
+    "id": "dir0",
+    "text": "Give only the final answer, without any working.",
+    "source": "current clause (config/promptsuite*.yaml)",
+    "current": true,
+    "screen_failed": false
+   },
+   {
+    "id": "dir1",
+    "text": "Provide the solution, omitting any calculations or explanations.",
+    "source": "paraphrase, kept in review",
+    "current": false,
+    "screen_failed": false
+   },
+   {
+    "id": "dir2",
+    "text": "State the answer only, excluding all intermediary steps.",
+    "source": "paraphrase, kept in review",
+    "current": false,
+    "screen_failed": false
+   },
+   {
+    "id": "dir3",
+    "text": "The final result is all that is required, do not include any reasoning.",
+    "source": "paraphrase, kept in review",
+    "current": false,
+    "screen_failed": false
+   }
+  ]
+ },
+ "screen_report_sha256": "e0967c2abfccec3ba139cd16bbf342e2e3e63fbd180020e47a22f4c062c72492",
+ "configs_manifest_sha256": "14a3d8b9930a75b9fec24beb8d0a31609c9e5b8f8cc63e5adfc6dfa9199c95f6",
+ "wording_inputs": {
+  "record": "manifests/arm_wording_direct_paraphrases.json",
+  "record_sha256": "7aeab487d8019510ad303ec034c8ff8016c1db101be11391c3f4f51e503ebe34",
+  "review": "manifests/arm_wording_direct_paraphrase_review.json",
+  "review_sha256": "0124f94c7995dac9d46c7c5d8a7682959d2a609cbaec9dd601c42b2b7f79dd8c"
+ },
+ "note": null
+}

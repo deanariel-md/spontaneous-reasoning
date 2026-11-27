@@ -1,0 +1,45 @@
+{
+  "what": "Published sizes of the size ladder's two API models, read from the developers' pages. scripts/ladder_analysis.py (SIZE_SPEC, kind 'published') and scripts/verify_ladder_analysis.py (SIZE_SRC, written apart) read this file, and each refuses a number that is not written in its quoted sentences.",
+  "request": "size ladder",
+  "read": "2026-11-25",
+  "models": {
+    "deepseek-v4.1-flash-1017": {
+      "published_for": "DeepSeek V4.1-Flash",
+      "checkpoint_run": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "total": "552",
+      "active_input": "8",
+      "active_output": "16",
+      "arch": "mixture of experts",
+      "source": "DeepSeek's release note of V4.1-Flash, 10 Sep 2026",
+      "url": "https://api-docs.deepseek.com/news/news260910",
+      "read": "2026-11-25",
+      "quotes": [
+        "552B-parameter MoE.",
+        "New Causal Encoder–Decoder architecture: just 8B active parameters for input, 16B for output."
+      ],
+      "caveat": "V4.1-Flash's published figures, taken to hold for the 1017 checkpoint",
+      "checkpoint": "The published figures are V4.1-Flash's. The ladder ran DeepSeek-V4.1-Flash-1017, a later checkpoint of V4.1-Flash, whose own release note (https://api-docs.deepseek.com/news/news261017, 17 Oct 2026, read 2026-11-25) gives no size; the 1017 checkpoint is taken to share V4.1-Flash's.",
+      "not_on_page": "The release note states neither the Engram memory nor the licence that the request names."
+    },
+    "mistral-large-2512": {
+      "published_for": "Mistral Large 3 (Mistral-Large-3-675B-Instruct-2512)",
+      "checkpoint_run": "Mistral's API; open weights mistralai/Mistral-Large-3-675B-Instruct-2512",
+      "total": "675",
+      "active": "41",
+      "arch": "mixture of experts",
+      "source": "Mistral's model card of Mistral-Large-3-675B-Instruct-2512 on Hugging Face",
+      "url": "https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512",
+      "revision": "383ffea2c7d60dfd44ca960e8e691709d4fdb9cd",
+      "read": "2026-11-25",
+      "quotes": [
+        "From our family of large models, **Mistral Large 3** is a state-of-the-art general-purpose **Multimodal granular Mixture-of-Experts** model with **41B active parameters** and **675B total parameters** trained from the ground up with 3000 H200s."
+      ],
+      "breakdown_quotes": [
+        "A Granular MoE Language Model with 673B params and 39B active",
+        "A 2.5B Vision Encoder"
+      ],
+      "checkpoint": "The card's README at the revision the ladder pins (383ffea) is the same file as at the repository's head on 25 Nov 2026 (51330c9). The ladder called Mistral's API; the API model is taken to be this checkpoint, as before.",
+      "not_on_page": "The requested URL, https://docs.mistral.ai/models/mistral-large-3-25-12, returned HTTP 404 on 25 Nov 2026."
+    }
+  }
+}

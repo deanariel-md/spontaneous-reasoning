@@ -1,0 +1,34 @@
+# The paraphrase request of the arm-wording run: PromptSuite 3.0.7's rewriting prompt for
+# the current direct-answer clause, answered by the paraphraser (config/paraphraser.yaml,
+# config/paraphrase_decoding.yaml). The file has the schema scripts/paraphrase_d2.py reads (the bank configurations'
+# schema); only the instruction field is used, and no bank is built from it.
+#
+#   python scripts/paraphrase_d2.py --config config/arm_wording_paraphrase.yaml request \
+#       --out-dir data/bank_candidates/paraphrase_arm_wording
+#   (two generation runs on a GPU machine)
+#   python scripts/paraphrase_d2.py --config config/arm_wording_paraphrase.yaml freeze \
+#       --request-dir data/bank_candidates/paraphrase_arm_wording \
+#       --run-dir data/d2_out/arm_wording/paraphrase/run1/llama-3.3-70b-instruct-fp8 \
+#       --repeat-dir data/d2_out/arm_wording/paraphrase/run2/llama-3.3-70b-instruct-fp8
+#   python scripts/paraphrase_d2.py --config config/arm_wording_paraphrase.yaml review
+status: confirmed
+name: arm_wording_direct_v1
+seed: 20261118
+variations_per_field: 8
+max_variations_per_row: null
+
+instruction:
+  text: "Give only the final answer, without any working."
+  placement: user
+  variation_types: ["paraphrase_with_llm"]
+
+prompt_format:
+  text: "{question}"
+  variation_types: []
+
+llm:
+  allowed: true
+  platform: local_replay
+  model: llama-3.3-70b-instruct-fp8
+  record: manifests/arm_wording_direct_paraphrases.json
+  review: manifests/arm_wording_direct_paraphrase_review.json

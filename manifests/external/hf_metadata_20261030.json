@@ -1,0 +1,633 @@
+{
+ "Gemma 2B": {
+  "repo": "google/gemma-2b-it",
+  "sha": "96988410cbdaeb8d5093d1ebdc5a8fb563e02bad",
+  "created": "2024-02-08",
+  "gated": "manual",
+  "license": "gemma",
+  "params_b": 2.51,
+  "weights_gb": 5.0,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "GemmaForCausalLM"
+  ],
+  "model_type": "gemma"
+ },
+ "Gemma 7B": {
+  "repo": "google/gemma-7b-it",
+  "sha": "9c5798d27f588501ce1e108079d2a19e4c3a2353",
+  "created": "2024-02-13",
+  "gated": "manual",
+  "license": "gemma",
+  "params_b": 8.54,
+  "weights_gb": 17.1,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "GemmaForCausalLM"
+  ],
+  "model_type": "gemma"
+ },
+ "Gemma 2 9B": {
+  "repo": "google/gemma-2-9b-it",
+  "sha": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+  "created": "2024-06-24",
+  "gated": "manual",
+  "license": "gemma",
+  "params_b": 9.24,
+  "weights_gb": 18.5,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Gemma2ForCausalLM"
+  ],
+  "model_type": "gemma2"
+ },
+ "Gemma 2 27B": {
+  "repo": "google/gemma-2-27b-it",
+  "sha": "aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0",
+  "created": "2024-06-24",
+  "gated": "manual",
+  "license": "gemma",
+  "params_b": 27.23,
+  "weights_gb": 54.5,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Gemma2ForCausalLM"
+  ],
+  "model_type": "gemma2"
+ },
+ "Gemma 3 4B": {
+  "repo": "google/gemma-3-4b-it",
+  "sha": "093f9f388b31de276ce2de164bdc2081324b9767",
+  "created": "2025-02-20",
+  "gated": "manual",
+  "license": "gemma",
+  "params_b": 4.3,
+  "weights_gb": 8.6,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Gemma3ForConditionalGeneration"
+  ],
+  "model_type": "gemma3"
+ },
+ "Gemma 3 12B": {
+  "repo": "google/gemma-3-12b-it",
+  "sha": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+  "created": "2025-03-01",
+  "gated": "manual",
+  "license": "gemma",
+  "params_b": 12.19,
+  "weights_gb": 24.4,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Gemma3ForConditionalGeneration"
+  ],
+  "model_type": "gemma3"
+ },
+ "Gemma 3 27B": {
+  "repo": "google/gemma-3-27b-it",
+  "sha": "005ad3404e59d6023443cb575daa05336842228a",
+  "created": "2025-03-01",
+  "gated": "manual",
+  "license": "gemma",
+  "params_b": 27.43,
+  "weights_gb": 54.9,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Gemma3ForConditionalGeneration"
+  ],
+  "model_type": "gemma3"
+ },
+ "Gemma 4 26B A4B": {
+  "repo": "google/gemma-4-26B-A4B-it",
+  "sha": "4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+  "created": "2026-03-11",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 25.81,
+  "weights_gb": 51.6,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Gemma4ForConditionalGeneration"
+  ],
+  "model_type": "gemma4"
+ },
+ "Gemma 4 31B IT": {
+  "repo": "google/gemma-4-31B-it",
+  "sha": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+  "created": "2026-03-11",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 31.27,
+  "weights_gb": 62.5,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Gemma4ForConditionalGeneration"
+  ],
+  "model_type": "gemma4"
+ },
+ "Llama 2-7B": {
+  "repo": "meta-llama/Llama-2-7b-chat-hf",
+  "sha": "f5db02db724555f92da89c216ac04704f23d4590",
+  "created": "2023-07-13",
+  "gated": "manual",
+  "license": "llama2",
+  "params_b": 6.74,
+  "weights_gb": 13.5,
+  "dtypes": [
+   "F16"
+  ],
+  "arch": [
+   "LlamaForCausalLM"
+  ],
+  "model_type": "llama"
+ },
+ "Llama 2-13B": {
+  "repo": "meta-llama/Llama-2-13b-chat-hf",
+  "sha": "a2cb7a712bb6e5e736ca7f8cd98167f81a0b5bd8",
+  "created": "2023-07-13",
+  "gated": "manual",
+  "license": "llama2",
+  "params_b": 13.02,
+  "weights_gb": 26.0,
+  "dtypes": [
+   "F16",
+   "F32"
+  ],
+  "arch": [
+   "LlamaForCausalLM"
+  ],
+  "model_type": "llama"
+ },
+ "Llama 3-8B": {
+  "repo": "meta-llama/Meta-Llama-3-8B-Instruct",
+  "sha": "8afb486c1db24fe5011ec46dfbe5b5dccdb575c2",
+  "created": "2024-04-17",
+  "gated": "manual",
+  "license": "llama3",
+  "params_b": 8.03,
+  "weights_gb": 16.1,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "LlamaForCausalLM"
+  ],
+  "model_type": "llama"
+ },
+ "Llama 3.1-8B": {
+  "repo": "meta-llama/Llama-3.1-8B-Instruct",
+  "sha": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "created": "2024-07-18",
+  "gated": "manual",
+  "license": "llama3.1",
+  "params_b": 8.03,
+  "weights_gb": 16.1,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "LlamaForCausalLM"
+  ],
+  "model_type": "llama"
+ },
+ "Mistral 7B v0.1": {
+  "repo": "mistralai/Mistral-7B-Instruct-v0.1",
+  "sha": "ec5deb64f2c6e6fa90c1abf74a91d5c93a9669ca",
+  "created": "2023-09-27",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 7.24,
+  "weights_gb": 14.5,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "MistralForCausalLM"
+  ],
+  "model_type": "mistral"
+ },
+ "Mistral 7B v0.3": {
+  "repo": "mistralai/Mistral-7B-Instruct-v0.3",
+  "sha": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+  "created": "2024-05-22",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 7.25,
+  "weights_gb": 14.5,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "MistralForCausalLM"
+  ],
+  "model_type": "mistral"
+ },
+ "Mistral NeMo": {
+  "repo": "mistralai/Mistral-Nemo-Instruct-2407",
+  "sha": "04d8a90549d23fc6bd7f642064003592df51e9b3",
+  "created": "2024-07-17",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 12.25,
+  "weights_gb": 24.5,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "MistralForCausalLM"
+  ],
+  "model_type": "mistral"
+ },
+ "Mistral Small 3.1": {
+  "repo": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+  "sha": "68faf511d618ef198fef186659617cfd2eb8e33a",
+  "created": "2025-03-11",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 24.01,
+  "weights_gb": 48.0,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Mistral3ForConditionalGeneration"
+  ],
+  "model_type": "mistral3"
+ },
+ "Mixtral 8x7B": {
+  "repo": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+  "sha": "eba92302a2861cdc0098cc54bc9f17cb2c47eb61",
+  "created": "2023-12-10",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 46.7,
+  "weights_gb": 93.4,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "MixtralForCausalLM"
+  ],
+  "model_type": "mixtral"
+ },
+ "Qwen-7B": {
+  "repo": "Qwen/Qwen-7B-Chat",
+  "sha": "93a65d34827a3cc269b727e67004743b723e2f83",
+  "created": "2023-08-03",
+  "gated": false,
+  "license": "other",
+  "params_b": 7.72,
+  "weights_gb": 15.4,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "QWenLMHeadModel"
+  ],
+  "model_type": "qwen"
+ },
+ "Qwen-14B": {
+  "repo": "Qwen/Qwen-14B-Chat",
+  "sha": "cdaff792392504e679496a9f386acf3c1e4333a5",
+  "created": "2023-09-24",
+  "gated": false,
+  "license": null,
+  "params_b": 14.17,
+  "weights_gb": 28.3,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "QWenLMHeadModel"
+  ],
+  "model_type": "qwen"
+ },
+ "Qwen2.5-7B": {
+  "repo": "Qwen/Qwen2.5-7B-Instruct",
+  "sha": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "created": "2024-09-16",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 7.62,
+  "weights_gb": 15.2,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Qwen2ForCausalLM"
+  ],
+  "model_type": "qwen2"
+ },
+ "Qwen3-8B": {
+  "repo": "Qwen/Qwen3-8B",
+  "sha": "b968826d9c46dd6066d109eabc6255188de91218",
+  "created": "2025-04-27",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 8.19,
+  "weights_gb": 16.4,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Qwen3ForCausalLM"
+  ],
+  "model_type": "qwen3"
+ },
+ "Qwen3-14B": {
+  "repo": "Qwen/Qwen3-14B",
+  "sha": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "created": "2025-04-27",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 14.77,
+  "weights_gb": 29.5,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Qwen3ForCausalLM"
+  ],
+  "model_type": "qwen3"
+ },
+ "Qwen3-32B": {
+  "repo": "Qwen/Qwen3-32B",
+  "sha": "9216db5781bf21249d130ec9da846c4624c16137",
+  "created": "2025-04-27",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 32.76,
+  "weights_gb": 65.5,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Qwen3ForCausalLM"
+  ],
+  "model_type": "qwen3"
+ },
+ "Qwen3-30B-A3B": {
+  "repo": "Qwen/Qwen3-30B-A3B",
+  "sha": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+  "created": "2025-04-27",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 30.53,
+  "weights_gb": 61.1,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Qwen3MoeForCausalLM"
+  ],
+  "model_type": "qwen3_moe"
+ },
+ "Qwen3-30B-A3B-Instruct (Jul 2025)": {
+  "repo": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "sha": "0d7cf23991f47feeb3a57ecb4c9cee8ea4a17bfe",
+  "created": "2025-07-28",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 30.53,
+  "weights_gb": 61.1,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Qwen3MoeForCausalLM"
+  ],
+  "model_type": "qwen3_moe"
+ },
+ "Qwen3.5-9B": {
+  "repo": "Qwen/Qwen3.5-9B",
+  "sha": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "created": "2026-02-27",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 9.65,
+  "weights_gb": 19.3,
+  "dtypes": [
+   "BF16",
+   "F32"
+  ],
+  "arch": [
+   "Qwen3_5ForConditionalGeneration"
+  ],
+  "model_type": "qwen3_5"
+ },
+ "Qwen3.5-35B-A3B": {
+  "repo": "Qwen/Qwen3.5-35B-A3B",
+  "sha": "59d61f3ce65a6d9863b86d2e96597125219dc754",
+  "created": "2026-02-24",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 35.95,
+  "weights_gb": 71.9,
+  "dtypes": [
+   "BF16",
+   "F32"
+  ],
+  "arch": [
+   "Qwen3_5MoeForConditionalGeneration"
+  ],
+  "model_type": "qwen3_5_moe"
+ },
+ "Qwen 3.6 35B-A3B": {
+  "repo": "Qwen/Qwen3.6-35B-A3B",
+  "sha": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "created": "2026-04-15",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 35.95,
+  "weights_gb": 71.9,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Qwen3_5MoeForConditionalGeneration"
+  ],
+  "model_type": "qwen3_5_moe"
+ },
+ "Qwen3.6 27B": {
+  "repo": "Qwen/Qwen3.6-27B",
+  "sha": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+  "created": "2026-04-21",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 27.78,
+  "weights_gb": 55.6,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Qwen3_5ForConditionalGeneration"
+  ],
+  "model_type": "qwen3_5"
+ },
+ "phi-3-mini 3.8B": {
+  "repo": "microsoft/Phi-3-mini-4k-instruct",
+  "sha": "f39ac1d28e925b323eae81227eaba4464caced4e",
+  "created": "2024-04-22",
+  "gated": false,
+  "license": "mit",
+  "params_b": 3.82,
+  "weights_gb": 7.6,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Phi3ForCausalLM"
+  ],
+  "model_type": "phi3"
+ },
+ "phi-3-small 7.4B": {
+  "repo": "microsoft/Phi-3-small-8k-instruct",
+  "sha": "188b876e997ee4055df01afe46274c14c400fe40",
+  "created": "2024-05-07",
+  "gated": false,
+  "license": "mit",
+  "params_b": 7.39,
+  "weights_gb": 14.8,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Phi3SmallForCausalLM"
+  ],
+  "model_type": "phi3small"
+ },
+ "phi-3-medium 14B": {
+  "repo": "microsoft/Phi-3-medium-4k-instruct",
+  "sha": "48d87cd5e0523b430d77e93becd3655cd6897230",
+  "created": "2024-05-07",
+  "gated": false,
+  "license": "mit",
+  "params_b": 13.96,
+  "weights_gb": 27.9,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Phi3ForCausalLM"
+  ],
+  "model_type": "phi3"
+ },
+ "Phi-4": {
+  "repo": "microsoft/phi-4",
+  "sha": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+  "created": "2024-12-11",
+  "gated": false,
+  "license": "mit",
+  "params_b": 14.66,
+  "weights_gb": 29.3,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "Phi3ForCausalLM"
+  ],
+  "model_type": "phi3"
+ },
+ "Falcon-7B": {
+  "repo": "tiiuae/falcon-7b-instruct",
+  "sha": "8782b5c5d8c9290412416618f36a133653e85285",
+  "created": "2023-04-25",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 7.22,
+  "weights_gb": 14.4,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "FalconForCausalLM"
+  ],
+  "model_type": "falcon"
+ },
+ "Yi 6B": {
+  "repo": "01-ai/Yi-6B-Chat",
+  "sha": "2dbf63b0cb7bc493c0243502c6e6111a36e3a093",
+  "created": "2023-11-22",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 6.06,
+  "weights_gb": 12.1,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "LlamaForCausalLM"
+  ],
+  "model_type": "llama"
+ },
+ "Yi-34B": {
+  "repo": "01-ai/Yi-34B-Chat",
+  "sha": "cf02cb50f2a03dead2fe205766a1c5598a90bf80",
+  "created": "2023-11-22",
+  "gated": false,
+  "license": "apache-2.0",
+  "params_b": 34.39,
+  "weights_gb": 68.8,
+  "dtypes": [
+   "BF16"
+  ],
+  "arch": [
+   "LlamaForCausalLM"
+  ],
+  "model_type": "llama"
+ },
+ "MPT-7B": {
+  "repo": "mosaicml/mpt-7b-instruct",
+  "error": "RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-6ae4498e-38e0a5ef488ffcb557890ebe;55c3ce8a-4237-4ad4-bda2-49f5f13119f4)\n\nRepositor"
+ },
+ "MPT-30B": {
+  "repo": "mosaicml/mpt-30b-instruct",
+  "error": "RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-6ae4498e-426c61a00aee7f1551075011;25e47d83-84c3-4f04-b1a5-7f7e644084e1)\n\nRepositor"
+ },
+ "Baichuan 2-7B": {
+  "repo": "baichuan-inc/Baichuan2-7B-Chat",
+  "sha": "ea66ced17780ca3db39bc9f8aa601d8463db3da5",
+  "created": "2023-08-29",
+  "gated": false,
+  "license": null,
+  "params_b": null,
+  "weights_gb": null,
+  "dtypes": null,
+  "arch": [
+   "BaichuanForCausalLM"
+  ],
+  "model_type": "baichuan"
+ },
+ "Baichuan2-13B": {
+  "repo": "baichuan-inc/Baichuan2-13B-Chat",
+  "sha": "c8d877c7ca596d9aeff429d43bff06e288684f45",
+  "created": "2023-08-29",
+  "gated": false,
+  "license": "other",
+  "params_b": null,
+  "weights_gb": null,
+  "dtypes": null,
+  "arch": [
+   "BaichuanForCausalLM"
+  ],
+  "model_type": "baichuan"
+ }
+}

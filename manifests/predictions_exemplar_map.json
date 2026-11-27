@@ -1,0 +1,128 @@
+{
+ "label": "exemplar_map",
+ "created": "2026-11-05 00:15:28",
+ "models": {
+  "gsm8k": [
+   "gemma-4-31b-it",
+   "meta-llama-3-8b-instruct",
+   "mistral-7b-instruct-v0.3",
+   "mistral-7b-instruct-v0.1",
+   "mistral-nemo-instruct-2407",
+   "mistral-small-3.1-24b-instruct-2503",
+   "phi-3-mini-4k-instruct",
+   "phi-3-medium-4k-instruct",
+   "phi-4",
+   "qwen2.5-7b-instruct",
+   "qwen3-8b",
+   "qwen3-30b-a3b-instruct-2507",
+   "qwen3.6-27b",
+   "gemma-2b-it",
+   "gemma-7b-it",
+   "gemma-3-12b-it",
+   "llama-3.1-8b-instruct",
+   "llama-2-7b-chat-hf",
+   "llama-2-13b-chat-hf",
+   "gemma-3-4b-it",
+   "gemma-2-9b-it",
+   "gemma-2-27b-it",
+   "gemma-3-27b-it",
+   "qwen3-30b-a3b",
+   "qwen3-14b",
+   "qwen3-32b",
+   "qwen3.5-9b",
+   "qwen3.5-35b-a3b",
+   "qwen3.6-35b-a3b"
+  ]
+ },
+ "samplers": {
+  "gsm8k": "15501b220e556ca089be0d96e414d5171a4262713242e0a53fd3d69d75a0af45"
+ },
+ "note": "pilot predictions of the eight-exemplar map point (R from the first 2 and 4 discovery draws), written before the validation draws are built",
+ "settings": {
+  "gsm8k": {
+   "2": {
+    "n_pilot": 2,
+    "benefit": {
+     "R": 0.9852013624291291,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.945170658279556,
+     "C_groups": {
+      "1": 0.945170658279556,
+      "2": 0.9611094696292268,
+      "4": 0.9724573911415602,
+      "8": 0.9805092294377068,
+      "12": 0.9840817075084003
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     },
+     "signal": 37.20525476288242,
+     "within": 37.76411217210308
+    },
+    "accuracy": {
+     "R": 0.9995140868764439,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.9900765650577411,
+     "C_groups": {
+      "1": 0.9900765650577411,
+      "2": 0.9929823613676185,
+      "4": 0.995037528879188,
+      "8": 0.9964909141761995,
+      "12": 0.9971348192414682
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     },
+     "signal": 872.0888571855616,
+     "within": 872.5128226165418
+    }
+   },
+   "4": {
+    "n_pilot": 4,
+    "benefit": {
+     "R": 0.9848948652687,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.944604355428866,
+     "C_groups": {
+      "1": 0.944604355428866,
+      "2": 0.9607052550384576,
+      "4": 0.9721702162367016,
+      "8": 0.9803056851806499,
+      "12": 0.983915383069061
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     },
+     "signal": 36.2845971909912,
+     "within": 36.84108677030416
+    },
+    "accuracy": {
+     "R": 0.9994507896314673,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.9894499536518995,
+     "C_groups": {
+      "1": 0.9894499536518995,
+      "2": 0.992539136909289,
+      "4": 0.9947240711793788,
+      "8": 0.9962692481893127,
+      "12": 0.9969538248429337
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     },
+     "signal": 871.7832903286818,
+     "within": 872.262345853105
+    }
+   }
+  }
+ },
+ "sha256": "88321050cec40f84da9d42f365e5feab0e4c3d8215f08e9836a1c14880d0d03e"
+}

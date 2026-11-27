@@ -1,0 +1,13 @@
+# The throughput and noise tranche of Dataset 2 (decided on 30 October 2026).
+# Every model the admissibility screening retains generates both
+# arms of the same configurations on the same calibration items, so the gain noise W is measured at the item count of
+# the target. The tranche is excluded from main estimation.
+#
+# Rule (scripts/draw_tranche_d2.py): the configurations are drawn by seed from the ids of the frozen bank
+# (manifests/gsm8k_bank.json) alone, uniformly and without replacement, so that W rests on distinct configurations
+# The seed is fixed here before the screening's results exist. The draw is written once to
+# manifests/gsm8k_tranche.json.
+status: confirmed
+configurations: 8
+seed: 20261030
+calibration_items: 1319     # manifests/gsm8k_calibration_items.json, drawn on first use

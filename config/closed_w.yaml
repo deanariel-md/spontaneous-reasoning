@@ -1,0 +1,179 @@
+# Qwen4-Max on OpenRouter, the panel's three arms (requested, forced, chain of thought) on the same cells.
+# Read by scripts/closed_w.py.
+# No key is kept here: the key is read from the environment variable OPENROUTER_API_KEY and never printed, logged
+# or written.
+#
+# Any change to the models, decoding, caps, arms or request sources below changes the configuration hash that the pilot
+# records; `run` refuses unless the pilot passed under the same hash.
+status: the prefill test passed (partial_true, 40 of 40) before the three arms were sent
+
+base_url: https://openrouter.ai/api/v1
+key_env: OPENROUTER_API_KEY
+
+# The models run by default (pilot, run, report). GPT-6 Luna is off by default: OpenRouter's OpenAI
+# endpoint does not list temperature or top_p (preflight), so it cannot
+# run at the panel's greedy decoding. Its entry stays; `--models gpt-6-luna` would still refuse at the
+# preflight for the same reason.
+default_models: [qwen4-max]
+
+models:
+  - key: gpt-6-luna
+    label: GPT-6 Luna
+    id: openai/gpt-6-luna
+    endpoints_slug: openai/gpt-6-luna-20260922      # canonical slug
+    served_model_prefix: openai/gpt-6-luna          # the reply's `model` must start with this
+    expected_provider: OpenAI                       # the reply's `provider`
+    endpoint_tag: openai                            # the list-price endpoint (not openai/flex, openai/fast)
+    provider:
+      only: [openai]
+      allow_fallbacks: false
+      require_parameters: true
+    price: {prompt: 1.0e-07, completion: 5.0e-07, cache_read: 1.0e-08}
+    reasoning_off: {effort: none}
+    reasoning_on: {effort: low}
+    extra: {}
+  - key: qwen4-max
+    label: Qwen4 Max
+    id: qwen/qwen4-max
+    endpoints_slug: qwen/qwen4-max-20261115
+    served_model_prefix: qwen/qwen4-max
+    expected_provider: Alibaba
+    endpoint_tag: alibaba                           # OpenRouter's only endpoint for this model
+    provider:
+      only: [alibaba]
+      allow_fallbacks: false
+      require_parameters: true
+    # USD per token as listed and billed: OpenRouter's listing gives prompt 0.000001425,
+    # completion 0.000004275, cache read 0.00000007125 with "discount": 0.05, i.e. $1.50 / $4.50 per million less 5%;
+    # the 80 prefill-test calls were billed at exactly these prices (usage.cost / tokens x prices = 1.000).
+    price: {prompt: 1.425e-06, completion: 4.275e-06, cache_read: 7.125e-08}
+    reasoning_off: {effort: none}                   # hybrid model, thinking on by default (enable_thinking false)
+    reasoning_on: {effort: low}
+    # Alibaba's non-thinking default presence penalty is 1.5; the panel had none, so 0 is sent explicitly.
+    extra: {presence_penalty: 0.0}
+
+# The panel's decoding (config/decoding.yaml) where the API takes it: greedy. Not sent: top_k (moot under greedy
+# decoding), seed (no effect on greedy decoding). Stop strings: none on the requested and chain-of-thought arms, as
+# the panel's; "}" on the forced arm of GSM8K and BIG-Bench Hard only (forced, below).
+decoding:
+  temperature: 0.0
+  top_p: 1.0
+
+# The arms of the run, in the order they are sent inside a (benchmark, template, item) unit, and the arm label of the
+# panel's request files.
+arms:
+  requested: {source_arm: direct_answer}
+  forced: {source_arm: forced_direct}
+  cot: {source_arm: zero_shot_cot}
+run_arms: [requested, forced, cot]
+
+# Request files per arm ({task}, {ref}: design.reference_requests). The forced files hold the requested arm's user
+# message unchanged (data/requests/forced/build_record.json, data/requests/hotpot/arms_record.json); `plan` checks it
+# byte for byte on every cell of the run.
+requests:
+  requested: ["data/requests/{task}/{ref}.parquet"]
+  cot: ["data/requests/{task}/{ref}.parquet"]
+  forced:
+    gsm8k: ["data/requests/forced/gsm8k/{ref}.parquet"]
+    math: ["data/requests/forced/math/{ref}.parquet"]
+    bbh: ["data/requests/forced/bbh/{ref}.parquet"]
+    hotpot: ["data/requests/hotpot/block_a/{ref}.parquet", "data/requests/hotpot/block_b/{ref}.parquet"]
+
+caps:
+  requested: 1024           # config/decoding.yaml and config/decoding_hotpot.yaml, direct_answer
+  cot: {gsm8k: 3072, math: 3072, bbh: 3072, hotpot: 1900}   # zero_shot_cot of config/decoding.yaml, decoding_hotpot.yaml
+  forced: {gsm8k: 16, math: 16, bbh: 16, hotpot: 64}       # decoding_forced*.yaml, decoding_hotpot.yaml
+  control: 4096             # max_tokens of the thinking-on control calls
+  control_reserve: 32768    # output tokens reserved per control call against the limit (in case thinking passes max_tokens)
+
+prefill: "\\boxed{"                  # the panel's forced prefill (prefill.forced_direct of the forced decoding files)
+forced_cut_at_first_brace: [gsm8k, bbh]   # the panel's forced runs stopped at the first "}" (kept in the output)
+
+# The forced arm. The assistant message holds the prefill with Alibaba's partial flag, the variant that passed
+# the prefill test (40 of 40 continue the box; the plain prefix failed). The stop "}" is
+# sent where the panel's generation stopped there (forced_cut_at_first_brace). The scored text is the prefill once
+# plus the reply as the panel's runner would have stored it: cut after its first "}" where the panel stopped there,
+# and, where the reply ended on the stop and the route did not return the stop string, the "}" put back (the pilot's
+# stop control measures this against replies sent without the stop). MATH-500 and HotpotQA replies are never cut.
+forced:
+  message_extra: {partial: true}
+  prefill_variant: partial_true      # its name in qwen_prefill_test.json; `run` refuses unless that variant passed
+  send_stop: true
+
+design:
+  reference_requests: qwen3-8b       # data/requests/<task>/qwen3-8b.parquet (every panel model's text is the same)
+  arm: direct_answer
+  items_per_benchmark: 100           # the B100 draws of scripts/closed_w_items.py (BIG-Bench Hard 4 per task)
+  pilot_prompts_per_benchmark: 5     # per arm; the three arms on the same five cells per benchmark
+  pilot_repeats: 2
+  pilot_controls: 2
+  pilot_stop_controls: true          # the forced pilot prompts of GSM8K and BIG-Bench Hard once more without the stop
+  prefill_items_per_benchmark: 10
+  prefill_model: qwen4-max
+  prefill_variants:
+    - {name: assistant_prefix, message_extra: {}}
+    - {name: partial_true, message_extra: {partial: true}}
+
+# USD. --limit-usd above a number here is refused; null means no ceiling in this file: the limit is set with
+# --limit-usd and the chunk guard stops the run there. The pilot's limit counts pilot spend, the prefill test's its
+# own; the run's limit counts everything this design has spent (pilot, prefill test and run).
+limits:
+  pilot: 2.0                 # the three-arm pilot: 132 calls, worst case $1.26 (`plan`)
+  prefill: 0.5
+  run: null
+
+run:
+  chunk_calls: 100           # calls per chunk; a chunk is sent only if its worst case fits under the limit
+  threads: 8
+  max_tries: 6               # per request; retries only for 408, 429, 5xx and failed connections
+  timeout_s: 300
+  backoff_s: {base: 2.0, max: 60.0}
+  max_failed_chunks: 5       # chunks in a row with no answered call
+  prompt_overhead_tokens: 64 # added to the UTF-8 byte count of the messages: the worst-case prompt tokens of a call
+
+# Pilot checks (any failed check stops; `run` refuses until the pilot passed under the same configuration hash).
+checks:
+  cost_rel_tol: 0.10            # billed cost per call within 10% of tokens x the prices above (cached input at cache_read)
+  accounting_min_share: 0.90    # share of replies whose API count is within max(abs_tol, rel_tol x local count)
+  accounting_abs_tol: 4
+  accounting_rel_tol: 0.25
+  # Set to 0.80 because in the first three-arm pilot 17 of 20 requested-arm repeat pairs agreed
+  # (0.85). The 3 others are the same request sent twice that came back once short and once long (6 vs 72, 10 vs 32,
+  # 7 vs 39 tokens) with the same strict and content verdict: Alibaba's endpoint does not repeat at temperature 0. This
+  # is the API's own variation, reported as measured, not a fault of the route.
+  repeat_min_crossing: 0.80     # requested-arm repeat pairs agreeing on the crossing of 16 tokens (and 64 on HotpotQA)
+  repeat_min_verdict: 0.90      # repeat pairs agreeing on the strict and the content verdict, per arm
+  repeat_min_text: null         # exact-text agreement is reported only (closed APIs need not repeat at temperature 0)
+  prefill_min_continuation: 0.90  # per benchmark, for a prefill variant (prefill test) and for the pilot's forced arm
+  stop_control_min_agreement: 0.90  # forced replies with the stop, read as the panel's, equal to those without it
+  run_forced_restart_max_share: 0.10  # the run stops when more forced replies than this start with the prefill
+  run_forced_restart_min_n: 40        # ... once this many forced replies are in
+
+# The one tokenizer used to recount the visible text of every reply (closed and, with report --open-texts, open):
+# Qwen3.6-27B's (pinned revision of config/models.yaml), local. On the 80 prefill-test calls its count of the user
+# message and the prefill plus a constant (23 with partial mode, 30 without) equals the prompt tokens OpenRouter billed.
+tokenizer:
+  name: Qwen/Qwen3.6-27B tokenizer.json @ 6a9e13bd6fc8f0983b9b99948120bc37f49c13e9
+  path: data/tokenizers/qwen3.6-27b/tokenizer.json
+  sha256: 5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42
+
+thresholds: {default: [16], hotpot: [16, 64]}
+bootstrap: {draws: 2000, level: 0.95}
+
+# The quote (scripts/closed_w.py quote): o200k for the input count (tiktoken; the package and its cache may sit
+# outside the venv, given by --tiktoken-path and --tiktoken-cache), Qwen3.6-27B beside it with the template tokens
+# measured on the prefill test; output lengths of the panel's five strongest open models (ECI, manifests/d2_panel*.json)
+# present on every cell of the three arms.
+quote:
+  template_tokens: 23        # API prompt tokens minus the Qwen3.6-27B recount of the messages, 40 of 40 partial calls
+                             # (the quote uses the value it measures on the prefill test's raw file when it can)
+  strongest_models: 5
+
+paths:
+  manifest: manifests/closed_w_items.json
+  raw_dir: data/frontier_panel/closed_w
+  results_dir: results/frontier_panel
+  budget: config/budget.yaml
+  prices: results/frontier_panel/closed_ladder_price.json
+  price_tokens: results/frontier_panel/closed_w_price.json
+  prefill_result: results/frontier_panel/qwen_prefill_test.json

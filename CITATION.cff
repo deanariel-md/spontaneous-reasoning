@@ -1,0 +1,59 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper and this software."
+type: software
+title: "Spontaneous reasoning reorders language models’ gains from chain-of-thought"
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/deanariel-md/spontaneous-reasoning"
+authors:
+  - family-names: Ariel
+    given-names: Dean
+    affiliation: "Ben-Gurion University of the Negev; Clalit Health Services"
+  - family-names: Hadad
+    given-names: Eyal
+    affiliation: "Ben-Gurion University of the Negev"
+  - family-names: Navon
+    given-names: Harel
+    affiliation: "Ben-Gurion University of the Negev"
+  - family-names: Hamuel
+    given-names: Tomer
+    affiliation: "Ben-Gurion University of the Negev"
+  - family-names: Balicer
+    given-names: Ran
+    affiliation: "Clalit Research Institute, Innovation Division, Clalit Health Services; The Ivan and Francesca Berkowitz Family Living Laboratory Collaboration at Harvard Medical School and Clalit Research Institute; School of Public Health, Faculty of Health Sciences, Ben-Gurion University of the Negev"
+  - family-names: Cohen
+    given-names: Seffi
+    affiliation: "Ben-Gurion University of the Negev"
+abstract: >-
+  Code for generation, scoring and every analysis of the paper. The study
+  measures the gain of chain-of-thought prompting against two direct-answer
+  baselines: a requested answer, where the model is asked for the answer
+  alone, and a forced answer, where the opening of the answer is written into
+  the reply and the model may add only a few tokens. It runs open models on
+  GSM8K, MATH-500, BIG-Bench Hard and HotpotQA under many prompt templates and
+  counts how often the choice of baseline reverses which of two models gains
+  more. The release includes a pilot tool that reports the share of long
+  requested answers, the reliability of gains across templates, and who
+  benefits under each baseline.
+keywords:
+  - chain-of-thought
+  - language models
+  - evaluation
+  - prompt sensitivity
+preferred-citation:
+  type: article
+  title: "Spontaneous reasoning reorders language models’ gains from chain-of-thought"
+  authors:
+    - family-names: Ariel
+      given-names: Dean
+    - family-names: Hadad
+      given-names: Eyal
+    - family-names: Navon
+      given-names: Harel
+    - family-names: Hamuel
+      given-names: Tomer
+    - family-names: Balicer
+      given-names: Ran
+    - family-names: Cohen
+      given-names: Seffi
+  year: 2026

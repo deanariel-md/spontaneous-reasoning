@@ -1,0 +1,39 @@
+{
+ "label": "hotpot_discovery",
+ "created": "2026-11-21 20:51:22",
+ "sampler_sha256": "ec8684bab1c13da5ce63d9b067a8fcaafaa97a39353fea461be5edb7e315df6b",
+ "scored_discovery": {
+  "path": "data/processed/hotpot/scored_discovery.parquet",
+  "sha256": "5a961914e0446e5d07d557c5f52302e123c37b18757f2294e573da60c98333ce"
+ },
+ "note": "every rule fitted on the discovery draws alone, saved before any validation draw was scored; score_hotpot.py --stage all checks these hashes",
+ "files": {
+  "manifests/predictions_hotpot_map.json": "04668f990d0bb5428d2cafb11e0f11509f1a68c80ac497284d3a5adaade8b2fc",
+  "manifests/predictions_hotpot.json": "df1273f7afef0c4b7ae62db0154527f6b70c40c27d56653b6eb9e161d723c287",
+  "manifests/predictions_hotpot_lenient.json": "674b94cb92fd09479d156139cf15ce53768de0c94cead143d653a2672360c463",
+  "manifests/predictions_hotpot_f1.json": "762beb49603e750b01013b456255cfe5df4cd6d528607a097111269d480c908c",
+  "manifests/predictions_decision_hotpot.json": "fe9845d86ba3a1111b799197488e1a23efc3389384e08e92ad30e0967a46db61",
+  "manifests/predictions_decision_hotpot.npz": "6c53229db3fcc23fa9a7a6af8ad588c5a6e98cf59f2c6794277e6a1926d167da",
+  "manifests/predictions_hotpot_forced.json": "e2ba2034fe7d51e1688fd9bc596fff4be0334a85a13bd5d3783dc29d1fbe59cc",
+  "manifests/predictions_hotpot_forced_lenient.json": "024cafeb7e865121dc03022104e5061d1302601969ac3b2ea8b9a1a8da051d69",
+  "manifests/predictions_hotpot_forced_f1.json": "980b4779fa41eaf81394b4e0ae0d3c6103f3f21f95652957f76083eca9499770",
+  "manifests/predictions_decision_hotpot_forced.json": "b48d06320b882d745edd56f03771f4ee42850a45ea3548fb78ef8302ed93ad4c",
+  "manifests/predictions_decision_hotpot_forced.npz": "50408bfdc90ba2cb03ecfea16d22b794988106a7b116201dc31e8e5a660ed49a",
+  "manifests/predictions_hotpot_fewshot.json": "047672325c7571779cc6e8e8d6497db9cd9e2c910c8ab11b2d9b5a5eebc190ae",
+  "manifests/predictions_hotpot_fewshot_lenient.json": "a18157af3470cae9f3bbbd022b2d7c6bc45d12377097a8795a521a5fdb0e2ee7",
+  "manifests/predictions_hotpot_fewshot_f1.json": "464a04c14f143438d2b1e81866d988a3046506b901caaaf7549b12bafca4c0ae",
+  "manifests/predictions_decision_hotpot_fewshot.json": "1ec9b935bfefb61d04e9651339f70b62779c06c6fb12aecb6cc2884689006c2b",
+  "manifests/predictions_decision_hotpot_fewshot.npz": "884e2e6899987ea0f9791039c897e71794d217c829de2514eabee3df57853127",
+  "manifests/predictions_hotpot_cross_benchmark.json": "6dd4b9662148ad395ade2bcf79f6f48c8bc053bc13b98c3184c471bddd47879e",
+  "manifests/predictions_hotpot_cross_benchmark.npz": "8798bc9a1e1b73b9e6f3b970ae2ec7efe15d29733fca5621749f5b3600686d97",
+  "manifests/predictions_hotpot_decision_strict.json": "3698e51457f165def09ce476e47fcf57302f4661cd6016e1ad246d55eca1b842",
+  "manifests/predictions_hotpot_decision_strict.npz": "4b040c2ba6a19fe89650e813dc4b2d494812b857fcbf9f23ed739bbf1571872a",
+  "manifests/predictions_hotpot_family.json": "b542ba08b64c159e59d3ee7776106e23d40dc90afa34ac5316b1e60003f9ccc4",
+  "manifests/predictions_hotpot_family.npz": "4d5eee9366f7c87c95d026ef33db6bf1745231bee189e1b6811a35094abc2606",
+  "manifests/predictions_hotpot_cross_discovery.json": "7a81ecbe4212b2b8417ba10dfbb5b5246e7202b840c8f9710580a4d7a4112741",
+  "manifests/predictions_hotpot_cross_discovery.npz": "605face6e86336e67bf3d750ca2e31ec5d65c9c641862f07f0bf514d9b837806",
+  "manifests/predictions_hotpot_mechanism.json": "e5415bf70072a2913f0d6f42682b673248aff2a0484e5a17967cb33ec7c1e48a",
+  "manifests/predictions_hotpot_split.json": "9d3bd3057b8678f45d8c4aee935c41a430ce789a574f75639817a81cd961d105",
+  "manifests/predictions_hotpot_decomposition.json": "5853b301fde46c75e594504fcb36560bee55557b1340246d34c03bd7ead3a384"
+ }
+}

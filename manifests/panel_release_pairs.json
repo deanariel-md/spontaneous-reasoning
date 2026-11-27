@@ -1,0 +1,610 @@
+{
+ "what": "Within-family pairs of newer and older releases, from names, sizes and dates only, written before any w is read by scripts/release_dates.py",
+ "request": "release dates and newest-model reversal shares",
+ "script": "scripts/release_dates.py pairs",
+ "written_at": "2026-11-25 18:09:28 +0200",
+ "dates_manifest": "manifests/panel_release_dates.json",
+ "dates_written_at": "2026-11-25 18:09:16 +0200",
+ "rule": "Within a family (the panel manifest's family; the ladder's for the extension), each checkpoint is paired with the most recent checkpoint of the same family released strictly earlier (release dates of manifests/panel_release_dates.json) and of similar size. Similar size: the same architecture kind (dense, or mixture of experts as the name's A<n>B tag or the recorded size says) and total parameters within a factor of 1.5 (larger over smaller); for mixtures of experts the active parameters also within that factor. A tie in date goes to the nearer total size, then to the key in alphabetical order. Each checkpoint is the newer side of at most one pair; a checkpoint can be the older side of several. Checkpoints released on the same date are not paired. Sizes: params_b of manifests/d2_panel_extension.json (panel), the sizes block of results/ladder/analysis/ladder.json (extension); a checkpoint without a recorded size (Qwen4-Max) enters no pair. Counted on a benchmark: the pairs whose two checkpoints both have w there; the newer is higher when its w exceeds the older's by more than 1e-9, a tie when the two are within 1e-9.",
+ "size_ratio": 1.5,
+ "rule_alt": "Within a family (the panel manifest's family; the ladder's for the extension), each checkpoint is paired with the most recent checkpoint of the same family released strictly earlier (release dates of manifests/panel_release_dates.json) and of similar size. Similar size: the same architecture kind (dense, or mixture of experts as the name's A<n>B tag or the recorded size says) and total parameters within a factor of 2.0 (larger over smaller); for mixtures of experts the active parameters also within that factor. A tie in date goes to the nearer total size, then to the key in alphabetical order. Each checkpoint is the newer side of at most one pair; a checkpoint can be the older side of several. Checkpoints released on the same date are not paired. Sizes: params_b of manifests/d2_panel_extension.json (panel), the sizes block of results/ladder/analysis/ladder.json (extension); a checkpoint without a recorded size (Qwen4-Max) enters no pair. Counted on a benchmark: the pairs whose two checkpoints both have w there; the newer is higher when its w exceeds the older's by more than 1e-9, a tie when the two are within 1e-9. (A wider size band, written with the main rule and reported in the summary only.)",
+ "size_ratio_alt": 2.0,
+ "seen_before_rule": [
+  "results/baseline_mixture/baseline_mixture.json, the first three models of each benchmark's list: GSM8K gemma-4-31b-it 0.995, meta-llama-3-8b-instruct 0.310, mistral-7b-instruct-v0.3 0.482; MATH-500 gemma-4-31b-it 0.998, meta-llama-3-8b-instruct 0.108, mistral-7b-instruct-v0.3 0.451; BIG-Bench Hard meta-llama-3-8b-instruct 0.060, mistral-7b-instruct-v0.3 0.197, mistral-7b-instruct-v0.1 0.369",
+  "results/frontier_panel/closed_w.json and closed_w.md: gemma-2-27b-it GSM8K 0.014, deepseek-v4.1-flash-1017 GSM8K 0.130, Qwen4-Max GSM8K 76.2%, MATH-500 75.7%, BIG-Bench Hard 38.8%, HotpotQA 0.9%"
+ ],
+ "seen_note": "These w values were printed while the files' layout was checked, before this rule was written. The rule was set from the names, sizes and dates listed here; no other w was read.",
+ "sizes": {
+  "gemma-2-27b-it": {
+   "total": 27.23,
+   "active": 27.23,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "gemma-2-9b-it": {
+   "total": 9.24,
+   "active": 9.24,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "gemma-2b-it": {
+   "total": 2.51,
+   "active": 2.51,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "gemma-3-12b-it": {
+   "total": 12.19,
+   "active": 12.19,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "gemma-3-27b-it": {
+   "total": 27.43,
+   "active": 27.43,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "gemma-3-4b-it": {
+   "total": 4.3,
+   "active": 4.3,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "gemma-4-31b-it": {
+   "total": 31.27,
+   "active": 31.27,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "gemma-7b-it": {
+   "total": 8.54,
+   "active": 8.54,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "llama-2-13b-chat-hf": {
+   "total": 13.02,
+   "active": 13.02,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "llama-2-7b-chat-hf": {
+   "total": 6.74,
+   "active": 6.74,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "llama-3.1-8b-instruct": {
+   "total": 8.03,
+   "active": 8.03,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "meta-llama-3-8b-instruct": {
+   "total": 8.03,
+   "active": 8.03,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "mistral-7b-instruct-v0.1": {
+   "total": 7.24,
+   "active": 7.24,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "mistral-7b-instruct-v0.3": {
+   "total": 7.25,
+   "active": 7.25,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "mistral-nemo-instruct-2407": {
+   "total": 12.25,
+   "active": 12.25,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "mistral-small-3.1-24b-instruct-2503": {
+   "total": 24.01,
+   "active": 24.01,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "phi-3-medium-4k-instruct": {
+   "total": 13.96,
+   "active": 13.96,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "phi-3-mini-4k-instruct": {
+   "total": 3.82,
+   "active": 3.82,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "phi-4": {
+   "total": 14.66,
+   "active": 14.66,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "qwen2.5-7b-instruct": {
+   "total": 7.62,
+   "active": 7.62,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "qwen3-14b": {
+   "total": 14.77,
+   "active": 14.77,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "qwen3-30b-a3b": {
+   "total": 30.53,
+   "active": 3.0,
+   "moe": true,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "qwen3-30b-a3b-instruct-2507": {
+   "total": 30.53,
+   "active": 3.0,
+   "moe": true,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "qwen3-32b": {
+   "total": 32.76,
+   "active": 32.76,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "qwen3-8b": {
+   "total": 8.19,
+   "active": 8.19,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "qwen3.5-35b-a3b": {
+   "total": 35.95,
+   "active": 3.0,
+   "moe": true,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "qwen3.5-9b": {
+   "total": 9.65,
+   "active": 9.65,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "qwen3.6-27b": {
+   "total": 27.78,
+   "active": 27.78,
+   "moe": false,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "qwen3.6-35b-a3b": {
+   "total": 35.95,
+   "active": 3.0,
+   "moe": true,
+   "source": "params_b of manifests/d2_panel_extension.json; active parameters from the name's A<n>B tag"
+  },
+  "ministral-3-8b-instruct-2512": {
+   "total": 8.92,
+   "active": 8.92,
+   "moe": false,
+   "source": "results/ladder/analysis/ladder.json, sizes"
+  },
+  "ministral-3-14b-instruct-2512": {
+   "total": 13.9,
+   "active": 13.9,
+   "moe": false,
+   "source": "results/ladder/analysis/ladder.json, sizes"
+  },
+  "mistral-large-2512": {
+   "total": 675.0,
+   "active": 41.0,
+   "moe": true,
+   "source": "results/ladder/analysis/ladder.json, sizes"
+  },
+  "llama-3.1-70b-instruct-fp8": {
+   "total": 70.0,
+   "active": 70.0,
+   "moe": false,
+   "source": "results/ladder/analysis/ladder.json, sizes"
+  },
+  "qwen3.5-122b-a10b-fp8": {
+   "total": 125.1,
+   "active": 10.0,
+   "moe": true,
+   "source": "results/ladder/analysis/ladder.json, sizes"
+  },
+  "deepseek-v4.1-flash-1017": {
+   "total": 552.0,
+   "active": null,
+   "moe": true,
+   "source": "results/ladder/analysis/ladder.json, sizes"
+  },
+  "qwen4-max": null
+ },
+ "pairs": [
+  {
+   "older": "gemma-7b-it",
+   "newer": "gemma-2-9b-it",
+   "family": "Gemma",
+   "older_date": "2024-02-13",
+   "newer_date": "2024-06-24",
+   "older_total_b": 8.54,
+   "newer_total_b": 9.24,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "gemma-2-9b-it",
+   "newer": "gemma-3-12b-it",
+   "family": "Gemma",
+   "older_date": "2024-06-24",
+   "newer_date": "2025-03-01",
+   "older_total_b": 9.24,
+   "newer_total_b": 12.19,
+   "moe": false,
+   "candidates": 2
+  },
+  {
+   "older": "gemma-2-27b-it",
+   "newer": "gemma-3-27b-it",
+   "family": "Gemma",
+   "older_date": "2024-06-24",
+   "newer_date": "2025-03-01",
+   "older_total_b": 27.23,
+   "newer_total_b": 27.43,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "gemma-3-27b-it",
+   "newer": "gemma-4-31b-it",
+   "family": "Gemma",
+   "older_date": "2025-03-01",
+   "newer_date": "2026-03-11",
+   "older_total_b": 27.43,
+   "newer_total_b": 31.27,
+   "moe": false,
+   "candidates": 2
+  },
+  {
+   "older": "meta-llama-3-8b-instruct",
+   "newer": "llama-3.1-8b-instruct",
+   "family": "Llama",
+   "older_date": "2024-04-17",
+   "newer_date": "2024-07-18",
+   "older_total_b": 8.03,
+   "newer_total_b": 8.03,
+   "moe": false,
+   "candidates": 2
+  },
+  {
+   "older": "llama-2-7b-chat-hf",
+   "newer": "meta-llama-3-8b-instruct",
+   "family": "Llama",
+   "older_date": "2023-07-13",
+   "newer_date": "2024-04-17",
+   "older_total_b": 6.74,
+   "newer_total_b": 8.03,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "mistral-7b-instruct-v0.1",
+   "newer": "mistral-7b-instruct-v0.3",
+   "family": "Mistral",
+   "older_date": "2023-09-27",
+   "newer_date": "2024-05-22",
+   "older_total_b": 7.24,
+   "newer_total_b": 7.25,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "phi-3-medium-4k-instruct",
+   "newer": "phi-4",
+   "family": "Phi",
+   "older_date": "2024-05-07",
+   "newer_date": "2024-12-11",
+   "older_total_b": 13.96,
+   "newer_total_b": 14.66,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "qwen3-30b-a3b",
+   "newer": "qwen3-30b-a3b-instruct-2507",
+   "family": "Qwen",
+   "older_date": "2025-04-27",
+   "newer_date": "2025-07-28",
+   "older_total_b": 30.53,
+   "newer_total_b": 30.53,
+   "moe": true,
+   "candidates": 1
+  },
+  {
+   "older": "qwen2.5-7b-instruct",
+   "newer": "qwen3-8b",
+   "family": "Qwen",
+   "older_date": "2024-09-16",
+   "newer_date": "2025-04-27",
+   "older_total_b": 7.62,
+   "newer_total_b": 8.19,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "qwen3-30b-a3b-instruct-2507",
+   "newer": "qwen3.5-35b-a3b",
+   "family": "Qwen",
+   "older_date": "2025-07-28",
+   "newer_date": "2026-02-24",
+   "older_total_b": 30.53,
+   "newer_total_b": 35.95,
+   "moe": true,
+   "candidates": 2
+  },
+  {
+   "older": "qwen3-8b",
+   "newer": "qwen3.5-9b",
+   "family": "Qwen",
+   "older_date": "2025-04-27",
+   "newer_date": "2026-02-27",
+   "older_total_b": 8.19,
+   "newer_total_b": 9.65,
+   "moe": false,
+   "candidates": 2
+  },
+  {
+   "older": "qwen3-32b",
+   "newer": "qwen3.6-27b",
+   "family": "Qwen",
+   "older_date": "2025-04-27",
+   "newer_date": "2026-04-21",
+   "older_total_b": 32.76,
+   "newer_total_b": 27.78,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "qwen3.5-35b-a3b",
+   "newer": "qwen3.6-35b-a3b",
+   "family": "Qwen",
+   "older_date": "2026-02-24",
+   "newer_date": "2026-04-15",
+   "older_total_b": 35.95,
+   "newer_total_b": 35.95,
+   "moe": true,
+   "candidates": 3
+  }
+ ],
+ "pairs_alt": [
+  {
+   "older": "gemma-7b-it",
+   "newer": "gemma-2-9b-it",
+   "family": "Gemma",
+   "older_date": "2024-02-13",
+   "newer_date": "2024-06-24",
+   "older_total_b": 8.54,
+   "newer_total_b": 9.24,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "gemma-2-9b-it",
+   "newer": "gemma-3-12b-it",
+   "family": "Gemma",
+   "older_date": "2024-06-24",
+   "newer_date": "2025-03-01",
+   "older_total_b": 9.24,
+   "newer_total_b": 12.19,
+   "moe": false,
+   "candidates": 2
+  },
+  {
+   "older": "gemma-2-27b-it",
+   "newer": "gemma-3-27b-it",
+   "family": "Gemma",
+   "older_date": "2024-06-24",
+   "newer_date": "2025-03-01",
+   "older_total_b": 27.23,
+   "newer_total_b": 27.43,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "gemma-7b-it",
+   "newer": "gemma-3-4b-it",
+   "family": "Gemma",
+   "older_date": "2024-02-13",
+   "newer_date": "2025-02-20",
+   "older_total_b": 8.54,
+   "newer_total_b": 4.3,
+   "moe": false,
+   "candidates": 2
+  },
+  {
+   "older": "gemma-3-27b-it",
+   "newer": "gemma-4-31b-it",
+   "family": "Gemma",
+   "older_date": "2025-03-01",
+   "newer_date": "2026-03-11",
+   "older_total_b": 27.43,
+   "newer_total_b": 31.27,
+   "moe": false,
+   "candidates": 2
+  },
+  {
+   "older": "meta-llama-3-8b-instruct",
+   "newer": "llama-3.1-8b-instruct",
+   "family": "Llama",
+   "older_date": "2024-04-17",
+   "newer_date": "2024-07-18",
+   "older_total_b": 8.03,
+   "newer_total_b": 8.03,
+   "moe": false,
+   "candidates": 3
+  },
+  {
+   "older": "llama-2-7b-chat-hf",
+   "newer": "meta-llama-3-8b-instruct",
+   "family": "Llama",
+   "older_date": "2023-07-13",
+   "newer_date": "2024-04-17",
+   "older_total_b": 6.74,
+   "newer_total_b": 8.03,
+   "moe": false,
+   "candidates": 2
+  },
+  {
+   "older": "mistral-7b-instruct-v0.1",
+   "newer": "mistral-7b-instruct-v0.3",
+   "family": "Mistral",
+   "older_date": "2023-09-27",
+   "newer_date": "2024-05-22",
+   "older_total_b": 7.24,
+   "newer_total_b": 7.25,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "mistral-7b-instruct-v0.3",
+   "newer": "mistral-nemo-instruct-2407",
+   "family": "Mistral",
+   "older_date": "2024-05-22",
+   "newer_date": "2024-07-17",
+   "older_total_b": 7.25,
+   "newer_total_b": 12.25,
+   "moe": false,
+   "candidates": 2
+  },
+  {
+   "older": "mistral-nemo-instruct-2407",
+   "newer": "mistral-small-3.1-24b-instruct-2503",
+   "family": "Mistral",
+   "older_date": "2024-07-17",
+   "newer_date": "2025-03-11",
+   "older_total_b": 12.25,
+   "newer_total_b": 24.01,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "phi-3-medium-4k-instruct",
+   "newer": "phi-4",
+   "family": "Phi",
+   "older_date": "2024-05-07",
+   "newer_date": "2024-12-11",
+   "older_total_b": 13.96,
+   "newer_total_b": 14.66,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "qwen2.5-7b-instruct",
+   "newer": "qwen3-14b",
+   "family": "Qwen",
+   "older_date": "2024-09-16",
+   "newer_date": "2025-04-27",
+   "older_total_b": 7.62,
+   "newer_total_b": 14.77,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "qwen3-30b-a3b",
+   "newer": "qwen3-30b-a3b-instruct-2507",
+   "family": "Qwen",
+   "older_date": "2025-04-27",
+   "newer_date": "2025-07-28",
+   "older_total_b": 30.53,
+   "newer_total_b": 30.53,
+   "moe": true,
+   "candidates": 1
+  },
+  {
+   "older": "qwen2.5-7b-instruct",
+   "newer": "qwen3-8b",
+   "family": "Qwen",
+   "older_date": "2024-09-16",
+   "newer_date": "2025-04-27",
+   "older_total_b": 7.62,
+   "newer_total_b": 8.19,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "qwen3-30b-a3b-instruct-2507",
+   "newer": "qwen3.5-35b-a3b",
+   "family": "Qwen",
+   "older_date": "2025-07-28",
+   "newer_date": "2026-02-24",
+   "older_total_b": 30.53,
+   "newer_total_b": 35.95,
+   "moe": true,
+   "candidates": 2
+  },
+  {
+   "older": "qwen3-8b",
+   "newer": "qwen3.5-9b",
+   "family": "Qwen",
+   "older_date": "2025-04-27",
+   "newer_date": "2026-02-27",
+   "older_total_b": 8.19,
+   "newer_total_b": 9.65,
+   "moe": false,
+   "candidates": 3
+  },
+  {
+   "older": "qwen3-32b",
+   "newer": "qwen3.6-27b",
+   "family": "Qwen",
+   "older_date": "2025-04-27",
+   "newer_date": "2026-04-21",
+   "older_total_b": 32.76,
+   "newer_total_b": 27.78,
+   "moe": false,
+   "candidates": 2
+  },
+  {
+   "older": "qwen3.5-35b-a3b",
+   "newer": "qwen3.6-35b-a3b",
+   "family": "Qwen",
+   "older_date": "2026-02-24",
+   "newer_date": "2026-04-15",
+   "older_total_b": 35.95,
+   "newer_total_b": 35.95,
+   "moe": true,
+   "candidates": 3
+  }
+ ],
+ "extension_pairs": [
+  {
+   "older": "mistral-nemo-instruct-2407",
+   "newer": "ministral-3-14b-instruct-2512",
+   "family": "Mistral",
+   "older_date": "2024-07-17",
+   "newer_date": "2025-10-31",
+   "older_total_b": 12.25,
+   "newer_total_b": 13.9,
+   "moe": false,
+   "candidates": 1
+  },
+  {
+   "older": "mistral-nemo-instruct-2407",
+   "newer": "ministral-3-8b-instruct-2512",
+   "family": "Mistral",
+   "older_date": "2024-07-17",
+   "newer_date": "2025-10-31",
+   "older_total_b": 12.25,
+   "newer_total_b": 8.92,
+   "moe": false,
+   "candidates": 3
+  }
+ ]
+}

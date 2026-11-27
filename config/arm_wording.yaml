@@ -1,0 +1,92 @@
+# The arm-wording run. Every rule below is fixed before any request of the run is built. src/arm_wording.py reads this file.
+
+label: arm_wording
+tasks: [gsm8k, math]
+
+# The wordings the collection used (config/promptsuite.yaml and config/promptsuite_math.yaml, arm_clauses). Each occurs
+# exactly once in its arm's messages in every configuration of both banks; the run replaces it with str.replace.
+current:
+  zero_shot_cot: "Let's think step by step."
+  direct_answer: "Give only the final answer, without any working."
+
+cot:
+  # Kojima T, Gu SS, Reid M, et al. 2022. Large Language Models are Zero-Shot Reasoners. NeurIPS 35. arXiv 2205.11916,
+  # Table 4 (16 templates, accuracy of text-davinci-002 on MultiArith; rows in the table's order).
+  # Rule: the instructive templates in table order; a template is a candidate when it is a complete sentence ending
+  # with a period (it can stand as an instruction in the user turn). Templates written as the opening of the answer
+  # (ending with a comma, or with no final punctuation) are left out. The first template is the current trigger.
+  # verified_on stays null until every string has been checked against Table 4 and the date set;
+  # scripts/build_arm_wording.py refuses the screening requests until then.
+  source: "Kojima et al. 2022, arXiv 2205.11916, Table 4"
+  # Checked against the arXiv PDF (2205.11916v4, page 8, Table 4): all nine instructive rows match in text
+  # and order; row 2 carries a footnote mark "(*1)" in the paper, which is not part of the template. The paper prints
+  # typographic apostrophes; the ASCII apostrophe here is the same template.
+  verified_on: "2026-11-18"
+  verified_by: "an AI assistant, reading the arXiv PDF of Kojima et al., Table 4"
+  table4_instructive:
+    - {row: 1, text: "Let's think step by step."}
+    - {row: 2, text: "First,"}
+    - {row: 3, text: "Let's think about this logically."}
+    - {row: 4, text: "Let's solve this problem by splitting it into steps."}
+    - {row: 5, text: "Let's be realistic and think step by step."}
+    - {row: 6, text: "Let's think like a detective step by step."}
+    - {row: 7, text: "Let's think"}
+    - {row: 8, text: "Before we dive into the answer,"}
+    - {row: 9, text: "The answer is after the proof."}
+
+direct:
+  # A paraphrase of the current clause by the paraphraser (config/arm_wording_paraphrase.yaml, run with
+  # scripts/paraphrase_d2.py), frozen when two runs agree; the meaning review keeps a variant under the rule below.
+  paraphrase_config: config/arm_wording_paraphrase.yaml
+  review_rule: >-
+    A variant is kept when it asks for the same thing as the original with nothing added or removed: it asks for the
+    final answer alone and for no working, steps or explanation, and it says nothing else (no answer format or box,
+    which the answer-format sentence after it supplies; no length, tone or confidence request; no reference to the
+    problem beyond the answer). The verdicts read the texts alone; no output under a new wording exists when they are
+    made.
+
+screen:
+  # Per arm: the current wording and the first n_candidates candidates in their order.
+  n_candidates: 5
+  # Per task: items drawn from the screening set, seed sha256("d24/screen-items/<task>"), sorted.
+  n_items: 50
+  # Of the six configurations: the first discovery and the first validation configuration.
+  configurations: [discovery_0, validation_0]
+  # Rules: config/admissibility.yaml with wording in place of configuration; MATH-500's truncation rule is relative
+  # to the arm's median wording.
+  rules: config/admissibility.yaml
+  relative_truncation: {gsm8k: false, math: true}
+
+choose:
+  # The current wording and the first n_new candidates that pass the screen, per arm.
+  n_new: 3
+
+configurations:
+  # Per task: n_discovery distinct discovery configurations of the frozen sampler and n_validation distinct validation
+  # configurations that no discovery draw uses, uniformly without replacement, seeds
+  # sha256("d24/arm-wording/<task>/discovery") and sha256("d24/arm-wording/<task>/validation").
+  n_discovery: 3
+  n_validation: 3
+
+items:
+  gsm8k: target      # the 1,319 test items
+  math: target       # the 398 numeric MATH-500 target items
+
+arms: [zero_shot_cot, direct_answer, forced_direct]
+
+decoding:
+  default: config/decoding_arm_wording.yaml
+  native_4k: config/decoding_arm_wording_4k.yaml
+registry: config/models_math.yaml
+
+analysis:
+  bootstrap_items: 2000
+  bootstrap_configurations: 2000
+  seed: 20261118
+  long_direct_tokens: 128
+  prediction_tolerance: 0.05
+  abstract:
+    one_prompt_target_c: 0.9
+    switch_share_band: [0.15, 0.25]
+    switch_share_clause_tolerance: 0.05
+    decision_extra_regret_pp: 1.0

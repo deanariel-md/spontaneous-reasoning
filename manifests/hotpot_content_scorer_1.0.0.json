@@ -1,0 +1,22 @@
+{
+ "scorer_version": "hotpot-content/1.0.0",
+ "beside": "hotpot-boxed/1.0.0",
+ "plan": "HotpotQA, content reading (22 November 2026)",
+ "answer_format": "End your reply with a final line that contains \\boxed{<answer>}.",
+ "placeholder": "<answer>",
+ "rules": {
+  "normalisation": "hotpot_evaluate_v1.py normalize_answer: lower case; characters of string.punctuation removed; \\b(a|an|the)\\b replaced by a space; white space collapsed",
+  "exact_match": "equal normalised strings",
+  "f1": "token F1 of the normalised strings; 0 when either normalises to yes, no or noanswer and they differ; 0 when no token is shared",
+  "box_pattern": "\\\\boxed\\s*\\{",
+  "wrapper_pattern": "\\\\(?:text|textbf|textit|textrm|mathrm|emph)\\s*\\{",
+  "answer_cue": "answer\\s*(?:is\\b\\s*:?|:)",
+  "lead_placeholder": "^\\s*<answer>\\s*[-:]?\\s*",
+  "bare_box_pattern": "(?<!\\\\)boxed\\s*\\{",
+  "placeholder_box_pattern": "\\\\boxed\\s*\\{\\s*<answer>\\s*\\}",
+  "clean": "a leading copied '<answer>' (optional '-' or ':') removed, then angle brackets around the whole content",
+  "content": "the last complete box whose content, unwrapped as strict and cleaned, normalises to neither '' nor 'answer'; else, on the text with every placeholder box removed: a final unclosed box when there is no complete box at all; else the rest of the line after the last answer cue; else the last non-empty line, read inside its first complete backslash-less box when it holds one; each unwrapped and cleaned; None for an empty output",
+  "unchanged": "strict, lenient and compliance stay those of hotpot-boxed/1.0.0"
+ },
+ "rules_sha256": "4025216ab93da4655ef5da0ce1e5e85464b1fe65a91ef8e4f64dbcbed4f283c2"
+}

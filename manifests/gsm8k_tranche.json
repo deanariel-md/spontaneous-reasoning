@@ -1,0 +1,49 @@
+{
+ "kind": "gsm8k_tranche",
+ "rule": "config/tranche.yaml",
+ "tranche_config_sha256": "3bb0b27b9111a5defcae960f0f3bba7dbac1de7ccad3d1914f2d3b70c9bd1233",
+ "bank": {
+  "path": "manifests/gsm8k_bank.json",
+  "sha256": "4a50c8251fcb76db50c3013dfee8c87912ae0bbec160830537296892cd855912"
+ },
+ "admissibility": {
+  "path": "manifests/gsm8k_admissibility.json",
+  "sha256": "da296747b7b88091e15a2d7397904eee12bca28240b9fb1d21f82f526c431418"
+ },
+ "seed_label": "gsm8k-tranche-configurations",
+ "seed": 20261030,
+ "n_bank_configurations": 56,
+ "configurations": [
+  "ps-i00-f00",
+  "ps-i00-f04",
+  "ps-i00-f06",
+  "ps-i02-f05",
+  "ps-i03-f04",
+  "ps-i04-f03",
+  "ps-i05-f03",
+  "ps-i05-f07"
+ ],
+ "models": [
+  "gemma-2b-it",
+  "gemma-3-12b-it",
+  "gemma-4-31b-it",
+  "gemma-7b-it",
+  "llama-2-13b-chat-hf",
+  "llama-2-7b-chat-hf",
+  "llama-3.1-8b-instruct",
+  "meta-llama-3-8b-instruct",
+  "mistral-7b-instruct-v0.1",
+  "mistral-7b-instruct-v0.3",
+  "mistral-nemo-instruct-2407",
+  "mistral-small-3.1-24b-instruct-2503",
+  "phi-3-medium-4k-instruct",
+  "phi-3-mini-4k-instruct",
+  "phi-4",
+  "qwen2.5-7b-instruct",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3-8b",
+  "qwen3.6-27b"
+ ],
+ "calibration_items": 1319,
+ "excluded_from_main": true
+}

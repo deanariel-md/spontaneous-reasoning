@@ -1,0 +1,42 @@
+# Decoding and engine settings for the Dataset 2 generation runner (src/generation.py).
+# Decoding settings and output caps are pinned and logged.
+#
+# status: confirmed. The runner refuses a
+# full vLLM run while status is not "confirmed". The throughput tranche and EchoBackend runs are
+# allowed; their logs carry decoding_confirmed: false.
+status: confirmed
+
+# Greedy decoding. Required for caching: identical inputs are generated once, which is valid only
+# for deterministic decoding. The runner refuses temperature != 0.
+temperature: 0.0
+top_p: 1.0
+top_k: 0              # 0 disables top-k in vLLM
+seed: 0               # engine seed (vLLM LLM(seed=...)); no effect on greedy outputs, pinned anyway
+
+# Output caps, tokens, per arm. Keys are the arm labels used in the request file (config/tasks.yaml:
+# direct_answer vs zero_shot_cot).
+# The same caps in screening, tranche and collection. A short direct cap would score
+# verbose models' truncated answers as failures and inflate their chain-of-thought gain; the direct-answer rule in
+# config/admissibility.yaml handles models that reason when asked for the answer alone. Every registry entry uses
+# max_model_len 4096 (the shortest native context in the panel), which leaves at least 1,024 tokens for the prompt.
+# A truncated output is scored as a strict-extraction failure, and truncation is reported by model and arm.
+max_new_tokens:
+  direct_answer: 1024
+  zero_shot_cot: 3072
+
+# No extra stop strings. Empty means the checkpoint's own EOS / EOT tokens only
+# (taken from the pinned revision's generation_config.json and tokenizer).
+stop: []
+include_stop_str_in_output: false
+skip_special_tokens: true
+
+# Engine settings. These affect speed and memory, not the decoding rule. All are logged.
+engine:
+  gpu_memory_utilization: 0.90
+  enable_prefix_caching: true
+  enforce_eager: false
+  max_num_seqs: null            # null: vLLM default
+  max_num_batched_tokens: null  # null: vLLM default
+  # "auto" keeps the pinned checkpoint's generation_config.json (EOS ids). Explicit SamplingParams
+  # override its sampling defaults, so only the stop-token set is inherited.
+  generation_config: auto

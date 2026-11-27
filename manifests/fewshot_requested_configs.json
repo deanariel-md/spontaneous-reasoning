@@ -1,0 +1,118 @@
+{
+ "kind": "fewshot_requested_configurations",
+ "study_part": "five-shot requested-direct arm",
+ "rule": "results/fewshot_requested/design.md, 'Configurations, by rule'",
+ "n_discovery": 4,
+ "n_validation": 4,
+ "tasks": {
+  "gsm8k": {
+   "discovery": [
+    "ps-i01-f02",
+    "ps-i07-f01",
+    "ps-i05-f06",
+    "ps-i02-f06"
+   ],
+   "discovery_pool": [
+    "ps-i07-f00",
+    "ps-i03-f05",
+    "ps-i05-f05",
+    "ps-i03-f06",
+    "ps-i02-f01",
+    "ps-i04-f02",
+    "ps-i05-f01",
+    "ps-i07-f01",
+    "ps-i04-f05",
+    "ps-i02-f04",
+    "ps-i05-f04",
+    "ps-i00-f02",
+    "ps-i02-f06",
+    "ps-i01-f00",
+    "ps-i03-f00",
+    "ps-i05-f06",
+    "ps-i04-f03",
+    "ps-i01-f02",
+    "ps-i07-f05"
+   ],
+   "discovery_seed_label": "d28/fsr/gsm8k/discovery",
+   "validation": [
+    "ps-i04-f06",
+    "ps-i02-f00",
+    "ps-i01-f07",
+    "ps-i05-f07"
+   ],
+   "validation_pool": [
+    "ps-i03-f04",
+    "ps-i04-f06",
+    "ps-i05-f02",
+    "ps-i05-f07",
+    "ps-i07-f07",
+    "ps-i01-f07",
+    "ps-i00-f00",
+    "ps-i02-f00",
+    "ps-i03-f02",
+    "ps-i03-f03"
+   ],
+   "validation_seed_label": "d28/fsr/gsm8k/validation",
+   "sampler": "manifests/sampler_gsm8k.json",
+   "sampler_sha256": "62133308b3fdaa3e236bf5ee2a79ba4c76aa0a1fa60e5ce61da1d20c1579531f"
+  },
+  "bbh": {
+   "discovery": [
+    "ps-i01-f06",
+    "ps-i07-f02",
+    "ps-i00-f06",
+    "ps-i02-f06"
+   ],
+   "discovery_pool": [
+    "ps-i06-f06",
+    "ps-i00-f04",
+    "ps-i02-f01",
+    "ps-i07-f02",
+    "ps-i07-f03",
+    "ps-i01-f06",
+    "ps-i01-f07",
+    "ps-i00-f06",
+    "ps-i02-f00",
+    "ps-i03-f00",
+    "ps-i04-f05",
+    "ps-i06-f01",
+    "ps-i04-f04",
+    "ps-i02-f02",
+    "ps-i02-f06",
+    "ps-i02-f03",
+    "ps-i03-f01",
+    "ps-i03-f05"
+   ],
+   "discovery_seed_label": "d28/fsr/bbh/discovery",
+   "validation": [
+    "ps-i01-f03",
+    "ps-i05-f07",
+    "ps-i07-f04",
+    "ps-i01-f01"
+   ],
+   "validation_pool": [
+    "ps-i02-f05",
+    "ps-i02-f07",
+    "ps-i07-f05",
+    "ps-i06-f07",
+    "ps-i01-f01",
+    "ps-i05-f07",
+    "ps-i07-f04",
+    "ps-i01-f05",
+    "ps-i01-f00",
+    "ps-i03-f06",
+    "ps-i05-f03",
+    "ps-i00-f05",
+    "ps-i04-f07",
+    "ps-i01-f03",
+    "ps-i06-f03",
+    "ps-i06-f05",
+    "ps-i04-f00"
+   ],
+   "validation_seed_label": "d28/fsr/bbh/validation",
+   "sampler": "manifests/sampler_bbh.json",
+   "sampler_sha256": "3d8da4e5d654d7abe3cc8599d085077139ec9b8239beabb35b0b85ac524b1372"
+  }
+ },
+ "created": "2026-11-21 09:06:20"
+}

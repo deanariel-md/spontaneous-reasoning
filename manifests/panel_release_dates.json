@@ -1,0 +1,567 @@
+{
+ "what": "Release dates of the panel's 29 checkpoints and of the seven of the extension; written before any w is read by scripts/release_dates.py",
+ "request": "release dates and newest-model reversal shares",
+ "script": "scripts/release_dates.py dates",
+ "written_at": "2026-11-25 18:09:16 +0200",
+ "panel_rule": "Hugging Face repository creation date (UTC), the source of \\aeRecentM; a checkpoint is recent when its date is on or after 2025-01-01",
+ "extension_rule": "the repository creation date where this repository records one; otherwise the developer's or the provider's recorded date, its basis named; alternatives listed",
+ "recent_from": "2025-01-01",
+ "recent_panel": [
+  "gemma-3-12b-it",
+  "gemma-3-27b-it",
+  "gemma-3-4b-it",
+  "gemma-4-31b-it",
+  "mistral-small-3.1-24b-instruct-2503",
+  "qwen3-14b",
+  "qwen3-30b-a3b",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3-32b",
+  "qwen3-8b",
+  "qwen3.5-35b-a3b",
+  "qwen3.5-9b",
+  "qwen3.6-27b",
+  "qwen3.6-35b-a3b"
+ ],
+ "recent_panel_M": 14,
+ "entries": {
+  "gemma-2-27b-it": {
+   "group": "panel",
+   "family": "Gemma",
+   "repo": "google/gemma-2-27b-it",
+   "params_b": 27.23,
+   "date": "2024-06-24",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "gemma-2-9b-it": {
+   "group": "panel",
+   "family": "Gemma",
+   "repo": "google/gemma-2-9b-it",
+   "params_b": 9.24,
+   "date": "2024-06-24",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "gemma-2b-it": {
+   "group": "panel",
+   "family": "Gemma",
+   "repo": "google/gemma-2b-it",
+   "params_b": 2.51,
+   "date": "2024-02-08",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "gemma-3-12b-it": {
+   "group": "panel",
+   "family": "Gemma",
+   "repo": "google/gemma-3-12b-it",
+   "params_b": 12.19,
+   "date": "2025-03-01",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "gemma-3-27b-it": {
+   "group": "panel",
+   "family": "Gemma",
+   "repo": "google/gemma-3-27b-it",
+   "params_b": 27.43,
+   "date": "2025-03-01",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "gemma-3-4b-it": {
+   "group": "panel",
+   "family": "Gemma",
+   "repo": "google/gemma-3-4b-it",
+   "params_b": 4.3,
+   "date": "2025-02-20",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "gemma-4-31b-it": {
+   "group": "panel",
+   "family": "Gemma",
+   "repo": "google/gemma-4-31B-it",
+   "params_b": 31.27,
+   "date": "2026-03-11",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math"
+   ]
+  },
+  "gemma-7b-it": {
+   "group": "panel",
+   "family": "Gemma",
+   "repo": "google/gemma-7b-it",
+   "params_b": 8.54,
+   "date": "2024-02-13",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "llama-2-13b-chat-hf": {
+   "group": "panel",
+   "family": "Llama",
+   "repo": "meta-llama/Llama-2-13b-chat-hf",
+   "params_b": 13.02,
+   "date": "2023-07-13",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "llama-2-7b-chat-hf": {
+   "group": "panel",
+   "family": "Llama",
+   "repo": "meta-llama/Llama-2-7b-chat-hf",
+   "params_b": 6.74,
+   "date": "2023-07-13",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "llama-3.1-8b-instruct": {
+   "group": "panel",
+   "family": "Llama",
+   "repo": "meta-llama/Llama-3.1-8B-Instruct",
+   "params_b": 8.03,
+   "date": "2024-07-18",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "meta-llama-3-8b-instruct": {
+   "group": "panel",
+   "family": "Llama",
+   "repo": "meta-llama/Meta-Llama-3-8B-Instruct",
+   "params_b": 8.03,
+   "date": "2024-04-17",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "mistral-7b-instruct-v0.1": {
+   "group": "panel",
+   "family": "Mistral",
+   "repo": "mistralai/Mistral-7B-Instruct-v0.1",
+   "params_b": 7.24,
+   "date": "2023-09-27",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "mistral-7b-instruct-v0.3": {
+   "group": "panel",
+   "family": "Mistral",
+   "repo": "mistralai/Mistral-7B-Instruct-v0.3",
+   "params_b": 7.25,
+   "date": "2024-05-22",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "mistral-nemo-instruct-2407": {
+   "group": "panel",
+   "family": "Mistral",
+   "repo": "mistralai/Mistral-Nemo-Instruct-2407",
+   "params_b": 12.25,
+   "date": "2024-07-17",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "mistral-small-3.1-24b-instruct-2503": {
+   "group": "panel",
+   "family": "Mistral",
+   "repo": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+   "params_b": 24.01,
+   "date": "2025-03-11",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "phi-3-medium-4k-instruct": {
+   "group": "panel",
+   "family": "Phi",
+   "repo": "microsoft/Phi-3-medium-4k-instruct",
+   "params_b": 13.96,
+   "date": "2024-05-07",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "phi-3-mini-4k-instruct": {
+   "group": "panel",
+   "family": "Phi",
+   "repo": "microsoft/Phi-3-mini-4k-instruct",
+   "params_b": 3.82,
+   "date": "2024-04-22",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "phi-4": {
+   "group": "panel",
+   "family": "Phi",
+   "repo": "microsoft/phi-4",
+   "params_b": 14.66,
+   "date": "2024-12-11",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "qwen2.5-7b-instruct": {
+   "group": "panel",
+   "family": "Qwen",
+   "repo": "Qwen/Qwen2.5-7B-Instruct",
+   "params_b": 7.62,
+   "date": "2024-09-16",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "qwen3-14b": {
+   "group": "panel",
+   "family": "Qwen",
+   "repo": "Qwen/Qwen3-14B",
+   "params_b": 14.77,
+   "date": "2025-04-27",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "qwen3-30b-a3b": {
+   "group": "panel",
+   "family": "Qwen",
+   "repo": "Qwen/Qwen3-30B-A3B",
+   "params_b": 30.53,
+   "date": "2025-04-27",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "qwen3-30b-a3b-instruct-2507": {
+   "group": "panel",
+   "family": "Qwen",
+   "repo": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+   "params_b": 30.53,
+   "date": "2025-07-28",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "qwen3-32b": {
+   "group": "panel",
+   "family": "Qwen",
+   "repo": "Qwen/Qwen3-32B",
+   "params_b": 32.76,
+   "date": "2025-04-27",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "qwen3-8b": {
+   "group": "panel",
+   "family": "Qwen",
+   "repo": "Qwen/Qwen3-8B",
+   "params_b": 8.19,
+   "date": "2025-04-27",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "qwen3.5-35b-a3b": {
+   "group": "panel",
+   "family": "Qwen",
+   "repo": "Qwen/Qwen3.5-35B-A3B",
+   "params_b": 35.95,
+   "date": "2026-02-24",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "qwen3.5-9b": {
+   "group": "panel",
+   "family": "Qwen",
+   "repo": "Qwen/Qwen3.5-9B",
+   "params_b": 9.65,
+   "date": "2026-02-27",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "qwen3.6-27b": {
+   "group": "panel",
+   "family": "Qwen",
+   "repo": "Qwen/Qwen3.6-27B",
+   "params_b": 27.78,
+   "date": "2026-04-21",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "qwen3.6-35b-a3b": {
+   "group": "panel",
+   "family": "Qwen",
+   "repo": "Qwen/Qwen3.6-35B-A3B",
+   "params_b": 35.95,
+   "date": "2026-04-15",
+   "basis": "hf_repo_created",
+   "source": "manifests/d2_panel_extension.json 'created' (from manifests/external/hf_metadata_20261030.json, the Hugging Face API's repository creation date, read 30 Oct 2026), through scripts/statement_values.release_dates",
+   "hf_metadata_agrees": true,
+   "benchmarks": [
+    "gsm8k",
+    "math",
+    "bbh"
+   ]
+  },
+  "ministral-3-8b-instruct-2512": {
+   "repo": "mistralai/Ministral-3-8B-Instruct-2512",
+   "date": "2025-10-31",
+   "basis": "hf_repo_created",
+   "source": "manifests/dataset2_inventory.md, Table 2 (repository creation date)",
+   "alternatives": [
+    {
+     "date": "2025-12-02",
+     "what": "Mistral 3's public release: Mistral Large 3's release date on Mistral's model page (results/ladder/mistral_price.json, 'released'); the Ministral 3 checkpoints carry the same 2512 tag"
+    }
+   ],
+   "group": "extension",
+   "family": "Mistral"
+  },
+  "ministral-3-14b-instruct-2512": {
+   "repo": "mistralai/Ministral-3-14B-Instruct-2512",
+   "date": "2025-10-31",
+   "basis": "hf_repo_created",
+   "source": "manifests/dataset2_inventory.md, Table 2 (repository creation date)",
+   "alternatives": [
+    {
+     "date": "2025-12-02",
+     "what": "as for Ministral 3 8B"
+    }
+   ],
+   "group": "extension",
+   "family": "Mistral"
+  },
+  "mistral-large-2512": {
+   "repo": "mistralai/Mistral-Large-3-675B-Instruct-2512 (run through Mistral's API)",
+   "date": "2025-12-02",
+   "basis": "developer_page_released",
+   "source": "results/ladder/mistral_price.json, 'released' (Mistral's model page https://docs.mistral.ai/models/mistral-large-3-25-12, read 2026-11-22); no repository creation date is recorded in this repository",
+   "alternatives": [],
+   "group": "extension",
+   "family": "Mistral"
+  },
+  "llama-3.1-70b-instruct-fp8": {
+   "repo": "RedHatAI/Meta-Llama-3.1-70B-Instruct-FP8-dynamic (Meta's meta-llama/Llama-3.1-70B-Instruct, quantized)",
+   "date": "2024-07-18",
+   "basis": "same_release_as_panel_checkpoint",
+   "source": "the Llama 3.1 release: the repository creation date of the panel's meta-llama/Llama-3.1-8B-Instruct (same source as the panel; equal to the inventory's row); the creation date of meta-llama/Llama-3.1-70B-Instruct is not recorded in this repository",
+   "alternatives": [],
+   "group": "extension",
+   "family": "Llama"
+  },
+  "qwen3.5-122b-a10b-fp8": {
+   "repo": "Qwen/Qwen3.5-122B-A10B (run as Qwen/Qwen3.5-122B-A10B-FP8)",
+   "date": "2026-02-24",
+   "basis": "hf_repo_created",
+   "source": "manifests/dataset2_inventory.md, Table 1 (repository creation date of the bfloat16 release)",
+   "alternatives": [],
+   "group": "extension",
+   "family": "Qwen"
+  },
+  "deepseek-v4.1-flash-1017": {
+   "repo": "deepseek-ai/DeepSeek-V4.1-Flash-1017 (run through Nebius)",
+   "date": "2026-10-17",
+   "basis": "developer_release_note",
+   "source": "manifests/ladder_published_sizes.json (DeepSeek's release note of the 1017 checkpoint, https://api-docs.deepseek.com/news/news261017); no repository creation date of the 1017 checkpoint is recorded in this repository",
+   "alternatives": [
+    {
+     "date": "2026-09-10",
+     "what": "deepseek-ai/DeepSeek-V4.1-Flash, the V4.1-Flash release the 1017 checkpoint updates (manifests/dataset2_inventory.md, repository creation date)"
+    }
+   ],
+   "group": "extension",
+   "family": "DeepSeek"
+  },
+  "qwen4-max": {
+   "repo": "none (closed weights; qwen/qwen4-max on OpenRouter)",
+   "date": "2026-11-16",
+   "basis": "provider_listing_created",
+   "source": "results/frontier_panel/closed_ladder_price.json, OpenRouter's model listing, 'created' (canonical slug qwen/qwen4-max-20261115)",
+   "alternatives": [
+    {
+     "date": "2026-11-15",
+     "what": "the date in OpenRouter's canonical slug"
+    }
+   ],
+   "group": "extension",
+   "family": "Qwen"
+  }
+ },
+ "flags": [
+  {
+   "model": "ministral-3-8b-instruct-2512",
+   "what": "repository created about a month before the public release recorded beside it (2025-10-31 against 2025-12-02); both on the same side of 2025-01-01",
+   "from": "recorded sources"
+  },
+  {
+   "model": "ministral-3-14b-instruct-2512",
+   "what": "repository created about a month before the public release recorded beside it (2025-10-31 against 2025-12-02); both on the same side of 2025-01-01",
+   "from": "recorded sources"
+  },
+  {
+   "model": "phi-4",
+   "what": "repository created 2024-12-11; Microsoft announced Phi-4 on 12 December 2024 and, as recalled, opened the weights on Hugging Face in early January 2025, so it sits just before the 2025 cut by its repository date and after it by its open-weights date",
+   "from": "general knowledge, not read from a source in this run"
+  },
+  {
+   "model": "gemma-3-4b-it",
+   "what": "repository created 2025-02-20; Gemma 3 was announced on 12 March 2025 (the 12B and 27B repositories were created 2025-03-01)",
+   "from": "general knowledge, not read from a source in this run"
+  }
+ ]
+}

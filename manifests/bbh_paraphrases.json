@@ -1,0 +1,96 @@
+{
+ "kind": "paraphrase_record",
+ "config_name": "bbh_bank_v1",
+ "request": {
+  "promptsuite_version": "3.0.7",
+  "field": "instruction",
+  "text": "Answer the following question.",
+  "variations_per_field": 8,
+  "n_augments": 7,
+  "prompt_sha256": "7dc9f36dcb1083359accf875352cbf5294724dbebd505a6a9539adf2b573f74c",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Can you help me write variations of an instruction prompt to an LLM for the following task description? \n\nIMPORTANT: The instruction may contain placeholders in curly braces like {subject}, {topic}, {field}, etc. These placeholders MUST be preserved EXACTLY as they appear in ALL variations.\n\nProvide 7 creative versions while:\n1. Preserving the original meaning and intent\n2. Keeping ALL placeholders {} unchanged in their exact positions\n3. Varying the instructional language around the placeholders\n4. NEVER introduce new placeholders - if the original has no placeholders, the variations must have none\n\nOutput only a Python list of strings with the alternatives. Do not include any explanation or additional text.\n\nOriginal instruction: '''Answer the following question.'''"
+   }
+  ]
+ },
+ "response": {
+  "text": "['Respond to the query that follows.', 'Provide a solution to the subsequent question.', 'Please address the following inquiry.', 'Offer a reply to the question below.', 'Give a response to the posed question.', 'React to the following prompt with an answer.', 'Reply to the question presented.']",
+  "sha256": "5797e4e2e644d36e51a6aa179db7c69aafce6e1b1bcf1d5e6eb7f6e6fc1342dc",
+  "finish_reason": "stop",
+  "n_output_tokens": 60
+ },
+ "replay": {
+  "text": "['Respond to the query that follows.', 'Provide a solution to the subsequent question.', 'Please address the following inquiry.', 'Offer a reply to the question below.', 'Give a response to the posed question.', 'React to the following prompt with an answer.', 'Reply to the question presented.']",
+  "sha256": "5797e4e2e644d36e51a6aa179db7c69aafce6e1b1bcf1d5e6eb7f6e6fc1342dc",
+  "code_fence_removed": false,
+  "note": "the response unchanged"
+ },
+ "parsed": [
+  "Respond to the query that follows.",
+  "Provide a solution to the subsequent question.",
+  "Please address the following inquiry.",
+  "Offer a reply to the question below.",
+  "Give a response to the posed question.",
+  "React to the following prompt with an answer.",
+  "Reply to the question presented."
+ ],
+ "variants": [
+  "Answer the following question.",
+  "Respond to the query that follows.",
+  "Provide a solution to the subsequent question.",
+  "Please address the following inquiry.",
+  "Offer a reply to the question below.",
+  "Give a response to the posed question.",
+  "React to the following prompt with an answer.",
+  "Reply to the question presented."
+ ],
+ "model": {
+  "key": "llama-3.3-70b-instruct-fp8",
+  "hf_id": "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic",
+  "revision": "f50dbad2c84590ca17dc51e207c34321b65ff14b",
+  "kernels": "batch_invariant",
+  "quantization": "compressed-tensors",
+  "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+  "rendered_prompt_sha256": "b44380edc050e06b43ed03fe393a82c3b3c3b596e9a396d70292347303935a44",
+  "run_id": "20261031T154243Z-11cebd",
+  "run_log": "data\\d2_out\\paraphrase_bbh\\run1\\llama-3.3-70b-instruct-fp8\\run_log-20261031T154243Z-11cebd.json",
+  "run_log_sha256": "e89b57d72dfebc6cb76810270a7d8f5921c1ee16d52992d077080b760730c525",
+  "gpu": {
+   "count": 1,
+   "devices": [
+    {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+     "memory_mib": 97887
+    }
+   ],
+   "driver_version": "595.58.03",
+   "cuda_version_driver": "13.2",
+   "nvidia_smi": true
+  },
+  "versions": {
+   "vllm": "0.30.0",
+   "torch": "2.13.0",
+   "transformers": "5.16.1"
+  }
+ },
+ "repeat": {
+  "run_id": "20261031T154529Z-c92802",
+  "run_log": "data\\d2_out\\paraphrase_bbh\\run2\\llama-3.3-70b-instruct-fp8\\run_log-20261031T154529Z-c92802.json",
+  "run_log_sha256": "7bd8330ba304000d0a6387ba51bc50ae3e2fb8f875d3fce770b65bb9b3c72869",
+  "gpu": {
+   "count": 1,
+   "devices": [
+    {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+     "memory_mib": 97887
+    }
+   ],
+   "driver_version": "595.58.03",
+   "cuda_version_driver": "13.2",
+   "nvidia_smi": true
+  },
+  "identical": true
+ }
+}

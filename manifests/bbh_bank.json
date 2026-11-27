@@ -1,0 +1,2333 @@
+{
+  "generator": "PromptSuite",
+  "generator_version": "3.0.7",
+  "seed": 20261031,
+  "generation_record": {
+    "tool": "scripts/build_bank_candidates.py",
+    "config_status": "confirmed",
+    "config_name": "bbh_bank_v1",
+    "config_sha256": "95c3dea8926f22167208b9eabcb3a78f156989c9d6617eb7aa4080a888a8763a",
+    "promptsuite_version": "3.0.7",
+    "python_version": "3.12.10",
+    "pandas_version": "3.0.6",
+    "numpy_version": "2.5.4",
+    "pythonhashseed": "0",
+    "seed": 20261031,
+    "variations_per_field": 8,
+    "max_variations_per_row": null,
+    "template": {
+      "instruction": "Answer the following question.",
+      "instruction variations": [
+        "paraphrase_with_llm"
+      ],
+      "prompt format": "Question: {question}\n{arm_clause} {answer_format}",
+      "prompt format variations": [
+        "format structure"
+      ]
+    },
+    "variation_types": {
+      "instruction": [
+        "paraphrase_with_llm"
+      ],
+      "prompt_format": [
+        "format structure"
+      ]
+    },
+    "placeholders": [
+      "{question}",
+      "{arm_clause}",
+      "{answer_format}"
+    ],
+    "arm_clauses": {
+      "direct_answer": "Give only the final answer, without any working.",
+      "zero_shot_cot": "Let's think step by step."
+    },
+    "answer_format": {
+      "scorer_candidate": "boxed",
+      "text": "End your reply with a final line that contains \\boxed{<answer>}.",
+      "scorer_template": "\\\\boxed\\{<NUM>\\}",
+      "scorer_case_sensitive": true,
+      "scorer_version": "gsm8k-scorer/1.3.0"
+    },
+    "sampling_law": "uniform",
+    "required_literals": null,
+    "llm": {
+      "used": true,
+      "platform": "local_replay",
+      "model": "llama-3.3-70b-instruct-fp8",
+      "replay": {
+        "record": "manifests/bbh_paraphrases.json",
+        "record_sha256": "d75b267e57eb7c6ad4137a85fac652cbe8fcd2a25688d50571bf41e9644ac2cf",
+        "request_sha256": "7dc9f36dcb1083359accf875352cbf5294724dbebd505a6a9539adf2b573f74c",
+        "response_sha256": "5797e4e2e644d36e51a6aa179db7c69aafce6e1b1bcf1d5e6eb7f6e6fc1342dc",
+        "replay_sha256": "5797e4e2e644d36e51a6aa179db7c69aafce6e1b1bcf1d5e6eb7f6e6fc1342dc",
+        "code_fence_removed": false,
+        "paraphraser": {
+          "key": "llama-3.3-70b-instruct-fp8",
+          "hf_id": "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic",
+          "revision": "f50dbad2c84590ca17dc51e207c34321b65ff14b",
+          "kernels": "batch_invariant",
+          "quantization": "compressed-tensors",
+          "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+          "rendered_prompt_sha256": "b44380edc050e06b43ed03fe393a82c3b3c3b596e9a396d70292347303935a44",
+          "run_id": "20261031T154243Z-11cebd",
+          "run_log": "data\\d2_out\\paraphrase_bbh\\run1\\llama-3.3-70b-instruct-fp8\\run_log-20261031T154243Z-11cebd.json",
+          "run_log_sha256": "e89b57d72dfebc6cb76810270a7d8f5921c1ee16d52992d077080b760730c525",
+          "gpu": {
+            "count": 1,
+            "devices": [
+              {
+                "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+                "memory_mib": 97887
+              }
+            ],
+            "driver_version": "595.58.03",
+            "cuda_version_driver": "13.2",
+            "nvidia_smi": true
+          },
+          "versions": {
+            "vllm": "0.30.0",
+            "torch": "2.13.0",
+            "transformers": "5.16.1"
+          }
+        },
+        "review": "manifests/bbh_paraphrase_review.json",
+        "review_sha256": "8fcddf084117cb433e428698ee6ec4fa1adbb62046300abb101e4c43e9259148",
+        "reviewers": [
+          "an AI assistant, for the authors, on 30 October 2026 and the extension decided on 31 October 2026"
+        ],
+        "dropped_in_review": {}
+      }
+    },
+    "instruction_placement": "user",
+    "variants": {
+      "instruction": [
+        "Answer the following question.",
+        "Give a response to the posed question.",
+        "Offer a reply to the question below.",
+        "Please address the following inquiry.",
+        "Provide a solution to the subsequent question.",
+        "React to the following prompt with an answer.",
+        "Reply to the question presented.",
+        "Respond to the query that follows."
+      ],
+      "prompt_format": [
+        "Question: {question}\n{arm_clause} {answer_format}",
+        "QUESTION {question}\n{arm_clause} {answer_format}",
+        "QUESTION: {question}\n{arm_clause} {answer_format}",
+        "Question {question}\n{arm_clause} {answer_format}",
+        "Question || {question}\n{arm_clause} {answer_format}",
+        "question {question}\n{arm_clause} {answer_format}",
+        "question || {question}\n{arm_clause} {answer_format}",
+        "question: {question}\n{arm_clause} {answer_format}"
+      ]
+    },
+    "variant_sha256": "a0e670e0bb35d70f3e39ff50d7f1cf6919545d0e31ecdb49633b1049d0d81f2b",
+    "n_skeleton_pairs": 64,
+    "n_configurations": 64,
+    "dropped": [],
+    "fidelity_check": {
+      "rows_compared": [
+        "direct_answer",
+        "zero_shot_cot"
+      ],
+      "messages_compared": 128,
+      "result": "identical",
+      "compared_with": "prompt"
+    },
+    "warnings": []
+  },
+  "configurations": {
+    "ps-i00-f00": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f01": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nQUESTION {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nQUESTION {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f02": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f03": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f04": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nQuestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nQuestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f05": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nquestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nquestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f06": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nquestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nquestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f07": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Answer the following question.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f00": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f01": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nQUESTION {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nQUESTION {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f02": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f03": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f04": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nQuestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nQuestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f05": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nquestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nquestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f06": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nquestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nquestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f07": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Give a response to the posed question.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f00": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f01": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nQUESTION {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nQUESTION {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f02": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f03": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f04": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nQuestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nQuestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f05": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nquestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nquestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f06": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nquestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nquestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f07": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Offer a reply to the question below.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f00": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f01": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nQUESTION {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nQUESTION {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f02": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f03": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f04": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nQuestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nQuestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f05": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nquestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nquestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f06": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nquestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nquestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f07": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please address the following inquiry.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f00": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f01": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nQUESTION {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nQUESTION {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f02": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f03": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f04": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nQuestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nQuestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f05": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nquestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nquestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f06": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nquestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nquestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f07": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Provide a solution to the subsequent question.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f00": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f01": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nQUESTION {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nQUESTION {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f02": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f03": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f04": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nQuestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nQuestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f05": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nquestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nquestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f06": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nquestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nquestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f07": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "React to the following prompt with an answer.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f00": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f01": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nQUESTION {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nQUESTION {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f02": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f03": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f04": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nQuestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nQuestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f05": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nquestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nquestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f06": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nquestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nquestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f07": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Reply to the question presented.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i07-f00": {
+      "dimensions": {
+        "instruction_variant": 7,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i07-f01": {
+      "dimensions": {
+        "instruction_variant": 7,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nQUESTION {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nQUESTION {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i07-f02": {
+      "dimensions": {
+        "instruction_variant": 7,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i07-f03": {
+      "dimensions": {
+        "instruction_variant": 7,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i07-f04": {
+      "dimensions": {
+        "instruction_variant": 7,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nQuestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nQuestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i07-f05": {
+      "dimensions": {
+        "instruction_variant": 7,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nquestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nquestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i07-f06": {
+      "dimensions": {
+        "instruction_variant": 7,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nquestion || {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nquestion || {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i07-f07": {
+      "dimensions": {
+        "instruction_variant": 7,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Respond to the query that follows.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<answer>}."
+            }
+          ]
+        }
+      }
+    }
+  },
+  "sampling_probabilities": {
+    "ps-i00-f00": 0.015625,
+    "ps-i00-f01": 0.015625,
+    "ps-i00-f02": 0.015625,
+    "ps-i00-f03": 0.015625,
+    "ps-i00-f04": 0.015625,
+    "ps-i00-f05": 0.015625,
+    "ps-i00-f06": 0.015625,
+    "ps-i00-f07": 0.015625,
+    "ps-i01-f00": 0.015625,
+    "ps-i01-f01": 0.015625,
+    "ps-i01-f02": 0.015625,
+    "ps-i01-f03": 0.015625,
+    "ps-i01-f04": 0.015625,
+    "ps-i01-f05": 0.015625,
+    "ps-i01-f06": 0.015625,
+    "ps-i01-f07": 0.015625,
+    "ps-i02-f00": 0.015625,
+    "ps-i02-f01": 0.015625,
+    "ps-i02-f02": 0.015625,
+    "ps-i02-f03": 0.015625,
+    "ps-i02-f04": 0.015625,
+    "ps-i02-f05": 0.015625,
+    "ps-i02-f06": 0.015625,
+    "ps-i02-f07": 0.015625,
+    "ps-i03-f00": 0.015625,
+    "ps-i03-f01": 0.015625,
+    "ps-i03-f02": 0.015625,
+    "ps-i03-f03": 0.015625,
+    "ps-i03-f04": 0.015625,
+    "ps-i03-f05": 0.015625,
+    "ps-i03-f06": 0.015625,
+    "ps-i03-f07": 0.015625,
+    "ps-i04-f00": 0.015625,
+    "ps-i04-f01": 0.015625,
+    "ps-i04-f02": 0.015625,
+    "ps-i04-f03": 0.015625,
+    "ps-i04-f04": 0.015625,
+    "ps-i04-f05": 0.015625,
+    "ps-i04-f06": 0.015625,
+    "ps-i04-f07": 0.015625,
+    "ps-i05-f00": 0.015625,
+    "ps-i05-f01": 0.015625,
+    "ps-i05-f02": 0.015625,
+    "ps-i05-f03": 0.015625,
+    "ps-i05-f04": 0.015625,
+    "ps-i05-f05": 0.015625,
+    "ps-i05-f06": 0.015625,
+    "ps-i05-f07": 0.015625,
+    "ps-i06-f00": 0.015625,
+    "ps-i06-f01": 0.015625,
+    "ps-i06-f02": 0.015625,
+    "ps-i06-f03": 0.015625,
+    "ps-i06-f04": 0.015625,
+    "ps-i06-f05": 0.015625,
+    "ps-i06-f06": 0.015625,
+    "ps-i06-f07": 0.015625,
+    "ps-i07-f00": 0.015625,
+    "ps-i07-f01": 0.015625,
+    "ps-i07-f02": 0.015625,
+    "ps-i07-f03": 0.015625,
+    "ps-i07-f04": 0.015625,
+    "ps-i07-f05": 0.015625,
+    "ps-i07-f06": 0.015625,
+    "ps-i07-f07": 0.015625
+  },
+  "frozen_from": {
+    "candidate_path": "data/bank_candidates/bbh_bank_v1.json",
+    "candidate_sha256": "028eb52fee25e34c43aeb5d829f643f4c6fd305804a92b929e54d51590e15049",
+    "admissibility": {
+      "path": "manifests/bbh_admissibility.json",
+      "sha256": "9ce61219d5f9e61871545ce0743792c7749c98ccc49ccdebd5c5b0e2f4c62c69"
+    },
+    "n_candidate_configurations": 64,
+    "n_retained": 64,
+    "excluded_configuration_ids": [],
+    "sampling_law": "uniform",
+    "sampling_law_rule": "uniform over the retained configurations"
+  }
+}

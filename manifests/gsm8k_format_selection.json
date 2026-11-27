@@ -1,0 +1,977 @@
+{
+ "kind": "gsm8k_format_selection",
+ "rule": "highest minimum strict compliance over models and arms; ties go to the earlier candidate (config/answer_formats.yaml)",
+ "screen_manifest_sha256": "ab9fa444a65b261184d03f647ac99f9574dd1d834348adbc70973c0abe186898",
+ "models": [
+  "gemma-2b-it",
+  "gemma-3-12b-it",
+  "gemma-4-31b-it",
+  "gemma-7b-it",
+  "llama-2-13b-chat-hf",
+  "llama-2-7b-chat-hf",
+  "llama-3.1-8b-instruct",
+  "meta-llama-3-8b-instruct",
+  "mistral-7b-instruct-v0.1",
+  "mistral-7b-instruct-v0.3",
+  "mistral-nemo-instruct-2407",
+  "mistral-small-3.1-24b-instruct-2503",
+  "phi-3-medium-4k-instruct",
+  "phi-3-mini-4k-instruct",
+  "phi-4",
+  "qwen2.5-7b-instruct",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3-8b",
+  "qwen3.6-27b"
+ ],
+ "candidates": [
+  {
+   "scorer_candidate": "answer_colon_markup",
+   "min_strict_compliance_pct": 5.25,
+   "by_model_and_arm": [
+    {
+     "model_key": "gemma-2b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 5.25
+    },
+    {
+     "model_key": "gemma-2b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 25.25
+    },
+    {
+     "model_key": "gemma-3-12b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 98.5
+    },
+    {
+     "model_key": "gemma-3-12b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.75
+    },
+    {
+     "model_key": "gemma-4-31b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.0
+    },
+    {
+     "model_key": "gemma-4-31b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.0
+    },
+    {
+     "model_key": "gemma-7b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 26.5
+    },
+    {
+     "model_key": "gemma-7b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 59.0
+    },
+    {
+     "model_key": "llama-2-13b-chat-hf",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 39.25
+    },
+    {
+     "model_key": "llama-2-13b-chat-hf",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 27.25
+    },
+    {
+     "model_key": "llama-2-7b-chat-hf",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 64.5
+    },
+    {
+     "model_key": "llama-2-7b-chat-hf",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 43.0
+    },
+    {
+     "model_key": "llama-3.1-8b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 91.25
+    },
+    {
+     "model_key": "llama-3.1-8b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 98.75
+    },
+    {
+     "model_key": "meta-llama-3-8b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 66.5
+    },
+    {
+     "model_key": "meta-llama-3-8b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 97.0
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.1",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 79.0
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.1",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 38.5
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.3",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 38.25
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.3",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 18.75
+    },
+    {
+     "model_key": "mistral-nemo-instruct-2407",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 90.5
+    },
+    {
+     "model_key": "mistral-nemo-instruct-2407",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 47.0
+    },
+    {
+     "model_key": "mistral-small-3.1-24b-instruct-2503",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 96.75
+    },
+    {
+     "model_key": "mistral-small-3.1-24b-instruct-2503",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.25
+    },
+    {
+     "model_key": "phi-3-medium-4k-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 91.75
+    },
+    {
+     "model_key": "phi-3-medium-4k-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 59.75
+    },
+    {
+     "model_key": "phi-3-mini-4k-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 83.0
+    },
+    {
+     "model_key": "phi-3-mini-4k-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 67.5
+    },
+    {
+     "model_key": "phi-4",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 91.5
+    },
+    {
+     "model_key": "phi-4",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "qwen2.5-7b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "qwen2.5-7b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.25
+    },
+    {
+     "model_key": "qwen3-30b-a3b-instruct-2507",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "qwen3-30b-a3b-instruct-2507",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.75
+    },
+    {
+     "model_key": "qwen3-8b",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.25
+    },
+    {
+     "model_key": "qwen3-8b",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 98.0
+    },
+    {
+     "model_key": "qwen3.6-27b",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 97.75
+    },
+    {
+     "model_key": "qwen3.6-27b",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    }
+   ],
+   "report": "data\\processed\\gsm8k\\format_screen\\answer_colon_markup_report\\screening_report.json",
+   "report_sha256": "f47df0eb160dda1057c8ca3057365796cade6d5e843606b0c29870e6f2b810f5"
+  },
+  {
+   "scorer_candidate": "the_answer_is_markup",
+   "min_strict_compliance_pct": 1.25,
+   "by_model_and_arm": [
+    {
+     "model_key": "gemma-2b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 1.25
+    },
+    {
+     "model_key": "gemma-2b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 23.0
+    },
+    {
+     "model_key": "gemma-3-12b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.75
+    },
+    {
+     "model_key": "gemma-3-12b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.75
+    },
+    {
+     "model_key": "gemma-4-31b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.0
+    },
+    {
+     "model_key": "gemma-4-31b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 98.5
+    },
+    {
+     "model_key": "gemma-7b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 10.0
+    },
+    {
+     "model_key": "gemma-7b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 81.25
+    },
+    {
+     "model_key": "llama-2-13b-chat-hf",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 53.25
+    },
+    {
+     "model_key": "llama-2-13b-chat-hf",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 41.5
+    },
+    {
+     "model_key": "llama-2-7b-chat-hf",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 61.25
+    },
+    {
+     "model_key": "llama-2-7b-chat-hf",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 47.0
+    },
+    {
+     "model_key": "llama-3.1-8b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 93.0
+    },
+    {
+     "model_key": "llama-3.1-8b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.25
+    },
+    {
+     "model_key": "meta-llama-3-8b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 71.5
+    },
+    {
+     "model_key": "meta-llama-3-8b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 98.5
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.1",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 76.25
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.1",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 60.0
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.3",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 61.75
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.3",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 55.0
+    },
+    {
+     "model_key": "mistral-nemo-instruct-2407",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 88.5
+    },
+    {
+     "model_key": "mistral-nemo-instruct-2407",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 66.0
+    },
+    {
+     "model_key": "mistral-small-3.1-24b-instruct-2503",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 97.75
+    },
+    {
+     "model_key": "mistral-small-3.1-24b-instruct-2503",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "phi-3-medium-4k-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 93.75
+    },
+    {
+     "model_key": "phi-3-medium-4k-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 97.0
+    },
+    {
+     "model_key": "phi-3-mini-4k-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 93.0
+    },
+    {
+     "model_key": "phi-3-mini-4k-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 96.75
+    },
+    {
+     "model_key": "phi-4",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 96.25
+    },
+    {
+     "model_key": "phi-4",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.0
+    },
+    {
+     "model_key": "qwen2.5-7b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "qwen2.5-7b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.25
+    },
+    {
+     "model_key": "qwen3-30b-a3b-instruct-2507",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.25
+    },
+    {
+     "model_key": "qwen3-30b-a3b-instruct-2507",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "qwen3-8b",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 100.0
+    },
+    {
+     "model_key": "qwen3-8b",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 100.0
+    },
+    {
+     "model_key": "qwen3.6-27b",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 97.5
+    },
+    {
+     "model_key": "qwen3.6-27b",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 98.75
+    }
+   ],
+   "report": "data\\processed\\gsm8k\\format_screen\\the_answer_is_markup_report\\screening_report.json",
+   "report_sha256": "8277cd9a9a59aee243c535653dd0dbc2a9ef26897221664eb2d7a369983d9abf"
+  },
+  {
+   "scorer_candidate": "hash_n",
+   "min_strict_compliance_pct": 6.25,
+   "by_model_and_arm": [
+    {
+     "model_key": "gemma-2b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 39.5
+    },
+    {
+     "model_key": "gemma-2b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 11.0
+    },
+    {
+     "model_key": "gemma-3-12b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 100.0
+    },
+    {
+     "model_key": "gemma-3-12b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.75
+    },
+    {
+     "model_key": "gemma-4-31b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 98.0
+    },
+    {
+     "model_key": "gemma-4-31b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 98.75
+    },
+    {
+     "model_key": "gemma-7b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 51.5
+    },
+    {
+     "model_key": "gemma-7b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 83.0
+    },
+    {
+     "model_key": "llama-2-13b-chat-hf",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 40.5
+    },
+    {
+     "model_key": "llama-2-13b-chat-hf",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 49.5
+    },
+    {
+     "model_key": "llama-2-7b-chat-hf",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 47.5
+    },
+    {
+     "model_key": "llama-2-7b-chat-hf",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 28.5
+    },
+    {
+     "model_key": "llama-3.1-8b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 87.5
+    },
+    {
+     "model_key": "llama-3.1-8b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.75
+    },
+    {
+     "model_key": "meta-llama-3-8b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 41.5
+    },
+    {
+     "model_key": "meta-llama-3-8b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.1",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 7.0
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.1",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 54.5
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.3",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 6.25
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.3",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 21.5
+    },
+    {
+     "model_key": "mistral-nemo-instruct-2407",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 97.5
+    },
+    {
+     "model_key": "mistral-nemo-instruct-2407",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 15.0
+    },
+    {
+     "model_key": "mistral-small-3.1-24b-instruct-2503",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.0
+    },
+    {
+     "model_key": "mistral-small-3.1-24b-instruct-2503",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.0
+    },
+    {
+     "model_key": "phi-3-medium-4k-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 95.75
+    },
+    {
+     "model_key": "phi-3-medium-4k-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 96.0
+    },
+    {
+     "model_key": "phi-3-mini-4k-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 36.5
+    },
+    {
+     "model_key": "phi-3-mini-4k-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 71.5
+    },
+    {
+     "model_key": "phi-4",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 41.0
+    },
+    {
+     "model_key": "phi-4",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.0
+    },
+    {
+     "model_key": "qwen2.5-7b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 98.75
+    },
+    {
+     "model_key": "qwen2.5-7b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.75
+    },
+    {
+     "model_key": "qwen3-30b-a3b-instruct-2507",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "qwen3-30b-a3b-instruct-2507",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "qwen3-8b",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "qwen3-8b",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 94.75
+    },
+    {
+     "model_key": "qwen3.6-27b",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 97.75
+    },
+    {
+     "model_key": "qwen3.6-27b",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.25
+    }
+   ],
+   "report": "data\\processed\\gsm8k\\format_screen\\hash_n_report\\screening_report.json",
+   "report_sha256": "928e18370ff5b2f3233e4bf400c8a4935413041b2360eae974699e3ef375ba16"
+  },
+  {
+   "scorer_candidate": "boxed",
+   "min_strict_compliance_pct": 19.0,
+   "by_model_and_arm": [
+    {
+     "model_key": "gemma-2b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 25.0
+    },
+    {
+     "model_key": "gemma-2b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 19.0
+    },
+    {
+     "model_key": "gemma-3-12b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 100.0
+    },
+    {
+     "model_key": "gemma-3-12b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "gemma-4-31b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.0
+    },
+    {
+     "model_key": "gemma-4-31b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.0
+    },
+    {
+     "model_key": "gemma-7b-it",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 51.25
+    },
+    {
+     "model_key": "gemma-7b-it",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 83.5
+    },
+    {
+     "model_key": "llama-2-13b-chat-hf",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 77.5
+    },
+    {
+     "model_key": "llama-2-13b-chat-hf",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 53.0
+    },
+    {
+     "model_key": "llama-2-7b-chat-hf",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 44.25
+    },
+    {
+     "model_key": "llama-2-7b-chat-hf",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 31.5
+    },
+    {
+     "model_key": "llama-3.1-8b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 85.75
+    },
+    {
+     "model_key": "llama-3.1-8b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.0
+    },
+    {
+     "model_key": "meta-llama-3-8b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 48.25
+    },
+    {
+     "model_key": "meta-llama-3-8b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 93.25
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.1",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 52.0
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.1",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 57.5
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.3",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 93.25
+    },
+    {
+     "model_key": "mistral-7b-instruct-v0.3",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 71.25
+    },
+    {
+     "model_key": "mistral-nemo-instruct-2407",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 90.75
+    },
+    {
+     "model_key": "mistral-nemo-instruct-2407",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 93.0
+    },
+    {
+     "model_key": "mistral-small-3.1-24b-instruct-2503",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 98.5
+    },
+    {
+     "model_key": "mistral-small-3.1-24b-instruct-2503",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 98.5
+    },
+    {
+     "model_key": "phi-3-medium-4k-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.75
+    },
+    {
+     "model_key": "phi-3-medium-4k-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 97.5
+    },
+    {
+     "model_key": "phi-3-mini-4k-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 91.5
+    },
+    {
+     "model_key": "phi-3-mini-4k-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 96.0
+    },
+    {
+     "model_key": "phi-4",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 100.0
+    },
+    {
+     "model_key": "phi-4",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 100.0
+    },
+    {
+     "model_key": "qwen2.5-7b-instruct",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 85.25
+    },
+    {
+     "model_key": "qwen2.5-7b-instruct",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 100.0
+    },
+    {
+     "model_key": "qwen3-30b-a3b-instruct-2507",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.25
+    },
+    {
+     "model_key": "qwen3-30b-a3b-instruct-2507",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.75
+    },
+    {
+     "model_key": "qwen3-8b",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.5
+    },
+    {
+     "model_key": "qwen3-8b",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 100.0
+    },
+    {
+     "model_key": "qwen3.6-27b",
+     "arm": "direct_answer",
+     "n": 400,
+     "strict_compliance_pct": 99.25
+    },
+    {
+     "model_key": "qwen3.6-27b",
+     "arm": "zero_shot_cot",
+     "n": 400,
+     "strict_compliance_pct": 99.25
+    }
+   ],
+   "report": "data\\processed\\gsm8k\\format_screen\\boxed_report\\screening_report.json",
+   "report_sha256": "e5a4b903b39f7fc54a9468c2cd04aedab1040fb27ee1205b6c2d945e01514f86"
+  }
+ ],
+ "registered": "boxed",
+ "tie": false,
+ "text": "End your reply with a final line that contains \\boxed{<number>}.",
+ "scorer_manifest": "manifests/gsm8k_scorer.json",
+ "scorer_manifest_sha256": "482c9aac41188035ca446bda0ba7dbadfebbf8bb943980b5730ba6125ff14120"
+}

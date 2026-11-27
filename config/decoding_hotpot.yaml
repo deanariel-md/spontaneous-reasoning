@@ -1,0 +1,40 @@
+# Decoding of every HotpotQA stage : the screen,
+# the collection's requested-direct and chain-of-thought arms, the forced-direct arm and the five-shot forced arm. One
+# file, so one request file per model can hold all four arms and every model runs the same caps.
+#   direct_answer   1,024 new tokens, as every task
+#   zero_shot_cot   1,900 for all 29 models: the four checkpoints with a native context of 4,096 take items of at most
+#                   1,900 tokens (src/hotpot_task.py, length rule), so 1,900 + frame and chat markup + 1,900 fits 4,096
+#   forced_direct   the assistant turn opens with \boxed{ and the model continues it; 64 new tokens, the smallest
+#                   multiple of 16 that holds the longest target gold answer written as \text{<gold>}} under every
+#                   panel tokenizer (55 tokens; manifests/hotpot_items.json, forced_cap)
+#   fewshot_forced  the forced arm after five demonstrations (scripts/build_hotpot_requests.py); the same prefill and cap
+# No stop string, as on MATH-500 (config/decoding_forced_math.yaml): no gold answer holds a brace, but models write
+# \boxed{\text{Paris}}, which a stop at "}" would cut. The scorer reads the last complete box.
+status: confirmed
+
+temperature: 0.0
+top_p: 1.0
+top_k: 0
+seed: 0
+
+max_new_tokens:
+  direct_answer: 1024
+  zero_shot_cot: 1900
+  forced_direct: 64
+  fewshot_forced: 64
+
+prefill:
+  forced_direct: "\\boxed{"
+  fewshot_forced: "\\boxed{"
+
+stop: []
+include_stop_str_in_output: false
+skip_special_tokens: true
+
+engine:
+  gpu_memory_utilization: 0.90
+  enable_prefix_caching: true
+  enforce_eager: false
+  max_num_seqs: null
+  max_num_batched_tokens: null
+  generation_config: auto

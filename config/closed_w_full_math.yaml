@@ -1,0 +1,51 @@
+# Qwen4-Max on all 398 numeric MATH-500 items under MATH-500's first 8 discovery draws, the three arms (requested,
+# forced, chain of thought). Hard limit of $20.00 for the whole task, pilot included. Read by scripts/closed_w_full.py.
+#
+# Every request setting (model, provider pin, reasoning off, decoding, caps, prefill and partial flag, stop, request
+# files) is config/closed_w.yaml's, unchanged: the script reads that file and records its configuration hash, which is
+# the 100-item run's. Nothing here changes a request body. The 100-item run's files are read only.
+# No key is kept here: OPENROUTER_API_KEY is read from the environment and never printed or written.
+
+base_config: config/closed_w.yaml
+model: qwen4-max
+task: math
+
+# The numeric MATH-500 items: the target set (an item is kept when its gold answer string
+# normalizes to one rational number; 398 of 500), stored as data/processed/math/items_target.parquet, whose sha256 and
+# count manifests/math_items.json records. Every item, in the table's (MATH-500 file) order.
+items:
+  table: data/processed/math/items_target.parquet
+  record: manifests/math_items.json
+
+# MATH-500's discovery draws as the main analysis uses them: manifests/sampler_math.json, discovery_config_ids, whose
+# nested order reads "budget K uses the first K discovery units in the order listed" (src/sampling.py); K = 8 is a
+# budget of src/sampling.BUDGET_GRID. The first 8 draws are 8 distinct templates; the script refuses a repeat.
+templates:
+  sampler: manifests/sampler_math.json
+  k: 8
+
+# Pilot: about 2% of the run. 4 cells per template (32 cells, 32 distinct items), each sent in the three arms twice,
+# and the 2 thinking-on control calls of the 100-item pilot's rule (a MATH Level 5 calibration item under a run
+# template): 194 calls. Checked as the 100-item pilot was (scripts/closed_w.py pilot_model_checks; the forced arm's
+# continuation on MATH-500, where no stop is sent).
+pilot:
+  cells_per_template: 4
+  repeats: 2
+  controls: 2
+
+limits:
+  total_usd: 20.0              # pilot and run together; --limit-usd above this is refused
+  projection_stop_usd: 18.0    # the dry run's projection (or the pilot's, with the pilot's spend) above this: no run
+
+bootstrap: {draws: 2000, level: 0.95}
+
+paths:
+  manifest: manifests/closed_w_full_math_items.json
+  raw_dir: data/frontier_panel/closed_w_full_math
+  results_dir: results/frontier_panel
+  prefix: closed_w_full_math
+  budget: config/budget.yaml
+  # the 100-item run, read only
+  earlier_raw: data/frontier_panel/closed_w/run_raw.jsonl
+  earlier_report: results/frontier_panel/closed_w.json
+  earlier_manifest: manifests/closed_w_items.json

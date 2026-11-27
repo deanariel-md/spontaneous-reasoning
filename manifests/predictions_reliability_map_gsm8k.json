@@ -1,0 +1,115 @@
+{
+ "label": "reliability_map_gsm8k",
+ "created": "2026-11-01 23:14:17",
+ "models": [
+  "gemma-4-31b-it",
+  "meta-llama-3-8b-instruct",
+  "mistral-7b-instruct-v0.3",
+  "mistral-7b-instruct-v0.1",
+  "mistral-nemo-instruct-2407",
+  "mistral-small-3.1-24b-instruct-2503",
+  "phi-3-mini-4k-instruct",
+  "phi-3-medium-4k-instruct",
+  "phi-4",
+  "qwen2.5-7b-instruct",
+  "qwen3-8b",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3.6-27b",
+  "gemma-2b-it",
+  "gemma-7b-it",
+  "gemma-3-12b-it",
+  "llama-3.1-8b-instruct",
+  "llama-2-7b-chat-hf",
+  "llama-2-13b-chat-hf"
+ ],
+ "draws_sha256": "15501b220e556ca089be0d96e414d5171a4262713242e0a53fd3d69d75a0af45",
+ "units": "agreement (probability); R dimensionless",
+ "note": "pilot predictions from the pilot draws alone; written before any validation draw is scored",
+ "settings": {
+  "gsm8k19": {
+   "2": {
+    "n_pilot": 2,
+    "benefit": {
+     "R": 0.9834271354039754,
+     "signal": 653.1533700513563,
+     "within": 664.1604106063759,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.9419682671571954,
+     "C_groups": {
+      "1": 0.9419682671571954,
+      "2": 0.9588226250439658,
+      "4": 0.9708323223910211,
+      "8": 0.9793572766727465,
+      "12": 0.983140362592023
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     }
+    },
+    "accuracy": {
+     "R": 0.9859551353880214,
+     "signal": 853.8600067372967,
+     "within": 866.0231851231863,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.9465886545423323,
+     "C_groups": {
+      "1": 0.9465886545423323,
+      "2": 0.9621212649623361,
+      "4": 0.9731761010305875,
+      "8": 0.9810185943544877,
+      "12": 0.9844979188369413
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     }
+    }
+   },
+   "4": {
+    "n_pilot": 4,
+    "benefit": {
+     "R": 0.9853422152035544,
+     "signal": 662.2699288937868,
+     "within": 672.1217447858696,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.9454328577325866,
+     "C_groups": {
+      "1": 0.9454328577325866,
+      "2": 0.9612965954722452,
+      "4": 0.9725903255276316,
+      "8": 0.9806034474972111,
+      "12": 0.9841586960647932
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     }
+    },
+    "accuracy": {
+     "R": 0.9890906799325827,
+     "signal": 876.4296608987405,
+     "within": 886.0963698075476,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.9529391702145591,
+     "C_groups": {
+      "1": 0.9529391702145591,
+      "2": 0.966646964242708,
+      "4": 0.9763888279376562,
+      "8": 0.983294803688344,
+      "12": 0.9863576548653239
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     }
+    }
+   }
+  }
+ },
+ "sha256": "48457a2e1104b87dbd7b934ef8d81af9ee34725558cdbc15f9698b03621a4759"
+}

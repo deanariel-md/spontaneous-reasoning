@@ -1,0 +1,32 @@
+# Noise anatomy. Written on 1 November 2026 before any subsample was drawn or any noise value was computed;
+# scripts/run_noise_anatomy.py reads it and records its sha256 in results/noise_anatomy/noise_anatomy.json.
+#
+# Item subsamples. With the configuration draws of a setting held fixed, each subsample is a simple random sample of
+# n items without replacement from the setting's full item set, drawn from the stream
+# src.sampling.rng_for("noise_anatomy", <setting>, n, seed=seed), one stream per (setting, n). The draw uses item
+# positions only, never a score. Every draw variant of a setting (for example GSM8K's discovery draws and all 48
+# units) uses the same item subsamples. At n equal to the full item count there is one subsample, the full set.
+seed: 20261101
+subsamples_per_n: 200
+
+# Item counts per setting. GSM8K and the pooled MMLU block use the plan's grid; the block adds its full 5,597 items.
+# BIG-Bench Hard (25 tasks x 54 target items) uses the same grid up to its full 1,350 items.
+n_grid:
+  gsm8k: [50, 100, 200, 400, 800, 1319]
+  gsm8k30: [50, 100, 200, 400, 800, 1319]
+  dove_mmlu: [50, 100, 200, 400, 800, 1319, 5597]
+  bbh: [50, 100, 200, 400, 800, 1350]
+  # MATH-500 (398 numeric target items): the same grid up to its full item count,
+  # added before any MATH-500 subsample was drawn.
+  math: [50, 100, 200, 398]
+  # HotpotQA (1,000 target items): the same grid up to its full item
+  # count, shared by its three contrasts of config/added_contrasts.yaml (noise_base: hotpot), added before any HotpotQA
+  # subsample was drawn. The other settings' streams are untouched (one stream per setting and n).
+  hotpot: [50, 100, 200, 400, 800, 1000]
+
+# Agreement targets for the planning rule: the number of prompt draws K per evaluation needed for the conditional
+# Gaussian reference C_K = 1/2 + arcsin(R_K)/pi to reach the target, with R_K from Spearman-Brown and
+# R = V_delta / (V_delta + W(n)).
+agreement_targets: [0.80, 0.90]
+# Benchmarks sizes at which the planning rule is tabulated, besides the setting's own grid.
+planning_n: [25, 50, 100, 200, 500, 1000, 1319, 2000, 5597]

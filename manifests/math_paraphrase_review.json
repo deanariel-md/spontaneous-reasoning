@@ -1,0 +1,43 @@
+{
+ "kind": "paraphrase_review",
+ "record_sha256": "7620aadff9778542476a6cb38faf9e7a735d5e5ad8dba194e7ccb4ec05f7e538",
+ "reviewers": [
+  "an AI assistant, for the authors (delegated on 30 October 2026; MATH-500 bank reviewed on 3 November 2026)"
+ ],
+ "date": "2026-11-03",
+ "question": "Does the variant ask for the same task as the original instruction, with nothing added or removed? keep or drop; a drop needs a note",
+ "original": "Solve the following math problem.",
+ "verdicts": [
+  {
+   "text": "Please solve the following math problem.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "The task is to solve the following math problem.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Your goal is to solve the following math problem.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "We need you to solve the following math problem.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Can you solve the following math problem?",
+   "verdict": "keep",
+   "note": "kept: a question form of the same request; it says nothing about working or form"
+  },
+  {
+   "text": "The challenge is to solve the following math problem.",
+   "verdict": "keep",
+   "note": ""
+  }
+ ],
+ "rule": "A variant is kept when it asks for the same task as the original and says nothing about how to answer. How much working to show belongs to the arm clauses, and the reply's form to the answer-format component, so a variant that speaks to either is dropped. The verdicts read the texts alone; no output of any panel model on the bank existed when they were made."
+}

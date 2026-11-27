@@ -1,0 +1,33 @@
+# Decoding of the arm-wording run for the four checkpoints whose native context is 4,096
+# tokens (llama-2-7b-chat-hf, llama-2-13b-chat-hf, phi-3-mini-4k-instruct, phi-3-medium-4k-instruct). It equals
+# config/decoding_arm_wording.yaml except the chain-of-thought cap, 2,900 as in their MATH-500 collection
+# (config/decoding_math_4k.yaml): the longest MATH-500 target prompt is 1,174 tokens. Their GSM8K chain of thought ran
+# with 3,072 in the collection; one job runs both tasks here, so GSM8K takes the lower cap too.
+#
+# status: confirmed on 18 November 2026, before any request of the run existed.
+status: confirmed
+
+temperature: 0.0
+top_p: 1.0
+top_k: 0
+seed: 0
+
+max_new_tokens:
+  direct_answer: 1024
+  zero_shot_cot: 2900
+  forced_direct: 16
+
+prefill:
+  forced_direct: "\\boxed{"
+
+stop: []
+include_stop_str_in_output: false
+skip_special_tokens: true
+
+engine:
+  gpu_memory_utilization: 0.90
+  enable_prefix_caching: true
+  enforce_eager: false
+  max_num_seqs: null
+  max_num_batched_tokens: null
+  generation_config: auto

@@ -1,0 +1,63 @@
+{
+ "kind": "bbh_tranche",
+ "task": "bbh",
+ "rule": "config/tranche_bbh.yaml",
+ "tranche_config_sha256": "d54a88245dbe6e24f9b9cc07f78362917f455fa23147d356e3dccfc575ca382e",
+ "bank": {
+  "path": "manifests/bbh_bank.json",
+  "sha256": "54319d6c992adf9fcbd754e4416c7739d907b57128dfad8333abbb0656ff9ff0"
+ },
+ "admissibility": {
+  "path": "manifests/bbh_admissibility.json",
+  "sha256": "9ce61219d5f9e61871545ce0743792c7749c98ccc49ccdebd5c5b0e2f4c62c69"
+ },
+ "seed_label": "bbh-tranche-configurations",
+ "seed": 20261031,
+ "n_bank_configurations": 64,
+ "configurations": [
+  "ps-i00-f00",
+  "ps-i00-f02",
+  "ps-i01-f03",
+  "ps-i02-f00",
+  "ps-i02-f02",
+  "ps-i02-f07",
+  "ps-i03-f04",
+  "ps-i07-f03"
+ ],
+ "models": [
+  "gemma-2-27b-it",
+  "gemma-2-9b-it",
+  "gemma-2b-it",
+  "gemma-3-12b-it",
+  "gemma-3-27b-it",
+  "gemma-3-4b-it",
+  "gemma-7b-it",
+  "llama-2-13b-chat-hf",
+  "llama-2-7b-chat-hf",
+  "llama-3.1-8b-instruct",
+  "meta-llama-3-8b-instruct",
+  "mistral-7b-instruct-v0.1",
+  "mistral-7b-instruct-v0.3",
+  "mistral-nemo-instruct-2407",
+  "mistral-small-3.1-24b-instruct-2503",
+  "phi-3-medium-4k-instruct",
+  "phi-3-mini-4k-instruct",
+  "phi-4",
+  "qwen2.5-7b-instruct",
+  "qwen3-14b",
+  "qwen3-30b-a3b",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3-32b",
+  "qwen3-8b",
+  "qwen3.5-35b-a3b",
+  "qwen3.5-9b",
+  "qwen3.6-27b",
+  "qwen3.6-35b-a3b"
+ ],
+ "calibration_items": {
+  "item_set": "calibration",
+  "n_items": 1350,
+  "canonical_sha256": "68296a5232945939201badef019fd1ddc03f59b8c1d38c96d9698d8d5ad525b1"
+ },
+ "excluded_from_main": true
+}

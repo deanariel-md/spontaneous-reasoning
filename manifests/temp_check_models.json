@@ -1,0 +1,208 @@
+{
+  "purpose": "temperature 0.7 spot check on MATH-500",
+  "rule": "Within each of the panel's five families (Gemma, Llama, Mistral, Phi, Qwen), the MATH-500 panel model (the 29 models of data/requests/math/build_record.json) whose parameter count (params_b of manifests/d2_panel_extension.json, matched by Hugging Face repository) is nearest the median parameter count of the 29; ties: fewer parameters, then model key. Metadata only; no output or score was read.",
+  "decided": "25 November 2026, before any temperature-check output existed",
+  "inputs": {
+    "data/requests/math/build_record.json": "13a3691a88d16d9d067d7c185abf58424158f4d9ad509a0785a293897d2c288b",
+    "manifests/d2_panel_extension.json": "22a9b6bfddb4c430422b774d5200753ecefa053720c874b0a2a49fdf5f37052f",
+    "config/models_math.yaml": "674f1068901d633c55296230d969b846c126a89e5b7a931133111312f247906d"
+  },
+  "n_panel": 29,
+  "median_params_b": 12.25,
+  "candidates": {
+    "Gemma": [
+      {
+        "model_key": "gemma-3-12b-it",
+        "params_b": 12.19,
+        "distance": 0.0600000000000005
+      },
+      {
+        "model_key": "gemma-2-9b-it",
+        "params_b": 9.24,
+        "distance": 3.01
+      },
+      {
+        "model_key": "gemma-7b-it",
+        "params_b": 8.54,
+        "distance": 3.710000000000001
+      },
+      {
+        "model_key": "gemma-3-4b-it",
+        "params_b": 4.3,
+        "distance": 7.95
+      },
+      {
+        "model_key": "gemma-2b-it",
+        "params_b": 2.51,
+        "distance": 9.74
+      },
+      {
+        "model_key": "gemma-2-27b-it",
+        "params_b": 27.23,
+        "distance": 14.98
+      },
+      {
+        "model_key": "gemma-3-27b-it",
+        "params_b": 27.43,
+        "distance": 15.18
+      },
+      {
+        "model_key": "gemma-4-31b-it",
+        "params_b": 31.27,
+        "distance": 19.02
+      }
+    ],
+    "Llama": [
+      {
+        "model_key": "llama-2-13b-chat-hf",
+        "params_b": 13.02,
+        "distance": 0.7699999999999996
+      },
+      {
+        "model_key": "llama-3.1-8b-instruct",
+        "params_b": 8.03,
+        "distance": 4.220000000000001
+      },
+      {
+        "model_key": "meta-llama-3-8b-instruct",
+        "params_b": 8.03,
+        "distance": 4.220000000000001
+      },
+      {
+        "model_key": "llama-2-7b-chat-hf",
+        "params_b": 6.74,
+        "distance": 5.51
+      }
+    ],
+    "Mistral": [
+      {
+        "model_key": "mistral-nemo-instruct-2407",
+        "params_b": 12.25,
+        "distance": 0.0
+      },
+      {
+        "model_key": "mistral-7b-instruct-v0.3",
+        "params_b": 7.25,
+        "distance": 5.0
+      },
+      {
+        "model_key": "mistral-7b-instruct-v0.1",
+        "params_b": 7.24,
+        "distance": 5.01
+      },
+      {
+        "model_key": "mistral-small-3.1-24b-instruct-2503",
+        "params_b": 24.01,
+        "distance": 11.760000000000002
+      }
+    ],
+    "Phi": [
+      {
+        "model_key": "phi-3-medium-4k-instruct",
+        "params_b": 13.96,
+        "distance": 1.7100000000000009
+      },
+      {
+        "model_key": "phi-4",
+        "params_b": 14.66,
+        "distance": 2.41
+      },
+      {
+        "model_key": "phi-3-mini-4k-instruct",
+        "params_b": 3.82,
+        "distance": 8.43
+      }
+    ],
+    "Qwen": [
+      {
+        "model_key": "qwen3-14b",
+        "params_b": 14.77,
+        "distance": 2.5199999999999996
+      },
+      {
+        "model_key": "qwen3.5-9b",
+        "params_b": 9.65,
+        "distance": 2.5999999999999996
+      },
+      {
+        "model_key": "qwen3-8b",
+        "params_b": 8.19,
+        "distance": 4.0600000000000005
+      },
+      {
+        "model_key": "qwen2.5-7b-instruct",
+        "params_b": 7.62,
+        "distance": 4.63
+      },
+      {
+        "model_key": "qwen3.6-27b",
+        "params_b": 27.78,
+        "distance": 15.530000000000001
+      },
+      {
+        "model_key": "qwen3-30b-a3b",
+        "params_b": 30.53,
+        "distance": 18.28
+      },
+      {
+        "model_key": "qwen3-30b-a3b-instruct-2507",
+        "params_b": 30.53,
+        "distance": 18.28
+      },
+      {
+        "model_key": "qwen3-32b",
+        "params_b": 32.76,
+        "distance": 20.509999999999998
+      },
+      {
+        "model_key": "qwen3.5-35b-a3b",
+        "params_b": 35.95,
+        "distance": 23.700000000000003
+      },
+      {
+        "model_key": "qwen3.6-35b-a3b",
+        "params_b": 35.95,
+        "distance": 23.700000000000003
+      }
+    ]
+  },
+  "chosen": [
+    {
+      "family": "Gemma",
+      "model_key": "gemma-3-12b-it",
+      "hf_id": "google/gemma-3-12b-it",
+      "name": "Gemma 3 12B",
+      "params_b": 12.19
+    },
+    {
+      "family": "Llama",
+      "model_key": "llama-2-13b-chat-hf",
+      "hf_id": "meta-llama/Llama-2-13b-chat-hf",
+      "name": "Llama 2-13B",
+      "params_b": 13.02
+    },
+    {
+      "family": "Mistral",
+      "model_key": "mistral-nemo-instruct-2407",
+      "hf_id": "mistralai/Mistral-Nemo-Instruct-2407",
+      "name": "Mistral NeMo",
+      "params_b": 12.25
+    },
+    {
+      "family": "Phi",
+      "model_key": "phi-3-medium-4k-instruct",
+      "hf_id": "microsoft/Phi-3-medium-4k-instruct",
+      "name": "phi-3-medium 14B",
+      "params_b": 13.96
+    },
+    {
+      "family": "Qwen",
+      "model_key": "qwen3-14b",
+      "hf_id": "Qwen/Qwen3-14B",
+      "name": "Qwen3-14B",
+      "params_b": 14.77
+    }
+  ],
+  "sha256": "924c4bbe86aec8ff443c78080744c860470200928db39de7444fc1942a97001c",
+  "written": "2026-11-25T13:30:48Z"
+}

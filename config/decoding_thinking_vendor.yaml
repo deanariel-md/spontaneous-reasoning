@@ -1,0 +1,58 @@
+# Native reasoning with the vendors' sampling settings (the run was accepted on
+# 17 November 2026). Read by scripts/thinking_vendor_generate.py; the main runner (src/generation.py) stays greedy.
+#
+# Rule: each checkpoint's model card, at the revision pinned for the native-reasoning runs, recommends sampling settings per mode. The run
+# takes the card's "Thinking mode for general tasks" line: the cards name no math-specific setting, and their other
+# thinking-mode line is for "precise coding tasks (e.g. WebDev)". The cards were fetched by scripts/fetch_vendor_cards.py
+# (README.md and generation_config.json; the card's sha256 is below). generation_config.json
+# agrees with the card on temperature, top_p and top_k for all three; it carries no presence penalty.
+#
+# Everything else is as in the native-reasoning runs: the requested-direct prompts with the thinking switch on, the chat template, revision,
+# dtype and engine settings of config/models_thinking_<task>.yaml, special tokens kept in the output, the 30,720-token cap,
+# no stop strings, the RTX PRO 6000. max_model_len is 32,768 for both tasks (those runs used 31,744 on GSM8K and 32,768 on
+# MATH-500; the context length bounds the prompt plus the cap and does not change an output).
+# Seed: the engine seed is 0 and every request carries SamplingParams seed 0, so an output does not depend on which
+# other requests share its batch or on a restart.
+status: confirmed
+max_new_tokens: 30720
+max_model_len: 32768
+seed: 0
+stop: []
+skip_special_tokens: false
+models:
+  qwen3.5-35b-a3b:
+    temperature: 1.0
+    top_p: 0.95
+    top_k: 20
+    min_p: 0.0
+    presence_penalty: 1.5
+    repetition_penalty: 1.0
+    source:
+      card: "Qwen/Qwen3.5-35B-A3B@59d61f3ce65a6d9863b86d2e96597125219dc754, model card README, Best Practices, 'Thinking mode for general tasks'"
+      card_sha256: 71c3bbc2eadadd5980bbdbb15df958c27d42ede24821015602a021109aacf492
+      generation_config_sha256: 7bf8894f5838e096a6cb6147707a98733e730985618c8d72e3e0d49c38a273e0
+      generation_config: {do_sample: true, temperature: 1.0, top_p: 0.95, top_k: 20}
+  qwen3.6-35b-a3b:
+    temperature: 1.0
+    top_p: 0.95
+    top_k: 20
+    min_p: 0.0
+    presence_penalty: 1.5
+    repetition_penalty: 1.0
+    source:
+      card: "Qwen/Qwen3.6-35B-A3B@995ad96eacd98c81ed38be0c5b274b04031597b0, model card README, 'Thinking mode for general tasks'"
+      card_sha256: c4ddaa065649ff6352648f64747a16eda31726f3e34add94ce04abb461c77b75
+      generation_config_sha256: 7bf8894f5838e096a6cb6147707a98733e730985618c8d72e3e0d49c38a273e0
+      generation_config: {do_sample: true, temperature: 1.0, top_p: 0.95, top_k: 20}
+  qwen3.6-27b:
+    temperature: 1.0
+    top_p: 0.95
+    top_k: 20
+    min_p: 0.0
+    presence_penalty: 0.0
+    repetition_penalty: 1.0
+    source:
+      card: "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9, model card README, 'Thinking mode for general tasks'"
+      card_sha256: bb936d6da51014f1edc9aa4cf9abf28d98695b7616ad56adfeeebfa752051d3d
+      generation_config_sha256: 7bf8894f5838e096a6cb6147707a98733e730985618c8d72e3e0d49c38a273e0
+      generation_config: {do_sample: true, temperature: 1.0, top_p: 0.95, top_k: 20}

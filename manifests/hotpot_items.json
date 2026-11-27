@@ -1,0 +1,248 @@
+{
+ "task": "hotpot",
+ "plan": "HotpotQA (third task)",
+ "source": {
+  "repo": "hotpotqa/hotpot_qa",
+  "revision": "1908d6afbbead072334abe2965f91bd2709910ab",
+  "file": "distractor/validation-00000-of-00001.parquet",
+  "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6"
+ },
+ "item_text": "src/hotpot_task.py module doc: passage block (paragraphs in file order, 'Title: <title>', newline, sentences joined), blank line, 'Question: <question>'",
+ "rules": {
+  "eligible": "normalised gold non-empty and not yes/no; item text at most 1900 tokens under each tokenizer of llama-2-7b-chat-hf, llama-2-13b-chat-hf, phi-3-mini-4k-instruct, phi-3-medium-4k-instruct",
+  "target": "1000 eligible ids, sorted, drawn without replacement with numpy.random.default_rng(first 8 bytes of sha256('d22/hotpot/target')), in the order drawn; block A the first 500, block B the rest",
+  "pool": "eligible, outside the target, sharing no supporting title with any target item, sorted",
+  "screening": "100 from the pool, seed sha256('d22/hotpot/screening'), in the order drawn",
+  "demo_pool": "the rest of the pool with demonstration text and gold at most 280 tokens (same tokenizers) and a gold answer free of &%$#_^~, sorted",
+  "forced_cap": "smallest multiple of 16 holding the longest target gold as '\\text{<gold>}}' under every panel tokenizer"
+ },
+ "counts": {
+  "raw": 7405,
+  "gold_yes_no_or_empty": 460,
+  "gold_ok": 6945,
+  "over_length": 1401,
+  "eligible": 5544,
+  "eligible_share_of_gold_ok": 0.7983,
+  "eligible_by_type": {
+   "bridge": 4640,
+   "comparison": 904
+  },
+  "pool": 4392,
+  "eligible_sharing_a_target_title": 152,
+  "screening": 100,
+  "demo_pool": 2408
+ },
+ "target_by_type": {
+  "bridge": 828,
+  "comparison": 172
+ },
+ "target_by_block_and_type": {
+  "A": {
+   "bridge": 419,
+   "comparison": 81
+  },
+  "B": {
+   "bridge": 409,
+   "comparison": 91
+  }
+ },
+ "target_item_tokens": {
+  "median": 1490.5,
+  "max": 1899
+ },
+ "demo_pool_tokens": {
+  "median": 223.0,
+  "max": 280
+ },
+ "forced_cap": {
+  "longest_target_answer_tokens": 55,
+  "cap": 64
+ },
+ "lengths": {
+  "path": "data/processed/hotpot/lengths.parquet",
+  "sha256": "699c096318a93eff61d0e99dbe0f300d01374b8920c497ea7f9942d230f7803a",
+  "tokenizers": {
+   "gemma-4-31b-it": {
+    "hf_id": "google/gemma-4-31B-it",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "class": "GemmaTokenizer"
+   },
+   "meta-llama-3-8b-instruct": {
+    "hf_id": "meta-llama/Meta-Llama-3-8B-Instruct",
+    "revision": "8afb486c1db24fe5011ec46dfbe5b5dccdb575c2",
+    "class": "TokenizersBackend"
+   },
+   "mistral-7b-instruct-v0.3": {
+    "hf_id": "mistralai/Mistral-7B-Instruct-v0.3",
+    "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+    "class": "TokenizersBackend"
+   },
+   "mistral-7b-instruct-v0.1": {
+    "hf_id": "mistralai/Mistral-7B-Instruct-v0.1",
+    "revision": "ec5deb64f2c6e6fa90c1abf74a91d5c93a9669ca",
+    "class": "TokenizersBackend"
+   },
+   "mistral-nemo-instruct-2407": {
+    "hf_id": "mistralai/Mistral-Nemo-Instruct-2407",
+    "revision": "04d8a90549d23fc6bd7f642064003592df51e9b3",
+    "class": "TokenizersBackend"
+   },
+   "mistral-small-3.1-24b-instruct-2503": {
+    "hf_id": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+    "revision": "68faf511d618ef198fef186659617cfd2eb8e33a",
+    "class": "TokenizersBackend"
+   },
+   "phi-3-mini-4k-instruct": {
+    "hf_id": "microsoft/Phi-3-mini-4k-instruct",
+    "revision": "f39ac1d28e925b323eae81227eaba4464caced4e",
+    "class": "TokenizersBackend"
+   },
+   "phi-3-medium-4k-instruct": {
+    "hf_id": "microsoft/Phi-3-medium-4k-instruct",
+    "revision": "48d87cd5e0523b430d77e93becd3655cd6897230",
+    "class": "TokenizersBackend"
+   },
+   "phi-4": {
+    "hf_id": "microsoft/phi-4",
+    "revision": "2db69c1c3e91a05d2c64a3185acfbaf36f744e25",
+    "class": "TokenizersBackend"
+   },
+   "qwen2.5-7b-instruct": {
+    "hf_id": "Qwen/Qwen2.5-7B-Instruct",
+    "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "class": "Qwen2Tokenizer"
+   },
+   "qwen3-8b": {
+    "hf_id": "Qwen/Qwen3-8B",
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "class": "Qwen2Tokenizer"
+   },
+   "qwen3-30b-a3b-instruct-2507": {
+    "hf_id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "revision": "0d7cf23991f47feeb3a57ecb4c9cee8ea4a17bfe",
+    "class": "Qwen2Tokenizer"
+   },
+   "qwen3.6-27b": {
+    "hf_id": "Qwen/Qwen3.6-27B",
+    "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+    "class": "Qwen3_5Tokenizer"
+   },
+   "gemma-2b-it": {
+    "hf_id": "google/gemma-2b-it",
+    "revision": "96988410cbdaeb8d5093d1ebdc5a8fb563e02bad",
+    "class": "GemmaTokenizer"
+   },
+   "gemma-7b-it": {
+    "hf_id": "google/gemma-7b-it",
+    "revision": "9c5798d27f588501ce1e108079d2a19e4c3a2353",
+    "class": "GemmaTokenizer"
+   },
+   "gemma-3-12b-it": {
+    "hf_id": "google/gemma-3-12b-it",
+    "revision": "96b6f1eccf38110c56df3a15bffe176da04bfd80",
+    "class": "GemmaTokenizer"
+   },
+   "llama-3.1-8b-instruct": {
+    "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
+    "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+    "class": "TokenizersBackend"
+   },
+   "llama-2-7b-chat-hf": {
+    "hf_id": "meta-llama/Llama-2-7b-chat-hf",
+    "revision": "f5db02db724555f92da89c216ac04704f23d4590",
+    "class": "LlamaTokenizer"
+   },
+   "llama-2-13b-chat-hf": {
+    "hf_id": "meta-llama/Llama-2-13b-chat-hf",
+    "revision": "a2cb7a712bb6e5e736ca7f8cd98167f81a0b5bd8",
+    "class": "LlamaTokenizer"
+   },
+   "gemma-3-4b-it": {
+    "hf_id": "google/gemma-3-4b-it",
+    "revision": "093f9f388b31de276ce2de164bdc2081324b9767",
+    "class": "GemmaTokenizer"
+   },
+   "gemma-2-9b-it": {
+    "hf_id": "google/gemma-2-9b-it",
+    "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+    "class": "GemmaTokenizer"
+   },
+   "gemma-2-27b-it": {
+    "hf_id": "google/gemma-2-27b-it",
+    "revision": "aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0",
+    "class": "GemmaTokenizer"
+   },
+   "gemma-3-27b-it": {
+    "hf_id": "google/gemma-3-27b-it",
+    "revision": "005ad3404e59d6023443cb575daa05336842228a",
+    "class": "GemmaTokenizer"
+   },
+   "qwen3-30b-a3b": {
+    "hf_id": "Qwen/Qwen3-30B-A3B",
+    "revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+    "class": "Qwen2Tokenizer"
+   },
+   "qwen3-14b": {
+    "hf_id": "Qwen/Qwen3-14B",
+    "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+    "class": "Qwen2Tokenizer"
+   },
+   "qwen3-32b": {
+    "hf_id": "Qwen/Qwen3-32B",
+    "revision": "9216db5781bf21249d130ec9da846c4624c16137",
+    "class": "Qwen2Tokenizer"
+   },
+   "qwen3.5-9b": {
+    "hf_id": "Qwen/Qwen3.5-9B",
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "class": "Qwen3_5Tokenizer"
+   },
+   "qwen3.5-35b-a3b": {
+    "hf_id": "Qwen/Qwen3.5-35B-A3B",
+    "revision": "59d61f3ce65a6d9863b86d2e96597125219dc754",
+    "class": "Qwen3_5Tokenizer"
+   },
+   "qwen3.6-35b-a3b": {
+    "hf_id": "Qwen/Qwen3.6-35B-A3B",
+    "revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "class": "Qwen3_5Tokenizer"
+   }
+  },
+  "transformers": "5.23.0"
+ },
+ "sets": {
+  "target": {
+   "n_items": 1000,
+   "canonical_sha256": "bf78214695e2c4438143849571c90208c987b86097f318cecb0ca598609e08d6",
+   "ids_sha256": "9be4d021f6a5dcdecfd35602e180c0e75e53422305efe1659f31bea4c044076d"
+  },
+  "screening": {
+   "n_items": 100,
+   "canonical_sha256": "94f41fddcbb8fb8bff1ee0bd9728fc57eacb8a7fd0f63e8d002b428f87055efe",
+   "ids_sha256": "54f22a9447a9f9abdf900bbdc4e1582aa8d33786d038d9fdb0742917e04ce4a0"
+  },
+  "demo_pool": {
+   "n_items": 2408,
+   "canonical_sha256": "6d7b72e4a8c8897d5bd8c27b4b8e760027340e41e09dd92b5cd390ab4af0c706",
+   "ids_sha256": "01a11f3251d7db1c7bd3a18946cb622c179be239963bcbbdd06afb84695f41fd"
+  }
+ },
+ "tables": {
+  "target": {
+   "path": "data/processed/hotpot/items_target.parquet",
+   "n_rows": 1000,
+   "sha256": "7e4ae5fef9dbfd4983c0967b87f0487da4a4df0586f1f118e74179210e361675"
+  },
+  "screening": {
+   "path": "data/processed/hotpot/items_screening.parquet",
+   "n_rows": 100,
+   "sha256": "c7a2669e702e4e96d4d94301c02244781efb510e58deb8aa08527f80b886115b"
+  },
+  "demo_pool": {
+   "path": "data/processed/hotpot/items_demo_pool.parquet",
+   "n_rows": 2408,
+   "sha256": "debde0b6878c527bba8b47b4a8babc4078c5f021c1e4c43d816b16595e5fe8b4"
+  }
+ },
+ "tables_definition": "one parquet per set, columns item_id, question, gold_answer, qtype, block, hotpot_question; question is the item variable (the demonstration text for demo_pool); hotpot_question the dataset's question"
+}

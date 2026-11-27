@@ -1,0 +1,48 @@
+{
+ "kind": "paraphrase_review",
+ "record_sha256": "7aeab487d8019510ad303ec034c8ff8016c1db101be11391c3f4f51e503ebe34",
+ "reviewers": [
+  "an AI assistant, for the authors, on 18 November 2026"
+ ],
+ "date": "2026-11-18",
+ "rule": "A variant is kept when it asks for the same thing as the original with nothing added or removed: it asks for the final answer alone and for no working, steps or explanation, and it says nothing else (no answer format or box, which the answer-format sentence after it supplies; no length, tone or confidence request; no reference to the problem beyond the answer). The verdicts read the texts alone; no output under a new wording exists when they are made.",
+ "question": "Does the variant ask for the same task as the original instruction, with nothing added or removed? keep or drop; a drop needs a note",
+ "original": "Give only the final answer, without any working.",
+ "verdicts": [
+  {
+   "text": "Provide the solution, omitting any calculations or explanations.",
+   "verdict": "keep",
+   "note": "'the solution' with calculations and explanations omitted is the answer alone; no working; nothing added"
+  },
+  {
+   "text": "State the answer only, excluding all intermediary steps.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "The final result is all that is required, do not include any reasoning.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Just give the answer, without showing how you arrived at it.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Only the final solution is needed, leave out the working.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Supply the answer, but do not provide any supporting work.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "The solution should be given on its own, without any accompanying calculations.",
+   "verdict": "keep",
+   "note": "'on its own' asks for the answer alone; 'calculations' is narrower than 'working', but 'on its own' excludes the rest"
+  }
+ ]
+}

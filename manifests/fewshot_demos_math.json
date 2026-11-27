@@ -1,0 +1,751 @@
+{
+ "label": "fewshot_demos_math",
+ "study_part": "five-shot forced arm, MATH-500",
+ "created": "2026-11-17 19:37:36",
+ "n_demos": 5,
+ "sampler": "manifests/sampler_math.json",
+ "sampler_sha256": "4fcb87553dd4ae9492f012f68bcbee41329c0b34950c9353959d8b8d30d16bca",
+ "configurations": [
+  "ps-i00-f01",
+  "ps-i00-f03",
+  "ps-i00-f04",
+  "ps-i00-f05",
+  "ps-i00-f06",
+  "ps-i01-f00",
+  "ps-i01-f06",
+  "ps-i02-f00",
+  "ps-i02-f01",
+  "ps-i02-f02",
+  "ps-i02-f03",
+  "ps-i02-f04",
+  "ps-i02-f06",
+  "ps-i02-f07",
+  "ps-i03-f00",
+  "ps-i03-f02",
+  "ps-i03-f06",
+  "ps-i03-f07",
+  "ps-i04-f00",
+  "ps-i04-f05",
+  "ps-i04-f07",
+  "ps-i05-f00",
+  "ps-i05-f01",
+  "ps-i05-f02",
+  "ps-i05-f04",
+  "ps-i06-f00",
+  "ps-i06-f01",
+  "ps-i06-f03",
+  "ps-i06-f05",
+  "ps-i06-f06",
+  "ps-i06-f07"
+ ],
+ "demos": {
+  "ps-i00-f01": [
+   {
+    "item_id": "train/intermediate_algebra/0",
+    "gold": "1/2"
+   },
+   {
+    "item_id": "train/algebra/1427",
+    "gold": "24"
+   },
+   {
+    "item_id": "train/prealgebra/91",
+    "gold": "8"
+   },
+   {
+    "item_id": "train/number_theory/226",
+    "gold": "0"
+   },
+   {
+    "item_id": "train/precalculus/313",
+    "gold": "5"
+   }
+  ],
+  "ps-i00-f03": [
+   {
+    "item_id": "train/precalculus/45",
+    "gold": "329/729"
+   },
+   {
+    "item_id": "train/geometry/87",
+    "gold": "24"
+   },
+   {
+    "item_id": "train/geometry/280",
+    "gold": "8/9"
+   },
+   {
+    "item_id": "train/precalculus/662",
+    "gold": "32"
+   },
+   {
+    "item_id": "train/geometry/618",
+    "gold": "5"
+   }
+  ],
+  "ps-i00-f04": [
+   {
+    "item_id": "train/prealgebra/477",
+    "gold": "62"
+   },
+   {
+    "item_id": "train/algebra/1171",
+    "gold": "27/5"
+   },
+   {
+    "item_id": "train/geometry/488",
+    "gold": "484"
+   },
+   {
+    "item_id": "train/number_theory/343",
+    "gold": "96569"
+   },
+   {
+    "item_id": "train/geometry/235",
+    "gold": "147"
+   }
+  ],
+  "ps-i00-f05": [
+   {
+    "item_id": "train/intermediate_algebra/899",
+    "gold": "-6"
+   },
+   {
+    "item_id": "train/intermediate_algebra/182",
+    "gold": "2"
+   },
+   {
+    "item_id": "train/algebra/724",
+    "gold": "64"
+   },
+   {
+    "item_id": "train/prealgebra/480",
+    "gold": "4"
+   },
+   {
+    "item_id": "train/geometry/433",
+    "gold": "315"
+   }
+  ],
+  "ps-i00-f06": [
+   {
+    "item_id": "train/prealgebra/672",
+    "gold": "12"
+   },
+   {
+    "item_id": "train/intermediate_algebra/596",
+    "gold": "2/3"
+   },
+   {
+    "item_id": "train/counting_and_probability/88",
+    "gold": "56"
+   },
+   {
+    "item_id": "train/intermediate_algebra/1208",
+    "gold": "1"
+   },
+   {
+    "item_id": "train/precalculus/49",
+    "gold": "7/25"
+   }
+  ],
+  "ps-i01-f00": [
+   {
+    "item_id": "train/counting_and_probability/644",
+    "gold": "216/625"
+   },
+   {
+    "item_id": "train/precalculus/371",
+    "gold": "20"
+   },
+   {
+    "item_id": "train/number_theory/765",
+    "gold": "12"
+   },
+   {
+    "item_id": "train/counting_and_probability/431",
+    "gold": "405"
+   },
+   {
+    "item_id": "train/geometry/404",
+    "gold": "130"
+   }
+  ],
+  "ps-i01-f06": [
+   {
+    "item_id": "train/intermediate_algebra/1262",
+    "gold": "6/5"
+   },
+   {
+    "item_id": "train/algebra/341",
+    "gold": "49"
+   },
+   {
+    "item_id": "train/algebra/1623",
+    "gold": "19"
+   },
+   {
+    "item_id": "train/precalculus/610",
+    "gold": "1"
+   },
+   {
+    "item_id": "train/number_theory/204",
+    "gold": "7"
+   }
+  ],
+  "ps-i02-f00": [
+   {
+    "item_id": "train/prealgebra/1128",
+    "gold": "12"
+   },
+   {
+    "item_id": "train/counting_and_probability/3",
+    "gold": "17/24"
+   },
+   {
+    "item_id": "train/prealgebra/21",
+    "gold": "6"
+   },
+   {
+    "item_id": "train/number_theory/550",
+    "gold": "119"
+   },
+   {
+    "item_id": "train/intermediate_algebra/643",
+    "gold": "2"
+   }
+  ],
+  "ps-i02-f01": [
+   {
+    "item_id": "train/algebra/1393",
+    "gold": "20"
+   },
+   {
+    "item_id": "train/intermediate_algebra/329",
+    "gold": "6"
+   },
+   {
+    "item_id": "train/precalculus/18",
+    "gold": "7/9"
+   },
+   {
+    "item_id": "train/number_theory/113",
+    "gold": "90"
+   },
+   {
+    "item_id": "train/algebra/256",
+    "gold": "-8/27"
+   }
+  ],
+  "ps-i02-f02": [
+   {
+    "item_id": "train/geometry/769",
+    "gold": "4/5"
+   },
+   {
+    "item_id": "train/intermediate_algebra/612",
+    "gold": "9"
+   },
+   {
+    "item_id": "train/number_theory/614",
+    "gold": "63"
+   },
+   {
+    "item_id": "train/algebra/634",
+    "gold": "9"
+   },
+   {
+    "item_id": "train/geometry/851",
+    "gold": "400"
+   }
+  ],
+  "ps-i02-f03": [
+   {
+    "item_id": "train/algebra/216",
+    "gold": "-3"
+   },
+   {
+    "item_id": "train/intermediate_algebra/497",
+    "gold": "16"
+   },
+   {
+    "item_id": "train/prealgebra/1171",
+    "gold": "15"
+   },
+   {
+    "item_id": "train/prealgebra/79",
+    "gold": "7"
+   },
+   {
+    "item_id": "train/prealgebra/577",
+    "gold": "4"
+   }
+  ],
+  "ps-i02-f04": [
+   {
+    "item_id": "train/algebra/1452",
+    "gold": "765"
+   },
+   {
+    "item_id": "train/geometry/41",
+    "gold": "216/25"
+   },
+   {
+    "item_id": "train/algebra/71",
+    "gold": "271"
+   },
+   {
+    "item_id": "train/precalculus/82",
+    "gold": "2"
+   },
+   {
+    "item_id": "train/algebra/1153",
+    "gold": "2"
+   }
+  ],
+  "ps-i02-f06": [
+   {
+    "item_id": "train/algebra/770",
+    "gold": "60"
+   },
+   {
+    "item_id": "train/prealgebra/1074",
+    "gold": "240"
+   },
+   {
+    "item_id": "train/prealgebra/607",
+    "gold": "275/2"
+   },
+   {
+    "item_id": "train/algebra/788",
+    "gold": "181"
+   },
+   {
+    "item_id": "train/counting_and_probability/748",
+    "gold": "28"
+   }
+  ],
+  "ps-i02-f07": [
+   {
+    "item_id": "train/algebra/515",
+    "gold": "8"
+   },
+   {
+    "item_id": "train/algebra/1052",
+    "gold": "22"
+   },
+   {
+    "item_id": "train/number_theory/461",
+    "gold": "50"
+   },
+   {
+    "item_id": "train/geometry/606",
+    "gold": "2"
+   },
+   {
+    "item_id": "train/algebra/257",
+    "gold": "2"
+   }
+  ],
+  "ps-i03-f00": [
+   {
+    "item_id": "train/intermediate_algebra/233",
+    "gold": "-198"
+   },
+   {
+    "item_id": "train/algebra/1223",
+    "gold": "9"
+   },
+   {
+    "item_id": "train/number_theory/201",
+    "gold": "10"
+   },
+   {
+    "item_id": "train/intermediate_algebra/853",
+    "gold": "10100"
+   },
+   {
+    "item_id": "train/algebra/191",
+    "gold": "-7"
+   }
+  ],
+  "ps-i03-f02": [
+   {
+    "item_id": "train/intermediate_algebra/646",
+    "gold": "27"
+   },
+   {
+    "item_id": "train/counting_and_probability/645",
+    "gold": "9/20"
+   },
+   {
+    "item_id": "train/counting_and_probability/289",
+    "gold": "5/12"
+   },
+   {
+    "item_id": "train/prealgebra/1109",
+    "gold": "4"
+   },
+   {
+    "item_id": "train/algebra/846",
+    "gold": "0"
+   }
+  ],
+  "ps-i03-f06": [
+   {
+    "item_id": "train/geometry/845",
+    "gold": "121/10"
+   },
+   {
+    "item_id": "train/geometry/414",
+    "gold": "306"
+   },
+   {
+    "item_id": "train/geometry/818",
+    "gold": "15"
+   },
+   {
+    "item_id": "train/algebra/1381",
+    "gold": "3"
+   },
+   {
+    "item_id": "train/counting_and_probability/543",
+    "gold": "362880"
+   }
+  ],
+  "ps-i03-f07": [
+   {
+    "item_id": "train/number_theory/464",
+    "gold": "5"
+   },
+   {
+    "item_id": "train/number_theory/637",
+    "gold": "97"
+   },
+   {
+    "item_id": "train/number_theory/667",
+    "gold": "960"
+   },
+   {
+    "item_id": "train/prealgebra/1068",
+    "gold": "45"
+   },
+   {
+    "item_id": "train/algebra/1034",
+    "gold": "5/4"
+   }
+  ],
+  "ps-i04-f00": [
+   {
+    "item_id": "train/geometry/503",
+    "gold": "578"
+   },
+   {
+    "item_id": "train/algebra/926",
+    "gold": "16"
+   },
+   {
+    "item_id": "train/counting_and_probability/461",
+    "gold": "129"
+   },
+   {
+    "item_id": "train/intermediate_algebra/1032",
+    "gold": "1"
+   },
+   {
+    "item_id": "train/algebra/209",
+    "gold": "3/2"
+   }
+  ],
+  "ps-i04-f05": [
+   {
+    "item_id": "train/number_theory/354",
+    "gold": "6"
+   },
+   {
+    "item_id": "train/algebra/1050",
+    "gold": "1"
+   },
+   {
+    "item_id": "train/algebra/358",
+    "gold": "12"
+   },
+   {
+    "item_id": "train/number_theory/389",
+    "gold": "76"
+   },
+   {
+    "item_id": "train/algebra/1128",
+    "gold": "7/144"
+   }
+  ],
+  "ps-i04-f07": [
+   {
+    "item_id": "train/algebra/825",
+    "gold": "10201/25"
+   },
+   {
+    "item_id": "train/prealgebra/343",
+    "gold": "30"
+   },
+   {
+    "item_id": "train/counting_and_probability/674",
+    "gold": "35/72"
+   },
+   {
+    "item_id": "train/intermediate_algebra/949",
+    "gold": "4/5"
+   },
+   {
+    "item_id": "train/counting_and_probability/67",
+    "gold": "36000"
+   }
+  ],
+  "ps-i05-f00": [
+   {
+    "item_id": "train/precalculus/557",
+    "gold": "0"
+   },
+   {
+    "item_id": "train/algebra/1683",
+    "gold": "6"
+   },
+   {
+    "item_id": "train/precalculus/568",
+    "gold": "16"
+   },
+   {
+    "item_id": "train/intermediate_algebra/250",
+    "gold": "9"
+   },
+   {
+    "item_id": "train/counting_and_probability/555",
+    "gold": "5/9"
+   }
+  ],
+  "ps-i05-f01": [
+   {
+    "item_id": "train/algebra/500",
+    "gold": "2009"
+   },
+   {
+    "item_id": "train/precalculus/149",
+    "gold": "60"
+   },
+   {
+    "item_id": "train/intermediate_algebra/1067",
+    "gold": "41/2"
+   },
+   {
+    "item_id": "train/algebra/723",
+    "gold": "13"
+   },
+   {
+    "item_id": "train/intermediate_algebra/0",
+    "gold": "1/2"
+   }
+  ],
+  "ps-i05-f02": [
+   {
+    "item_id": "train/algebra/410",
+    "gold": "19"
+   },
+   {
+    "item_id": "train/prealgebra/471",
+    "gold": "10"
+   },
+   {
+    "item_id": "train/algebra/941",
+    "gold": "4"
+   },
+   {
+    "item_id": "train/intermediate_algebra/949",
+    "gold": "4/5"
+   },
+   {
+    "item_id": "train/algebra/1651",
+    "gold": "7"
+   }
+  ],
+  "ps-i05-f04": [
+   {
+    "item_id": "train/prealgebra/133",
+    "gold": "-6"
+   },
+   {
+    "item_id": "train/precalculus/592",
+    "gold": "1"
+   },
+   {
+    "item_id": "train/counting_and_probability/653",
+    "gold": "7/10"
+   },
+   {
+    "item_id": "train/algebra/1602",
+    "gold": "14"
+   },
+   {
+    "item_id": "train/prealgebra/127",
+    "gold": "90"
+   }
+  ],
+  "ps-i06-f00": [
+   {
+    "item_id": "train/intermediate_algebra/649",
+    "gold": "157"
+   },
+   {
+    "item_id": "train/counting_and_probability/361",
+    "gold": "650"
+   },
+   {
+    "item_id": "train/prealgebra/785",
+    "gold": "25"
+   },
+   {
+    "item_id": "train/prealgebra/72",
+    "gold": "17"
+   },
+   {
+    "item_id": "train/counting_and_probability/613",
+    "gold": "3600"
+   }
+  ],
+  "ps-i06-f01": [
+   {
+    "item_id": "train/counting_and_probability/194",
+    "gold": "45/2"
+   },
+   {
+    "item_id": "train/intermediate_algebra/1145",
+    "gold": "63"
+   },
+   {
+    "item_id": "train/prealgebra/588",
+    "gold": "720"
+   },
+   {
+    "item_id": "train/prealgebra/50",
+    "gold": "127"
+   },
+   {
+    "item_id": "train/algebra/69",
+    "gold": "121"
+   }
+  ],
+  "ps-i06-f03": [
+   {
+    "item_id": "train/intermediate_algebra/763",
+    "gold": "1344"
+   },
+   {
+    "item_id": "train/counting_and_probability/62",
+    "gold": "520"
+   },
+   {
+    "item_id": "train/algebra/512",
+    "gold": "5"
+   },
+   {
+    "item_id": "train/algebra/1345",
+    "gold": "11"
+   },
+   {
+    "item_id": "train/intermediate_algebra/65",
+    "gold": "8"
+   }
+  ],
+  "ps-i06-f05": [
+   {
+    "item_id": "train/geometry/49",
+    "gold": "6"
+   },
+   {
+    "item_id": "train/algebra/611",
+    "gold": "6"
+   },
+   {
+    "item_id": "train/algebra/949",
+    "gold": "27"
+   },
+   {
+    "item_id": "train/number_theory/583",
+    "gold": "25"
+   },
+   {
+    "item_id": "train/algebra/186",
+    "gold": "10"
+   }
+  ],
+  "ps-i06-f06": [
+   {
+    "item_id": "train/prealgebra/85",
+    "gold": "20"
+   },
+   {
+    "item_id": "train/algebra/730",
+    "gold": "22"
+   },
+   {
+    "item_id": "train/intermediate_algebra/573",
+    "gold": "3"
+   },
+   {
+    "item_id": "train/number_theory/42",
+    "gold": "4"
+   },
+   {
+    "item_id": "train/prealgebra/866",
+    "gold": "40"
+   }
+  ],
+  "ps-i06-f07": [
+   {
+    "item_id": "train/counting_and_probability/386",
+    "gold": "392"
+   },
+   {
+    "item_id": "train/prealgebra/736",
+    "gold": "11/5"
+   },
+   {
+    "item_id": "train/counting_and_probability/340",
+    "gold": "905"
+   },
+   {
+    "item_id": "train/intermediate_algebra/386",
+    "gold": "24576/25"
+   },
+   {
+    "item_id": "train/algebra/168",
+    "gold": "-56"
+   }
+  ]
+ },
+ "rule": "per configuration, five MATH training items with a numeric gold answer drawn without replacement, in the order drawn, from the pool in training order with numpy.random.default_rng seeded by the first 8 bytes of sha256('fewshot/math/<config_id>'); the answer turn holds the canonical gold ('p' or 'p/q')",
+ "pool": {
+  "split": "train",
+  "dataset": "EleutherAI/hendrycks_math",
+  "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+  "n_train": 7500,
+  "excluded": {
+   "screening": {
+    "n": 200,
+    "canonical_sha256": "d34c18b04b5fc8804732d52d7c0e6b8296f746421fedd3a42e68db0644fe1f8b"
+   },
+   "calibration": {
+    "n": 398,
+    "canonical_sha256": "9948e377c7edbcb82fd5527366f999ff016e9d35b4ad80a06147d627ebf31683"
+   }
+  },
+  "n_numeric": 6091,
+  "n_excluded_sets": 598,
+  "n_same_text_as_target": 0,
+  "same_text_ids": [],
+  "n_pool": 5493,
+  "pool_sha256": "2e976b46ce28ac37e2ed7718eccd0c62da29c72a653b573f33ca0413730d114e",
+  "numeric_rule": "src/math_task.py module doc, 'Numeric rule': normalize_answer of the gold string is not None",
+  "order": "training order: subjects in src/math_task.SUBJECTS order, then row in the subject's pinned parquet file"
+ },
+ "demos_sha256": "7198a0de56491b8adfc9f7072c4cbf96e4289c3060c4c9c779e88b99066f1683"
+}

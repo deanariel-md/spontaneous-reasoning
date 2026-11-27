@@ -1,0 +1,64 @@
+{
+ "kind": "math_tranche",
+ "task": "math",
+ "rule": "config/tranche_math.yaml",
+ "tranche_config_sha256": "46ca231572c57c7a437be5be9916dc186b825c8db25de5719090b84a0fc82f9d",
+ "bank": {
+  "path": "manifests/math_bank.json",
+  "sha256": "83dde4c8463167a2f8b5f8a4d8a14f57cdd25a0a8043f45783b898158c55ff14"
+ },
+ "admissibility": {
+  "path": "manifests/math_admissibility.json",
+  "sha256": "4aad6ebed464f81f94dad9075399b63244744f0aab9a22ffabf4d2b73965bb73"
+ },
+ "seed_label": "math-tranche-configurations",
+ "seed": 20261103,
+ "n_bank_configurations": 56,
+ "configurations": [
+  "ps-i00-f00",
+  "ps-i03-f02",
+  "ps-i03-f03",
+  "ps-i04-f01",
+  "ps-i04-f03",
+  "ps-i04-f05",
+  "ps-i05-f03",
+  "ps-i06-f00"
+ ],
+ "models": [
+  "gemma-2-27b-it",
+  "gemma-2-9b-it",
+  "gemma-2b-it",
+  "gemma-3-12b-it",
+  "gemma-3-27b-it",
+  "gemma-3-4b-it",
+  "gemma-4-31b-it",
+  "gemma-7b-it",
+  "llama-2-13b-chat-hf",
+  "llama-2-7b-chat-hf",
+  "llama-3.1-8b-instruct",
+  "meta-llama-3-8b-instruct",
+  "mistral-7b-instruct-v0.1",
+  "mistral-7b-instruct-v0.3",
+  "mistral-nemo-instruct-2407",
+  "mistral-small-3.1-24b-instruct-2503",
+  "phi-3-medium-4k-instruct",
+  "phi-3-mini-4k-instruct",
+  "phi-4",
+  "qwen2.5-7b-instruct",
+  "qwen3-14b",
+  "qwen3-30b-a3b",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3-32b",
+  "qwen3-8b",
+  "qwen3.5-35b-a3b",
+  "qwen3.5-9b",
+  "qwen3.6-27b",
+  "qwen3.6-35b-a3b"
+ ],
+ "calibration_items": {
+  "item_set": "calibration",
+  "n_items": 398,
+  "canonical_sha256": "9948e377c7edbcb82fd5527366f999ff016e9d35b4ad80a06147d627ebf31683"
+ },
+ "excluded_from_main": true
+}

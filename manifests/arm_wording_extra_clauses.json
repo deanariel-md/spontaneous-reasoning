@@ -1,0 +1,23 @@
+{
+ "kind": "arm_wording_extra_clauses",
+ "rule": "src/arm_wording_extra.py",
+ "clauses": [
+  {
+   "id": "dirdef",
+   "text": "",
+   "how": "the current clause and the single space after it are removed from the requested-direct messages; the answer-format sentence stays"
+  },
+  {
+   "id": "dirfirm",
+   "text": "Give only the final answer. Do not show any working under any circumstances.",
+   "how": "str.replace of the current clause, once"
+  }
+ ],
+ "current_clause": "Give only the final answer, without any working.",
+ "firm_sentence_from_d24": "Do not show any working under any circumstances",
+ "configs_manifest_sha256": "14a3d8b9930a75b9fec24beb8d0a31609c9e5b8f8cc63e5adfc6dfa9199c95f6",
+ "banks_sha256": {
+  "gsm8k": "4a50c8251fcb76db50c3013dfee8c87912ae0bbec160830537296892cd855912",
+  "math": "83dde4c8463167a2f8b5f8a4d8a14f57cdd25a0a8043f45783b898158c55ff14"
+ }
+}

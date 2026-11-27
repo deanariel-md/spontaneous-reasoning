@@ -1,0 +1,698 @@
+{
+ "label": "fewshot_demos_gsm8k",
+ "study_part": "five-shot forced arm",
+ "created": "2026-11-17 17:32:35",
+ "n_demos": 5,
+ "sampler": "manifests/sampler_gsm8k.json",
+ "sampler_sha256": "15501b220e556ca089be0d96e414d5171a4262713242e0a53fd3d69d75a0af45",
+ "configurations": [
+  "ps-i00-f00",
+  "ps-i00-f02",
+  "ps-i01-f00",
+  "ps-i01-f02",
+  "ps-i01-f07",
+  "ps-i02-f00",
+  "ps-i02-f01",
+  "ps-i02-f04",
+  "ps-i02-f06",
+  "ps-i03-f00",
+  "ps-i03-f02",
+  "ps-i03-f03",
+  "ps-i03-f04",
+  "ps-i03-f05",
+  "ps-i03-f06",
+  "ps-i04-f02",
+  "ps-i04-f03",
+  "ps-i04-f05",
+  "ps-i04-f06",
+  "ps-i05-f01",
+  "ps-i05-f02",
+  "ps-i05-f04",
+  "ps-i05-f05",
+  "ps-i05-f06",
+  "ps-i05-f07",
+  "ps-i07-f00",
+  "ps-i07-f01",
+  "ps-i07-f05",
+  "ps-i07-f07"
+ ],
+ "demos": {
+  "ps-i00-f00": [
+   {
+    "item_id": 4261,
+    "gold": "2"
+   },
+   {
+    "item_id": 1098,
+    "gold": "6"
+   },
+   {
+    "item_id": 5709,
+    "gold": "72"
+   },
+   {
+    "item_id": 3616,
+    "gold": "6"
+   },
+   {
+    "item_id": 2464,
+    "gold": "15"
+   }
+  ],
+  "ps-i00-f02": [
+   {
+    "item_id": 2513,
+    "gold": "23"
+   },
+   {
+    "item_id": 3555,
+    "gold": "16"
+   },
+   {
+    "item_id": 795,
+    "gold": "8"
+   },
+   {
+    "item_id": 3675,
+    "gold": "15"
+   },
+   {
+    "item_id": 7433,
+    "gold": "10"
+   }
+  ],
+  "ps-i01-f00": [
+   {
+    "item_id": 1562,
+    "gold": "8"
+   },
+   {
+    "item_id": 3473,
+    "gold": "9"
+   },
+   {
+    "item_id": 6756,
+    "gold": "14000"
+   },
+   {
+    "item_id": 2393,
+    "gold": "115"
+   },
+   {
+    "item_id": 4516,
+    "gold": "35"
+   }
+  ],
+  "ps-i01-f02": [
+   {
+    "item_id": 7459,
+    "gold": "500"
+   },
+   {
+    "item_id": 5239,
+    "gold": "1"
+   },
+   {
+    "item_id": 1920,
+    "gold": "2"
+   },
+   {
+    "item_id": 3390,
+    "gold": "55"
+   },
+   {
+    "item_id": 2602,
+    "gold": "5"
+   }
+  ],
+  "ps-i01-f07": [
+   {
+    "item_id": 2086,
+    "gold": "183"
+   },
+   {
+    "item_id": 5133,
+    "gold": "198"
+   },
+   {
+    "item_id": 1999,
+    "gold": "5"
+   },
+   {
+    "item_id": 5062,
+    "gold": "39"
+   },
+   {
+    "item_id": 4942,
+    "gold": "41"
+   }
+  ],
+  "ps-i02-f00": [
+   {
+    "item_id": 4853,
+    "gold": "2160"
+   },
+   {
+    "item_id": 6964,
+    "gold": "420"
+   },
+   {
+    "item_id": 6076,
+    "gold": "42"
+   },
+   {
+    "item_id": 7036,
+    "gold": "44"
+   },
+   {
+    "item_id": 4042,
+    "gold": "900"
+   }
+  ],
+  "ps-i02-f01": [
+   {
+    "item_id": 2076,
+    "gold": "42000"
+   },
+   {
+    "item_id": 2471,
+    "gold": "650"
+   },
+   {
+    "item_id": 6094,
+    "gold": "13"
+   },
+   {
+    "item_id": 1066,
+    "gold": "107"
+   },
+   {
+    "item_id": 60,
+    "gold": "96"
+   }
+  ],
+  "ps-i02-f04": [
+   {
+    "item_id": 559,
+    "gold": "249"
+   },
+   {
+    "item_id": 5647,
+    "gold": "100"
+   },
+   {
+    "item_id": 6753,
+    "gold": "28"
+   },
+   {
+    "item_id": 858,
+    "gold": "7"
+   },
+   {
+    "item_id": 745,
+    "gold": "2000"
+   }
+  ],
+  "ps-i02-f06": [
+   {
+    "item_id": 571,
+    "gold": "27"
+   },
+   {
+    "item_id": 736,
+    "gold": "25"
+   },
+   {
+    "item_id": 4290,
+    "gold": "20"
+   },
+   {
+    "item_id": 4229,
+    "gold": "40"
+   },
+   {
+    "item_id": 4930,
+    "gold": "196"
+   }
+  ],
+  "ps-i03-f00": [
+   {
+    "item_id": 2445,
+    "gold": "69"
+   },
+   {
+    "item_id": 1628,
+    "gold": "1"
+   },
+   {
+    "item_id": 564,
+    "gold": "15"
+   },
+   {
+    "item_id": 612,
+    "gold": "60"
+   },
+   {
+    "item_id": 7060,
+    "gold": "2900"
+   }
+  ],
+  "ps-i03-f02": [
+   {
+    "item_id": 1608,
+    "gold": "1"
+   },
+   {
+    "item_id": 789,
+    "gold": "39"
+   },
+   {
+    "item_id": 6171,
+    "gold": "25"
+   },
+   {
+    "item_id": 1668,
+    "gold": "10"
+   },
+   {
+    "item_id": 3521,
+    "gold": "600"
+   }
+  ],
+  "ps-i03-f03": [
+   {
+    "item_id": 4995,
+    "gold": "2400"
+   },
+   {
+    "item_id": 4872,
+    "gold": "20"
+   },
+   {
+    "item_id": 650,
+    "gold": "19"
+   },
+   {
+    "item_id": 5255,
+    "gold": "6"
+   },
+   {
+    "item_id": 4599,
+    "gold": "1250"
+   }
+  ],
+  "ps-i03-f04": [
+   {
+    "item_id": 5262,
+    "gold": "3"
+   },
+   {
+    "item_id": 4261,
+    "gold": "2"
+   },
+   {
+    "item_id": 4776,
+    "gold": "2800"
+   },
+   {
+    "item_id": 3958,
+    "gold": "108"
+   },
+   {
+    "item_id": 6684,
+    "gold": "9"
+   }
+  ],
+  "ps-i03-f05": [
+   {
+    "item_id": 1536,
+    "gold": "36"
+   },
+   {
+    "item_id": 2998,
+    "gold": "750"
+   },
+   {
+    "item_id": 4176,
+    "gold": "5"
+   },
+   {
+    "item_id": 4435,
+    "gold": "2"
+   },
+   {
+    "item_id": 3319,
+    "gold": "6"
+   }
+  ],
+  "ps-i03-f06": [
+   {
+    "item_id": 7201,
+    "gold": "120"
+   },
+   {
+    "item_id": 734,
+    "gold": "100"
+   },
+   {
+    "item_id": 1268,
+    "gold": "5"
+   },
+   {
+    "item_id": 5510,
+    "gold": "105"
+   },
+   {
+    "item_id": 3918,
+    "gold": "166"
+   }
+  ],
+  "ps-i04-f02": [
+   {
+    "item_id": 110,
+    "gold": "140"
+   },
+   {
+    "item_id": 3269,
+    "gold": "40"
+   },
+   {
+    "item_id": 6405,
+    "gold": "3000"
+   },
+   {
+    "item_id": 2452,
+    "gold": "20"
+   },
+   {
+    "item_id": 16,
+    "gold": "800"
+   }
+  ],
+  "ps-i04-f03": [
+   {
+    "item_id": 2492,
+    "gold": "7"
+   },
+   {
+    "item_id": 5073,
+    "gold": "30"
+   },
+   {
+    "item_id": 5800,
+    "gold": "10"
+   },
+   {
+    "item_id": 5212,
+    "gold": "32"
+   },
+   {
+    "item_id": 1239,
+    "gold": "120"
+   }
+  ],
+  "ps-i04-f05": [
+   {
+    "item_id": 1671,
+    "gold": "30"
+   },
+   {
+    "item_id": 3788,
+    "gold": "15"
+   },
+   {
+    "item_id": 7463,
+    "gold": "40"
+   },
+   {
+    "item_id": 4977,
+    "gold": "5"
+   },
+   {
+    "item_id": 6231,
+    "gold": "3"
+   }
+  ],
+  "ps-i04-f06": [
+   {
+    "item_id": 1717,
+    "gold": "112"
+   },
+   {
+    "item_id": 1211,
+    "gold": "10"
+   },
+   {
+    "item_id": 5714,
+    "gold": "48"
+   },
+   {
+    "item_id": 4694,
+    "gold": "90"
+   },
+   {
+    "item_id": 4003,
+    "gold": "36"
+   }
+  ],
+  "ps-i05-f01": [
+   {
+    "item_id": 5269,
+    "gold": "350"
+   },
+   {
+    "item_id": 7132,
+    "gold": "96"
+   },
+   {
+    "item_id": 548,
+    "gold": "14000"
+   },
+   {
+    "item_id": 6196,
+    "gold": "4"
+   },
+   {
+    "item_id": 3317,
+    "gold": "3"
+   }
+  ],
+  "ps-i05-f02": [
+   {
+    "item_id": 2399,
+    "gold": "40"
+   },
+   {
+    "item_id": 5441,
+    "gold": "250"
+   },
+   {
+    "item_id": 7141,
+    "gold": "30"
+   },
+   {
+    "item_id": 3225,
+    "gold": "14"
+   },
+   {
+    "item_id": 2897,
+    "gold": "252"
+   }
+  ],
+  "ps-i05-f04": [
+   {
+    "item_id": 2048,
+    "gold": "57600"
+   },
+   {
+    "item_id": 7420,
+    "gold": "4"
+   },
+   {
+    "item_id": 4698,
+    "gold": "80"
+   },
+   {
+    "item_id": 4338,
+    "gold": "60"
+   },
+   {
+    "item_id": 7424,
+    "gold": "32"
+   }
+  ],
+  "ps-i05-f05": [
+   {
+    "item_id": 7242,
+    "gold": "42"
+   },
+   {
+    "item_id": 1057,
+    "gold": "7"
+   },
+   {
+    "item_id": 5716,
+    "gold": "8"
+   },
+   {
+    "item_id": 1043,
+    "gold": "7200"
+   },
+   {
+    "item_id": 1871,
+    "gold": "110"
+   }
+  ],
+  "ps-i05-f06": [
+   {
+    "item_id": 2518,
+    "gold": "120"
+   },
+   {
+    "item_id": 1931,
+    "gold": "4914"
+   },
+   {
+    "item_id": 5175,
+    "gold": "12"
+   },
+   {
+    "item_id": 6516,
+    "gold": "51"
+   },
+   {
+    "item_id": 3340,
+    "gold": "55"
+   }
+  ],
+  "ps-i05-f07": [
+   {
+    "item_id": 2022,
+    "gold": "4"
+   },
+   {
+    "item_id": 3450,
+    "gold": "108"
+   },
+   {
+    "item_id": 5733,
+    "gold": "45"
+   },
+   {
+    "item_id": 786,
+    "gold": "3"
+   },
+   {
+    "item_id": 5250,
+    "gold": "5"
+   }
+  ],
+  "ps-i07-f00": [
+   {
+    "item_id": 5186,
+    "gold": "17"
+   },
+   {
+    "item_id": 2501,
+    "gold": "38"
+   },
+   {
+    "item_id": 3377,
+    "gold": "20"
+   },
+   {
+    "item_id": 4579,
+    "gold": "768"
+   },
+   {
+    "item_id": 7183,
+    "gold": "400"
+   }
+  ],
+  "ps-i07-f01": [
+   {
+    "item_id": 7469,
+    "gold": "3"
+   },
+   {
+    "item_id": 1610,
+    "gold": "6"
+   },
+   {
+    "item_id": 7259,
+    "gold": "46"
+   },
+   {
+    "item_id": 2096,
+    "gold": "10"
+   },
+   {
+    "item_id": 1458,
+    "gold": "108"
+   }
+  ],
+  "ps-i07-f05": [
+   {
+    "item_id": 369,
+    "gold": "347"
+   },
+   {
+    "item_id": 2763,
+    "gold": "135"
+   },
+   {
+    "item_id": 5034,
+    "gold": "5"
+   },
+   {
+    "item_id": 684,
+    "gold": "25"
+   },
+   {
+    "item_id": 6200,
+    "gold": "500"
+   }
+  ],
+  "ps-i07-f07": [
+   {
+    "item_id": 5371,
+    "gold": "4"
+   },
+   {
+    "item_id": 4792,
+    "gold": "14"
+   },
+   {
+    "item_id": 6606,
+    "gold": "10"
+   },
+   {
+    "item_id": 5256,
+    "gold": "400"
+   },
+   {
+    "item_id": 3112,
+    "gold": "920"
+   }
+  ]
+ },
+ "rule": "per configuration, five training items drawn without replacement, in the order drawn, from the pool in item-id order with numpy.random.default_rng seeded by the first 8 bytes of sha256('fewshot/gsm8k/<config_id>')",
+ "pool": {
+  "split": "train",
+  "n_train": 7473,
+  "excluded": {
+   "gsm8k_calibration_items.json": {
+    "n": 1319,
+    "sha256": "ac1a4d4e09dfc1931f54ad4f996fc0d16290e7ca3910150c8b8f21bc336b118e"
+   },
+   "gsm8k_screening_items.json": {
+    "n": 200,
+    "sha256": "5074400e48fc9d99c254ac2cc56530c93ce1e838fdffc52d74148ed4c61e1f58"
+   }
+  },
+  "n_pool": 5992,
+  "pool_sha256": "29e89c93cff795db74aeef6559015231b430da03da15e0708136673002976647",
+  "train_canonical_sha256": "20c6c3ff0c671233fb0b1ffc8e9226157055d91e0581bf01d345c2c771f85282"
+ },
+ "demos_sha256": "959fd5e9ab455149c767e73a1b8a2799eb9536e491a7f22bedb2e3f40172ec86"
+}

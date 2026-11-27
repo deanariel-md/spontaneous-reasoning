@@ -1,0 +1,151 @@
+# Contrasts added to the cross-cutting analyses beside their main settings. They are defined from the collections'
+# metadata; no outcome enters their definition.
+#
+# Each contrast is a baseline arm B and an intervention arm P on one Dataset 2 task, with the task's panel, items and
+# frozen sampler (scripts/run_forced_direct.collection_inputs). An arm is either
+#   {kind: collection, arm: <direct_answer | zero_shot_cot>}   rows of the task's collection, or
+#   {kind: processed, dir: <data/processed/...>}               a forced-format scored table <dir>/<task>_scored.parquet,
+#                                                              read with the checks of scripts/run_forced_direct.py;
+#   {kind: table, arm: <arm>}                                  rows of an added task's scored table (section `tasks`
+#                                                              at the end), for a task outside GSM8K, BIG-Bench Hard
+#                                                              and MATH-500.
+# Optional per contrast: `pool` (letters and digits; default base) groups contrasts whose pooled summaries go together,
+# and `setting` names the map point (default <group>:<task>).
+# Inside the analyses B is relabelled direct_answer and P zero_shot_cot, as scripts/run_fewshot.py does.
+#
+# The analyses that read this file (scripts/run_reliability_map.py --added, scripts/run_map_panels.py --added,
+# scripts/run_noise_anatomy.py --settings <name>, scripts/run_lowr_map.py) keep these contrasts apart from the pooled
+# summaries of their main settings, so every number those summaries had stays as it was. `group` labels the points;
+# `map_panel` names their panel on the map by panel; `tag` (letters only) names their macros; `steps` is the Steps 1-3
+# file of the contrast's own analysis, used to check R, C and the noise moments; `noise_base` is the main
+# noise-anatomy setting whose item grid and item subsamples the contrast reuses, so the two compare on the same items.
+contrasts:
+  fewshot_gsm8k:
+    group: fewshot
+    map_panel: "Five-shot forced"
+    tag: FsGsm
+    task: gsm8k
+    title: "GSM8K-29: five-shot against zero-shot forced direct"
+    short: "GSM8K, five-shot"
+    baseline: {kind: processed, dir: data/processed/forced}
+    intervention: {kind: processed, dir: data/processed/fewshot}
+    steps: results/fewshot/fewshot_gsm8k.json
+    noise_base: gsm8k30
+  fewshot_bbh:
+    group: fewshot
+    map_panel: "Five-shot forced"
+    tag: FsBbh
+    task: bbh
+    title: "BIG-Bench Hard-28 pooled: five-shot against zero-shot forced direct"
+    short: "BIG-Bench Hard, five-shot"
+    baseline: {kind: processed, dir: data/processed/forced}
+    intervention: {kind: processed, dir: data/processed/fewshot}
+    steps: results/fewshot/fewshot_bbh.json
+    noise_base: bbh
+  fewshot_math:
+    group: fewshot
+    map_panel: "Five-shot forced"
+    tag: FsMath
+    task: math
+    title: "MATH-500 (29 models, 398 items): five-shot against zero-shot forced direct"
+    short: "MATH-500, five-shot"
+    baseline: {kind: processed, dir: data/processed/forced}
+    intervention: {kind: processed, dir: data/processed/fewshot}
+    steps: results/fewshot/math/fewshot_math.json
+    noise_base: math
+  constrained_bbh:
+    group: constrained
+    map_panel: "CoT vs constrained"
+    tag: GcBbh
+    task: bbh
+    title: "BIG-Bench Hard-28 pooled: chain of thought against constrained forced direct"
+    short: "BIG-Bench Hard, CoT vs constrained"
+    baseline: {kind: processed, dir: data/processed/forced_constrained}
+    intervention: {kind: collection, arm: zero_shot_cot}
+    steps: results/forced_constrained/forced_constrained_bbh.json
+    noise_base: bbh
+  # HotpotQA, defined from the collection's metadata. Pool hotpot: the analyses summarize these three apart from pool base (the four contrasts above, whose pooled
+  # keys and macros stay as they were) and from their main settings. `setting` names the map point as
+  # scripts/run_hotpot.py names it. The pilot predictions saved before HotpotQA's validation draws were scored are
+  # manifests/predictions_hotpot_map.json; the analyses' own pilot files are written after, and are checked against it.
+  hotpot_cot_req:
+    pool: hotpot
+    setting: "hotpot:cot_req"
+    group: hotpot
+    map_panel: "HotpotQA"
+    tag: HqReq
+    task: hotpot
+    title: "HotpotQA (29 models, 1,000 items): chain of thought against requested direct"
+    short: "HotpotQA, CoT vs requested"
+    baseline: {kind: table, arm: direct_answer}
+    intervention: {kind: table, arm: zero_shot_cot}
+    steps: results/hotpot/hotpot.json
+    noise_base: hotpot
+  hotpot_cot_forced:
+    pool: hotpot
+    setting: "hotpot:cot_forced"
+    group: hotpot
+    map_panel: "HotpotQA"
+    tag: HqFd
+    task: hotpot
+    title: "HotpotQA (29 models, 1,000 items): chain of thought against forced direct"
+    short: "HotpotQA, CoT vs forced"
+    baseline: {kind: table, arm: forced_direct}
+    intervention: {kind: table, arm: zero_shot_cot}
+    steps: results/hotpot/hotpot_forced.json
+    noise_base: hotpot
+  hotpot_fewshot:
+    pool: hotpot
+    setting: "hotpot:fewshot"
+    group: hotpot
+    map_panel: "HotpotQA"
+    tag: HqFs
+    task: hotpot
+    title: "HotpotQA (29 models, 1,000 items): five-shot against zero-shot forced direct"
+    short: "HotpotQA, five-shot"
+    baseline: {kind: table, arm: forced_direct}
+    intervention: {kind: table, arm: fewshot_forced}
+    steps: results/hotpot/hotpot_fewshot.json
+    noise_base: hotpot
+
+# Tasks beside GSM8K, BIG-Bench Hard and MATH-500. A task's arms are rows of one scored
+# table (`scored`), named by the collection; `module` is the script whose panel_info() and item_ids() give the panel,
+# families, extension tiers and target items. The cross-cutting analyses that take a task (protocol ceiling, decision
+# analysis, model resampling, arm effect) read this section; each keeps the task apart from its pooled summaries.
+#   roles       the collection's arm behind each role the analyses use (requested direct, forced direct, chain of
+#               thought, five-shot forced)
+#   scorings    the protocol ceiling's scoring axis: name -> column (HotpotQA has no content scoring; token F1 is its
+#               third scorer)
+#   forced_cap  the forced arm's output cap in tokens (manifests/hotpot_scorer.json), for the arm-effect analysis
+#   decision    run_decision.py settings -> (baseline role, intervention role, the label of the choices saved at the
+#               discovery stage, manifests/predictions_decision_<label>.json)
+#   fair        the evaluation of the strict decision design, the held-out family and the other-benchmark choices,
+#               all saved before the validation draws were scored (scripts/hotpot_fair.py); contrast -> baseline arm
+#               as decision_strict.json and transfer_regret.json name it
+tasks:
+  hotpot:
+    title: "HotpotQA"
+    tag: Hq
+    scored: data/processed/hotpot/scored.parquet
+    sampler: manifests/sampler_hotpot.json
+    scorer: manifests/hotpot_scorer.json
+    module: run_hotpot
+    roles: {requested: direct_answer, forced: forced_direct, cot: zero_shot_cot, five_shot: fewshot_forced}
+    scorings: {strict: strict_correct, lenient: lenient_correct, f1: strict_f1}
+    forced_cap: 64
+    decision:
+      hotpot_req: {baseline: requested, intervention: cot, choices: hotpot,
+                   title: "HotpotQA: chain of thought − requested direct"}
+      hotpot_fd: {baseline: forced, intervention: cot, choices: hotpot_forced,
+                  title: "HotpotQA: chain of thought − forced direct"}
+      fewshot_hotpot: {baseline: forced, intervention: five_shot, choices: hotpot_fewshot,
+                       title: "HotpotQA: five-shot − zero-shot forced direct"}
+    fair:
+      evaluation: results/hotpot/fair_rules_evaluation.json
+      arms: {cot_req: requested, cot_forced: forced, fewshot: fewshot}
+
+# Pools of contrasts summarized together. Pool base (the default) writes the unsuffixed keys and macros; a later pool
+# writes the same keys with the suffix _<pool> and macros with its tag, so nothing pooled over base changes.
+pools:
+  base: {tag: "", title: "Added contrasts"}
+  hotpot: {tag: Hq, title: "HotpotQA"}

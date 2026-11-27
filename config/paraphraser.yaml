@@ -1,0 +1,33 @@
+# The model that writes the instruction paraphrases of the Dataset 2 bank (chosen on 30 October
+# 2026). It is not a panel model and generates no evaluation outputs. The file has the registry
+# schema of config/models.yaml, so the generation runner pins it like a panel model (scripts/generate_d2.py
+# --models-yaml config/paraphraser.yaml --decoding-yaml config/paraphrase_decoding.yaml).
+#
+# Choice: PromptSuite 3.0.7's default paraphrasing model is meta-llama/Llama-3.3-70B-Instruct-Turbo-Free, an FP8
+# endpoint of Llama-3.3-70B-Instruct on TogetherAI (promptsuite.shared.constants). The same model with open FP8
+# weights runs here at a pinned revision on one 96 GB card, so PromptSuite's own paraphrasing prompt is answered by
+# its default model with greedy decoding and batch-invariant kernels, and the answer is frozen by hash.
+dataset2:
+  registry_schema_version: 1
+  models:
+    llama-3.3-70b-instruct-fp8:
+      family: Llama
+      hf_id: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+      revision: f50dbad2c84590ca17dc51e207c34321b65ff14b
+      dtype: bfloat16
+      quantization: compressed-tensors   # FP8 weights and dynamic FP8 activations (config.json quantization_config)
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1            # 72.7 GB of weights on one RTX PRO 6000 (96 GB)
+      chat_template:
+        source: tokenizer_default
+        file: null
+        # sha256 of tokenizer_config.json's chat_template at this revision, read on 30 October 2026. The template
+        # takes the date from date_string, with the fixed default "26 Jul 2024"; it does not call strftime_now.
+        sha256: e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: Llama-3.3-70B-Instruct has no native reasoning mode.
+      kernels: batch_invariant

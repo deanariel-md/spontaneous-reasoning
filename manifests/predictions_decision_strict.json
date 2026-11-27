@@ -1,0 +1,276 @@
+{
+ "label": "decision_strict",
+ "created": "2026-11-18 18:35:05",
+ "units": "pp; predictions uncentred; weights per model (ties share places)",
+ "design": {
+  "n_pilots": 200,
+  "n_items": 100,
+  "split_label": "decision-strict",
+  "streams": {
+   "shared": "sampling.rng_for('rule-budgets', setting, 1, 100)",
+   "disjoint": "sampling.rng_for('decision-strict', task, 1, 100)"
+  },
+  "models": {
+   "gsm8k": [
+    "gemma-4-31b-it",
+    "meta-llama-3-8b-instruct",
+    "mistral-7b-instruct-v0.3",
+    "mistral-7b-instruct-v0.1",
+    "mistral-nemo-instruct-2407",
+    "mistral-small-3.1-24b-instruct-2503",
+    "phi-3-mini-4k-instruct",
+    "phi-3-medium-4k-instruct",
+    "phi-4",
+    "qwen2.5-7b-instruct",
+    "qwen3-8b",
+    "qwen3-30b-a3b-instruct-2507",
+    "qwen3.6-27b",
+    "gemma-2b-it",
+    "gemma-7b-it",
+    "gemma-3-12b-it",
+    "llama-3.1-8b-instruct",
+    "llama-2-7b-chat-hf",
+    "llama-2-13b-chat-hf",
+    "gemma-3-4b-it",
+    "gemma-2-9b-it",
+    "gemma-2-27b-it",
+    "gemma-3-27b-it",
+    "qwen3-30b-a3b",
+    "qwen3-14b",
+    "qwen3-32b",
+    "qwen3.5-9b",
+    "qwen3.5-35b-a3b",
+    "qwen3.6-35b-a3b"
+   ],
+   "bbh": [
+    "meta-llama-3-8b-instruct",
+    "mistral-7b-instruct-v0.3",
+    "mistral-7b-instruct-v0.1",
+    "mistral-nemo-instruct-2407",
+    "mistral-small-3.1-24b-instruct-2503",
+    "phi-3-mini-4k-instruct",
+    "phi-3-medium-4k-instruct",
+    "phi-4",
+    "qwen2.5-7b-instruct",
+    "qwen3-8b",
+    "qwen3-30b-a3b-instruct-2507",
+    "qwen3.6-27b",
+    "gemma-2b-it",
+    "gemma-7b-it",
+    "gemma-3-12b-it",
+    "llama-3.1-8b-instruct",
+    "llama-2-7b-chat-hf",
+    "llama-2-13b-chat-hf",
+    "gemma-3-4b-it",
+    "gemma-2-9b-it",
+    "gemma-2-27b-it",
+    "gemma-3-27b-it",
+    "qwen3-30b-a3b",
+    "qwen3-14b",
+    "qwen3-32b",
+    "qwen3.5-9b",
+    "qwen3.5-35b-a3b",
+    "qwen3.6-35b-a3b"
+   ],
+   "math": [
+    "gemma-4-31b-it",
+    "meta-llama-3-8b-instruct",
+    "mistral-7b-instruct-v0.3",
+    "mistral-7b-instruct-v0.1",
+    "mistral-nemo-instruct-2407",
+    "mistral-small-3.1-24b-instruct-2503",
+    "phi-3-mini-4k-instruct",
+    "phi-3-medium-4k-instruct",
+    "phi-4",
+    "qwen2.5-7b-instruct",
+    "qwen3-8b",
+    "qwen3-30b-a3b-instruct-2507",
+    "qwen3.6-27b",
+    "gemma-2b-it",
+    "gemma-7b-it",
+    "gemma-3-12b-it",
+    "llama-3.1-8b-instruct",
+    "llama-2-7b-chat-hf",
+    "llama-2-13b-chat-hf",
+    "gemma-3-4b-it",
+    "gemma-2-9b-it",
+    "gemma-2-27b-it",
+    "gemma-3-27b-it",
+    "qwen3-30b-a3b",
+    "qwen3-14b",
+    "qwen3-32b",
+    "qwen3.5-9b",
+    "qwen3.5-35b-a3b",
+    "qwen3.6-35b-a3b"
+   ]
+  },
+  "discovery_units": {
+   "gsm8k": [
+    "ps-i07-f00",
+    "ps-i03-f05",
+    "ps-i05-f05",
+    "ps-i03-f06",
+    "ps-i02-f01",
+    "ps-i05-f05",
+    "ps-i04-f02",
+    "ps-i05-f01",
+    "ps-i07-f01",
+    "ps-i04-f05",
+    "ps-i02-f04",
+    "ps-i05-f04",
+    "ps-i00-f02",
+    "ps-i02-f01",
+    "ps-i02-f06",
+    "ps-i01-f00",
+    "ps-i05-f04",
+    "ps-i03-f00",
+    "ps-i05-f06",
+    "ps-i03-f05",
+    "ps-i07-f00",
+    "ps-i04-f03",
+    "ps-i01-f02",
+    "ps-i07-f05"
+   ],
+   "bbh": [
+    "ps-i06-f06",
+    "ps-i00-f04",
+    "ps-i02-f01",
+    "ps-i00-f04",
+    "ps-i07-f02",
+    "ps-i07-f03",
+    "ps-i01-f06",
+    "ps-i01-f07",
+    "ps-i00-f06",
+    "ps-i02-f00",
+    "ps-i03-f00",
+    "ps-i04-f05",
+    "ps-i06-f01",
+    "ps-i04-f04",
+    "ps-i04-f04",
+    "ps-i02-f02",
+    "ps-i02-f06",
+    "ps-i01-f07",
+    "ps-i02-f03",
+    "ps-i03-f01",
+    "ps-i03-f00",
+    "ps-i03-f05",
+    "ps-i06-f01",
+    "ps-i02-f02"
+   ],
+   "math": [
+    "ps-i00-f05",
+    "ps-i02-f03",
+    "ps-i03-f07",
+    "ps-i06-f01",
+    "ps-i01-f00",
+    "ps-i04-f00",
+    "ps-i06-f05",
+    "ps-i05-f02",
+    "ps-i02-f06",
+    "ps-i05-f04",
+    "ps-i02-f03",
+    "ps-i00-f03",
+    "ps-i02-f04",
+    "ps-i02-f00",
+    "ps-i06-f05",
+    "ps-i04-f05",
+    "ps-i06-f01",
+    "ps-i03-f00",
+    "ps-i03-f02",
+    "ps-i00-f04",
+    "ps-i02-f06",
+    "ps-i04-f07",
+    "ps-i05-f04",
+    "ps-i05-f02"
+   ]
+  },
+  "tasks": {
+   "gsm8k": {
+    "shared": {
+     "evaluation_items": 1319,
+     "pilot_pool_items": 1319,
+     "ties": {
+      "requested/linear": 63,
+      "requested/quadratic_index": 0,
+      "requested/own_gain": 41,
+      "forced/linear": 50,
+      "forced/quadratic_index": 0,
+      "forced/own_gain": 71
+     }
+    },
+    "disjoint": {
+     "evaluation_items": 660,
+     "pilot_pool_items": 659,
+     "ties": {
+      "requested/linear": 62,
+      "requested/quadratic_index": 0,
+      "requested/own_gain": 46,
+      "forced/linear": 56,
+      "forced/quadratic_index": 0,
+      "forced/own_gain": 72
+     }
+    },
+    "item_split_sha256": "4ec86a306e1db4354221061da88dea3c780d4e551b6b179180c3887f0672a2fd"
+   },
+   "bbh": {
+    "shared": {
+     "evaluation_items": 1350,
+     "pilot_pool_items": 1350,
+     "ties": {
+      "requested/linear": 19,
+      "requested/quadratic_index": 0,
+      "requested/own_gain": 61,
+      "forced/linear": 34,
+      "forced/quadratic_index": 0,
+      "forced/own_gain": 48
+     }
+    },
+    "disjoint": {
+     "evaluation_items": 675,
+     "pilot_pool_items": 675,
+     "ties": {
+      "requested/linear": 27,
+      "requested/quadratic_index": 0,
+      "requested/own_gain": 55,
+      "forced/linear": 21,
+      "forced/quadratic_index": 0,
+      "forced/own_gain": 49
+     }
+    },
+    "item_split_sha256": "ebe4aaacb90e37298b4a620f649ba9f21501d5c18a6ab482046201da611edc01"
+   },
+   "math": {
+    "shared": {
+     "evaluation_items": 398,
+     "pilot_pool_items": 398,
+     "ties": {
+      "requested/linear": 45,
+      "requested/quadratic_index": 0,
+      "requested/own_gain": 34,
+      "forced/linear": 44,
+      "forced/quadratic_index": 0,
+      "forced/own_gain": 58
+     }
+    },
+    "disjoint": {
+     "evaluation_items": 199,
+     "pilot_pool_items": 199,
+     "ties": {
+      "requested/linear": 33,
+      "requested/quadratic_index": 0,
+      "requested/own_gain": 31,
+      "forced/linear": 60,
+      "forced/quadratic_index": 0,
+      "forced/own_gain": 37
+     }
+    },
+    "item_split_sha256": "68b4df3bd46547142a9f7a5ddc0059fcd1dc1bc046201aba2ea863f253d3e88d"
+   }
+  }
+ },
+ "note": "fitted on discovery draws only and written before the validation configurations were read",
+ "content_sha256": "38fb043a496ee9f9252108bef7dc169ccb764a8db71df73cee8d95e7cd1fe71c",
+ "npz": "predictions_decision_strict.npz",
+ "npz_sha256": "4ec92113a34ade4b785063a49ede97b0dc5f196064e91a1828903a5881f96f87",
+ "sha256": "617d39e8e6ab53e8791aaa72127dd2d99736d77430d28b3bd50b51b4127ca0e4"
+}

@@ -1,0 +1,98 @@
+# Settings for scripts/build_bank_candidates.py, which turns the Dataset 2 prompt-bank design into a candidate bank
+# with PromptSuite 3.0.7.
+#
+# status: confirmed. While a file is pending, every field is null. The answer format comes from the format screening
+# (candidates in config/answer_formats.yaml).
+#
+# Each configuration is one fixed skeleton used for both arms. Three placeholders occur exactly once across the two
+# texts:
+#   {question}       the item variable, filled later by scripts/build_requests.py
+#   {arm_clause}     replaced with the arms.direct_answer or arms.zero_shot_cot text
+#   {answer_format}  replaced with answer_format.text, the same in both arms
+# Wording variation comes only from PromptSuite's variation types applied to the instruction and prompt-format
+# text. The arm clause and the answer format are placeholders, so no augmenter touches them, and the question is
+# never varied.
+#
+# The bank varies the kinds of prompt feature DOVE varies in Dataset 1: the instruction wording (PromptSuite's
+# paraphrase) and the layout of the question line (PromptSuite's format structure: separators, descriptor casing,
+# separator removal). Typos, noise and added context are not used.
+
+status: confirmed
+
+# Output file name stem: data/bank_candidates/<name>.json (letters, digits, dot, underscore, hyphen).
+name: gsm8k_bank_v1
+# PromptSuite generation seed, recorded as the bank seed.
+seed: 20261030
+# Variants per field: the original and 7 paraphrases of the instruction, the original and 7 format-structure variants
+# of the prompt format, so at most 64 configurations before the checks, the meaning review and the screening.
+variations_per_field: 8
+# null: every combination of the two fields is kept.
+max_variations_per_row: null
+
+instruction:
+  text: "Solve the following math word problem."
+  # The instruction is the first paragraph of the user message (PromptSuite's `prompt` string). The chat templates of
+  # the first Gemma checkpoints refuse a system message, and other families' templates treat one differently, so every
+  # model receives the whole prompt in the user turn.
+  placement: user
+  variation_types: ["paraphrase_with_llm"]
+
+prompt_format:
+  text: "Question: {question}\n{arm_clause} {answer_format}"
+  variation_types: ["format structure"]
+
+arm_clauses:
+  # The only text that differs between the arms of a configuration. The chain-of-thought clause is the zero-shot
+  # trigger of Kojima et al. (2022).
+  direct_answer: "Give only the final answer, without any working."
+  zero_shot_cot: "Let's think step by step."
+
+answer_format:
+  # Set from the format screening (config/answer_formats.yaml, scripts/select_answer_format_d2.py) by the screening
+  # rule (manifests/gsm8k_format_selection.json).
+  scorer_candidate: boxed
+  text: 'End your reply with a final line that contains \boxed{<number>}.'
+
+# Every retained configuration is drawn with the same probability.
+sampling_law: uniform
+
+# The paraphrase is answered by the pinned open model of config/paraphraser.yaml (PromptSuite's default paraphrasing
+# model with open FP8 weights), generated once on a GPU machine and replayed from its frozen record; no hosted API is
+# called (scripts/paraphrase_d2.py). The review file holds the hand check of meaning; a dropped variant keeps its note.
+llm:
+  allowed: true
+  platform: local_replay
+  model: llama-3.3-70b-instruct-fp8
+  record: manifests/gsm8k_paraphrases.json
+  review: manifests/gsm8k_paraphrase_review.json
+
+# Separator changes may alter the "Question:" descriptor; the requested answer format is a placeholder and cannot change.
+required_literals: null
+
+# ----------------------------------------------------------------------------------------------------------------
+# EXAMPLE VALUES, not a decision. Used only by `--example`. They illustrate the shape of each field and make the
+# builder runnable end to end with no LLM call; they say nothing about the wording chosen for the study.
+# ----------------------------------------------------------------------------------------------------------------
+example:
+  name: example
+  seed: 1234
+  variations_per_field: 4
+  max_variations_per_row: null
+  instruction:
+    text: "Task: Solve the math problem. {arm_clause} {answer_format}"
+    variation_types: ["format structure"]
+  prompt_format:
+    text: "Question: {question}\nResponse:"
+    variation_types: ["format structure"]
+  arm_clauses:
+    direct_answer: "Give only the final answer, with no working."
+    zero_shot_cot: "Think step by step before giving the final answer."
+  answer_format:
+    scorer_candidate: answer_colon
+    text: "End your reply with a last line of the form \"Answer: <number>\"."
+  sampling_law: uniform
+  llm:
+    allowed: false
+    platform: null
+    model: null
+  required_literals: null

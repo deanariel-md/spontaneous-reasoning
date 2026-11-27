@@ -1,0 +1,20 @@
+# Isolated environment for scripts/build_bank_candidates.py, scripts/paraphrase_d2.py and scripts/select_answer_format_d2.py.
+# PromptSuite 3.0.7 declares twelve hard requirements, among them datasets, together, openai and streamlit, and
+# resolving them would downgrade packages pinned in the project environment (huggingface_hub, fsspec, filelock).
+# The bank-generation path imports only pandas, numpy, tqdm and python-dotenv, so the install is "--no-deps" with
+# these exact pins (the last six are the transitive requirements of pandas, tqdm and the builder's YAML reader):
+#
+#   py -3.12 -m venv .venv-promptsuite
+#   .\.venv-promptsuite\Scripts\python.exe -m pip install --no-deps -r requirements-promptsuite.txt
+#
+# Pinned on 15 October 2026 with Python 3.12.10 on Windows 11.
+promptsuite==3.0.7
+pandas==3.0.6
+numpy==2.5.4
+tqdm==4.70.1
+python-dotenv==1.2.4
+PyYAML==6.0.3
+python-dateutil==2.9.0.post0
+six==1.17.0
+tzdata==2026.5
+colorama==0.4.6

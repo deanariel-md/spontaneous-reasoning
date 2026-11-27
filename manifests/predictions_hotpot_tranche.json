@@ -1,0 +1,249 @@
+{
+ "label": "hotpot_tranche",
+ "created": "2026-11-21 20:50:41",
+ "models": [
+  "gemma-4-31b-it",
+  "meta-llama-3-8b-instruct",
+  "mistral-7b-instruct-v0.3",
+  "mistral-7b-instruct-v0.1",
+  "mistral-nemo-instruct-2407",
+  "mistral-small-3.1-24b-instruct-2503",
+  "phi-3-mini-4k-instruct",
+  "phi-3-medium-4k-instruct",
+  "phi-4",
+  "qwen2.5-7b-instruct",
+  "qwen3-8b",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3.6-27b",
+  "gemma-2b-it",
+  "gemma-7b-it",
+  "gemma-3-12b-it",
+  "llama-3.1-8b-instruct",
+  "llama-2-7b-chat-hf",
+  "llama-2-13b-chat-hf",
+  "gemma-3-4b-it",
+  "gemma-2-9b-it",
+  "gemma-2-27b-it",
+  "gemma-3-27b-it",
+  "qwen3-30b-a3b",
+  "qwen3-14b",
+  "qwen3-32b",
+  "qwen3.5-9b",
+  "qwen3.5-35b-a3b",
+  "qwen3.6-35b-a3b"
+ ],
+ "sampler_sha256": "ec8684bab1c13da5ce63d9b067a8fcaafaa97a39353fea461be5edb7e315df6b",
+ "units": [
+  "ps-i07-f03",
+  "ps-i07-f02",
+  "ps-i05-f00",
+  "ps-i01-f00"
+ ],
+ "n_items": 1000,
+ "score": "strict exact match",
+ "note": "statements revised on 18 November, from the first four discovery draws, saved before the rest of the collection is scored",
+ "statements": {
+  "cot_req": {
+   "pilot": {
+    "n_pilot": 4,
+    "benefit": {
+     "R": 0.8952454991442932,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.8529998934279542,
+     "C_groups": {
+      "1": 0.8529998934279542,
+      "2": 0.8936739479464252,
+      "4": 0.9239282611859142,
+      "8": 0.9458865270853121,
+      "12": 0.9557276330647924
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 3
+     },
+     "signal": 111.44175287356323,
+     "within": 124.48177955665025
+    },
+    "accuracy": {
+     "R": 0.967567315173257,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.9187099489421771,
+     "C_groups": {
+      "1": 0.9187099489421771,
+      "2": 0.9421251137624768,
+      "4": 0.9589346902337963,
+      "8": 0.9709119793526997,
+      "12": 0.9762359473451583
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     },
+     "signal": 362.8887192118225,
+     "within": 375.052684729064
+    }
+   },
+   "a_predicted_C_one_draw": 0.8529998934279542,
+   "a_tolerance": 0.05,
+   "b_K_needed": {
+    "0.80": 1,
+    "0.90": 3
+   },
+   "d_R_benefit": 0.8952454991442932,
+   "d_own_gain_beats_capability": true,
+   "d_note": "empirical forecast, not a theoretical threshold: R > 1/2 is the squared-error crossover of a one-draw centred own-gain estimate against a constant, and gives no threshold for top-third regret against a capability slope (DOVE pooled MMLU block: R 0.29, yet one-draw own gain has the lower whole-bank regret, 0.70 against 1.03 pp)"
+  },
+  "cot_forced": {
+   "pilot": {
+    "n_pilot": 4,
+    "benefit": {
+     "R": 0.9661323562877244,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.916921047984864,
+     "C_groups": {
+      "1": 0.916921047984864,
+      "2": 0.9408333975275346,
+      "4": 0.9580115835049874,
+      "8": 0.9702557584924952,
+      "12": 0.9756991907180677
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     },
+     "signal": 95.3498747947455,
+     "within": 98.69235221674876
+    },
+    "accuracy": {
+     "R": 0.9967704131133421,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.9744108674715342,
+     "C_groups": {
+      "1": 0.9744108674715342,
+      "2": 0.981893558810276,
+      "4": 0.9871924953602389,
+      "8": 0.9909421990305545,
+      "12": 0.992603920576001
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     },
+     "signal": 122.5400882594417,
+     "within": 122.93712438423645
+    }
+   },
+   "a_predicted_C_one_draw": 0.916921047984864,
+   "a_tolerance": 0.05,
+   "b_K_needed": {
+    "0.80": 1,
+    "0.90": 1
+   },
+   "d_R_benefit": 0.9661323562877244,
+   "d_own_gain_beats_capability": true,
+   "d_note": "empirical forecast, not a theoretical threshold: R > 1/2 is the squared-error crossover of a one-draw centred own-gain estimate against a constant, and gives no threshold for top-third regret against a capability slope (DOVE pooled MMLU block: R 0.29, yet one-draw own gain has the lower whole-bank regret, 0.70 against 1.03 pp)"
+  },
+  "fewshot": {
+   "pilot": {
+    "n_pilot": 4,
+    "benefit": {
+     "R": 0.8976073632844099,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.8546962587715529,
+     "C_groups": {
+      "1": 0.8546962587715529,
+      "2": 0.894956603645648,
+      "4": 0.9248673119134502,
+      "8": 0.9465623994225358,
+      "12": 0.9562827755877636
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 3
+     },
+     "signal": 10.00926724137931,
+     "within": 11.151052955665026
+    },
+    "accuracy": {
+     "R": 0.9967704131133421,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.9744108674715342,
+     "C_groups": {
+      "1": 0.9744108674715342,
+      "2": 0.981893558810276,
+      "4": 0.9871924953602389,
+      "8": 0.9909421990305545,
+      "12": 0.992603920576001
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     },
+     "signal": 122.5400882594417,
+     "within": 122.93712438423645
+    }
+   },
+   "a_predicted_C_one_draw": 0.8546962587715529,
+   "a_tolerance": 0.05,
+   "b_K_needed": {
+    "0.80": 1,
+    "0.90": 3
+   },
+   "d_R_benefit": 0.8976073632844099,
+   "d_own_gain_beats_capability": true,
+   "d_note": "empirical forecast, not a theoretical threshold: R > 1/2 is the squared-error crossover of a one-draw centred own-gain estimate against a constant, and gives no threshold for top-third regret against a capability slope (DOVE pooled MMLU block: R 0.29, yet one-draw own gain has the lower whole-bank regret, 0.70 against 1.03 pp)"
+  },
+  "c_arm_switch": {
+   "definition": "switch: share of model pairs whose gain ordering reverses between the requested and forced baseline arms on the same draw (same configuration), averaged over draws; new draw: share that reverses between two distinct draw positions within an arm, averaged over all pairs of positions and over the two arms; a pair is reversed when both gain differences exceed estimators.TIE_TOL in opposite directions, and a pair tied on either side is not reversed (counted as tied); the same statistic on both splits",
+   "switch": {
+    "opposite": 0.3294334975369458,
+    "tie": 0.011699507389162644,
+    "same": 0.6588669950738916,
+    "n_draws": 4
+   },
+   "new_draw": {
+    "opposite": 0.08066502463054187,
+    "tie": 0.012315270935960639,
+    "same": 0.9070197044334976,
+    "requested": {
+     "opposite": 0.08866995073891626,
+     "tie": 0.007389162561576401,
+     "same": 0.9039408866995073,
+     "n_position_pairs": 6,
+     "position_pairs_on_one_configuration": 0
+    },
+    "forced": {
+     "opposite": 0.07266009852216747,
+     "tie": 0.017241379310344876,
+     "same": 0.9100985221674877,
+     "n_position_pairs": 6,
+     "position_pairs_on_one_configuration": 0
+    }
+   },
+   "difference": 0.24876847290640391,
+   "switch_reorders_more": true,
+   "equal": false
+  },
+  "c_arm_switch_split_half": {
+   "definition": "original definition, kept as a secondary output: pairs in opposite order between the two arms' mean gains over all draws, against pairs in opposite order between the requested arm's mean gains over the first and second half of the draws (draws 1-2 against 3-4 on discovery, 12 against 12 on validation)",
+   "switch": {
+    "opposite": 0.3275862068965517,
+    "tie": 0.0049261083743842304,
+    "same": 0.6674876847290641
+   },
+   "new_draw": {
+    "opposite": 0.09852216748768473,
+    "tie": 0.007389162561576387,
+    "same": 0.8940886699507389
+   },
+   "switch_reorders_more": true
+  }
+ },
+ "sha256": "93e5b9ce7495fccc6930617ec374d88d8d5278c26c1d63c08cbb7e90ec7db068"
+}

@@ -1,0 +1,242 @@
+# Registry of the 11 checkpoints the extension adds to the Dataset 2 panel. Same schema as config/models.yaml, which
+# holds the main 19-model registry. Drafted by scripts/draft_registry.py from manifests/d2_panel_extension.json at the
+# revisions fixed in manifests/external/hf_metadata_20261030.json (config/models_draft_extension*.{yaml,json,md}); template
+# hashes computed from each revision's tokenizer files and equal to the family templates already in the registry;
+# Gemma 2 and 3 have no thinking switch (none_needed, as for gemma-3-12b-it). The three Qwen3.5/3.6 checkpoints have
+# linear-attention layers, so they run with default kernels and the scheduler limit of qwen3.6-27b (512
+# sequences; the Mamba state cache), a scheduler limit only.
+dataset2:
+  models:
+    gemma-3-4b-it:
+      family: Gemma
+      tier: low
+      hf_id: google/gemma-3-4b-it
+      revision: 093f9f388b31de276ce2de164bdc2081324b9767
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: 7de1c58e208eda46e9c7f86397df37ec49883aeece39fb961e0a6b24088dd3c4
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: no native reasoning mode; the chat template has no thinking switch
+      kernels: batch_invariant
+    gemma-2-9b-it:
+      family: Gemma
+      tier: middle
+      hf_id: google/gemma-2-9b-it
+      revision: 11c9b309abf73637e4b6f9a3fa1e92e615547819
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: ecd6ae513fe103f0eb62e8ab5bfa8d0fe45c1074fa398b089c93a7e70c15cfd6
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: no native reasoning mode; the chat template has no thinking switch
+      kernels: batch_invariant
+    gemma-2-27b-it:
+      family: Gemma
+      tier: middle
+      hf_id: google/gemma-2-27b-it
+      revision: aaf20e6b9f4c0fcf043f6fb2a2068419086d77b0
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: ecd6ae513fe103f0eb62e8ab5bfa8d0fe45c1074fa398b089c93a7e70c15cfd6
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: no native reasoning mode; the chat template has no thinking switch
+      kernels: batch_invariant
+    gemma-3-27b-it:
+      family: Gemma
+      tier: middle
+      hf_id: google/gemma-3-27b-it
+      revision: 005ad3404e59d6023443cb575daa05336842228a
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: 7de1c58e208eda46e9c7f86397df37ec49883aeece39fb961e0a6b24088dd3c4
+      thinking_off:
+        method: none_needed
+        chat_template_kwargs: {}
+        system_prompt_token: null
+        rationale: no native reasoning mode; the chat template has no thinking switch
+      kernels: batch_invariant
+    gemma-4-26b-a4b-it:
+      family: Gemma
+      tier: high
+      hf_id: google/gemma-4-26B-A4B-it
+      revision: 4d7ae4984b7db7de8f8457170b3f1a419ee76d52
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs:
+          enable_thinking: false
+        system_prompt_token: null
+        rationale: null
+      kernels: batch_invariant
+    qwen3-30b-a3b:
+      family: Qwen
+      tier: high
+      hf_id: Qwen/Qwen3-30B-A3B
+      revision: ad44e777bcd18fa416d9da3bd8f70d33ebb85d39
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs:
+          enable_thinking: false
+        system_prompt_token: null
+        rationale: null
+      kernels: batch_invariant
+    qwen3-14b:
+      family: Qwen
+      tier: high
+      hf_id: Qwen/Qwen3-14B
+      revision: 40c069824f4251a91eefaf281ebe4c544efd3e18
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs:
+          enable_thinking: false
+        system_prompt_token: null
+        rationale: null
+      kernels: batch_invariant
+    qwen3-32b:
+      family: Qwen
+      tier: high
+      hf_id: Qwen/Qwen3-32B
+      revision: 9216db5781bf21249d130ec9da846c4624c16137
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs:
+          enable_thinking: false
+        system_prompt_token: null
+        rationale: null
+      kernels: batch_invariant
+    qwen3.5-9b:
+      family: Qwen
+      tier: high
+      hf_id: Qwen/Qwen3.5-9B
+      revision: c202236235762e1c871ad0ccb60c8ee5ba337b9a
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs:
+          enable_thinking: false
+        system_prompt_token: null
+        rationale: null
+      kernels: default
+      engine:
+        max_num_seqs: 512
+    qwen3.5-35b-a3b:
+      family: Qwen
+      tier: high
+      hf_id: Qwen/Qwen3.5-35B-A3B
+      revision: 59d61f3ce65a6d9863b86d2e96597125219dc754
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs:
+          enable_thinking: false
+        system_prompt_token: null
+        rationale: null
+      kernels: default
+      engine:
+        max_num_seqs: 512
+    qwen3.6-35b-a3b:
+      family: Qwen
+      tier: high
+      hf_id: Qwen/Qwen3.6-35B-A3B
+      revision: 995ad96eacd98c81ed38be0c5b274b04031597b0
+      dtype: bfloat16
+      quantization: none
+      tokenizer_mode: auto
+      max_model_len: 4096
+      tensor_parallel_size: 1
+      chat_template:
+        source: tokenizer_default
+        file: null
+        sha256: e84f32a23fdda27689f868aa4a1a5621f41133e51a48d7f3efcbea2839574259
+      thinking_off:
+        method: chat_template_kwargs
+        chat_template_kwargs:
+          enable_thinking: false
+        system_prompt_token: null
+        rationale: null
+      kernels: default
+      engine:
+        max_num_seqs: 512

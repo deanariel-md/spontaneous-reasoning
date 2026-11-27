@@ -1,0 +1,38 @@
+{
+  "calibration_split": "train",
+  "canonical_sha256_definition": "sha256 of UTF-8 JSON (ensure_ascii=False, separators ',' ':') of [[item_id, question, gold_answer], ...] in item_id order",
+  "config": "main",
+  "dataset": "openai/gsm8k",
+  "files": {
+    "main/test-00000-of-00001.parquet": {
+      "bytes": 419088,
+      "sha256": "ee7b8da9e381df27b9e3f7758a159ab2bdaa4dbaa910546cbbc47e0cb44e4f59"
+    },
+    "main/train-00000-of-00001.parquet": {
+      "bytes": 2306545,
+      "sha256": "ea82612ea9582142387730c793eb67d3b12849002bc0b7fa6f8efafa7351419d"
+    }
+  },
+  "gold_definition": "text after the single '####' line, via scoring.normalize_number (commas removed, '-' kept, trailing zeros and leading zeros dropped)",
+  "item_id_definition": "zero-based row position within the split's parquet file; test and train ids are separate namespaces",
+  "license": "mit",
+  "primary_evaluation_split": "test",
+  "revision": "740312add88f781978c0658806c59bc2815b9866",
+  "revision_resolved_on": "2026-10-03",
+  "splits": {
+    "test": {
+      "canonical_sha256": "7c1397b11527c26507da039fe9b2f1cf670c8763fd0091a4f9860f5e5e2c3321",
+      "gold_has_decimal": 0,
+      "gold_has_negative": 2,
+      "gold_raw_has_thousands_separator": 14,
+      "n_items": 1319
+    },
+    "train": {
+      "canonical_sha256": "20c6c3ff0c671233fb0b1ffc8e9226157055d91e0581bf01d345c2c771f85282",
+      "gold_has_decimal": 0,
+      "gold_has_negative": 3,
+      "gold_raw_has_thousands_separator": 79,
+      "n_items": 7473
+    }
+  }
+}

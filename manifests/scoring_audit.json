@@ -1,0 +1,1816 @@
+{
+ "label": "scoring_audit",
+ "created": "2026-11-02 23:13:31",
+ "rule": "200 outputs of the 19-model GSM8K collection in four strata (arm x agreement of the strict and lenient extraction), 50 per stratum drawn uniformly without replacement; the disagreement strata are over-sampled and the population counts are kept for reweighting; the coder sees question, gold answer and output in shuffled order, without model, configuration, arm or either scorer's decision",
+ "per_stratum": 50,
+ "streams": "sampling.rng_for('scoring-audit', arm, agreement) and ('scoring-audit', 'order')",
+ "scorer": "gsm8k-scorer/1.3.0",
+ "population_counts": {
+  "direct_answer/agree": 708469,
+  "direct_answer/disagree": 18300,
+  "zero_shot_cot/agree": 675960,
+  "zero_shot_cot/disagree": 50809
+ },
+ "rows": [
+  {
+   "audit_id": "A001",
+   "request_id": "ps-i00-f02|zero_shot_cot|19",
+   "model_key": "phi-3-medium-4k-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i00-f02",
+   "item_id": 19,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A002",
+   "request_id": "ps-i03-f06|zero_shot_cot|862",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f06",
+   "item_id": 862,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A003",
+   "request_id": "ps-i03-f00|direct_answer|839",
+   "model_key": "gemma-7b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f00",
+   "item_id": 839,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A004",
+   "request_id": "ps-i04-f02|zero_shot_cot|1270",
+   "model_key": "gemma-7b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f02",
+   "item_id": 1270,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A005",
+   "request_id": "ps-i05-f06|zero_shot_cot|356",
+   "model_key": "qwen3.6-27b",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f06",
+   "item_id": 356,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A006",
+   "request_id": "ps-i01-f07|direct_answer|275",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "direct_answer",
+   "config_id": "ps-i01-f07",
+   "item_id": 275,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A007",
+   "request_id": "ps-i04-f02|direct_answer|646",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f02",
+   "item_id": 646,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A008",
+   "request_id": "ps-i02-f06|zero_shot_cot|404",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f06",
+   "item_id": 404,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A009",
+   "request_id": "ps-i05-f02|direct_answer|998",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f02",
+   "item_id": 998,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A010",
+   "request_id": "ps-i03-f00|direct_answer|1097",
+   "model_key": "gemma-3-12b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f00",
+   "item_id": 1097,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A011",
+   "request_id": "ps-i04-f06|direct_answer|492",
+   "model_key": "qwen2.5-7b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f06",
+   "item_id": 492,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A012",
+   "request_id": "ps-i05-f07|direct_answer|44",
+   "model_key": "llama-3.1-8b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f07",
+   "item_id": 44,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A013",
+   "request_id": "ps-i05-f06|zero_shot_cot|781",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f06",
+   "item_id": 781,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A014",
+   "request_id": "ps-i07-f07|zero_shot_cot|229",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i07-f07",
+   "item_id": 229,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A015",
+   "request_id": "ps-i00-f00|direct_answer|1284",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "direct_answer",
+   "config_id": "ps-i00-f00",
+   "item_id": 1284,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A016",
+   "request_id": "ps-i01-f00|zero_shot_cot|380",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f00",
+   "item_id": 380,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A017",
+   "request_id": "ps-i00-f02|zero_shot_cot|1071",
+   "model_key": "gemma-7b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i00-f02",
+   "item_id": 1071,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A018",
+   "request_id": "ps-i04-f03|direct_answer|772",
+   "model_key": "gemma-4-31b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f03",
+   "item_id": 772,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A019",
+   "request_id": "ps-i05-f04|direct_answer|758",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f04",
+   "item_id": 758,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A020",
+   "request_id": "ps-i04-f06|zero_shot_cot|854",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f06",
+   "item_id": 854,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A021",
+   "request_id": "ps-i03-f06|zero_shot_cot|691",
+   "model_key": "gemma-4-31b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f06",
+   "item_id": 691,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A022",
+   "request_id": "ps-i03-f00|direct_answer|105",
+   "model_key": "gemma-7b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f00",
+   "item_id": 105,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A023",
+   "request_id": "ps-i04-f03|direct_answer|1247",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f03",
+   "item_id": 1247,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A024",
+   "request_id": "ps-i03-f04|zero_shot_cot|511",
+   "model_key": "gemma-7b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f04",
+   "item_id": 511,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A025",
+   "request_id": "ps-i07-f01|direct_answer|407",
+   "model_key": "gemma-7b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f01",
+   "item_id": 407,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A026",
+   "request_id": "ps-i04-f03|zero_shot_cot|41",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f03",
+   "item_id": 41,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A027",
+   "request_id": "ps-i07-f01|direct_answer|110",
+   "model_key": "phi-3-medium-4k-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f01",
+   "item_id": 110,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A028",
+   "request_id": "ps-i00-f02|direct_answer|468",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i00-f02",
+   "item_id": 468,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A029",
+   "request_id": "ps-i05-f01|direct_answer|675",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f01",
+   "item_id": 675,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A030",
+   "request_id": "ps-i04-f02|zero_shot_cot|386",
+   "model_key": "gemma-3-12b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f02",
+   "item_id": 386,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A031",
+   "request_id": "ps-i03-f06|direct_answer|349",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f06",
+   "item_id": 349,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A032",
+   "request_id": "ps-i05-f05|zero_shot_cot|1283",
+   "model_key": "llama-3.1-8b-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f05",
+   "item_id": 1283,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A033",
+   "request_id": "ps-i03-f04|direct_answer|5",
+   "model_key": "qwen2.5-7b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f04",
+   "item_id": 5,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A034",
+   "request_id": "ps-i00-f00|direct_answer|301",
+   "model_key": "gemma-7b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i00-f00",
+   "item_id": 301,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A035",
+   "request_id": "ps-i05-f06|direct_answer|36",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f06",
+   "item_id": 36,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A036",
+   "request_id": "ps-i00-f00|direct_answer|1191",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i00-f00",
+   "item_id": 1191,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A037",
+   "request_id": "ps-i05-f01|direct_answer|712",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f01",
+   "item_id": 712,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A038",
+   "request_id": "ps-i00-f02|direct_answer|917",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i00-f02",
+   "item_id": 917,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A039",
+   "request_id": "ps-i03-f04|direct_answer|447",
+   "model_key": "gemma-7b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f04",
+   "item_id": 447,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A040",
+   "request_id": "ps-i07-f05|zero_shot_cot|1150",
+   "model_key": "qwen3.6-27b",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i07-f05",
+   "item_id": 1150,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A041",
+   "request_id": "ps-i01-f02|direct_answer|486",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i01-f02",
+   "item_id": 486,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A042",
+   "request_id": "ps-i04-f03|zero_shot_cot|890",
+   "model_key": "gemma-3-12b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f03",
+   "item_id": 890,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A043",
+   "request_id": "ps-i05-f04|zero_shot_cot|586",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f04",
+   "item_id": 586,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A044",
+   "request_id": "ps-i01-f00|direct_answer|374",
+   "model_key": "qwen3.6-27b",
+   "arm": "direct_answer",
+   "config_id": "ps-i01-f00",
+   "item_id": 374,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A045",
+   "request_id": "ps-i00-f00|direct_answer|966",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i00-f00",
+   "item_id": 966,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A046",
+   "request_id": "ps-i02-f01|zero_shot_cot|27",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f01",
+   "item_id": 27,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A047",
+   "request_id": "ps-i05-f01|zero_shot_cot|615",
+   "model_key": "phi-3-medium-4k-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f01",
+   "item_id": 615,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A048",
+   "request_id": "ps-i03-f06|zero_shot_cot|994",
+   "model_key": "mistral-nemo-instruct-2407",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f06",
+   "item_id": 994,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A049",
+   "request_id": "ps-i05-f06|direct_answer|1012",
+   "model_key": "gemma-4-31b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f06",
+   "item_id": 1012,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A050",
+   "request_id": "ps-i07-f00|zero_shot_cot|869",
+   "model_key": "gemma-2b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i07-f00",
+   "item_id": 869,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A051",
+   "request_id": "ps-i04-f05|zero_shot_cot|666",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f05",
+   "item_id": 666,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A052",
+   "request_id": "ps-i05-f06|zero_shot_cot|1212",
+   "model_key": "qwen3.6-27b",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f06",
+   "item_id": 1212,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A053",
+   "request_id": "ps-i07-f07|direct_answer|947",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f07",
+   "item_id": 947,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A054",
+   "request_id": "ps-i02-f00|zero_shot_cot|440",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f00",
+   "item_id": 440,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A055",
+   "request_id": "ps-i05-f02|direct_answer|302",
+   "model_key": "meta-llama-3-8b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f02",
+   "item_id": 302,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A056",
+   "request_id": "ps-i07-f05|direct_answer|155",
+   "model_key": "mistral-small-3.1-24b-instruct-2503",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f05",
+   "item_id": 155,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A057",
+   "request_id": "ps-i07-f07|zero_shot_cot|707",
+   "model_key": "gemma-4-31b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i07-f07",
+   "item_id": 707,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A058",
+   "request_id": "ps-i07-f07|zero_shot_cot|839",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i07-f07",
+   "item_id": 839,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A059",
+   "request_id": "ps-i02-f01|direct_answer|1257",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i02-f01",
+   "item_id": 1257,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A060",
+   "request_id": "ps-i04-f05|direct_answer|9",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f05",
+   "item_id": 9,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A061",
+   "request_id": "ps-i02-f04|zero_shot_cot|1213",
+   "model_key": "gemma-4-31b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f04",
+   "item_id": 1213,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A062",
+   "request_id": "ps-i04-f02|direct_answer|643",
+   "model_key": "qwen3-8b",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f02",
+   "item_id": 643,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A063",
+   "request_id": "ps-i04-f05|zero_shot_cot|315",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f05",
+   "item_id": 315,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A064",
+   "request_id": "ps-i01-f00|zero_shot_cot|1005",
+   "model_key": "qwen2.5-7b-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f00",
+   "item_id": 1005,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A065",
+   "request_id": "ps-i03-f06|zero_shot_cot|1028",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f06",
+   "item_id": 1028,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A066",
+   "request_id": "ps-i01-f07|zero_shot_cot|156",
+   "model_key": "meta-llama-3-8b-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f07",
+   "item_id": 156,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A067",
+   "request_id": "ps-i04-f05|zero_shot_cot|1090",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f05",
+   "item_id": 1090,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A068",
+   "request_id": "ps-i03-f05|direct_answer|27",
+   "model_key": "meta-llama-3-8b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f05",
+   "item_id": 27,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A069",
+   "request_id": "ps-i07-f05|zero_shot_cot|423",
+   "model_key": "mistral-nemo-instruct-2407",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i07-f05",
+   "item_id": 423,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A070",
+   "request_id": "ps-i05-f01|zero_shot_cot|1226",
+   "model_key": "qwen3-30b-a3b-instruct-2507",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f01",
+   "item_id": 1226,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A071",
+   "request_id": "ps-i02-f04|direct_answer|483",
+   "model_key": "meta-llama-3-8b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i02-f04",
+   "item_id": 483,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A072",
+   "request_id": "ps-i02-f00|zero_shot_cot|460",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f00",
+   "item_id": 460,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A073",
+   "request_id": "ps-i05-f02|direct_answer|909",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f02",
+   "item_id": 909,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A074",
+   "request_id": "ps-i02-f04|direct_answer|147",
+   "model_key": "qwen3-30b-a3b-instruct-2507",
+   "arm": "direct_answer",
+   "config_id": "ps-i02-f04",
+   "item_id": 147,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A075",
+   "request_id": "ps-i02-f06|zero_shot_cot|87",
+   "model_key": "mistral-small-3.1-24b-instruct-2503",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f06",
+   "item_id": 87,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A076",
+   "request_id": "ps-i07-f05|zero_shot_cot|377",
+   "model_key": "qwen3-30b-a3b-instruct-2507",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i07-f05",
+   "item_id": 377,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A077",
+   "request_id": "ps-i01-f00|zero_shot_cot|100",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f00",
+   "item_id": 100,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A078",
+   "request_id": "ps-i02-f04|zero_shot_cot|260",
+   "model_key": "gemma-7b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f04",
+   "item_id": 260,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A079",
+   "request_id": "ps-i05-f02|direct_answer|274",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f02",
+   "item_id": 274,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A080",
+   "request_id": "ps-i04-f05|direct_answer|482",
+   "model_key": "qwen2.5-7b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f05",
+   "item_id": 482,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A081",
+   "request_id": "ps-i05-f07|zero_shot_cot|845",
+   "model_key": "mistral-small-3.1-24b-instruct-2503",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f07",
+   "item_id": 845,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A082",
+   "request_id": "ps-i07-f05|zero_shot_cot|1079",
+   "model_key": "gemma-4-31b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i07-f05",
+   "item_id": 1079,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A083",
+   "request_id": "ps-i07-f05|zero_shot_cot|993",
+   "model_key": "phi-3-medium-4k-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i07-f05",
+   "item_id": 993,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A084",
+   "request_id": "ps-i00-f02|zero_shot_cot|3",
+   "model_key": "gemma-3-12b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i00-f02",
+   "item_id": 3,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A085",
+   "request_id": "ps-i03-f05|zero_shot_cot|191",
+   "model_key": "gemma-7b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f05",
+   "item_id": 191,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A086",
+   "request_id": "ps-i07-f01|zero_shot_cot|140",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i07-f01",
+   "item_id": 140,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A087",
+   "request_id": "ps-i05-f05|zero_shot_cot|981",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f05",
+   "item_id": 981,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A088",
+   "request_id": "ps-i03-f05|direct_answer|1311",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f05",
+   "item_id": 1311,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A089",
+   "request_id": "ps-i05-f07|direct_answer|252",
+   "model_key": "phi-3-medium-4k-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f07",
+   "item_id": 252,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A090",
+   "request_id": "ps-i07-f01|direct_answer|667",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f01",
+   "item_id": 667,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A091",
+   "request_id": "ps-i03-f00|direct_answer|947",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f00",
+   "item_id": 947,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A092",
+   "request_id": "ps-i04-f06|direct_answer|402",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f06",
+   "item_id": 402,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A093",
+   "request_id": "ps-i04-f06|direct_answer|350",
+   "model_key": "gemma-7b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f06",
+   "item_id": 350,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A094",
+   "request_id": "ps-i02-f04|zero_shot_cot|226",
+   "model_key": "gemma-4-31b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f04",
+   "item_id": 226,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A095",
+   "request_id": "ps-i05-f01|direct_answer|559",
+   "model_key": "llama-3.1-8b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f01",
+   "item_id": 559,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A096",
+   "request_id": "ps-i05-f07|direct_answer|1306",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f07",
+   "item_id": 1306,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A097",
+   "request_id": "ps-i00-f00|direct_answer|772",
+   "model_key": "gemma-4-31b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i00-f00",
+   "item_id": 772,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A098",
+   "request_id": "ps-i03-f06|direct_answer|558",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f06",
+   "item_id": 558,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A099",
+   "request_id": "ps-i04-f02|direct_answer|491",
+   "model_key": "gemma-7b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f02",
+   "item_id": 491,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A100",
+   "request_id": "ps-i04-f03|zero_shot_cot|225",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f03",
+   "item_id": 225,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A101",
+   "request_id": "ps-i04-f05|zero_shot_cot|239",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f05",
+   "item_id": 239,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A102",
+   "request_id": "ps-i04-f05|zero_shot_cot|758",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f05",
+   "item_id": 758,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A103",
+   "request_id": "ps-i01-f07|direct_answer|662",
+   "model_key": "qwen2.5-7b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i01-f07",
+   "item_id": 662,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A104",
+   "request_id": "ps-i04-f06|direct_answer|269",
+   "model_key": "phi-3-medium-4k-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f06",
+   "item_id": 269,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A105",
+   "request_id": "ps-i04-f03|direct_answer|140",
+   "model_key": "mistral-small-3.1-24b-instruct-2503",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f03",
+   "item_id": 140,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A106",
+   "request_id": "ps-i03-f03|zero_shot_cot|795",
+   "model_key": "phi-3-medium-4k-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f03",
+   "item_id": 795,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A107",
+   "request_id": "ps-i01-f02|zero_shot_cot|18",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f02",
+   "item_id": 18,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A108",
+   "request_id": "ps-i03-f03|zero_shot_cot|1211",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f03",
+   "item_id": 1211,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A109",
+   "request_id": "ps-i03-f06|direct_answer|510",
+   "model_key": "qwen3.6-27b",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f06",
+   "item_id": 510,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A110",
+   "request_id": "ps-i00-f00|direct_answer|129",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i00-f00",
+   "item_id": 129,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A111",
+   "request_id": "ps-i02-f01|direct_answer|365",
+   "model_key": "mistral-nemo-instruct-2407",
+   "arm": "direct_answer",
+   "config_id": "ps-i02-f01",
+   "item_id": 365,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A112",
+   "request_id": "ps-i04-f06|direct_answer|234",
+   "model_key": "gemma-7b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f06",
+   "item_id": 234,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A113",
+   "request_id": "ps-i01-f02|zero_shot_cot|856",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f02",
+   "item_id": 856,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A114",
+   "request_id": "ps-i05-f01|direct_answer|191",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f01",
+   "item_id": 191,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A115",
+   "request_id": "ps-i07-f07|direct_answer|853",
+   "model_key": "gemma-3-12b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f07",
+   "item_id": 853,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A116",
+   "request_id": "ps-i04-f05|direct_answer|291",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f05",
+   "item_id": 291,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A117",
+   "request_id": "ps-i02-f04|zero_shot_cot|834",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f04",
+   "item_id": 834,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A118",
+   "request_id": "ps-i07-f05|direct_answer|296",
+   "model_key": "qwen2.5-7b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f05",
+   "item_id": 296,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A119",
+   "request_id": "ps-i03-f04|direct_answer|44",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f04",
+   "item_id": 44,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A120",
+   "request_id": "ps-i07-f07|direct_answer|1141",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f07",
+   "item_id": 1141,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A121",
+   "request_id": "ps-i01-f07|zero_shot_cot|233",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f07",
+   "item_id": 233,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A122",
+   "request_id": "ps-i00-f00|zero_shot_cot|408",
+   "model_key": "gemma-2b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i00-f00",
+   "item_id": 408,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A123",
+   "request_id": "ps-i03-f04|zero_shot_cot|667",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f04",
+   "item_id": 667,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A124",
+   "request_id": "ps-i05-f05|direct_answer|269",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f05",
+   "item_id": 269,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A125",
+   "request_id": "ps-i04-f06|direct_answer|1104",
+   "model_key": "meta-llama-3-8b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f06",
+   "item_id": 1104,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A126",
+   "request_id": "ps-i01-f00|zero_shot_cot|720",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f00",
+   "item_id": 720,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A127",
+   "request_id": "ps-i02-f00|zero_shot_cot|833",
+   "model_key": "gemma-2b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f00",
+   "item_id": 833,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A128",
+   "request_id": "ps-i04-f05|zero_shot_cot|554",
+   "model_key": "qwen3-8b",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f05",
+   "item_id": 554,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A129",
+   "request_id": "ps-i02-f01|zero_shot_cot|1063",
+   "model_key": "gemma-7b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f01",
+   "item_id": 1063,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A130",
+   "request_id": "ps-i03-f04|direct_answer|132",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f04",
+   "item_id": 132,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A131",
+   "request_id": "ps-i05-f04|zero_shot_cot|1166",
+   "model_key": "phi-3-medium-4k-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f04",
+   "item_id": 1166,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A132",
+   "request_id": "ps-i03-f04|zero_shot_cot|374",
+   "model_key": "phi-4",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f04",
+   "item_id": 374,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A133",
+   "request_id": "ps-i05-f04|direct_answer|133",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f04",
+   "item_id": 133,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A134",
+   "request_id": "ps-i01-f07|zero_shot_cot|893",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f07",
+   "item_id": 893,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A135",
+   "request_id": "ps-i05-f04|direct_answer|490",
+   "model_key": "gemma-4-31b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f04",
+   "item_id": 490,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A136",
+   "request_id": "ps-i03-f00|zero_shot_cot|136",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f00",
+   "item_id": 136,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A137",
+   "request_id": "ps-i04-f05|zero_shot_cot|999",
+   "model_key": "gemma-4-31b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f05",
+   "item_id": 999,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A138",
+   "request_id": "ps-i03-f03|direct_answer|471",
+   "model_key": "llama-3.1-8b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f03",
+   "item_id": 471,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A139",
+   "request_id": "ps-i07-f07|direct_answer|162",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f07",
+   "item_id": 162,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A140",
+   "request_id": "ps-i01-f00|zero_shot_cot|877",
+   "model_key": "qwen3.6-27b",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f00",
+   "item_id": 877,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A141",
+   "request_id": "ps-i04-f05|direct_answer|11",
+   "model_key": "qwen2.5-7b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f05",
+   "item_id": 11,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A142",
+   "request_id": "ps-i02-f00|direct_answer|317",
+   "model_key": "gemma-3-12b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i02-f00",
+   "item_id": 317,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A143",
+   "request_id": "ps-i05-f01|direct_answer|436",
+   "model_key": "qwen2.5-7b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f01",
+   "item_id": 436,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A144",
+   "request_id": "ps-i02-f01|zero_shot_cot|1311",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f01",
+   "item_id": 1311,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A145",
+   "request_id": "ps-i05-f04|direct_answer|349",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f04",
+   "item_id": 349,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A146",
+   "request_id": "ps-i01-f07|zero_shot_cot|246",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f07",
+   "item_id": 246,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A147",
+   "request_id": "ps-i04-f03|zero_shot_cot|443",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f03",
+   "item_id": 443,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A148",
+   "request_id": "ps-i05-f02|direct_answer|1210",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f02",
+   "item_id": 1210,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A149",
+   "request_id": "ps-i02-f01|zero_shot_cot|1113",
+   "model_key": "gemma-4-31b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f01",
+   "item_id": 1113,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A150",
+   "request_id": "ps-i04-f06|direct_answer|1006",
+   "model_key": "mistral-7b-instruct-v0.3",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f06",
+   "item_id": 1006,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A151",
+   "request_id": "ps-i01-f02|zero_shot_cot|222",
+   "model_key": "qwen3.6-27b",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f02",
+   "item_id": 222,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A152",
+   "request_id": "ps-i05-f05|zero_shot_cot|109",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f05",
+   "item_id": 109,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A153",
+   "request_id": "ps-i04-f06|zero_shot_cot|873",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f06",
+   "item_id": 873,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A154",
+   "request_id": "ps-i04-f02|zero_shot_cot|1285",
+   "model_key": "qwen3-8b",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f02",
+   "item_id": 1285,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A155",
+   "request_id": "ps-i07-f07|direct_answer|1083",
+   "model_key": "gemma-3-12b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f07",
+   "item_id": 1083,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A156",
+   "request_id": "ps-i07-f05|direct_answer|1266",
+   "model_key": "llama-3.1-8b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f05",
+   "item_id": 1266,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A157",
+   "request_id": "ps-i03-f03|zero_shot_cot|588",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f03",
+   "item_id": 588,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A158",
+   "request_id": "ps-i03-f03|direct_answer|776",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f03",
+   "item_id": 776,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A159",
+   "request_id": "ps-i03-f04|direct_answer|79",
+   "model_key": "gemma-2b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f04",
+   "item_id": 79,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A160",
+   "request_id": "ps-i02-f00|direct_answer|101",
+   "model_key": "meta-llama-3-8b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i02-f00",
+   "item_id": 101,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A161",
+   "request_id": "ps-i03-f05|zero_shot_cot|1254",
+   "model_key": "phi-4",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f05",
+   "item_id": 1254,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A162",
+   "request_id": "ps-i03-f02|zero_shot_cot|538",
+   "model_key": "qwen2.5-7b-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f02",
+   "item_id": 538,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A163",
+   "request_id": "ps-i05-f01|zero_shot_cot|892",
+   "model_key": "qwen3-30b-a3b-instruct-2507",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f01",
+   "item_id": 892,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A164",
+   "request_id": "ps-i03-f05|direct_answer|81",
+   "model_key": "qwen2.5-7b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f05",
+   "item_id": 81,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A165",
+   "request_id": "ps-i04-f02|direct_answer|752",
+   "model_key": "meta-llama-3-8b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f02",
+   "item_id": 752,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A166",
+   "request_id": "ps-i04-f06|direct_answer|656",
+   "model_key": "mistral-small-3.1-24b-instruct-2503",
+   "arm": "direct_answer",
+   "config_id": "ps-i04-f06",
+   "item_id": 656,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A167",
+   "request_id": "ps-i00-f00|direct_answer|825",
+   "model_key": "phi-4",
+   "arm": "direct_answer",
+   "config_id": "ps-i00-f00",
+   "item_id": 825,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A168",
+   "request_id": "ps-i04-f06|zero_shot_cot|966",
+   "model_key": "llama-3.1-8b-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f06",
+   "item_id": 966,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A169",
+   "request_id": "ps-i03-f03|zero_shot_cot|557",
+   "model_key": "gemma-2b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f03",
+   "item_id": 557,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A170",
+   "request_id": "ps-i05-f05|zero_shot_cot|244",
+   "model_key": "llama-3.1-8b-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f05",
+   "item_id": 244,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A171",
+   "request_id": "ps-i02-f04|zero_shot_cot|484",
+   "model_key": "gemma-3-12b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f04",
+   "item_id": 484,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A172",
+   "request_id": "ps-i05-f06|direct_answer|602",
+   "model_key": "gemma-4-31b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f06",
+   "item_id": 602,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A173",
+   "request_id": "ps-i00-f02|zero_shot_cot|681",
+   "model_key": "gemma-2b-it",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i00-f02",
+   "item_id": 681,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A174",
+   "request_id": "ps-i05-f06|direct_answer|947",
+   "model_key": "gemma-7b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f06",
+   "item_id": 947,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A175",
+   "request_id": "ps-i05-f07|direct_answer|1232",
+   "model_key": "gemma-7b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f07",
+   "item_id": 1232,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A176",
+   "request_id": "ps-i05-f05|direct_answer|130",
+   "model_key": "qwen3-8b",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f05",
+   "item_id": 130,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A177",
+   "request_id": "ps-i05-f04|direct_answer|381",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f04",
+   "item_id": 381,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A178",
+   "request_id": "ps-i03-f00|direct_answer|1043",
+   "model_key": "phi-3-mini-4k-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f00",
+   "item_id": 1043,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A179",
+   "request_id": "ps-i01-f02|zero_shot_cot|266",
+   "model_key": "meta-llama-3-8b-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f02",
+   "item_id": 266,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A180",
+   "request_id": "ps-i01-f07|zero_shot_cot|1235",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f07",
+   "item_id": 1235,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A181",
+   "request_id": "ps-i01-f00|direct_answer|950",
+   "model_key": "mistral-small-3.1-24b-instruct-2503",
+   "arm": "direct_answer",
+   "config_id": "ps-i01-f00",
+   "item_id": 950,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A182",
+   "request_id": "ps-i00-f02|direct_answer|135",
+   "model_key": "qwen3.6-27b",
+   "arm": "direct_answer",
+   "config_id": "ps-i00-f02",
+   "item_id": 135,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A183",
+   "request_id": "ps-i05-f02|zero_shot_cot|185",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f02",
+   "item_id": 185,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A184",
+   "request_id": "ps-i05-f02|zero_shot_cot|373",
+   "model_key": "llama-3.1-8b-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f02",
+   "item_id": 373,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A185",
+   "request_id": "ps-i02-f06|zero_shot_cot|267",
+   "model_key": "phi-3-medium-4k-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f06",
+   "item_id": 267,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A186",
+   "request_id": "ps-i05-f05|zero_shot_cot|322",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i05-f05",
+   "item_id": 322,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A187",
+   "request_id": "ps-i07-f00|direct_answer|542",
+   "model_key": "gemma-4-31b-it",
+   "arm": "direct_answer",
+   "config_id": "ps-i07-f00",
+   "item_id": 542,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A188",
+   "request_id": "ps-i00-f02|zero_shot_cot|1080",
+   "model_key": "meta-llama-3-8b-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i00-f02",
+   "item_id": 1080,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A189",
+   "request_id": "ps-i03-f05|zero_shot_cot|1178",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f05",
+   "item_id": 1178,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A190",
+   "request_id": "ps-i02-f06|direct_answer|495",
+   "model_key": "meta-llama-3-8b-instruct",
+   "arm": "direct_answer",
+   "config_id": "ps-i02-f06",
+   "item_id": 495,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A191",
+   "request_id": "ps-i02-f01|zero_shot_cot|1047",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i02-f01",
+   "item_id": 1047,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A192",
+   "request_id": "ps-i05-f06|direct_answer|268",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "direct_answer",
+   "config_id": "ps-i05-f06",
+   "item_id": 268,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A193",
+   "request_id": "ps-i01-f02|zero_shot_cot|986",
+   "model_key": "meta-llama-3-8b-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i01-f02",
+   "item_id": 986,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A194",
+   "request_id": "ps-i04-f03|zero_shot_cot|1026",
+   "model_key": "llama-3.1-8b-instruct",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f03",
+   "item_id": 1026,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A195",
+   "request_id": "ps-i03-f00|direct_answer|180",
+   "model_key": "mistral-7b-instruct-v0.1",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f00",
+   "item_id": 180,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A196",
+   "request_id": "ps-i03-f06|zero_shot_cot|317",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i03-f06",
+   "item_id": 317,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A197",
+   "request_id": "ps-i04-f03|zero_shot_cot|1164",
+   "model_key": "qwen3.6-27b",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f03",
+   "item_id": 1164,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A198",
+   "request_id": "ps-i03-f06|direct_answer|840",
+   "model_key": "llama-2-13b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f06",
+   "item_id": 840,
+   "agreement": "disagree"
+  },
+  {
+   "audit_id": "A199",
+   "request_id": "ps-i04-f06|zero_shot_cot|198",
+   "model_key": "mistral-small-3.1-24b-instruct-2503",
+   "arm": "zero_shot_cot",
+   "config_id": "ps-i04-f06",
+   "item_id": 198,
+   "agreement": "agree"
+  },
+  {
+   "audit_id": "A200",
+   "request_id": "ps-i03-f02|direct_answer|600",
+   "model_key": "llama-2-7b-chat-hf",
+   "arm": "direct_answer",
+   "config_id": "ps-i03-f02",
+   "item_id": 600,
+   "agreement": "disagree"
+  }
+ ]
+}

@@ -1,0 +1,143 @@
+{
+  "canonical_sha256_definition": "sha256 of UTF-8 JSON (ensure_ascii=False, separators ',' ':') of [[item_id, question, gold_answer], ...] in table order",
+  "counts": {
+    "target_all": 500,
+    "target_numeric": 398,
+    "train_all": 7500,
+    "train_numeric": 6091,
+    "train_with_box": 7498
+  },
+  "files": {
+    "EleutherAI/hendrycks_math/algebra/train-00000-of-00001.parquet": {
+      "bytes": 505186,
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "sha256": "73347f5b55869f21ff094361025dbd12d291e971aa4d72142eacee10438e449f"
+    },
+    "EleutherAI/hendrycks_math/counting_and_probability/train-00000-of-00001.parquet": {
+      "bytes": 329354,
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "sha256": "d37ae017930df41678edee50dcde18c17fb06afaff9eb505c1b95f1002bfcb31"
+    },
+    "EleutherAI/hendrycks_math/geometry/train-00000-of-00001.parquet": {
+      "bytes": 549388,
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "sha256": "9dbf5e5b55499e696e0ba72da9d85d4f0be3acbf7eaa6cb014b0fc78bb63784f"
+    },
+    "EleutherAI/hendrycks_math/intermediate_algebra/train-00000-of-00001.parquet": {
+      "bytes": 575154,
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "sha256": "0c87f3798ebdfb915b1f9b6fc13c1a8d064c3cb91631ccbe85b83ed5d71150f6"
+    },
+    "EleutherAI/hendrycks_math/number_theory/train-00000-of-00001.parquet": {
+      "bytes": 308653,
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "sha256": "81c08649149b39811f2d1d7ddf5dfccf6c4c8044a2e169cfb24db09160c941f4"
+    },
+    "EleutherAI/hendrycks_math/prealgebra/train-00000-of-00001.parquet": {
+      "bytes": 383626,
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "sha256": "765b526fb5c0b8385cb7be2c16bf4f6f28cf71f2bc15c826abfbb5fa7f8616cc"
+    },
+    "EleutherAI/hendrycks_math/precalculus/train-00000-of-00001.parquet": {
+      "bytes": 353745,
+      "revision": "21a5633873b6a120296cce3e2df9d5550074f4a3",
+      "sha256": "28bb1ff95525c8d32521509bef91de76339659f5467a381e6e8deea204538f0e"
+    },
+    "HuggingFaceH4/MATH-500/test.jsonl": {
+      "bytes": 446564,
+      "revision": "6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be",
+      "sha256": "35dc41080a3680858b27fa7e0533d2d547825316fc5dafe5d316f4ccc5a06132"
+    }
+  },
+  "gold_definition": {
+    "target": "MATH-500 'answer' via normalize_answer",
+    "train": "content of the solution's last complete \\boxed{} or \\fbox{} via normalize_answer"
+  },
+  "item_id_definition": {
+    "target": "MATH-500 unique_id",
+    "train": "'train/<subject>/<row>', row = zero-based position in the subject's pinned parquet file"
+  },
+  "license": {
+    "MATH": "MIT (Hendrycks et al. 2021, github.com/hendrycks/math; EleutherAI/hendrycks_math card: mit)",
+    "MATH-500": "no licence field on the HuggingFaceH4/MATH-500 card; the PRM800K split it copies is released under MIT (github.com/openai/prm800k)"
+  },
+  "numeric_rule": "src/math_task.py module doc, 'Numeric rule': normalize_answer of the gold string is not None",
+  "plan": "MATH-500 task",
+  "sampling": "src.sampling.rng_for('math-items', 'train', n).permutation(n) over the numeric training items in training order (n = their count); first 200 screening, next n_target calibration, each stored in training order; ids only",
+  "seed_label": "math-items",
+  "sets": {
+    "calibration": {
+      "canonical_sha256": "9948e377c7edbcb82fd5527366f999ff016e9d35b4ad80a06147d627ebf31683",
+      "n_items": 398
+    },
+    "screening": {
+      "canonical_sha256": "d34c18b04b5fc8804732d52d7c0e6b8296f746421fedd3a42e68db0644fe1f8b",
+      "n_items": 200
+    },
+    "target": {
+      "canonical_sha256": "fba54f3d4e3594b93f03f78b76a8d2e6771dba1b23933d935e6e9037865b3f08",
+      "n_items": 398
+    }
+  },
+  "subjects": [
+    "algebra",
+    "counting_and_probability",
+    "geometry",
+    "intermediate_algebra",
+    "number_theory",
+    "prealgebra",
+    "precalculus"
+  ],
+  "table_libraries": {
+    "compression": "zstd",
+    "pandas": "3.0.6",
+    "pyarrow": "25.0.1"
+  },
+  "tables": {
+    "calibration": {
+      "n_rows": 398,
+      "path": "data/processed/math/items_calibration.parquet",
+      "sha256": "fdf4b2f345a8e8d2373b62283866bc14bc9bf3a83db043a75a04c31eaae7ad02"
+    },
+    "screening": {
+      "n_rows": 200,
+      "path": "data/processed/math/items_screening.parquet",
+      "sha256": "9ab4677dd5a5e116418035bdaf31b3548cb7db93ecfd9e686edd2821f0aa60ce"
+    },
+    "target": {
+      "n_rows": 398,
+      "path": "data/processed/math/items_target.parquet",
+      "sha256": "c970dd1788325973b512c64a5f30083e0e0581324b7000b680efc025a8132235"
+    }
+  },
+  "tables_definition": "one parquet per set, columns item_id, question, gold_answer, subject, level; gold_answer canonical; math_task.table_bytes (pyarrow, zstd, no index)",
+  "target_dataset": "HuggingFaceH4/MATH-500",
+  "target_dropped_by_subject": {
+    "Algebra": 19,
+    "Geometry": 9,
+    "Intermediate Algebra": 28,
+    "Number Theory": 6,
+    "Prealgebra": 8,
+    "Precalculus": 32
+  },
+  "target_kept_by_level": {
+    "1": 36,
+    "2": 69,
+    "3": 85,
+    "4": 103,
+    "5": 105
+  },
+  "target_kept_by_subject": {
+    "Algebra": 105,
+    "Counting & Probability": 38,
+    "Geometry": 32,
+    "Intermediate Algebra": 69,
+    "Number Theory": 56,
+    "Prealgebra": 74,
+    "Precalculus": 24
+  },
+  "target_revision": "6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be",
+  "task": "math",
+  "train_dataset": "EleutherAI/hendrycks_math",
+  "train_revision": "21a5633873b6a120296cce3e2df9d5550074f4a3"
+}

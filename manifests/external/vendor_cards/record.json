@@ -1,0 +1,26 @@
+{
+ "qwen3.5-35b-a3b": {
+  "hf_id": "Qwen/Qwen3.5-35B-A3B",
+  "revision": "59d61f3ce65a6d9863b86d2e96597125219dc754",
+  "files": {
+   "generation_config.json": "7bf8894f5838e096a6cb6147707a98733e730985618c8d72e3e0d49c38a273e0",
+   "README.md": "71c3bbc2eadadd5980bbdbb15df958c27d42ede24821015602a021109aacf492"
+  }
+ },
+ "qwen3.6-35b-a3b": {
+  "hf_id": "Qwen/Qwen3.6-35B-A3B",
+  "revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+  "files": {
+   "generation_config.json": "7bf8894f5838e096a6cb6147707a98733e730985618c8d72e3e0d49c38a273e0",
+   "README.md": "c4ddaa065649ff6352648f64747a16eda31726f3e34add94ce04abb461c77b75"
+  }
+ },
+ "qwen3.6-27b": {
+  "hf_id": "Qwen/Qwen3.6-27B",
+  "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+  "files": {
+   "generation_config.json": "7bf8894f5838e096a6cb6147707a98733e730985618c8d72e3e0d49c38a273e0",
+   "README.md": "bb936d6da51014f1edc9aa4cf9abf28d98695b7616ad56adfeeebfa752051d3d"
+  }
+ }
+}

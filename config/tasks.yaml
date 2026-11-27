@@ -1,0 +1,16 @@
+# Task targets. Scores in percentage points.
+dataset1:
+  intervention: {baseline: 0_shot, intervention: 5_shot}
+  primary_unit: pooled MMLU block (equal subject weights), Route A
+  mmlu_block:
+    subjects: 56          # mmlu.college_physics excluded: no 5_shot file for any panel model
+    items_per_subject: 100
+    subject_weights: equal
+  scorer: DOVE released `score` (closest_answer == ground_truth)
+  secondary: subject-level agreement (100-item evidence); other both-arm English benchmarks for the observed-task decomposition (Appendix C.3/C.5) once audited
+dataset2:
+  task: GSM8K test
+  items: 1319
+  intervention: {baseline: direct_answer, intervention: zero_shot_cot}
+  primary_score: strict extraction (correct-and-extractable)
+  sensitivities: [lenient_extraction, manual_audit, format_compliance_by_tier_and_arm]

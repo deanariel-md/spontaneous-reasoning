@@ -1,0 +1,13 @@
+# The throughput and noise tranche of BIG-Bench Hard: eight
+# configurations drawn by seed from the frozen bank, both arms, the 1,350 calibration items and every retained model.
+# It measures noise and cost only and is excluded from main estimation.
+#
+# Rule (scripts/draw_tranche_d2.py --task bbh), as for GSM8K (config/tranche.yaml): the configurations are drawn by
+# seed from the ids of the frozen bank (manifests/bbh_bank.json) alone, uniformly and without replacement, with the
+# stream sampling.rng_for("bbh-tranche-configurations", seed). The draw is written once to manifests/bbh_tranche.json.
+# The seed is the BIG-Bench Hard seed, fixed here on 31 October 2026, before
+# any BIG-Bench Hard output existed.
+status: confirmed
+configurations: 8
+seed: 20261031
+calibration_items: 1350     # the calibration set of manifests/bbh_items.json

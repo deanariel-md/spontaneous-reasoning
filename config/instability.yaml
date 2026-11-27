@@ -1,0 +1,54 @@
+# Analysis B and the three-scale part of analysis R.
+# Written on 1 November 2026 before any subpanel, scale or variant result was computed. The naive model-mean slopes
+# quoted in the plan were the only B numbers known at that point. scripts/run_instability.py and
+# scripts/run_cheng_scales.py read this file and record its sha256 in their output.
+status: fixed
+written: "2026-11-01"
+
+# Benefit and capability on three scales, applied to each per-draw score (one model, one draw, one arm).
+# B is the baseline arm's accuracy and P the intervention arm's, both in percentage points.
+scales:
+  points:            {benefit: "P - B (pp)", capability: "B (pp)", slope_unit: "pp of gain per pp of baseline"}
+  logit:             {benefit: "logit(P/100) - logit(B/100)", capability: "logit(B/100)",
+                      slope_unit: "logits of gain per logit of baseline"}
+  error_reduction:   {benefit: "100 (P - B) / (100 - B), pp of the baseline error removed", capability: "B (pp)",
+                      slope_unit: "pp of error reduction per pp of baseline"}
+# A per-draw score of 0% or 100% leaves the logit undefined, and a baseline of 100% leaves the
+# error reduction undefined. Such cells are counted; where any occur, the cell's score is replaced by the empirical
+# proportion (k + 1/2) / (n + 1), with k correct of n items, and the replacement is flagged in the output.
+empirical_proportion: "(k + 0.5) / (n + 1)"
+
+# Intervals: the draw-level jackknife of src/intervals.py, 95%. The slope uses each dataset's calibrated H method on
+# every scale (GSM8K: Fieller set with the jackknife covariance; DOVE: jackknife t), R_benefit the jackknife t over
+# leave-one-draw-out values. The calibration covered H in points only, so the other scales' intervals are descriptive.
+alpha: 0.05
+n_boot: 9999            # multiplicities for the calibrated V_delta methods of the scoring variants
+
+# Subpanels. Sizes 4 to 6. Strata: "random" draws from the whole panel; "tercile:<tier>" draws within one ECI tercile
+# of manifests/d2_panel.json (GSM8K: 7 low, 6 middle, 6 high). DOVE has 5 models, so only its five random
+# 4-model subpanels exist. Within each (setting, stratum, size), every distinct subpanel is used when there are
+# at most n_resamples of them; otherwise n_resamples distinct subpanels are drawn uniformly without replacement with
+# the stream sampling.rng_for(seed_label, setting, stratum, size).
+subpanels:
+  sizes: [4, 5, 6]
+  n_resamples: 2000
+  seed_label: "instability-subpanels-20261101"
+
+# Scoring variants for the shape of the GSM8K curve (chosen on 1 November 2026).
+variants:
+  direct_answer_cap_tokens: 64
+  # Variant A: a direct-arm output counts as correct only when its boxed answer ends within the first 64 output
+  # tokens. Each panel model's tokenizer.json is downloaded at the pinned revision of config/models.yaml (tokenizer
+  # files only) and the output text is re-tokenized without special tokens; the position of the boxed answer's end
+  # is the number of tokens whose character span starts before the end of the closing brace.
+  tokenizer_files: [tokenizer.json, tokenizer_config.json]
+  tokenizers_version: "0.23.3"      # the version in the collection's run logs
+  # Variant B: drop every model whose median direct-arm n_output_tokens over the collection's distinct outputs
+  # (all collected configurations x 1,319 items) exceeds 64.
+  curve: "OLS quadratic of model-mean gain on model-mean baseline (discovery draws), descriptive"
+
+# Analysis R, three scales: reproduction Part B, the eight transported configurations, 15 models.
+cheng:
+  baseline_arm: zero_shot_cot
+  intervention_arm: eight_shot_cot
+  per_configuration_slope: "OLS slope across models of benefit on capability, one configuration"

@@ -1,0 +1,110 @@
+{
+ "kind": "arm_wording_configurations",
+ "rule": "arm wording run: configurations",
+ "tasks": {
+  "gsm8k": {
+   "discovery": [
+    "ps-i02-f06",
+    "ps-i01-f00",
+    "ps-i05-f06"
+   ],
+   "discovery_pool": [
+    "ps-i07-f00",
+    "ps-i03-f05",
+    "ps-i05-f05",
+    "ps-i03-f06",
+    "ps-i02-f01",
+    "ps-i04-f02",
+    "ps-i05-f01",
+    "ps-i07-f01",
+    "ps-i04-f05",
+    "ps-i02-f04",
+    "ps-i05-f04",
+    "ps-i00-f02",
+    "ps-i02-f06",
+    "ps-i01-f00",
+    "ps-i03-f00",
+    "ps-i05-f06",
+    "ps-i04-f03",
+    "ps-i01-f02",
+    "ps-i07-f05"
+   ],
+   "discovery_seed_label": "d24/arm-wording/gsm8k/discovery",
+   "validation": [
+    "ps-i00-f00",
+    "ps-i03-f03",
+    "ps-i03-f02"
+   ],
+   "validation_pool": [
+    "ps-i03-f04",
+    "ps-i04-f06",
+    "ps-i05-f02",
+    "ps-i05-f07",
+    "ps-i07-f07",
+    "ps-i01-f07",
+    "ps-i00-f00",
+    "ps-i02-f00",
+    "ps-i03-f02",
+    "ps-i03-f03"
+   ],
+   "validation_seed_label": "d24/arm-wording/gsm8k/validation",
+   "sampler": "manifests/sampler_gsm8k.json",
+   "sampler_sha256": "62133308b3fdaa3e236bf5ee2a79ba4c76aa0a1fa60e5ce61da1d20c1579531f",
+   "bank": "manifests/gsm8k_bank.json",
+   "bank_sha256": "4a50c8251fcb76db50c3013dfee8c87912ae0bbec160830537296892cd855912"
+  },
+  "math": {
+   "discovery": [
+    "ps-i02-f06",
+    "ps-i05-f02",
+    "ps-i02-f04"
+   ],
+   "discovery_pool": [
+    "ps-i00-f05",
+    "ps-i02-f03",
+    "ps-i03-f07",
+    "ps-i06-f01",
+    "ps-i01-f00",
+    "ps-i04-f00",
+    "ps-i06-f05",
+    "ps-i05-f02",
+    "ps-i02-f06",
+    "ps-i05-f04",
+    "ps-i00-f03",
+    "ps-i02-f04",
+    "ps-i02-f00",
+    "ps-i04-f05",
+    "ps-i03-f00",
+    "ps-i03-f02",
+    "ps-i00-f04",
+    "ps-i04-f07"
+   ],
+   "discovery_seed_label": "d24/arm-wording/math/discovery",
+   "validation": [
+    "ps-i00-f06",
+    "ps-i06-f00",
+    "ps-i06-f07"
+   ],
+   "validation_pool": [
+    "ps-i00-f01",
+    "ps-i06-f06",
+    "ps-i05-f00",
+    "ps-i02-f01",
+    "ps-i06-f03",
+    "ps-i00-f06",
+    "ps-i02-f02",
+    "ps-i02-f07",
+    "ps-i05-f01",
+    "ps-i03-f06",
+    "ps-i01-f06",
+    "ps-i06-f07",
+    "ps-i06-f00"
+   ],
+   "validation_seed_label": "d24/arm-wording/math/validation",
+   "sampler": "manifests/sampler_math.json",
+   "sampler_sha256": "867010a0e42d6511eebeea5cd50795c3e79e41a2955198e8e72695f51af6d239",
+   "bank": "manifests/math_bank.json",
+   "bank_sha256": "83dde4c8463167a2f8b5f8a4d8a14f57cdd25a0a8043f45783b898158c55ff14"
+  }
+ }
+}

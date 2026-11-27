@@ -1,0 +1,24 @@
+# The requested final-answer formats screened before the Dataset 2 bank is frozen (decided on 30
+# October 2026). Each candidate names a strict-extraction spec of src/scoring.py and the
+# text that fills {answer_format}. The texts share one sentence frame, so the candidates differ only in the form they
+# request.
+#
+# Rule (scripts/select_answer_format_d2.py): one candidate bank is built per format from config/promptsuite.yaml, and
+# the same configurations are drawn by seed for every candidate. Every panel model generates both arms of them on the
+# screening items. Strict compliance under the candidate's own spec is computed per model and arm; correctness is
+# never computed. The candidate whose lowest compliance over models and arms is highest is registered
+# (manifests/gsm8k_scorer.json); a tie goes to the earlier candidate in this list. A format that some family follows
+# worse would make the prompt, and not the model, decide part of the difference in benefit.
+status: confirmed
+screening:
+  configurations: 2
+  seed: 20261030
+candidates:
+  - scorer_candidate: answer_colon_markup
+    text: 'End your reply with a final line of the form "Answer: <number>".'
+  - scorer_candidate: the_answer_is_markup
+    text: 'End your reply with a final line of the form "The answer is <number>."'
+  - scorer_candidate: hash_n
+    text: 'End your reply with a final line of the form "#### <number>".'
+  - scorer_candidate: boxed
+    text: 'End your reply with a final line that contains \boxed{<number>}.'

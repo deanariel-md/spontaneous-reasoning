@@ -1,0 +1,18 @@
+{
+ "scorer_version": "hotpot-boxed/1.0.0",
+ "plan": "HotpotQA (third task)",
+ "answer_format": "End your reply with a final line that contains \\boxed{<answer>}.",
+ "rules": {
+  "normalisation": "hotpot_evaluate_v1.py normalize_answer: lower case; characters of string.punctuation removed; \\b(a|an|the)\\b replaced by a space; white space collapsed",
+  "exact_match": "equal normalised strings",
+  "f1": "token F1 of the normalised strings; 0 when either normalises to yes, no or noanswer and they differ; 0 when no token is shared",
+  "box_pattern": "\\\\boxed\\s*\\{",
+  "wrapper_pattern": "\\\\(?:text|textbf|textit|textrm|mathrm|emph)\\s*\\{",
+  "answer_cue": "answer\\s*(?:is\\b\\s*:?|:)",
+  "strict": "content of the last complete box (braces matched, backslash escapes the next character), text wrappers replaced by their contents, '$' removed, stripped",
+  "lenient": "strict; else a final unclosed box's content; else the rest of the line after the last answer cue; else the last non-empty line (each unwrapped as strict)",
+  "compliance": "strict answer exists and normalises to a non-empty string",
+  "primary": "strict exact match; strict F1 and lenient scores beside it"
+ },
+ "rules_sha256": "c29e5804f37342a0a1c914fe441d6ef2ef4b46cf0d8077851830fe2a156f5b79"
+}

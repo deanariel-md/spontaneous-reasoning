@@ -1,0 +1,96 @@
+{
+ "kind": "paraphrase_record",
+ "config_name": "hotpot_bank_v1",
+ "request": {
+  "promptsuite_version": "3.0.7",
+  "field": "instruction",
+  "text": "Answer the question with a short phrase, using the given passages.",
+  "variations_per_field": 8,
+  "n_augments": 7,
+  "prompt_sha256": "831422134cee65a1840e03aa67c33352eec5ac2773904a82621cb5b4b6034c4d",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Can you help me write variations of an instruction prompt to an LLM for the following task description? \n\nIMPORTANT: The instruction may contain placeholders in curly braces like {subject}, {topic}, {field}, etc. These placeholders MUST be preserved EXACTLY as they appear in ALL variations.\n\nProvide 7 creative versions while:\n1. Preserving the original meaning and intent\n2. Keeping ALL placeholders {} unchanged in their exact positions\n3. Varying the instructional language around the placeholders\n4. NEVER introduce new placeholders - if the original has no placeholders, the variations must have none\n\nOutput only a Python list of strings with the alternatives. Do not include any explanation or additional text.\n\nOriginal instruction: '''Answer the question with a short phrase, using the given passages.'''"
+   }
+  ]
+ },
+ "response": {
+  "text": "```python\n[\n    \"Respond with a brief phrase based on the provided passages.\",\n    \"Using the passages, provide a concise answer in phrase form.\",\n    \"With the passages as reference, give a short phrase as your answer.\",\n    \"Please phrase your answer briefly, using information from the passages.\",\n    \"Give a short phrase that answers the question, using the passages for context.\",\n    \"Provide a brief phrase in response, drawing from the given passages.\",\n    \"Phrase your answer concisely, utilizing the information found in the passages.\"\n]\n```",
+  "sha256": "42145f08b2ef2dc6d3e3fdcbbb73cf2bf387381d20a09d7e8b3114b1af05ba91",
+  "finish_reason": "stop",
+  "n_output_tokens": 113
+ },
+ "replay": {
+  "text": "[\n    \"Respond with a brief phrase based on the provided passages.\",\n    \"Using the passages, provide a concise answer in phrase form.\",\n    \"With the passages as reference, give a short phrase as your answer.\",\n    \"Please phrase your answer briefly, using information from the passages.\",\n    \"Give a short phrase that answers the question, using the passages for context.\",\n    \"Provide a brief phrase in response, drawing from the given passages.\",\n    \"Phrase your answer concisely, utilizing the information found in the passages.\"\n]",
+  "sha256": "e8a7eb65a85c3f504e37645cd23af52d079bbbb4b2224a312928272fb802f702",
+  "code_fence_removed": true,
+  "note": "the Markdown code fence around the list is removed, because PromptSuite's ast.literal_eval cannot parse it"
+ },
+ "parsed": [
+  "Respond with a brief phrase based on the provided passages.",
+  "Using the passages, provide a concise answer in phrase form.",
+  "With the passages as reference, give a short phrase as your answer.",
+  "Please phrase your answer briefly, using information from the passages.",
+  "Give a short phrase that answers the question, using the passages for context.",
+  "Provide a brief phrase in response, drawing from the given passages.",
+  "Phrase your answer concisely, utilizing the information found in the passages."
+ ],
+ "variants": [
+  "Answer the question with a short phrase, using the given passages.",
+  "Respond with a brief phrase based on the provided passages.",
+  "Using the passages, provide a concise answer in phrase form.",
+  "With the passages as reference, give a short phrase as your answer.",
+  "Please phrase your answer briefly, using information from the passages.",
+  "Give a short phrase that answers the question, using the passages for context.",
+  "Provide a brief phrase in response, drawing from the given passages.",
+  "Phrase your answer concisely, utilizing the information found in the passages."
+ ],
+ "model": {
+  "key": "llama-3.3-70b-instruct-fp8",
+  "hf_id": "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic",
+  "revision": "f50dbad2c84590ca17dc51e207c34321b65ff14b",
+  "kernels": "batch_invariant",
+  "quantization": "compressed-tensors",
+  "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+  "rendered_prompt_sha256": "fb16f52bb46bf889bf46ea622ed6d5f3829105ff2e95a6d713bd8e6e91774db2",
+  "run_id": "20261118T061233Z-e51034",
+  "run_log": "data\\d2_out\\hotpot\\paraphrase\\run1\\llama-3.3-70b-instruct-fp8\\run_log-20261118T061233Z-e51034.json",
+  "run_log_sha256": "e213ea2a254536f6eebac90743f3f196f179f4c39be989c3d93de51cb4fcd019",
+  "gpu": {
+   "count": 1,
+   "devices": [
+    {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+     "memory_mib": 97887
+    }
+   ],
+   "driver_version": "595.58.03",
+   "cuda_version_driver": "13.2",
+   "nvidia_smi": true
+  },
+  "versions": {
+   "vllm": "0.30.0",
+   "torch": "2.13.0",
+   "transformers": "5.16.1"
+  }
+ },
+ "repeat": {
+  "run_id": "20261118T061523Z-bb8783",
+  "run_log": "data\\d2_out\\hotpot\\paraphrase\\run2\\llama-3.3-70b-instruct-fp8\\run_log-20261118T061523Z-bb8783.json",
+  "run_log_sha256": "4887a70aada5239d921d4953f89026db9a24f040c24eb01383a01cb92cba0bab",
+  "gpu": {
+   "count": 1,
+   "devices": [
+    {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+     "memory_mib": 97887
+    }
+   ],
+   "driver_version": "595.58.03",
+   "cuda_version_driver": "13.2",
+   "nvidia_smi": true
+  },
+  "identical": true
+ }
+}

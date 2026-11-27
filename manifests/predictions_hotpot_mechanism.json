@@ -1,0 +1,289 @@
+{
+ "label": "hotpot_mechanism",
+ "forced_cap_tokens": 64,
+ "units": "pp; w as a share in [0, 1]",
+ "rule": "For each model, w is the share of its requested-direct outputs longer than the forced arm's output cap (generated tokens, n_output_tokens of the stored outputs, compared with the cap by '>'), computed per configuration and averaged over the discovery draws (a configuration drawn twice counts twice). The gain over the forced arm is the chain-of-thought minus forced-direct accuracy (strict scoring), the model mean over the discovery draws. The predicted gain over the requested arm is (1 - w) x the gain over the forced arm. Predicted reversals: model pairs ordered one way by the gain over the forced arm and the other way by the predicted gain over the requested arm (ties, |difference| <= 1e-9 pp, are neither). The predicted reversal share is their number over all model pairs.",
+ "models": [
+  "gemma-4-31b-it",
+  "meta-llama-3-8b-instruct",
+  "mistral-7b-instruct-v0.3",
+  "mistral-7b-instruct-v0.1",
+  "mistral-nemo-instruct-2407",
+  "mistral-small-3.1-24b-instruct-2503",
+  "phi-3-mini-4k-instruct",
+  "phi-3-medium-4k-instruct",
+  "phi-4",
+  "qwen2.5-7b-instruct",
+  "qwen3-8b",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3.6-27b",
+  "gemma-2b-it",
+  "gemma-7b-it",
+  "gemma-3-12b-it",
+  "llama-3.1-8b-instruct",
+  "llama-2-7b-chat-hf",
+  "llama-2-13b-chat-hf",
+  "gemma-3-4b-it",
+  "gemma-2-9b-it",
+  "gemma-2-27b-it",
+  "gemma-3-27b-it",
+  "qwen3-30b-a3b",
+  "qwen3-14b",
+  "qwen3-32b",
+  "qwen3.5-9b",
+  "qwen3.5-35b-a3b",
+  "qwen3.6-35b-a3b"
+ ],
+ "discovery_units": [
+  "ps-i07-f03",
+  "ps-i07-f02",
+  "ps-i05-f00",
+  "ps-i01-f00",
+  "ps-i05-f01",
+  "ps-i05-f06",
+  "ps-i01-f07",
+  "ps-i04-f00",
+  "ps-i03-f06",
+  "ps-i03-f04",
+  "ps-i02-f06",
+  "ps-i03-f00",
+  "ps-i05-f02",
+  "ps-i00-f01",
+  "ps-i07-f07",
+  "ps-i04-f06",
+  "ps-i03-f01",
+  "ps-i00-f00",
+  "ps-i03-f03",
+  "ps-i05-f06",
+  "ps-i06-f06",
+  "ps-i02-f07",
+  "ps-i01-f06",
+  "ps-i02-f01"
+ ],
+ "per_model": {
+  "gemma-4-31b-it": {
+   "w": 0.009041666666666668,
+   "gain_vs_forced": 0.47083333333333294,
+   "predicted_gain_vs_requested": 0.46657621527777743
+  },
+  "meta-llama-3-8b-instruct": {
+   "w": 0.0042916666666666685,
+   "gain_vs_forced": -10.487500000000002,
+   "predicted_gain_vs_requested": -10.442491145833335
+  },
+  "mistral-7b-instruct-v0.3": {
+   "w": 0.005166666666666669,
+   "gain_vs_forced": -4.624999999999999,
+   "predicted_gain_vs_requested": -4.601104166666666
+  },
+  "mistral-7b-instruct-v0.1": {
+   "w": 0.00591666666666667,
+   "gain_vs_forced": -39.06666666666666,
+   "predicted_gain_vs_requested": -38.83552222222222
+  },
+  "mistral-nemo-instruct-2407": {
+   "w": 0.0017083333333333336,
+   "gain_vs_forced": 8.316666666666668,
+   "predicted_gain_vs_requested": 8.302459027777779
+  },
+  "mistral-small-3.1-24b-instruct-2503": {
+   "w": 0.005583333333333333,
+   "gain_vs_forced": 1.2,
+   "predicted_gain_vs_requested": 1.1932999999999998
+  },
+  "phi-3-mini-4k-instruct": {
+   "w": 0.011583333333333336,
+   "gain_vs_forced": -6.091666666666666,
+   "predicted_gain_vs_requested": -6.02110486111111
+  },
+  "phi-3-medium-4k-instruct": {
+   "w": 0.009333333333333338,
+   "gain_vs_forced": 4.162499999999999,
+   "predicted_gain_vs_requested": 4.123649999999999
+  },
+  "phi-4": {
+   "w": 0.020166666666666676,
+   "gain_vs_forced": 4.224999999999999,
+   "predicted_gain_vs_requested": 4.1397958333333325
+  },
+  "qwen2.5-7b-instruct": {
+   "w": 0.0024583333333333345,
+   "gain_vs_forced": 5.474999999999999,
+   "predicted_gain_vs_requested": 5.461540624999999
+  },
+  "qwen3-8b": {
+   "w": 0.00816666666666667,
+   "gain_vs_forced": 3.9666666666666655,
+   "predicted_gain_vs_requested": 3.934272222222221
+  },
+  "qwen3-30b-a3b-instruct-2507": {
+   "w": 0.01958333333333334,
+   "gain_vs_forced": 3.7000000000000006,
+   "predicted_gain_vs_requested": 3.6275416666666676
+  },
+  "qwen3.6-27b": {
+   "w": 0.006458333333333336,
+   "gain_vs_forced": 1.5624999999999993,
+   "predicted_gain_vs_requested": 1.552408854166666
+  },
+  "gemma-2b-it": {
+   "w": 0.05970833333333334,
+   "gain_vs_forced": -16.974999999999998,
+   "predicted_gain_vs_requested": -15.961451041666663
+  },
+  "gemma-7b-it": {
+   "w": 0.008875000000000001,
+   "gain_vs_forced": -10.345833333333333,
+   "predicted_gain_vs_requested": -10.2540140625
+  },
+  "gemma-3-12b-it": {
+   "w": 0.0009166666666666666,
+   "gain_vs_forced": -2.183333333333333,
+   "predicted_gain_vs_requested": -2.181331944444444
+  },
+  "llama-3.1-8b-instruct": {
+   "w": 0.013000000000000006,
+   "gain_vs_forced": 0.33333333333333215,
+   "predicted_gain_vs_requested": 0.32899999999999885
+  },
+  "llama-2-7b-chat-hf": {
+   "w": 0.03454166666666667,
+   "gain_vs_forced": -18.912499999999998,
+   "predicted_gain_vs_requested": -18.259230729166664
+  },
+  "llama-2-13b-chat-hf": {
+   "w": 0.07929166666666668,
+   "gain_vs_forced": -3.0749999999999993,
+   "predicted_gain_vs_requested": -2.831178124999999
+  },
+  "gemma-3-4b-it": {
+   "w": 0.0015833333333333335,
+   "gain_vs_forced": -2.316666666666667,
+   "predicted_gain_vs_requested": -2.3129986111111114
+  },
+  "gemma-2-9b-it": {
+   "w": 0.001750000000000001,
+   "gain_vs_forced": -15.837499999999997,
+   "predicted_gain_vs_requested": -15.809784374999996
+  },
+  "gemma-2-27b-it": {
+   "w": 0.00025,
+   "gain_vs_forced": 0.7458333333333339,
+   "predicted_gain_vs_requested": 0.7456468750000006
+  },
+  "gemma-3-27b-it": {
+   "w": 0.0024166666666666677,
+   "gain_vs_forced": 1.2291666666666663,
+   "predicted_gain_vs_requested": 1.2261961805555552
+  },
+  "qwen3-30b-a3b": {
+   "w": 0.004625000000000001,
+   "gain_vs_forced": 3.7958333333333343,
+   "predicted_gain_vs_requested": 3.7782776041666675
+  },
+  "qwen3-14b": {
+   "w": 0.00804166666666667,
+   "gain_vs_forced": 0.420833333333334,
+   "predicted_gain_vs_requested": 0.4174491319444451
+  },
+  "qwen3-32b": {
+   "w": 0.012583333333333337,
+   "gain_vs_forced": 2.083333333333334,
+   "predicted_gain_vs_requested": 2.057118055555556
+  },
+  "qwen3.5-9b": {
+   "w": 0.0032500000000000007,
+   "gain_vs_forced": 1.7791666666666675,
+   "predicted_gain_vs_requested": 1.773384375000001
+  },
+  "qwen3.5-35b-a3b": {
+   "w": 0.007291666666666668,
+   "gain_vs_forced": -0.1999999999999996,
+   "predicted_gain_vs_requested": -0.19854166666666626
+  },
+  "qwen3.6-35b-a3b": {
+   "w": 0.109375,
+   "gain_vs_forced": 3.0916666666666672,
+   "predicted_gain_vs_requested": 2.7535156250000004
+  }
+ },
+ "predicted_reversal": {
+  "pairs": 406,
+  "reversed": 0,
+  "share": 0.0,
+  "reversed_pairs": []
+ },
+ "statements": {
+  "share": "the validation draws' reversal share between the gain over the requested arm and the gain over the forced arm (model means over the 24 validation draws) lies within 0.05 of the predicted share",
+  "pairs": "among the predicted reversed pairs, the share that reverse on the validation draws exceeds the share among the other pairs",
+  "gain": "the predicted gain over the requested arm correlates (Pearson, over models) more strongly with the validation draws' gain over the requested arm than the discovery gain over the forced arm does"
+ },
+ "discovery_context": {
+  "gain_vs_requested_observed": {
+   "gemma-4-31b-it": 1.4791666666666659,
+   "meta-llama-3-8b-instruct": 16.316666666666666,
+   "mistral-7b-instruct-v0.3": 5.170833333333333,
+   "mistral-7b-instruct-v0.1": -1.9624999999999995,
+   "mistral-nemo-instruct-2407": 17.59166666666667,
+   "mistral-small-3.1-24b-instruct-2503": -0.31666666666666643,
+   "phi-3-mini-4k-instruct": 16.8625,
+   "phi-3-medium-4k-instruct": 24.200000000000006,
+   "phi-4": 2.9583333333333335,
+   "qwen2.5-7b-instruct": 38.374999999999986,
+   "qwen3-8b": 5.5625,
+   "qwen3-30b-a3b-instruct-2507": 10.591666666666667,
+   "qwen3.6-27b": 1.2041666666666664,
+   "gemma-2b-it": -0.37500000000000006,
+   "gemma-7b-it": -9.654166666666667,
+   "gemma-3-12b-it": 0.2833333333333335,
+   "llama-3.1-8b-instruct": 11.216666666666667,
+   "llama-2-7b-chat-hf": 3.9791666666666665,
+   "llama-2-13b-chat-hf": 7.162499999999999,
+   "gemma-3-4b-it": 20.020833333333332,
+   "gemma-2-9b-it": -12.25,
+   "gemma-2-27b-it": 0.7458333333333341,
+   "gemma-3-27b-it": 2.183333333333333,
+   "qwen3-30b-a3b": 14.762500000000003,
+   "qwen3-14b": 2.5791666666666675,
+   "qwen3-32b": 2.0416666666666665,
+   "qwen3.5-9b": 1.5375000000000012,
+   "qwen3.5-35b-a3b": 10.579166666666667,
+   "qwen3.6-35b-a3b": 3.491666666666667
+  },
+  "post_hoc_fit_on_discovery": {
+   "observed_vs_forced": {
+    "pairs": 406,
+    "reversed": 142,
+    "reversed_share": 0.3497536945812808,
+    "ties": 0
+   },
+   "observed_vs_corrected": {
+    "pairs": 406,
+    "reversed": 142,
+    "reversed_share": 0.3497536945812808,
+    "ties": 0
+   },
+   "corr_forced": {
+    "pearson": 0.39453731510262613,
+    "spearman": 0.3950738916256157
+   },
+   "corr_corrected": {
+    "pearson": 0.39606003955373537,
+    "spearman": 0.3950738916256157
+   },
+   "rms_corrected_pp": 14.432061124638608,
+   "rms_forced_pp": 14.534796713174044
+  }
+ },
+ "source": {
+  "scored_discovery": "data/processed/hotpot/scored_discovery.parquet",
+  "scored_discovery_sha256": "5a961914e0446e5d07d557c5f52302e123c37b18757f2294e573da60c98333ce",
+  "sampler_sha256": "ec8684bab1c13da5ce63d9b067a8fcaafaa97a39353fea461be5edb7e315df6b",
+  "decoding": "config/decoding_hotpot.yaml",
+  "score": "strict exact match",
+  "n_requested_outputs": 667000
+ },
+ "note": "read only HotpotQA discovery-draw outputs; written before any validation draw was scored. The mechanism was found by exploratory analysis on GSM8K, BIG-Bench Hard and MATH-500; this is its forward test.",
+ "sha256": "8c9f0360f3ec0419050c7a655c3b4be558e0218f06b6e30c8978bbe98034f9ee",
+ "created": "2026-11-21 20:51:19"
+}

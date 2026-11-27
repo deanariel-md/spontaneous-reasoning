@@ -1,0 +1,30 @@
+# Temperature 0.7 spot check on MATH-500 (scripts/temp_check.py).
+# The three arms of the panel's greedy MATH-500 run in one run, each with the parameters of its own
+# greedy file (direct_answer and zero_shot_cot: config/decoding.yaml; forced_direct: config/decoding_forced_math.yaml,
+# prefill \boxed{, cap 16, no stop string), except the sampling: temperature 0.7, top_p 1.0, top_k off, one sample per
+# prompt, each request with its own seed (the request file's sampling_seed column; src/generation.py, Decoding.sampling).
+# config/decoding_temp_check_greedy.yaml is the same file at temperature 0, for the pilot's greedy replicate.
+# status: confirmed on 25 November 2026 for this check only.
+status: confirmed
+temperature: 0.7
+sampling:
+  seed: request
+top_p: 1.0
+top_k: 0
+seed: 0
+max_new_tokens:
+  direct_answer: 1024
+  zero_shot_cot: 3072
+  forced_direct: 16
+prefill:
+  forced_direct: "\\boxed{"
+stop: []
+include_stop_str_in_output: false
+skip_special_tokens: true
+engine:
+  gpu_memory_utilization: 0.90
+  enable_prefix_caching: true
+  enforce_eager: false
+  max_num_seqs: null
+  max_num_batched_tokens: null
+  generation_config: auto

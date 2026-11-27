@@ -1,0 +1,162 @@
+{
+  "schema_version": "1",
+  "created": "2026-10-31T23:28:13Z",
+  "kind": "admissibility_exclusion_log",
+  "plan_reference": "admissibility screened on calibration items from the training split",
+  "split": "train",
+  "rules": {
+    "path": "config/admissibility_extension.yaml",
+    "sha256": "447df31a78fedabb4db8409baa192e6d3da5c0156d67ac1146552ed85f2a3340",
+    "status": "confirmed",
+    "applied": true,
+    "thresholds": {
+      "configurations": {
+        "max_compliance_shortfall_pp": {
+          "direct_answer": 100,
+          "zero_shot_cot": 100
+        },
+        "max_truncation_pct": {
+          "direct_answer": 100,
+          "zero_shot_cot": 100
+        },
+        "max_think_tag_pct": {
+          "direct_answer": 100,
+          "zero_shot_cot": 100
+        }
+      },
+      "models": {
+        "direct_answer_meaningful": {
+          "length_tokens": 128,
+          "max_share_above_pct": 50
+        },
+        "thinking_off_holds": {
+          "max_think_tag_pct": 1
+        }
+      }
+    }
+  },
+  "scorer": {
+    "scorer_version": "gsm8k-scorer/1.3.0",
+    "format_spec": {
+      "name": "boxed",
+      "template": "\\\\boxed\\{<NUM>\\}",
+      "case_sensitive": true,
+      "must_be_last_nonempty_line": true,
+      "leading_text_allowed": true,
+      "trailing_text_allowed": true,
+      "allow_final_period": false,
+      "on_multiple": "reject",
+      "allow_currency": true,
+      "allow_thousands_separator": true,
+      "strip_markup": false,
+      "strip_latex": true,
+      "description": "Registered by the format screening rule (manifests/gsm8k_format_selection.json). LaTeX '\\boxed{18}' anywhere on the last non-empty line, with surrounding text and '$' delimiters allowed; a closing display-math line after it, '\\$' and '\\boxed{$18$}' are tolerated."
+    },
+    "format_spec_sha256": "35c427b827d989df075146e5ef7a0c2f68896dad0b3b665fe452d5d722180be3",
+    "status": "registered",
+    "manifest_path": "manifests/gsm8k_scorer.json",
+    "manifest_sha256": "482c9aac41188035ca446bda0ba7dbadfebbf8bb943980b5730ba6125ff14120"
+  },
+  "inputs": {
+    "scored_path": "data/processed/gsm8k_ext/screening_gemma-4-26b-a4b-it.parquet",
+    "scored_sha256": "02d6aab427da4b4c5d6c5371c49d4d50e440bf94f68e9070d7eaa13f3523100e",
+    "bank_sha256": "4a50c8251fcb76db50c3013dfee8c87912ae0bbec160830537296892cd855912",
+    "calibration_items": {
+      "n_items": 200,
+      "path": "manifests/gsm8k_screening_items.json",
+      "seed_label": "gsm8k-calibration-items",
+      "sha256": "5074400e48fc9d99c254ac2cc56530c93ce1e838fdffc52d74148ed4c61e1f58",
+      "status": "reused"
+    },
+    "models": [
+      "gemma-4-26b-a4b-it"
+    ],
+    "n_items": 200,
+    "n_per_cell_min": 200,
+    "n_per_cell_max": 200,
+    "item_set_identical_across_cells": true,
+    "test_backend": false
+  },
+  "models_screened": [
+    "gemma-4-26b-a4b-it"
+  ],
+  "excluded_models": [
+    {
+      "model_key": "gemma-4-26b-a4b-it",
+      "rule": "direct_answer_meaningful",
+      "metric": "direct_answer_above_128_tokens_pct",
+      "value": 56.901785714285715,
+      "threshold": 50.0,
+      "comparison": "value > threshold",
+      "n": 11200
+    }
+  ],
+  "retained_models": [],
+  "configuration_rules_evaluated": false,
+  "configuration_rules_note": "no model was retained, so no pooled configuration metric exists and no configuration was assessed",
+  "configurations_screened": [
+    "ps-i00-f00",
+    "ps-i00-f01",
+    "ps-i00-f02",
+    "ps-i00-f03",
+    "ps-i00-f04",
+    "ps-i00-f05",
+    "ps-i00-f06",
+    "ps-i00-f07",
+    "ps-i01-f00",
+    "ps-i01-f01",
+    "ps-i01-f02",
+    "ps-i01-f03",
+    "ps-i01-f04",
+    "ps-i01-f05",
+    "ps-i01-f06",
+    "ps-i01-f07",
+    "ps-i02-f00",
+    "ps-i02-f01",
+    "ps-i02-f02",
+    "ps-i02-f03",
+    "ps-i02-f04",
+    "ps-i02-f05",
+    "ps-i02-f06",
+    "ps-i02-f07",
+    "ps-i03-f00",
+    "ps-i03-f01",
+    "ps-i03-f02",
+    "ps-i03-f03",
+    "ps-i03-f04",
+    "ps-i03-f05",
+    "ps-i03-f06",
+    "ps-i03-f07",
+    "ps-i04-f00",
+    "ps-i04-f01",
+    "ps-i04-f02",
+    "ps-i04-f03",
+    "ps-i04-f04",
+    "ps-i04-f05",
+    "ps-i04-f06",
+    "ps-i04-f07",
+    "ps-i05-f00",
+    "ps-i05-f01",
+    "ps-i05-f02",
+    "ps-i05-f03",
+    "ps-i05-f04",
+    "ps-i05-f05",
+    "ps-i05-f06",
+    "ps-i05-f07",
+    "ps-i07-f00",
+    "ps-i07-f01",
+    "ps-i07-f02",
+    "ps-i07-f03",
+    "ps-i07-f04",
+    "ps-i07-f05",
+    "ps-i07-f06",
+    "ps-i07-f07"
+  ],
+  "excluded_configurations": [],
+  "retained_configuration_ids": [],
+  "conventions": "a model is excluded when its direct-arm share above length_tokens is greater than the maximum, or the think-tag share of all its outputs is greater than the thinking_off_holds maximum; a configuration-arm is excluded when its registered compliance falls more than the maximum shortfall below the median configuration of that arm (percentage points, pooled over the retained models and the screened configurations) or its truncated or think-tag share is above its maximum; a value equal to a threshold passes",
+  "report": {
+    "path": "results/screening_extension/gemma-4-26b-a4b-it/screening_report.json",
+    "sha256": "c5e780408782e13623cc97342e6783e17692560d63c0626967110b66b4b2e730"
+  }
+}

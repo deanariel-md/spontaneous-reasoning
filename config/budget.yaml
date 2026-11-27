@@ -1,0 +1,19 @@
+# Compute and money caps. The generation runner refuses a bulk GPU run without a cap here, the tranche analysis
+# compares its projected cost with these caps, and the sampler freezer reads the allocation. The API scripts append
+# one entry per paid phase to `log` (date, script, unique generations, cached calls, tokens, runtime, cost).
+currency: USD
+cap:
+  money_usd: 0             # paid API runs use each script's own --limit-usd
+  gpu_hours: 1000
+dataset2_allocation:
+  discovery_units_per_arm: 24
+  validation_units_per_arm: 24
+  candidates_compared: [8, 12, 16, 24]
+reproduction: {candidate: "Cheng et al., zero-shot versus eight-exemplar chain of thought on GSM8K (Findings of EMNLP 2025)", budget_gpu_hours: 60, budget_usd: 0}
+dataset1:
+  generation: none          # the DOVE reanalysis uses released predictions only
+  compute: local CPU
+log:
+  - run: placeholder; the API scripts append their entries after this one
+    unique_generations: 0
+    cost_usd: 0

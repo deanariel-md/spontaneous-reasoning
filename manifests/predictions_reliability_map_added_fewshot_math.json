@@ -1,0 +1,125 @@
+{
+ "label": "reliability_map_added_fewshot_math",
+ "created": "2026-11-19 01:03:40",
+ "models": [
+  "gemma-4-31b-it",
+  "meta-llama-3-8b-instruct",
+  "mistral-7b-instruct-v0.3",
+  "mistral-7b-instruct-v0.1",
+  "mistral-nemo-instruct-2407",
+  "mistral-small-3.1-24b-instruct-2503",
+  "phi-3-mini-4k-instruct",
+  "phi-3-medium-4k-instruct",
+  "phi-4",
+  "qwen2.5-7b-instruct",
+  "qwen3-8b",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3.6-27b",
+  "gemma-2b-it",
+  "gemma-7b-it",
+  "gemma-3-12b-it",
+  "llama-3.1-8b-instruct",
+  "llama-2-7b-chat-hf",
+  "llama-2-13b-chat-hf",
+  "gemma-3-4b-it",
+  "gemma-2-9b-it",
+  "gemma-2-27b-it",
+  "gemma-3-27b-it",
+  "qwen3-30b-a3b",
+  "qwen3-14b",
+  "qwen3-32b",
+  "qwen3.5-9b",
+  "qwen3.5-35b-a3b",
+  "qwen3.6-35b-a3b"
+ ],
+ "draws_sha256": "4fcb87553dd4ae9492f012f68bcbee41329c0b34950c9353959d8b8d30d16bca",
+ "units": "agreement (probability); R dimensionless",
+ "note": "pilot predictions from the pilot draws alone; written before any validation draw is scored",
+ "settings": {
+  "fewshot:math": {
+   "2": {
+    "n_pilot": 2,
+    "benefit": {
+     "R": 0.8446959010116479,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.8202187156314775,
+     "C_groups": {
+      "1": 0.8202187156314775,
+      "2": 0.8684504809436506,
+      "4": 0.9052844464307694,
+      "8": 0.9324004527483947,
+      "12": 0.9446316438541035
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 4
+     },
+     "signal": 6.51752151355087,
+     "within": 7.715819984144798
+    },
+    "accuracy": {
+     "R": 0.9987914236845935,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.9843488622354284,
+     "C_groups": {
+      "1": 0.9843488622354284,
+      "2": 0.9889301863095522,
+      "4": 0.9921714733738844,
+      "8": 0.9944640469245352,
+      "12": 0.995479818294909
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     },
+     "signal": 195.12968523584328,
+     "within": 195.36579971421833
+    }
+   },
+   "4": {
+    "n_pilot": 4,
+    "benefit": {
+     "R": 0.8054819613768552,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.7980934813576808,
+     "C_groups": {
+      "1": 0.7980934813576808,
+      "2": 0.8508830459440659,
+      "4": 0.8920704862091287,
+      "8": 0.9227532107671833,
+      "12": 0.9366689743507782
+     },
+     "K_needed": {
+      "0.80": 2,
+      "0.90": 5
+     },
+     "signal": 6.051006884808973,
+     "within": 7.5122810627138685
+    },
+    "accuracy": {
+     "R": 0.9974054415529293,
+     "R_status": "in [0, 1]",
+     "defined": true,
+     "C_one_draw": 0.9770654195821212,
+     "C_groups": {
+      "1": 0.9770654195821212,
+      "2": 0.9837740265030643,
+      "4": 0.9885233973665892,
+      "8": 0.9918837173628139,
+      "12": 0.993372783758823
+     },
+     "K_needed": {
+      "0.80": 1,
+      "0.90": 1
+     },
+     "signal": 195.89106437286642,
+     "within": 196.4006373053972
+    }
+   }
+  }
+ },
+ "sha256": "eec92f633d1f55a4f755b2446462b28365b671198c805f7b2f6b913ce5ddaf99"
+}

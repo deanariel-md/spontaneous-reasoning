@@ -1,0 +1,17 @@
+{
+  "title": "Code for: Spontaneous reasoning reorders language models’ gains from chain-of-thought",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "license": "MIT",
+  "creators": [
+    {"name": "Ariel, Dean", "affiliation": "Ben-Gurion University of the Negev; Clalit Health Services"},
+    {"name": "Hadad, Eyal", "affiliation": "Ben-Gurion University of the Negev"},
+    {"name": "Navon, Harel", "affiliation": "Ben-Gurion University of the Negev"},
+    {"name": "Hamuel, Tomer", "affiliation": "Ben-Gurion University of the Negev"},
+    {"name": "Balicer, Ran", "affiliation": "Clalit Research Institute, Innovation Division, Clalit Health Services; The Ivan and Francesca Berkowitz Family Living Laboratory Collaboration at Harvard Medical School and Clalit Research Institute; School of Public Health, Faculty of Health Sciences, Ben-Gurion University of the Negev"},
+    {"name": "Cohen, Seffi", "affiliation": "Ben-Gurion University of the Negev"}
+  ],
+  "description": "Code for generation, scoring and every analysis of the paper. The study measures the gain of chain-of-thought prompting against two direct-answer baselines, a requested answer and a forced answer, on GSM8K, MATH-500, BIG-Bench Hard and HotpotQA under many prompt templates. It includes a pilot tool that reports the share of long requested answers, the reliability of gains across templates, and who benefits under each baseline. The model outputs, scores and per-draw accuracies are available from the corresponding author on request.",
+  "keywords": ["chain-of-thought", "language models", "evaluation", "prompt sensitivity"],
+  "access_right": "open"
+}

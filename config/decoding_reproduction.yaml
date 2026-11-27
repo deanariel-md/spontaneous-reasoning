@@ -1,0 +1,28 @@
+# Decoding for the reproduction of Cheng et al. (2025); the runner reads it
+# with --decoding-yaml. Fixed on 31 October 2026 with the protocol, before any reproduction run.
+status: confirmed
+
+# Greedy, one run (paper Section 3, A.3).
+temperature: 0.0
+top_p: 1.0
+top_k: 0              # 0 disables top-k in vLLM
+seed: 0               # no effect on greedy outputs, pinned anyway
+
+# At most 4,096 new tokens in both arms (paper B.3; max_out_len=4096 in the authors' configurations).
+max_new_tokens:
+  zero_shot_cot: 4096
+  eight_shot_cot: 4096
+
+# The stop list of the authors' configurations gsm8k_gen_zo_v2_fixed.py and gsm8k_gen_original_v2-fixed.py
+# (manifests/cheng_exemplars.json); the checkpoint's own EOS tokens also stop generation.
+stop: ["</s>", "<|im_end|>", "<|endoftext|>", "\n\nQuestion:", "<|end_of_text|>", " Question", "\n[Question]", "<eoa>", "<|user|>"]
+include_stop_str_in_output: false
+skip_special_tokens: true
+
+engine:
+  gpu_memory_utilization: 0.90
+  enable_prefix_caching: true
+  enforce_eager: false
+  max_num_seqs: null
+  max_num_batched_tokens: null
+  generation_config: auto

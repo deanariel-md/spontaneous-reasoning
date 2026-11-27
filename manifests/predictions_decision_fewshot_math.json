@@ -1,0 +1,146 @@
+{
+ "label": "decision_fewshot_math",
+ "setting": "MATH-500: five-shot \u2212 zero-shot forced direct",
+ "models": [
+  "gemma-4-31b-it",
+  "meta-llama-3-8b-instruct",
+  "mistral-7b-instruct-v0.3",
+  "mistral-7b-instruct-v0.1",
+  "mistral-nemo-instruct-2407",
+  "mistral-small-3.1-24b-instruct-2503",
+  "phi-3-mini-4k-instruct",
+  "phi-3-medium-4k-instruct",
+  "phi-4",
+  "qwen2.5-7b-instruct",
+  "qwen3-8b",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3.6-27b",
+  "gemma-2b-it",
+  "gemma-7b-it",
+  "gemma-3-12b-it",
+  "llama-3.1-8b-instruct",
+  "llama-2-7b-chat-hf",
+  "llama-2-13b-chat-hf",
+  "gemma-3-4b-it",
+  "gemma-2-9b-it",
+  "gemma-2-27b-it",
+  "gemma-3-27b-it",
+  "qwen3-30b-a3b",
+  "qwen3-14b",
+  "qwen3-32b",
+  "qwen3.5-9b",
+  "qwen3.5-35b-a3b",
+  "qwen3.6-35b-a3b"
+ ],
+ "n_chosen": 10,
+ "discovery_units": [
+  "ps-i00-f05",
+  "ps-i02-f03",
+  "ps-i03-f07",
+  "ps-i06-f01",
+  "ps-i01-f00",
+  "ps-i04-f00",
+  "ps-i06-f05",
+  "ps-i05-f02",
+  "ps-i02-f06",
+  "ps-i05-f04",
+  "ps-i02-f03",
+  "ps-i00-f03",
+  "ps-i02-f04",
+  "ps-i02-f00",
+  "ps-i06-f05",
+  "ps-i04-f05",
+  "ps-i06-f01",
+  "ps-i03-f00",
+  "ps-i03-f02",
+  "ps-i00-f04",
+  "ps-i02-f06",
+  "ps-i04-f07",
+  "ps-i05-f04",
+  "ps-i05-f02"
+ ],
+ "pilot_seed_labels": {
+  "2": "decision/math/K2",
+  "4": "decision/math/K4"
+ },
+ "units": "pp",
+ "design": {
+  "rules": [
+   "capability_1",
+   "capability_all",
+   "own_1",
+   "own_2",
+   "own_4",
+   "own_all",
+   "shrunk_2",
+   "shrunk_4"
+  ],
+  "pilot_sizes": [
+   1,
+   2,
+   4
+  ],
+  "n_sets": 200,
+  "rows": "row indices into discovery_units; distinct configurations only"
+ },
+ "slopes": {
+  "capability_1": {
+   "negative": 0,
+   "positive": 18,
+   "zero_or_undefined": 0
+  },
+  "shrunk_2": {
+   "fallback_constant": 0,
+   "psd_projection": 0
+  },
+  "shrunk_4": {
+   "fallback_constant": 0,
+   "psd_projection": 0
+  },
+  "capability_all": {
+   "negative": 0,
+   "positive": 1,
+   "zero_or_undefined": 0
+  }
+ },
+ "ties": {
+  "own_1": {
+   "choices_with_tie_at_cut": 7,
+   "n_choices": 18
+  },
+  "capability_1": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 18
+  },
+  "own_2": {
+   "choices_with_tie_at_cut": 36,
+   "n_choices": 200
+  },
+  "shrunk_2": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 200
+  },
+  "own_4": {
+   "choices_with_tie_at_cut": 25,
+   "n_choices": 200
+  },
+  "shrunk_4": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 200
+  },
+  "own_all": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 1
+  },
+  "capability_all": {
+   "choices_with_tie_at_cut": 0,
+   "n_choices": 1
+  }
+ },
+ "note": "choices fitted on discovery draws only, written before the validation draws are built",
+ "content_sha256": "eda2ec096dff2aac3516b8ce9496b3d0df0dc8da6caa45d573c4a697ffa580fd",
+ "npz": "predictions_decision_fewshot_math.npz",
+ "npz_sha256": "f30c48273b6dbdb37be952be350f3d3c0ea93e02d59ceac37dab333986820c14",
+ "created": "2026-11-19 00:22:09",
+ "sha256": "f397cf44cc471b8ae0e4080b828d9da5923d1795f0b610e6f26b25dbf9d5caeb"
+}

@@ -1,0 +1,48 @@
+{
+ "kind": "paraphrase_review",
+ "record_sha256": "d75b267e57eb7c6ad4137a85fac652cbe8fcd2a25688d50571bf41e9644ac2cf",
+ "reviewers": [
+  "an AI assistant, for the authors, on 30 October 2026 and the extension decided on 31 October 2026"
+ ],
+ "date": "2026-10-31",
+ "question": "Does the variant ask for the same task as the original instruction, with nothing added or removed? keep or drop; a drop needs a note",
+ "original": "Answer the following question.",
+ "verdicts": [
+  {
+   "text": "Respond to the query that follows.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Provide a solution to the subsequent question.",
+   "verdict": "keep",
+   "note": "kept: 'solution' names the task's output and says nothing about working or form; the arm clause that follows sets both"
+  },
+  {
+   "text": "Please address the following inquiry.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Offer a reply to the question below.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Give a response to the posed question.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "React to the following prompt with an answer.",
+   "verdict": "keep",
+   "note": "kept: 'react to the prompt with an answer' is looser wording for answering the question; it says nothing about working or form"
+  },
+  {
+   "text": "Reply to the question presented.",
+   "verdict": "keep",
+   "note": ""
+  }
+ ],
+ "rule": "A variant is kept when it asks for the same task as the original and says nothing about how to answer. How much working to show belongs to the arm clauses, and the reply's form to the answer-format component, so a variant that speaks to either is dropped. The verdicts read the texts alone; no output of any panel model on the bank existed when they were made."
+}

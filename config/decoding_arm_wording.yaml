@@ -1,0 +1,34 @@
+# Decoding of the arm-wording run: the three arms in one job. Requested direct and chain of
+# thought as config/decoding.yaml (1,024 and 3,072 new tokens); forced direct as config/decoding_forced_math.yaml
+# (prefill "\boxed{", 16 new tokens). One file has one stop list, so there is no stop string: the GSM8K forced arm,
+# which stopped at the first "}" in the collection, here runs as MATH-500's forced arm did. Before scoring, its text is
+# cut after the first "}" (src/arm_wording.cut_at_first_brace), which gives what the stop returned, since greedy
+# decoding writes the same tokens up to that point. Greedy and the collection's engine settings.
+#
+# status: confirmed, set before any request of the run existed.
+status: confirmed
+
+temperature: 0.0
+top_p: 1.0
+top_k: 0
+seed: 0
+
+max_new_tokens:
+  direct_answer: 1024
+  zero_shot_cot: 3072
+  forced_direct: 16
+
+prefill:
+  forced_direct: "\\boxed{"
+
+stop: []
+include_stop_str_in_output: false
+skip_special_tokens: true
+
+engine:
+  gpu_memory_utilization: 0.90
+  enable_prefix_caching: true
+  enforce_eager: false
+  max_num_seqs: null
+  max_num_batched_tokens: null
+  generation_config: auto

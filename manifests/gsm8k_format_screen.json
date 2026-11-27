@@ -1,0 +1,54 @@
+{
+ "kind": "gsm8k_format_screen",
+ "rule": "config/answer_formats.yaml",
+ "formats_sha256": "c2d25f43450cb10921a94f739878a476507d3691720e8520e1ac01235c920558",
+ "bank_config_sha256": "16fe06f38caf3076c66640fd8e75c4d3de61406c267a0a25d75b7e6eb6ddf786",
+ "seed_label": "gsm8k-format-screen",
+ "seed": 20261030,
+ "n_bank_configurations": 56,
+ "configurations": [
+  "ps-i05-f02",
+  "ps-i05-f05"
+ ],
+ "metrics_only_rules": "data/bank_candidates/format_screen/admissibility_metrics_only.yaml",
+ "metrics_only_rules_sha256": "43aaea4e2858388f7b4512b7409ccdc33bc9312e3b990abfbbf4d31ada41e989",
+ "candidates": [
+  {
+   "scorer_candidate": "answer_colon_markup",
+   "text": "End your reply with a final line of the form \"Answer: <number>\".",
+   "config": "data/bank_candidates/format_screen/gsm8k_bank_v1-format-answer_colon_markup.yaml",
+   "bank": "data/bank_candidates/format_screen/gsm8k_bank_v1-format-answer_colon_markup.json",
+   "bank_sha256": "f4fab41b6ae2d2ae7aed5021646a0b0a652eded3de479957b87164a341d5ce1b"
+  },
+  {
+   "scorer_candidate": "the_answer_is_markup",
+   "text": "End your reply with a final line of the form \"The answer is <number>.\"",
+   "config": "data/bank_candidates/format_screen/gsm8k_bank_v1-format-the_answer_is_markup.yaml",
+   "bank": "data/bank_candidates/format_screen/gsm8k_bank_v1-format-the_answer_is_markup.json",
+   "bank_sha256": "40e60d5d5ecbfd2450023342ece78fc1d33f52e73a174499b6a37643e3b9709c"
+  },
+  {
+   "scorer_candidate": "hash_n",
+   "text": "End your reply with a final line of the form \"#### <number>\".",
+   "config": "data/bank_candidates/format_screen/gsm8k_bank_v1-format-hash_n.yaml",
+   "bank": "data/bank_candidates/format_screen/gsm8k_bank_v1-format-hash_n.json",
+   "bank_sha256": "f4ae90a0545f83b7ada98d85d332711b05b8e110895c3df1ed8971975c997fa5"
+  },
+  {
+   "scorer_candidate": "boxed",
+   "text": "End your reply with a final line that contains \\boxed{<number>}.",
+   "config": "data/bank_candidates/format_screen/gsm8k_bank_v1-format-boxed.yaml",
+   "bank": "data/bank_candidates/format_screen/gsm8k_bank_v1-format-boxed.json",
+   "bank_sha256": "9c46f99a3371331c0630a2ce198747c4d9b769b8351cdbacf7d62c239c982032"
+  }
+ ],
+ "amendments": [
+  {
+   "date": "2026-10-30",
+   "field": "metrics_only_rules_sha256",
+   "previous": "206cd1cf774bcdee5478b8c8b3b353b3123223ff36ecddd437fbe60ad12b990f",
+   "new": "43aaea4e2858388f7b4512b7409ccdc33bc9312e3b990abfbbf4d31ada41e989",
+   "reason": "The authors replaced the absolute compliance minimum of config/admissibility.yaml with a shortfall from the median configuration; the metrics-only copy carries the new rule name, every threshold still null. The drawn configurations, the banks and the formats are unchanged."
+  }
+ ]
+}

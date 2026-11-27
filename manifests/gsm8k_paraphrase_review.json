@@ -1,0 +1,48 @@
+{
+ "kind": "paraphrase_review",
+ "record_sha256": "fd01dabda4e49f9a41ec38f950d20bc44e0a7fedd4933a98acc54e6c03e832fa",
+ "reviewers": [
+  "an AI assistant, for the authors, on 30 October 2026"
+ ],
+ "date": "2026-10-30",
+ "question": "Does the variant ask for the same task as the original instruction, with nothing added or removed? keep or drop; a drop needs a note",
+ "original": "Solve the following math word problem.",
+ "verdicts": [
+  {
+   "text": "Solve the given math word problem.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Find the solution to the math word problem.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Provide the answer to the math word problem.",
+   "verdict": "keep",
+   "note": "kept: it names the task's output and says nothing about working or form; the arm clause that follows sets both"
+  },
+  {
+   "text": "Calculate the result of the math word problem.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Determine the outcome of the math word problem.",
+   "verdict": "keep",
+   "note": "kept: 'outcome' is a looser word for the answer; the task is unchanged"
+  },
+  {
+   "text": "Compute the solution for the math word problem.",
+   "verdict": "keep",
+   "note": ""
+  },
+  {
+   "text": "Resolve the math word problem with a step-by-step solution.",
+   "verdict": "drop",
+   "note": "dropped: it asks for a step-by-step solution, which is the chain-of-thought arm's manipulation; in the direct-answer arm it would contradict 'Give only the final answer, without any working.'"
+  }
+ ],
+ "rule": "A variant is kept when it asks for the same task as the original and says nothing about how to answer. How much working to show belongs to the arm clauses, and the reply's form to the answer-format component, so a variant that speaks to either is dropped. The verdicts read the texts alone; no output of any panel model on the bank existed when they were made."
+}

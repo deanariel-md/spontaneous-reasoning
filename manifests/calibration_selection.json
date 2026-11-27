@@ -1,0 +1,977 @@
+{
+ "fixed": "2026-10-03 22:19",
+ "rule": "calibration selection rule",
+ "dev_reps": 1000,
+ "selection": {
+  "dataset1": {
+   "A": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.843,
+      "min_coverage_upper95": 0.8616567388387277,
+      "median_width": 22.236080621193317,
+      "cells": 32
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.839,
+      "min_coverage_upper95": 0.8578593575917941,
+      "median_width": 22.08186950350059,
+      "cells": 32
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.863,
+      "min_coverage_upper95": 0.8805758579686329,
+      "median_width": 23.050404831144693,
+      "cells": 32
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.931,
+      "min_coverage_upper95": 0.9437262602818857,
+      "median_width": 29.22162988944947,
+      "cells": 32
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.931,
+      "min_coverage_upper95": 0.9437262602818857,
+      "median_width": 27.252716889730568,
+      "cells": 32
+     }
+    ]
+   },
+   "C_accuracy": {
+    "method": "jack_t",
+    "note": "no candidate passed the development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.886,
+      "min_coverage_upper95": 0.9021720010058598,
+      "median_width": 0.09467223415674497,
+      "cells": 4
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.831,
+      "min_coverage_upper95": 0.8502521382413046,
+      "median_width": 0.09305005897921237,
+      "cells": 4
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.749,
+      "min_coverage_upper95": 0.7714886207990305,
+      "median_width": 0.08518939393939395,
+      "cells": 4
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.872,
+      "min_coverage_upper95": 0.8890489377870202,
+      "median_width": 0.12619687012758515,
+      "cells": 4
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.907,
+      "min_coverage_upper95": 0.9217023592887934,
+      "median_width": 0.11076381623425974,
+      "cells": 4
+     }
+    ]
+   },
+   "C_benefit": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.921,
+      "min_coverage_upper95": 0.9345953722544624,
+      "median_width": 0.19390314974114767,
+      "cells": 4
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.916,
+      "min_coverage_upper95": 0.9300042000455343,
+      "median_width": 0.19142075296025174,
+      "cells": 4
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.814,
+      "min_coverage_upper95": 0.8340352998957008,
+      "median_width": 0.17842992424242415,
+      "cells": 4
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.906,
+      "min_coverage_upper95": 0.9207771635162829,
+      "median_width": 0.22412982782460444,
+      "cells": 4
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.933,
+      "min_coverage_upper95": 0.945543295707198,
+      "median_width": 0.22012139858673058,
+      "cells": 4
+     }
+    ]
+   },
+   "H": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.842,
+      "min_coverage_upper95": 0.8607077936413703,
+      "median_width": 2.6735635243711062,
+      "cells": 32
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.839,
+      "min_coverage_upper95": 0.8578593575917941,
+      "median_width": 2.6716424450914924,
+      "cells": 32
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.863,
+      "min_coverage_upper95": 0.8805758579686329,
+      "median_width": 2.742962335088959,
+      "cells": 32
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.924,
+      "min_coverage_upper95": 0.9373421892398583,
+      "median_width": 3.22848884175901,
+      "cells": 32
+     },
+     {
+      "method": "fieller",
+      "min_coverage": 0.923,
+      "min_coverage_upper95": 0.9364272678003281,
+      "median_width": 3.3585976854359147,
+      "cells": 32
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.941,
+      "min_coverage_upper95": 0.9527765277306204,
+      "median_width": 3.1553970822550284,
+      "cells": 32
+     }
+    ]
+   },
+   "V_delta": {
+    "method": "jack_t",
+    "note": "no candidate passed the development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.884,
+      "min_coverage_upper95": 0.9003018682877822,
+      "median_width": 11.266450282304596,
+      "cells": 32
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.888,
+      "min_coverage_upper95": 0.9040405110399481,
+      "median_width": 10.759456412680706,
+      "cells": 32
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.899,
+      "min_coverage_upper95": 0.914286516032102,
+      "median_width": 11.452967036601848,
+      "cells": 32
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.867,
+      "min_coverage_upper95": 0.8843450067471136,
+      "median_width": 11.413268036735326,
+      "cells": 32
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.916,
+      "min_coverage_upper95": 0.9300042000455343,
+      "median_width": 12.126124664650323,
+      "cells": 32
+     },
+     {
+      "method": "mls",
+      "min_coverage": 0.894,
+      "min_coverage_upper95": 0.9096359150071546,
+      "median_width": 53.226425508028704,
+      "cells": 32
+     }
+    ]
+   },
+   "V_theta": {
+    "method": "boot_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.84,
+      "min_coverage_upper95": 0.8588091009783521,
+      "median_width": 33.000274181879675,
+      "cells": 32
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.832,
+      "min_coverage_upper95": 0.8512039246371227,
+      "median_width": 32.89758075664304,
+      "cells": 32
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.858,
+      "min_coverage_upper95": 0.8758572392668882,
+      "median_width": 34.44368975667269,
+      "cells": 32
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.932,
+      "min_coverage_upper95": 0.9446351869100799,
+      "median_width": 41.548473170363536,
+      "cells": 32
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.926,
+      "min_coverage_upper95": 0.9391699167794836,
+      "median_width": 39.49241260693432,
+      "cells": 32
+     }
+    ]
+   },
+   "gap": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.899,
+      "min_coverage_upper95": 0.914286516032102,
+      "median_width": 0.2269492114940937,
+      "cells": 4
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.898,
+      "min_coverage_upper95": 0.9133573236224255,
+      "median_width": 0.2233908626631017,
+      "cells": 4
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.858,
+      "min_coverage_upper95": 0.8758572392668882,
+      "median_width": 0.20610890151515146,
+      "cells": 4
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.91,
+      "min_coverage_upper95": 0.9244747237387132,
+      "median_width": 0.2743791893410342,
+      "cells": 4
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.932,
+      "min_coverage_upper95": 0.9446351869100799,
+      "median_width": 0.26263443129622754,
+      "cells": 4
+     }
+    ]
+   },
+   "risk:averaged_ols-replicated": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.875,
+      "min_coverage_upper95": 0.89186713434109,
+      "median_width": 0.7236476199124717,
+      "cells": 32
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.939,
+      "min_coverage_upper95": 0.9509737694393225,
+      "median_width": 0.8611244126796369,
+      "cells": 32
+     }
+    ]
+   },
+   "risk:constant-averaged_ols": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.863,
+      "min_coverage_upper95": 0.8805758579686329,
+      "median_width": 4.657526309441186,
+      "cells": 32
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.942,
+      "min_coverage_upper95": 0.9536764212679577,
+      "median_width": 5.466847813472234,
+      "cells": 32
+     }
+    ]
+   },
+   "risk:constant-own_gain": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.874,
+      "min_coverage_upper95": 0.8909280904945676,
+      "median_width": 7.772188634642418,
+      "cells": 32
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.934,
+      "min_coverage_upper95": 0.9464505695770878,
+      "median_width": 9.252704899187439,
+      "cells": 32
+     }
+    ]
+   },
+   "risk:constant-replicated": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.88,
+      "min_coverage_upper95": 0.8965568792972208,
+      "median_width": 7.254034719133761,
+      "cells": 32
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.939,
+      "min_coverage_upper95": 0.9509737694393225,
+      "median_width": 8.30849120558699,
+      "cells": 32
+     }
+    ]
+   },
+   "risk:constant-single_prompt": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.868,
+      "min_coverage_upper95": 0.8852864707669175,
+      "median_width": 36.724839695973145,
+      "cells": 32
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.932,
+      "min_coverage_upper95": 0.9446351869100799,
+      "median_width": 41.55079462429481,
+      "cells": 32
+     }
+    ]
+   },
+   "risk:own_gain-averaged_ols": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.861,
+      "min_coverage_upper95": 0.8786893506864122,
+      "median_width": 3.0989361922827015,
+      "cells": 32
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.937,
+      "min_coverage_upper95": 0.9491672007662676,
+      "median_width": 3.608818780250542,
+      "cells": 32
+     }
+    ]
+   },
+   "risk:own_gain-replicated": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.857,
+      "min_coverage_upper95": 0.8749125864812299,
+      "median_width": 2.2634039920336804,
+      "cells": 32
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.937,
+      "min_coverage_upper95": 0.9491672007662676,
+      "median_width": 2.5520237375149852,
+      "cells": 32
+     }
+    ]
+   },
+   "V_delta_upper": {
+    "method": "boot_naive",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.906,
+      "min_coverage_upper95": 0.9207771635162829,
+      "median_upper": 11.159428467032456
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.887,
+      "min_coverage_upper95": 0.9031064612022709,
+      "median_upper": 10.489878774070835
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.949,
+      "min_coverage_upper95": 0.9599455334190088,
+      "median_upper": 12.24169272941394
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.859,
+      "min_coverage_upper95": 0.8768015860556726,
+      "median_upper": 11.645573106932158
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.893,
+      "min_coverage_upper95": 0.9087044323863548,
+      "median_upper": 10.698280636216037
+     },
+     {
+      "method": "mls",
+      "min_coverage": 0.912,
+      "min_coverage_upper95": 0.9263202000121246,
+      "median_upper": 36.716379735277464
+     }
+    ],
+    "note": "passed development screen"
+   }
+  },
+  "dataset2": {
+   "A": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.839,
+      "min_coverage_upper95": 0.8578593575917941,
+      "median_width": 15.724652532662661,
+      "cells": 44
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.842,
+      "min_coverage_upper95": 0.8607077936413703,
+      "median_width": 15.593680164496334,
+      "cells": 44
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.785,
+      "min_coverage_upper95": 0.8062270995824246,
+      "median_width": 17.084484685080355,
+      "cells": 44
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.932,
+      "min_coverage_upper95": 0.9446351869100799,
+      "median_width": 20.061702007699655,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.933,
+      "min_coverage_upper95": 0.945543295707198,
+      "median_width": 19.285092322466838,
+      "cells": 44
+     }
+    ]
+   },
+   "C_accuracy": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.865,
+      "min_coverage_upper95": 0.8824610846816877,
+      "median_width": 0.01847686370052906,
+      "cells": 44
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.868,
+      "min_coverage_upper95": 0.8852864707669175,
+      "median_width": 0.018318800177567873,
+      "cells": 44
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.324,
+      "min_coverage_upper95": 0.3492065341052235,
+      "median_width": 0.017990929027113217,
+      "cells": 44
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.925,
+      "min_coverage_upper95": 0.9382564098817877,
+      "median_width": 0.022464945138427256,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.938,
+      "min_coverage_upper95": 0.9500709505161795,
+      "median_width": 0.02247486128605214,
+      "cells": 44
+     }
+    ]
+   },
+   "C_benefit": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.898,
+      "min_coverage_upper95": 0.9133573236224255,
+      "median_width": 0.06417634559718813,
+      "cells": 44
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.898,
+      "min_coverage_upper95": 0.9133573236224255,
+      "median_width": 0.06342249084210089,
+      "cells": 44
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.07,
+      "min_coverage_upper95": 0.08473885000188029,
+      "median_width": 0.06862088815789463,
+      "cells": 44
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.923,
+      "min_coverage_upper95": 0.9364272678003281,
+      "median_width": 0.06390484877764302,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.944,
+      "min_coverage_upper95": 0.9554731150793502,
+      "median_width": 0.06863508650045003,
+      "cells": 44
+     }
+    ]
+   },
+   "H": {
+    "method": "fieller",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.395,
+      "min_coverage_upper95": 0.42113317083201085,
+      "median_width": 0.5378591369316565,
+      "cells": 44
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.841,
+      "min_coverage_upper95": 0.8597585803360565,
+      "median_width": 0.5352924308692277,
+      "cells": 44
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.78,
+      "min_coverage_upper95": 0.80141593350357,
+      "median_width": 0.5787971961729992,
+      "cells": 44
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.269,
+      "min_coverage_upper95": 0.29305283876985666,
+      "median_width": 0.7309387520029773,
+      "cells": 44
+     },
+     {
+      "method": "fieller",
+      "min_coverage": 0.941,
+      "min_coverage_upper95": 0.9527765277306204,
+      "median_width": 0.7012009445310058,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.445,
+      "min_coverage_upper95": 0.4714450190919144,
+      "median_width": 0.6996175644040505,
+      "cells": 44
+     }
+    ]
+   },
+   "V_delta": {
+    "method": "mls",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.867,
+      "min_coverage_upper95": 0.8843450067471136,
+      "median_width": 5.112289536572815,
+      "cells": 44
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.87,
+      "min_coverage_upper95": 0.8871683887262417,
+      "median_width": 5.02025398449414,
+      "cells": 44
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.513,
+      "min_coverage_upper95": 0.5394450721718482,
+      "median_width": 5.50863259211263,
+      "cells": 44
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.901,
+      "min_coverage_upper95": 0.9161434661496026,
+      "median_width": 5.550046046988252,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.922,
+      "min_coverage_upper95": 0.935511658094016,
+      "median_width": 5.8753852349029705,
+      "cells": 44
+     },
+     {
+      "method": "mls",
+      "min_coverage": 0.931,
+      "min_coverage_upper95": 0.9437262602818857,
+      "median_width": 8.19115283586044,
+      "cells": 44
+     }
+    ]
+   },
+   "V_theta": {
+    "method": "boot_t",
+    "note": "no candidate passed the development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.825,
+      "min_coverage_upper95": 0.8445362896420883,
+      "median_width": 21.693453210521085,
+      "cells": 44
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.819,
+      "min_coverage_upper95": 0.8388119032173967,
+      "median_width": 21.49852497231028,
+      "cells": 44
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.604,
+      "min_coverage_upper95": 0.6296870896178389,
+      "median_width": 23.12588753276819,
+      "cells": 44
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.918,
+      "min_coverage_upper95": 0.9318425736729556,
+      "median_width": 28.674815943543578,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.91,
+      "min_coverage_upper95": 0.9244747237387132,
+      "median_width": 27.48465051069664,
+      "cells": 44
+     }
+    ]
+   },
+   "gap": {
+    "method": "boot_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.892,
+      "min_coverage_upper95": 0.9077725088140389,
+      "median_width": 0.06584649153569354,
+      "cells": 44
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.887,
+      "min_coverage_upper95": 0.9031064612022709,
+      "median_width": 0.06488065316780686,
+      "cells": 44
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.301,
+      "min_coverage_upper95": 0.3257739980380616,
+      "median_width": 0.06830489932216907,
+      "cells": 44
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.929,
+      "min_coverage_upper95": 0.9419060188820485,
+      "median_width": 0.06563951337191214,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.946,
+      "min_coverage_upper95": 0.9572655090158633,
+      "median_width": 0.06992797848324686,
+      "cells": 44
+     }
+    ]
+   },
+   "risk:averaged_ols-replicated": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.866,
+      "min_coverage_upper95": 0.8834032103349719,
+      "median_width": 2.09217088478034,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.936,
+      "min_coverage_upper95": 0.9482625408876784,
+      "median_width": 2.4581902996415956,
+      "cells": 44
+     }
+    ]
+   },
+   "risk:constant-averaged_ols": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.855,
+      "min_coverage_upper95": 0.8730223735914324,
+      "median_width": 0.9063331393832479,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.932,
+      "min_coverage_upper95": 0.9446351869100799,
+      "median_width": 1.0820526600995057,
+      "cells": 44
+     }
+    ]
+   },
+   "risk:constant-own_gain": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.855,
+      "min_coverage_upper95": 0.8730223735914324,
+      "median_width": 4.297487781726911,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.932,
+      "min_coverage_upper95": 0.9446351869100799,
+      "median_width": 5.1912880633382255,
+      "cells": 44
+     }
+    ]
+   },
+   "risk:constant-replicated": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.863,
+      "min_coverage_upper95": 0.8805758579686329,
+      "median_width": 3.265085732189429,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.934,
+      "min_coverage_upper95": 0.9464505695770878,
+      "median_width": 3.8867523011869345,
+      "cells": 44
+     }
+    ]
+   },
+   "risk:constant-single_prompt": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.871,
+      "min_coverage_upper95": 0.8881088360601089,
+      "median_width": 21.35245104956504,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.939,
+      "min_coverage_upper95": 0.9509737694393225,
+      "median_width": 25.18400378007022,
+      "cells": 44
+     }
+    ]
+   },
+   "risk:own_gain-averaged_ols": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.87,
+      "min_coverage_upper95": 0.8871683887262417,
+      "median_width": 2.8523599206459047,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.931,
+      "min_coverage_upper95": 0.9437262602818857,
+      "median_width": 3.5226720393280604,
+      "cells": 44
+     }
+    ]
+   },
+   "risk:own_gain-replicated": {
+    "method": "jack_t",
+    "note": "passed development screen",
+    "candidates": [
+     {
+      "method": "boot",
+      "min_coverage": 0.859,
+      "min_coverage_upper95": 0.8768015860556726,
+      "median_width": 1.1447291622894182,
+      "cells": 44
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.931,
+      "min_coverage_upper95": 0.9437262602818857,
+      "median_width": 1.319696920698065,
+      "cells": 44
+     }
+    ]
+   },
+   "V_delta_upper": {
+    "method": "boot_naive",
+    "candidates": [
+     {
+      "method": "bca_distinct",
+      "min_coverage": 0.901,
+      "min_coverage_upper95": 0.9161434661496026,
+      "median_upper": 6.232784449037269
+     },
+     {
+      "method": "boot_distinct",
+      "min_coverage": 0.9,
+      "min_coverage_upper95": 0.9152152323315307,
+      "median_upper": 6.133948004137324
+     },
+     {
+      "method": "boot_naive",
+      "min_coverage": 0.963,
+      "min_coverage_upper95": 0.9722879331715141,
+      "median_upper": 7.797944908519215
+     },
+     {
+      "method": "boot_t",
+      "min_coverage": 0.87,
+      "min_coverage_upper95": 0.8871683887262417,
+      "median_upper": 6.143285514807771
+     },
+     {
+      "method": "jack_t",
+      "min_coverage": 0.889,
+      "min_coverage_upper95": 0.9049741457013011,
+      "median_upper": 6.1801261682231825
+     },
+     {
+      "method": "mls",
+      "min_coverage": 0.934,
+      "min_coverage_upper95": 0.9464505695770878,
+      "median_upper": 8.52286290207627
+     }
+    ],
+    "note": "passed development screen"
+   }
+  }
+ }
+}

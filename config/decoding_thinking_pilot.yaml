@@ -1,0 +1,30 @@
+# Decoding of the thinking-on pilot of the native-reasoning runs: greedy, as every arm
+# of the study, with a cap high enough to see the length distribution of native reasoning on training items. The pilot
+# measures output lengths and think-block closure only; the cap of the runs is set from it by a fixed rule.
+#
+# status: confirmed on 3 November 2026 by the authors' decision of 30 October, for the pilot only.
+status: confirmed
+
+temperature: 0.0
+top_p: 1.0
+top_k: 0
+seed: 0
+
+max_new_tokens:
+  thinking_gsm8k: 30720
+  thinking_math: 30720
+
+stop: []
+include_stop_str_in_output: false
+# Kept, unlike the other arms: Gemma-4 writes its reasoning between the special tokens <|channel>thought and
+# <channel|>, and the answer is read after the end of the reasoning. The Qwen tags <think> and </think> are
+# not skipped either way.
+skip_special_tokens: false
+
+engine:
+  gpu_memory_utilization: 0.90
+  enable_prefix_caching: true
+  enforce_eager: false
+  max_num_seqs: null
+  max_num_batched_tokens: null
+  generation_config: auto

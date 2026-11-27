@@ -1,0 +1,1794 @@
+{
+ "name": "closed_w_items",
+ "made_on": "2026-11-24",
+ "script": "scripts/closed_w.py plan",
+ "design": "requested arm (direct_answer) of the main panel, every template of the four benchmarks, the same 100 items per benchmark; one call per (template, item) per model",
+ "item_rule": "nested seeded permutations of the sorted item ids, numpy.random.default_rng(src.decision.label_seed('closed_w/b/<task>')), the first 100; BIG-Bench Hard per task, label 'closed_w/b/bbh/<task>', the first 4 of each of 25 tasks (scripts/closed_w_items.sample_items, Design B100)",
+ "seeds": {
+  "gsm8k": {
+   "closed_w/b/gsm8k": 1618884451539452283
+  },
+  "math": {
+   "closed_w/b/math": 9890635038928258799
+  },
+  "bbh": {
+   "closed_w/b/bbh/boolean_expressions": 12695233297751030958,
+   "closed_w/b/bbh/causal_judgement": 4582593085018119233,
+   "closed_w/b/bbh/date_understanding": 12325617959248051339,
+   "closed_w/b/bbh/disambiguation_qa": 16458314936341765137,
+   "closed_w/b/bbh/formal_fallacies": 13540885287557999261,
+   "closed_w/b/bbh/geometric_shapes": 16881891550376091578,
+   "closed_w/b/bbh/hyperbaton": 7943452408999938505,
+   "closed_w/b/bbh/logical_deduction_five_objects": 15048972643901765865,
+   "closed_w/b/bbh/logical_deduction_seven_objects": 2759152395466463807,
+   "closed_w/b/bbh/logical_deduction_three_objects": 16415569050680955110,
+   "closed_w/b/bbh/movie_recommendation": 5622862779066105558,
+   "closed_w/b/bbh/multistep_arithmetic_two": 11314670999239671818,
+   "closed_w/b/bbh/navigate": 12520013815124222024,
+   "closed_w/b/bbh/object_counting": 7927391341037849428,
+   "closed_w/b/bbh/penguins_in_a_table": 3920290893144086013,
+   "closed_w/b/bbh/reasoning_about_colored_objects": 13691811503471408071,
+   "closed_w/b/bbh/ruin_names": 15532991816937249745,
+   "closed_w/b/bbh/salient_translation_error_detection": 17143130029202987678,
+   "closed_w/b/bbh/snarks": 16787510223656371427,
+   "closed_w/b/bbh/sports_understanding": 12865533696884414158,
+   "closed_w/b/bbh/temporal_sequences": 14881384149832082018,
+   "closed_w/b/bbh/tracking_shuffled_objects_five_objects": 6759278592342210689,
+   "closed_w/b/bbh/tracking_shuffled_objects_seven_objects": 1206309179552412908,
+   "closed_w/b/bbh/tracking_shuffled_objects_three_objects": 4091563533829037154,
+   "closed_w/b/bbh/web_of_lies": 13400113884065520837
+  },
+  "hotpot": {
+   "closed_w/b/hotpot": 1370358792062479879
+  }
+ },
+ "items_per_benchmark": 100,
+ "bbh_per_task": 4,
+ "sources": {
+  "gsm8k": {
+   "requests": "data/requests/gsm8k/qwen3-8b.parquet",
+   "requests_sha256": "2118a34e9d201d1877bafa2a7ee3497a574567bd30d85d4bad89b89f983529fd",
+   "screening": "data/requests/gsm8k/screening/qwen3-8b.parquet",
+   "screening_sha256": "65c0c3c686a6bf09e138c6a167a3b41907778854e9cc4e77cf66059ce0c02632",
+   "arm": "direct_answer"
+  },
+  "math": {
+   "requests": "data/requests/math/qwen3-8b.parquet",
+   "requests_sha256": "d22546b480729b7747ddb6cce4bab756b1b758ef1c8e0704b70a11f65cd9a2b0",
+   "screening": "data/requests/math/screening/qwen3-8b.parquet",
+   "screening_sha256": "2563d0611bea6300b125c88b3d7654ed7e7af2b81bf9371d9ef4dc62b5855c7b",
+   "arm": "direct_answer"
+  },
+  "bbh": {
+   "requests": "data/requests/bbh/qwen3-8b.parquet",
+   "requests_sha256": "0e4dd13edfaabb087fa25548e21dbc82a5e158ad32bfd950a87b6747fc465d04",
+   "screening": "data/requests/bbh/screening/qwen3-8b.parquet",
+   "screening_sha256": "615dc7262113d321598879c13cd4b5af243781958eed02e24cf0b2587ca2d28f",
+   "arm": "direct_answer"
+  },
+  "hotpot": {
+   "requests": "data/requests/hotpot/qwen3-8b.parquet",
+   "requests_sha256": "6e9336b51af8bfadf173cfd6de0735d8369dcab9d0587abba49fa6949646d499",
+   "screening": "data/requests/hotpot/screening/qwen3-8b.parquet",
+   "screening_sha256": "e5e587670816b7d3d42659591dd470b8c87957268d37b351a5d7e6a8e7682243",
+   "arm": "direct_answer"
+  }
+ },
+ "tasks": {
+  "gsm8k": {
+   "templates": [
+    "ps-i00-f00",
+    "ps-i00-f02",
+    "ps-i01-f00",
+    "ps-i01-f02",
+    "ps-i01-f07",
+    "ps-i02-f00",
+    "ps-i02-f01",
+    "ps-i02-f04",
+    "ps-i02-f06",
+    "ps-i03-f00",
+    "ps-i03-f02",
+    "ps-i03-f03",
+    "ps-i03-f04",
+    "ps-i03-f05",
+    "ps-i03-f06",
+    "ps-i04-f02",
+    "ps-i04-f03",
+    "ps-i04-f05",
+    "ps-i04-f06",
+    "ps-i05-f01",
+    "ps-i05-f02",
+    "ps-i05-f04",
+    "ps-i05-f05",
+    "ps-i05-f06",
+    "ps-i05-f07",
+    "ps-i07-f00",
+    "ps-i07-f01",
+    "ps-i07-f05",
+    "ps-i07-f07"
+   ],
+   "n_templates": 29,
+   "items": [
+    "0",
+    "1009",
+    "101",
+    "1029",
+    "1052",
+    "1066",
+    "1079",
+    "1100",
+    "1105",
+    "1110",
+    "1120",
+    "1134",
+    "1136",
+    "1137",
+    "1153",
+    "1176",
+    "1179",
+    "1194",
+    "1195",
+    "120",
+    "1201",
+    "1209",
+    "1226",
+    "1233",
+    "1245",
+    "1262",
+    "1268",
+    "1279",
+    "1287",
+    "1292",
+    "1308",
+    "1314",
+    "134",
+    "138",
+    "149",
+    "169",
+    "171",
+    "191",
+    "196",
+    "209",
+    "210",
+    "224",
+    "251",
+    "257",
+    "280",
+    "288",
+    "310",
+    "316",
+    "337",
+    "340",
+    "363",
+    "365",
+    "366",
+    "368",
+    "380",
+    "40",
+    "403",
+    "409",
+    "446",
+    "453",
+    "458",
+    "471",
+    "473",
+    "474",
+    "482",
+    "484",
+    "504",
+    "515",
+    "522",
+    "523",
+    "533",
+    "554",
+    "555",
+    "556",
+    "573",
+    "581",
+    "594",
+    "618",
+    "640",
+    "666",
+    "668",
+    "672",
+    "684",
+    "696",
+    "71",
+    "712",
+    "748",
+    "807",
+    "809",
+    "827",
+    "866",
+    "876",
+    "914",
+    "942",
+    "946",
+    "947",
+    "962",
+    "975",
+    "989",
+    "998"
+   ],
+   "n_items": 100,
+   "n_requests": 2900,
+   "requests_sha256": "50fc595066db8c80f3bb24a858abd71d4a126ab957d53fbceb66d90a7ffd9955",
+   "request_id_example": "ps-i07-f00|direct_answer|0"
+  },
+  "math": {
+   "templates": [
+    "ps-i00-f01",
+    "ps-i00-f03",
+    "ps-i00-f04",
+    "ps-i00-f05",
+    "ps-i00-f06",
+    "ps-i01-f00",
+    "ps-i01-f06",
+    "ps-i02-f00",
+    "ps-i02-f01",
+    "ps-i02-f02",
+    "ps-i02-f03",
+    "ps-i02-f04",
+    "ps-i02-f06",
+    "ps-i02-f07",
+    "ps-i03-f00",
+    "ps-i03-f02",
+    "ps-i03-f06",
+    "ps-i03-f07",
+    "ps-i04-f00",
+    "ps-i04-f05",
+    "ps-i04-f07",
+    "ps-i05-f00",
+    "ps-i05-f01",
+    "ps-i05-f02",
+    "ps-i05-f04",
+    "ps-i06-f00",
+    "ps-i06-f01",
+    "ps-i06-f03",
+    "ps-i06-f05",
+    "ps-i06-f06",
+    "ps-i06-f07"
+   ],
+   "n_templates": 31,
+   "items": [
+    "test/algebra/109.json",
+    "test/algebra/1143.json",
+    "test/algebra/1214.json",
+    "test/algebra/1265.json",
+    "test/algebra/1303.json",
+    "test/algebra/1457.json",
+    "test/algebra/1529.json",
+    "test/algebra/187.json",
+    "test/algebra/1934.json",
+    "test/algebra/1960.json",
+    "test/algebra/2064.json",
+    "test/algebra/2080.json",
+    "test/algebra/2159.json",
+    "test/algebra/2199.json",
+    "test/algebra/2214.json",
+    "test/algebra/2232.json",
+    "test/algebra/224.json",
+    "test/algebra/24.json",
+    "test/algebra/246.json",
+    "test/algebra/276.json",
+    "test/algebra/2779.json",
+    "test/algebra/2789.json",
+    "test/algebra/297.json",
+    "test/algebra/509.json",
+    "test/algebra/529.json",
+    "test/algebra/567.json",
+    "test/algebra/621.json",
+    "test/algebra/661.json",
+    "test/algebra/824.json",
+    "test/algebra/849.json",
+    "test/algebra/988.json",
+    "test/counting_and_probability/1003.json",
+    "test/counting_and_probability/1009.json",
+    "test/counting_and_probability/1014.json",
+    "test/counting_and_probability/1114.json",
+    "test/counting_and_probability/134.json",
+    "test/counting_and_probability/181.json",
+    "test/counting_and_probability/190.json",
+    "test/counting_and_probability/216.json",
+    "test/counting_and_probability/525.json",
+    "test/counting_and_probability/870.json",
+    "test/geometry/226.json",
+    "test/geometry/283.json",
+    "test/geometry/434.json",
+    "test/geometry/627.json",
+    "test/geometry/802.json",
+    "test/geometry/817.json",
+    "test/intermediate_algebra/1123.json",
+    "test/intermediate_algebra/1126.json",
+    "test/intermediate_algebra/1151.json",
+    "test/intermediate_algebra/134.json",
+    "test/intermediate_algebra/1354.json",
+    "test/intermediate_algebra/1410.json",
+    "test/intermediate_algebra/1422.json",
+    "test/intermediate_algebra/1510.json",
+    "test/intermediate_algebra/1572.json",
+    "test/intermediate_algebra/1806.json",
+    "test/intermediate_algebra/190.json",
+    "test/intermediate_algebra/2022.json",
+    "test/intermediate_algebra/207.json",
+    "test/intermediate_algebra/2146.json",
+    "test/intermediate_algebra/515.json",
+    "test/intermediate_algebra/582.json",
+    "test/intermediate_algebra/591.json",
+    "test/intermediate_algebra/623.json",
+    "test/intermediate_algebra/894.json",
+    "test/intermediate_algebra/955.json",
+    "test/intermediate_algebra/986.json",
+    "test/number_theory/1000.json",
+    "test/number_theory/13.json",
+    "test/number_theory/132.json",
+    "test/number_theory/149.json",
+    "test/number_theory/22.json",
+    "test/number_theory/239.json",
+    "test/number_theory/410.json",
+    "test/number_theory/417.json",
+    "test/number_theory/427.json",
+    "test/number_theory/533.json",
+    "test/number_theory/679.json",
+    "test/number_theory/753.json",
+    "test/number_theory/838.json",
+    "test/prealgebra/1003.json",
+    "test/prealgebra/1044.json",
+    "test/prealgebra/1113.json",
+    "test/prealgebra/1139.json",
+    "test/prealgebra/1233.json",
+    "test/prealgebra/1252.json",
+    "test/prealgebra/1297.json",
+    "test/prealgebra/1317.json",
+    "test/prealgebra/1555.json",
+    "test/prealgebra/1640.json",
+    "test/prealgebra/1908.json",
+    "test/prealgebra/2086.json",
+    "test/prealgebra/307.json",
+    "test/prealgebra/505.json",
+    "test/prealgebra/951.json",
+    "test/precalculus/1172.json",
+    "test/precalculus/1289.json",
+    "test/precalculus/675.json",
+    "test/precalculus/989.json"
+   ],
+   "n_items": 100,
+   "n_requests": 3100,
+   "requests_sha256": "c1ac5aa94030ce9fb8bc884a1a925370ad1e95c161ca544bde9910f108ff8ea7",
+   "request_id_example": "ps-i00-f05|direct_answer|test/prealgebra/1139.json"
+  },
+  "bbh": {
+   "templates": [
+    "ps-i00-f04",
+    "ps-i00-f05",
+    "ps-i00-f06",
+    "ps-i01-f00",
+    "ps-i01-f01",
+    "ps-i01-f03",
+    "ps-i01-f05",
+    "ps-i01-f06",
+    "ps-i01-f07",
+    "ps-i02-f00",
+    "ps-i02-f01",
+    "ps-i02-f02",
+    "ps-i02-f03",
+    "ps-i02-f05",
+    "ps-i02-f06",
+    "ps-i02-f07",
+    "ps-i03-f00",
+    "ps-i03-f01",
+    "ps-i03-f05",
+    "ps-i03-f06",
+    "ps-i04-f00",
+    "ps-i04-f04",
+    "ps-i04-f05",
+    "ps-i04-f07",
+    "ps-i05-f03",
+    "ps-i05-f07",
+    "ps-i06-f01",
+    "ps-i06-f03",
+    "ps-i06-f05",
+    "ps-i06-f06",
+    "ps-i06-f07",
+    "ps-i07-f02",
+    "ps-i07-f03",
+    "ps-i07-f04",
+    "ps-i07-f05"
+   ],
+   "n_templates": 35,
+   "items": [
+    "boolean_expressions/144",
+    "boolean_expressions/175",
+    "boolean_expressions/190",
+    "boolean_expressions/24",
+    "causal_judgement/126",
+    "causal_judgement/152",
+    "causal_judgement/174",
+    "causal_judgement/182",
+    "date_understanding/109",
+    "date_understanding/160",
+    "date_understanding/202",
+    "date_understanding/32",
+    "disambiguation_qa/0",
+    "disambiguation_qa/109",
+    "disambiguation_qa/28",
+    "disambiguation_qa/31",
+    "formal_fallacies/167",
+    "formal_fallacies/236",
+    "formal_fallacies/51",
+    "formal_fallacies/53",
+    "geometric_shapes/156",
+    "geometric_shapes/221",
+    "geometric_shapes/54",
+    "geometric_shapes/62",
+    "hyperbaton/126",
+    "hyperbaton/185",
+    "hyperbaton/26",
+    "hyperbaton/3",
+    "logical_deduction_five_objects/128",
+    "logical_deduction_five_objects/145",
+    "logical_deduction_five_objects/190",
+    "logical_deduction_five_objects/244",
+    "logical_deduction_seven_objects/201",
+    "logical_deduction_seven_objects/208",
+    "logical_deduction_seven_objects/211",
+    "logical_deduction_seven_objects/5",
+    "logical_deduction_three_objects/118",
+    "logical_deduction_three_objects/145",
+    "logical_deduction_three_objects/196",
+    "logical_deduction_three_objects/200",
+    "movie_recommendation/114",
+    "movie_recommendation/142",
+    "movie_recommendation/2",
+    "movie_recommendation/65",
+    "multistep_arithmetic_two/133",
+    "multistep_arithmetic_two/199",
+    "multistep_arithmetic_two/238",
+    "multistep_arithmetic_two/24",
+    "navigate/124",
+    "navigate/150",
+    "navigate/160",
+    "navigate/178",
+    "object_counting/138",
+    "object_counting/155",
+    "object_counting/51",
+    "object_counting/63",
+    "penguins_in_a_table/1",
+    "penguins_in_a_table/126",
+    "penguins_in_a_table/75",
+    "penguins_in_a_table/81",
+    "reasoning_about_colored_objects/127",
+    "reasoning_about_colored_objects/192",
+    "reasoning_about_colored_objects/219",
+    "reasoning_about_colored_objects/95",
+    "ruin_names/112",
+    "ruin_names/208",
+    "ruin_names/226",
+    "ruin_names/232",
+    "salient_translation_error_detection/153",
+    "salient_translation_error_detection/173",
+    "salient_translation_error_detection/236",
+    "salient_translation_error_detection/60",
+    "snarks/117",
+    "snarks/151",
+    "snarks/2",
+    "snarks/67",
+    "sports_understanding/227",
+    "sports_understanding/5",
+    "sports_understanding/85",
+    "sports_understanding/88",
+    "temporal_sequences/126",
+    "temporal_sequences/127",
+    "temporal_sequences/27",
+    "temporal_sequences/39",
+    "tracking_shuffled_objects_five_objects/112",
+    "tracking_shuffled_objects_five_objects/179",
+    "tracking_shuffled_objects_five_objects/74",
+    "tracking_shuffled_objects_five_objects/80",
+    "tracking_shuffled_objects_seven_objects/193",
+    "tracking_shuffled_objects_seven_objects/226",
+    "tracking_shuffled_objects_seven_objects/45",
+    "tracking_shuffled_objects_seven_objects/47",
+    "tracking_shuffled_objects_three_objects/15",
+    "tracking_shuffled_objects_three_objects/163",
+    "tracking_shuffled_objects_three_objects/87",
+    "tracking_shuffled_objects_three_objects/94",
+    "web_of_lies/138",
+    "web_of_lies/26",
+    "web_of_lies/38",
+    "web_of_lies/75"
+   ],
+   "n_items": 100,
+   "n_requests": 3500,
+   "requests_sha256": "83dd87d7321a37c1c8c51a677ec04970c8bfa0f5bfb0bf726995f6dcaf3e7d1b",
+   "request_id_example": "ps-i06-f06|direct_answer|boolean_expressions/24"
+  },
+  "hotpot": {
+   "templates": [
+    "ps-i00-f00",
+    "ps-i00-f01",
+    "ps-i00-f05",
+    "ps-i01-f00",
+    "ps-i01-f02",
+    "ps-i01-f04",
+    "ps-i01-f05",
+    "ps-i01-f06",
+    "ps-i01-f07",
+    "ps-i02-f01",
+    "ps-i02-f02",
+    "ps-i02-f05",
+    "ps-i02-f06",
+    "ps-i02-f07",
+    "ps-i03-f00",
+    "ps-i03-f01",
+    "ps-i03-f02",
+    "ps-i03-f03",
+    "ps-i03-f04",
+    "ps-i03-f06",
+    "ps-i03-f07",
+    "ps-i04-f00",
+    "ps-i04-f01",
+    "ps-i04-f02",
+    "ps-i04-f06",
+    "ps-i05-f00",
+    "ps-i05-f01",
+    "ps-i05-f02",
+    "ps-i05-f06",
+    "ps-i06-f01",
+    "ps-i06-f04",
+    "ps-i06-f06",
+    "ps-i07-f01",
+    "ps-i07-f02",
+    "ps-i07-f03",
+    "ps-i07-f07"
+   ],
+   "n_templates": 36,
+   "items": [
+    "5a712fca5542994082a3e641",
+    "5a7133fa5542994082a3e660",
+    "5a72160e55429971e9dc9253",
+    "5a75383a5542996c70cfaeb3",
+    "5a75639255429916b01642f7",
+    "5a760dcd5542994ccc9186a1",
+    "5a7631cd5542994ccc91870c",
+    "5a7647505542992d0ec06089",
+    "5a77174f55429966f1a36c4c",
+    "5a7736d85542994aec3b722b",
+    "5a77388e55429966f1a36cb1",
+    "5a77720255429967ab10517f",
+    "5a777fd655429949eeb29e93",
+    "5a77919d5542995d831811dd",
+    "5a796c805542990784727805",
+    "5a7b443c5542992d025e67ce",
+    "5a7bae775542995eb53be995",
+    "5a7c00a55542996dd594b87e",
+    "5a7c716d55429935c91b51b3",
+    "5a7c76275542990527d554b4",
+    "5a7c99705542990527d554de",
+    "5a7d2afd5542995f4f402221",
+    "5a7de14a5542991319bc93fc",
+    "5a7e058f5542995f4f402390",
+    "5a7f7b3b5542992097ad2f81",
+    "5a7f97c05542995d8a8ddeb0",
+    "5a80f4c2554299260e20a1da",
+    "5a81b4cc5542995ce29dcc3c",
+    "5a82bb3c55429966c78a6a86",
+    "5a845e9055429933447460ec",
+    "5a8484495542997175ce1ee8",
+    "5a8494b15542991dd0999d35",
+    "5a85ab905542994c784ddb35",
+    "5a862f985542991e771815af",
+    "5a8725a15542996432c57230",
+    "5a882d9a5542997e5c09a599",
+    "5a8841a35542994846c1ce69",
+    "5a88cc8f55429938390d3fc5",
+    "5a8a0ed55542992e4fca84e8",
+    "5a8a38135542996c9b8d5e59",
+    "5a8a410655429970aeb70279",
+    "5a8a495055429930ff3c0d6a",
+    "5a8af28555429951533613b5",
+    "5a8b128455429971feec463b",
+    "5a8b7cb95542995d1e6f13bb",
+    "5a8cb4b2554299585d9e372a",
+    "5a8cddd1554299441c6b9f3a",
+    "5a8da81e554299068b959d7e",
+    "5a8e03375542995a26add458",
+    "5a8f2ba155429918e830d1b9",
+    "5a8fa2955542992414482b11",
+    "5a90485755429933b8a204d2",
+    "5ab322b1554299194fa93570",
+    "5ab48ec25542991779162cdc",
+    "5ab6cd0e554299710c8d1f68",
+    "5ab7ef0f5542991d322237ca",
+    "5ab85f555542992aa3b8c8ca",
+    "5ab8cd3d5542991b5579f009",
+    "5ab9fe1255429939ce03dc40",
+    "5aba549f554299232ef4a290",
+    "5aba749055429901930fa7d8",
+    "5abb1e1b5542992ccd8e7f19",
+    "5abbbaca55429931dba144ca",
+    "5abbdd6955429931dba145b5",
+    "5abc0ac455429959677d6a01",
+    "5abc5603554299700f9d7875",
+    "5abcf70b55429959677d6b7e",
+    "5abd0ac45542992ac4f381b5",
+    "5abda6e955429965af743d9b",
+    "5abdb10f55429965af743dc9",
+    "5abed6905542990832d3a0ed",
+    "5ac047a3554299294b218f70",
+    "5ac3a0b25542993915413838",
+    "5ac538025542996feb3fea41",
+    "5adc82fc554299438c868dce",
+    "5adcfc135542990d50227d87",
+    "5adcfe7f5542992c1e3a24f1",
+    "5addbf645542997dc7907014",
+    "5addeb685542992200553bb1",
+    "5ade0fbb5542995b365fabfb",
+    "5ade5a645542997c77adee0d",
+    "5ade881f5542992fa25da7af",
+    "5adf32165542993344016c15",
+    "5adf72335542992d7e9f935f",
+    "5adfb698554299603e418385",
+    "5adfcb5455429906c02daa48",
+    "5ae0ba1155429924de1b7156",
+    "5ae0d3da5542990adbacf66d",
+    "5ae0e5655542990adbacf6b8",
+    "5ae1925a554299492dc91b48",
+    "5ae3c5535542991a06ce9a20",
+    "5ae3f6775542991a06ce9a3f",
+    "5ae40a2955429970de88d8a3",
+    "5ae4e2ca55429908b63264aa",
+    "5ae616ce5542992663a4f259",
+    "5ae63cc55542992ae0d16298",
+    "5ae64b1d55429929b0807b24",
+    "5ae679ec5542996d980e7b75",
+    "5ae69cfe55429908198fa65f",
+    "5ae780bf554299540e5a55d0"
+   ],
+   "n_items": 100,
+   "n_requests": 3600,
+   "requests_sha256": "b1b2b6f811c6d6995de03e9c44f74560cbfc3caf2fdd2209fd979ff100f95778",
+   "request_id_example": "ps-i07-f03|direct_answer|5a81b4cc5542995ce29dcc3c"
+  }
+ },
+ "n_requests_per_model": 13100,
+ "n_cells": 131,
+ "request_list_rule": "per benchmark, the rows of the source file with arm direct_answer, an item of `items` and a template of `templates` (every pair present once); requests_sha256 is the sha256 of the sorted lines 'request_id<TAB>sha256(user message, UTF-8)' joined by newlines",
+ "pilot": {
+  "rule": "per benchmark 5 rows of the request list in sha256 order of ('closed_w/pilot', benchmark, template, item), with distinct templates, items and BIG-Bench Hard tasks; on HotpotQA the longest request (UTF-8 bytes) first",
+  "rows": {
+   "gsm8k": [
+    {
+     "request_id": "ps-i03-f02|direct_answer|337",
+     "config_id": "ps-i03-f02",
+     "item_id": "337",
+     "n_bytes": 325,
+     "text_sha256": "95fe83dbcd1932fdc9d70b9a66af662c4ecd1242fb1f6f8b17f1c802161c50d3"
+    },
+    {
+     "request_id": "ps-i05-f05|direct_answer|556",
+     "config_id": "ps-i05-f05",
+     "item_id": "556",
+     "n_bytes": 316,
+     "text_sha256": "393091e4c4a8658d4701a847463976784dcac7b964dc99527aa32ca273f429db"
+    },
+    {
+     "request_id": "ps-i01-f02|direct_answer|409",
+     "config_id": "ps-i01-f02",
+     "item_id": "409",
+     "n_bytes": 478,
+     "text_sha256": "c97cb7769f8aa87146b24e3eaaa932df49cae4273a115e392652ca6a6740f106"
+    },
+    {
+     "request_id": "ps-i07-f01|direct_answer|1052",
+     "config_id": "ps-i07-f01",
+     "item_id": "1052",
+     "n_bytes": 467,
+     "text_sha256": "825e026315ba6a343e6fadef514fea9c685af611ca530ea797c1149b9a9bebd7"
+    },
+    {
+     "request_id": "ps-i04-f06|direct_answer|666",
+     "config_id": "ps-i04-f06",
+     "item_id": "666",
+     "n_bytes": 378,
+     "text_sha256": "eacc11c1dec0dfb15f0612dd06b508889ca946a1690ec9ee22476c8846038c68"
+    }
+   ],
+   "math": [
+    {
+     "request_id": "ps-i06-f06|direct_answer|test/intermediate_algebra/955.json",
+     "config_id": "ps-i06-f06",
+     "item_id": "test/intermediate_algebra/955.json",
+     "n_bytes": 323,
+     "text_sha256": "9ae37b19534cbb27edcd375a497c7ee37a40dddcf7d39b92d65c0b9563a9221a"
+    },
+    {
+     "request_id": "ps-i02-f03|direct_answer|test/algebra/2064.json",
+     "config_id": "ps-i02-f03",
+     "item_id": "test/algebra/2064.json",
+     "n_bytes": 239,
+     "text_sha256": "fbf3d912e547ed3933f255c6739deeede8d0e88a88a2521aa4bbcc899c079d3e"
+    },
+    {
+     "request_id": "ps-i03-f06|direct_answer|test/intermediate_algebra/986.json",
+     "config_id": "ps-i03-f06",
+     "item_id": "test/intermediate_algebra/986.json",
+     "n_bytes": 365,
+     "text_sha256": "73a0dad6faaa785a425ef73a9a5f79907626b57322b6084c586bccaa33fc7c86"
+    },
+    {
+     "request_id": "ps-i03-f02|direct_answer|test/algebra/988.json",
+     "config_id": "ps-i03-f02",
+     "item_id": "test/algebra/988.json",
+     "n_bytes": 252,
+     "text_sha256": "594b078974b0be4f8f84e7bcfc2f0837336db3994b416c562fdb7b55e5f6bb2f"
+    },
+    {
+     "request_id": "ps-i06-f01|direct_answer|test/intermediate_algebra/1422.json",
+     "config_id": "ps-i06-f01",
+     "item_id": "test/intermediate_algebra/1422.json",
+     "n_bytes": 347,
+     "text_sha256": "0e746a02a8ebd036b03e1803515b7033d285935c42feeb2fbf687a6f6b82cc1e"
+    }
+   ],
+   "bbh": [
+    {
+     "request_id": "ps-i03-f00|direct_answer|movie_recommendation/114",
+     "config_id": "ps-i03-f00",
+     "item_id": "movie_recommendation/114",
+     "n_bytes": 444,
+     "text_sha256": "51f2ba54405a9c0895f2e25afc9116eb5bd1f16c9d8fa7304b88e2c1360bb0a9"
+    },
+    {
+     "request_id": "ps-i05-f07|direct_answer|disambiguation_qa/31",
+     "config_id": "ps-i05-f07",
+     "item_id": "disambiguation_qa/31",
+     "n_bytes": 513,
+     "text_sha256": "122f1857e66a6ea7daacd803c22d2108fb2b91d30b661e5186d90068122ecf1a"
+    },
+    {
+     "request_id": "ps-i05-f03|direct_answer|hyperbaton/3",
+     "config_id": "ps-i05-f03",
+     "item_id": "hyperbaton/3",
+     "n_bytes": 358,
+     "text_sha256": "cb9d21c1e211e3ac86e0281a55367fe920dd7bd9ecd7ea01ab45d0e697bc8df5"
+    },
+    {
+     "request_id": "ps-i06-f07|direct_answer|sports_understanding/88",
+     "config_id": "ps-i06-f07",
+     "item_id": "sports_understanding/88",
+     "n_bytes": 353,
+     "text_sha256": "8d5432cb9c600afd834c4540ba153a658ff64b800094ced3fad078b480c1a949"
+    },
+    {
+     "request_id": "ps-i07-f03|direct_answer|causal_judgement/174",
+     "config_id": "ps-i07-f03",
+     "item_id": "causal_judgement/174",
+     "n_bytes": 766,
+     "text_sha256": "88b33f834ab5ca7e824768f9f37a5fff1bbb0768d6cd8198ff6efb9d59b571b1"
+    }
+   ],
+   "hotpot": [
+    {
+     "request_id": "ps-i02-f07|direct_answer|5ae64b1d55429929b0807b24",
+     "config_id": "ps-i02-f07",
+     "item_id": "5ae64b1d55429929b0807b24",
+     "n_bytes": 7939,
+     "text_sha256": "d7889774d4f02bdb6c27618f9a11d472892991c1d70f9c89b638280db8f5bc38"
+    },
+    {
+     "request_id": "ps-i03-f03|direct_answer|5adfcb5455429906c02daa48",
+     "config_id": "ps-i03-f03",
+     "item_id": "5adfcb5455429906c02daa48",
+     "n_bytes": 4597,
+     "text_sha256": "5353b177e0fc12857bcea28f603dba6b22872de81c263fc5fdb1e1eeef5e2145"
+    },
+    {
+     "request_id": "ps-i01-f06|direct_answer|5aba749055429901930fa7d8",
+     "config_id": "ps-i01-f06",
+     "item_id": "5aba749055429901930fa7d8",
+     "n_bytes": 3530,
+     "text_sha256": "5cc905d42097408cc04fce65b15eaba7248414c9e1a6243fc6c1217cd0f2faeb"
+    },
+    {
+     "request_id": "ps-i01-f07|direct_answer|5a882d9a5542997e5c09a599",
+     "config_id": "ps-i01-f07",
+     "item_id": "5a882d9a5542997e5c09a599",
+     "n_bytes": 5750,
+     "text_sha256": "c1e01324fdcdce7deaba07a0b58efb33afa75735df7a7c8bd1ba57872fae8baa"
+    },
+    {
+     "request_id": "ps-i06-f04|direct_answer|5adc82fc554299438c868dce",
+     "config_id": "ps-i06-f04",
+     "item_id": "5adc82fc554299438c868dce",
+     "n_bytes": 7491,
+     "text_sha256": "2115a7689a6bb7691135f61429481811f7b15af9a4ea03dc2ab3e5b4c869fb03"
+    }
+   ]
+  }
+ },
+ "prefill": {
+  "rule": "per benchmark 10 calibration rows (training split; data/requests/<task>/screening/qwen3-8b.parquet, direct_answer) under a run template, in sha256 order of ('closed_w/prefill', benchmark, template, item), with distinct templates, items and BIG-Bench Hard tasks",
+  "rows": {
+   "gsm8k": [
+    {
+     "request_id": "train|ps-i07-f01|direct_answer|4363",
+     "config_id": "ps-i07-f01",
+     "item_id": "4363",
+     "n_bytes": 480,
+     "text_sha256": "b003e391d17a70b4da13562d8797140109fb73994553fab191bac755709709e2"
+    },
+    {
+     "request_id": "train|ps-i04-f06|direct_answer|690",
+     "config_id": "ps-i04-f06",
+     "item_id": "690",
+     "n_bytes": 443,
+     "text_sha256": "1d590948dafba4a252e0107e88245de70476e120a7f7327e3a5b9d13475f304c"
+    },
+    {
+     "request_id": "train|ps-i01-f00|direct_answer|993",
+     "config_id": "ps-i01-f00",
+     "item_id": "993",
+     "n_bytes": 468,
+     "text_sha256": "f01355b620b55b101d786271e1bc05be813df2f95be6600e10095db0d751009c"
+    },
+    {
+     "request_id": "train|ps-i05-f07|direct_answer|120",
+     "config_id": "ps-i05-f07",
+     "item_id": "120",
+     "n_bytes": 424,
+     "text_sha256": "8a3e0aae159204baf80a2d260eca2f7958902c4acec2243b31652820faaf9abd"
+    },
+    {
+     "request_id": "train|ps-i05-f05|direct_answer|780",
+     "config_id": "ps-i05-f05",
+     "item_id": "780",
+     "n_bytes": 332,
+     "text_sha256": "ad72291757bce73a0c213ca076c503fbc56533876ba747517cdd184627891574"
+    },
+    {
+     "request_id": "train|ps-i04-f02|direct_answer|1994",
+     "config_id": "ps-i04-f02",
+     "item_id": "1994",
+     "n_bytes": 291,
+     "text_sha256": "df752141503d8f8a750ffcebdd7ebd66e4ff1da8dc29f40100f4842e202a4c96"
+    },
+    {
+     "request_id": "train|ps-i03-f06|direct_answer|3069",
+     "config_id": "ps-i03-f06",
+     "item_id": "3069",
+     "n_bytes": 271,
+     "text_sha256": "eb965a80c489bfe33ac7dc0e0330b144866336f7caeee336b7afeb2abf08838e"
+    },
+    {
+     "request_id": "train|ps-i05-f04|direct_answer|3033",
+     "config_id": "ps-i05-f04",
+     "item_id": "3033",
+     "n_bytes": 567,
+     "text_sha256": "e430dd881ea76746ad57b651851d9e048c2c45e23769f2859b7247f7f5517b69"
+    },
+    {
+     "request_id": "train|ps-i03-f03|direct_answer|5925",
+     "config_id": "ps-i03-f03",
+     "item_id": "5925",
+     "n_bytes": 456,
+     "text_sha256": "c88ac87f95bec59d6d9fa16fd58e0e6f1e7ab0adfbf10addc637eb6a9272a450"
+    },
+    {
+     "request_id": "train|ps-i05-f01|direct_answer|6378",
+     "config_id": "ps-i05-f01",
+     "item_id": "6378",
+     "n_bytes": 631,
+     "text_sha256": "a4f545f7d6265bb31bc875017fed9d7f7781468d715cb1b13fc4a64f8888fb92"
+    }
+   ],
+   "math": [
+    {
+     "request_id": "train|ps-i03-f07|direct_answer|train/prealgebra/351",
+     "config_id": "ps-i03-f07",
+     "item_id": "train/prealgebra/351",
+     "n_bytes": 401,
+     "text_sha256": "8c6f8b93c765e09dc760a20bbe2ecb24fa1f240af7e0a8c89daf4fa2409df7a3"
+    },
+    {
+     "request_id": "train|ps-i02-f01|direct_answer|train/algebra/641",
+     "config_id": "ps-i02-f01",
+     "item_id": "train/algebra/641",
+     "n_bytes": 236,
+     "text_sha256": "b6e94c07c418fc5068a84f997b784c75c52ac763590a6c6e90bbd3885800c227"
+    },
+    {
+     "request_id": "train|ps-i02-f07|direct_answer|train/counting_and_probability/459",
+     "config_id": "ps-i02-f07",
+     "item_id": "train/counting_and_probability/459",
+     "n_bytes": 356,
+     "text_sha256": "c9b327b16a5cf92911b3aa6e22e90a6616520e7436477d0bd8608ddbfd3f5888"
+    },
+    {
+     "request_id": "train|ps-i06-f06|direct_answer|train/prealgebra/325",
+     "config_id": "ps-i06-f06",
+     "item_id": "train/prealgebra/325",
+     "n_bytes": 803,
+     "text_sha256": "2b675e799d10a76c661d0f4e95cc64801ec47d959ae022396934079b895d78f2"
+    },
+    {
+     "request_id": "train|ps-i05-f00|direct_answer|train/geometry/429",
+     "config_id": "ps-i05-f00",
+     "item_id": "train/geometry/429",
+     "n_bytes": 453,
+     "text_sha256": "f77ef566639123c30ca1b01cfa986c75cdaac1ab523b754c72fcbc9989ab3c74"
+    },
+    {
+     "request_id": "train|ps-i02-f00|direct_answer|train/precalculus/523",
+     "config_id": "ps-i02-f00",
+     "item_id": "train/precalculus/523",
+     "n_bytes": 253,
+     "text_sha256": "84e0c664b1b3b5a9000030b7f3154509398e95d68db6bad6bce5bcf55f6d1393"
+    },
+    {
+     "request_id": "train|ps-i00-f01|direct_answer|train/algebra/21",
+     "config_id": "ps-i00-f01",
+     "item_id": "train/algebra/21",
+     "n_bytes": 267,
+     "text_sha256": "ce6fe2fb25ff8a289a4b83174ed3c6f2766eab03f73e7abccad1b871039b08df"
+    },
+    {
+     "request_id": "train|ps-i06-f05|direct_answer|train/geometry/386",
+     "config_id": "ps-i06-f05",
+     "item_id": "train/geometry/386",
+     "n_bytes": 293,
+     "text_sha256": "1e49f145e5b7ddce92332137c5dec842a85dd11da16a663b4a2d1f155282902d"
+    },
+    {
+     "request_id": "train|ps-i06-f03|direct_answer|train/algebra/189",
+     "config_id": "ps-i06-f03",
+     "item_id": "train/algebra/189",
+     "n_bytes": 234,
+     "text_sha256": "e077a45ca14a7013bf70dec801a0d16286d1310ad6c46244f06a691bfb16b08f"
+    },
+    {
+     "request_id": "train|ps-i00-f06|direct_answer|train/counting_and_probability/601",
+     "config_id": "ps-i00-f06",
+     "item_id": "train/counting_and_probability/601",
+     "n_bytes": 478,
+     "text_sha256": "c112103973050df49019b08c7d570915cf46091ada67d5fd94e176a51ecc61a7"
+    }
+   ],
+   "bbh": [
+    {
+     "request_id": "train|ps-i02-f02|direct_answer|disambiguation_qa/175",
+     "config_id": "ps-i02-f02",
+     "item_id": "disambiguation_qa/175",
+     "n_bytes": 527,
+     "text_sha256": "d137d4c1138af22cf5a9684dd6e13502641121f6663c7354de95b674943af587"
+    },
+    {
+     "request_id": "train|ps-i01-f05|direct_answer|movie_recommendation/93",
+     "config_id": "ps-i01-f05",
+     "item_id": "movie_recommendation/93",
+     "n_bytes": 417,
+     "text_sha256": "44a91105de90d1edf965a0eb68c189cff99e864a1d1e8b0e00dfdd6df6d909ac"
+    },
+    {
+     "request_id": "train|ps-i02-f03|direct_answer|hyperbaton/249",
+     "config_id": "ps-i02-f03",
+     "item_id": "hyperbaton/249",
+     "n_bytes": 371,
+     "text_sha256": "1eaaf1dd5c4071deaf8f0ecc10e66097f198cb8b35154a2935cd7f034f6074fa"
+    },
+    {
+     "request_id": "train|ps-i03-f06|direct_answer|web_of_lies/37",
+     "config_id": "ps-i03-f06",
+     "item_id": "web_of_lies/37",
+     "n_bytes": 427,
+     "text_sha256": "2dbf3fef7579185527c63cdb9b20a62981dbd6a144ab0cf60bdf992839c07acd"
+    },
+    {
+     "request_id": "train|ps-i04-f07|direct_answer|navigate/155",
+     "config_id": "ps-i04-f07",
+     "item_id": "navigate/155",
+     "n_bytes": 429,
+     "text_sha256": "02201800d2a5806da4450a1d4d0b5b292e6662c97bfd4b08edc10a3f0b00a2c8"
+    },
+    {
+     "request_id": "train|ps-i04-f00|direct_answer|reasoning_about_colored_objects/98",
+     "config_id": "ps-i04-f00",
+     "item_id": "reasoning_about_colored_objects/98",
+     "n_bytes": 605,
+     "text_sha256": "77d2fbef173fc2ce8ad9f260b7cebeeb34b786074ed56a4da6618b8f1d0458a1"
+    },
+    {
+     "request_id": "train|ps-i07-f02|direct_answer|penguins_in_a_table/60",
+     "config_id": "ps-i07-f02",
+     "item_id": "penguins_in_a_table/60",
+     "n_bytes": 673,
+     "text_sha256": "93246e7b9814f5763dad97f99db68286fd441e5b7471cd31ef596aa0384564a5"
+    },
+    {
+     "request_id": "train|ps-i06-f06|direct_answer|salient_translation_error_detection/49",
+     "config_id": "ps-i06-f06",
+     "item_id": "salient_translation_error_detection/49",
+     "n_bytes": 1278,
+     "text_sha256": "48014dc84ba30fb13668ccc358057fa56e54c782804f994cbd8df30d98066836"
+    },
+    {
+     "request_id": "train|ps-i02-f06|direct_answer|formal_fallacies/108",
+     "config_id": "ps-i02-f06",
+     "item_id": "formal_fallacies/108",
+     "n_bytes": 754,
+     "text_sha256": "ac831c3c3463120f243d2faf09323bad0108773cf2f31bd52ecd08100a88821e"
+    },
+    {
+     "request_id": "train|ps-i06-f03|direct_answer|tracking_shuffled_objects_five_objects/177",
+     "config_id": "ps-i06-f03",
+     "item_id": "tracking_shuffled_objects_five_objects/177",
+     "n_bytes": 969,
+     "text_sha256": "204d4b4a537a267bbc8edd93a9742b2ac8dbf4d37738419512c8fffecb78c5b8"
+    }
+   ],
+   "hotpot": [
+    {
+     "request_id": "train|ps-i06-f06|direct_answer|5abb66c05542992ccd8e7f3e",
+     "config_id": "ps-i06-f06",
+     "item_id": "5abb66c05542992ccd8e7f3e",
+     "n_bytes": 5524,
+     "text_sha256": "d2d3283a0829c40a535e00cbe0da210b768ea18ebe18f3807be5aad134b9a128"
+    },
+    {
+     "request_id": "train|ps-i05-f06|direct_answer|5ae3e84b5542996836b02bf0",
+     "config_id": "ps-i05-f06",
+     "item_id": "5ae3e84b5542996836b02bf0",
+     "n_bytes": 5568,
+     "text_sha256": "2e8767ed6f85bd725c3ecfd99580343d947b2b3f64bfe6735390bb5c271a19c8"
+    },
+    {
+     "request_id": "train|ps-i02-f01|direct_answer|5a7cc0d4554299452d57ba07",
+     "config_id": "ps-i02-f01",
+     "item_id": "5a7cc0d4554299452d57ba07",
+     "n_bytes": 6891,
+     "text_sha256": "a4713c58b801570d7e7490569922ac5d7ba9ac0b51acf823e8beb98293096678"
+    },
+    {
+     "request_id": "train|ps-i02-f07|direct_answer|5a7949d45542994bb9456fdd",
+     "config_id": "ps-i02-f07",
+     "item_id": "5a7949d45542994bb9456fdd",
+     "n_bytes": 3348,
+     "text_sha256": "f62c35cb849d0c33cf571f17ffb91806281a084f797cdcc8af5600e34382ed48"
+    },
+    {
+     "request_id": "train|ps-i04-f06|direct_answer|5ae16bce5542997b2ef7d1e8",
+     "config_id": "ps-i04-f06",
+     "item_id": "5ae16bce5542997b2ef7d1e8",
+     "n_bytes": 6374,
+     "text_sha256": "e66f1cc032aa506a929f1a84b9f53f2eaf220a64b4f61af2821095582d305aaa"
+    },
+    {
+     "request_id": "train|ps-i01-f06|direct_answer|5ac2cb3e5542996773102627",
+     "config_id": "ps-i01-f06",
+     "item_id": "5ac2cb3e5542996773102627",
+     "n_bytes": 5021,
+     "text_sha256": "b76cdcefccc0ad554cf755ad5c9262f2afe780ce960026afbde63e6534a4135b"
+    },
+    {
+     "request_id": "train|ps-i03-f01|direct_answer|5a8ec4875542995a26add508",
+     "config_id": "ps-i03-f01",
+     "item_id": "5a8ec4875542995a26add508",
+     "n_bytes": 4729,
+     "text_sha256": "e9059fc9e2ec230d3d64f2338eb77517ae68199c86cdfd384c47b5bcf19f4907"
+    },
+    {
+     "request_id": "train|ps-i03-f03|direct_answer|5ab8627f5542990e739ec8da",
+     "config_id": "ps-i03-f03",
+     "item_id": "5ab8627f5542990e739ec8da",
+     "n_bytes": 3585,
+     "text_sha256": "03e3cf33aa788b3dab1cae76770ab607933f60100973045c3652862434772f05"
+    },
+    {
+     "request_id": "train|ps-i07-f01|direct_answer|5a7e1ad155429965cec5ea66",
+     "config_id": "ps-i07-f01",
+     "item_id": "5a7e1ad155429965cec5ea66",
+     "n_bytes": 4620,
+     "text_sha256": "da2edc3102f2ce71acaf88251ec5e7397e6897a8173b2204ede433116d115cc1"
+    },
+    {
+     "request_id": "train|ps-i02-f05|direct_answer|5a77a44d5542997042120aba",
+     "config_id": "ps-i02-f05",
+     "item_id": "5a77a44d5542997042120aba",
+     "n_bytes": 4220,
+     "text_sha256": "177e42d68ae4a81ce11885744b047b721afd18174940148350f31fadb328fe3f"
+    }
+   ]
+  }
+ },
+ "control": {
+  "rule": "the MATH Level 5 calibration item (data/processed/math/items_screening.parquet) under a run template, first in sha256 order of ('closed_w/control', 'math', template, item); its direct_answer prompt is sent with thinking on",
+  "row": {
+   "task": "math",
+   "request_id": "train|ps-i04-f00|direct_answer|train/number_theory/606",
+   "config_id": "ps-i04-f00",
+   "item_id": "train/number_theory/606",
+   "level": "Level 5",
+   "text_sha256": "26e20d14ce7c172bfff3390efecbc154168eff8119695307febd01eeb7fde0a4",
+   "n_bytes": 568
+  }
+ },
+ "panel_decoding": {
+  "requested_cap": 1024,
+  "forced_caps": {
+   "gsm8k": 16,
+   "math": 16,
+   "bbh": 16,
+   "hotpot": 64
+  },
+  "prefill": "\\boxed{",
+  "cut_at_first_brace": [
+   "bbh",
+   "gsm8k"
+  ],
+  "sources": [
+   "config/decoding.yaml",
+   "config/decoding_hotpot.yaml",
+   "config/decoding_forced.yaml",
+   "config/decoding_forced_math.yaml"
+  ]
+ },
+ "matches_closed_w_price": "Design B100 of results/frontier_panel/closed_w_price.json: calls and templates per benchmark",
+ "arms": {
+  "rule": "per arm and benchmark, the rows of the arm's request files (config `requests`) with the arm's source label, an item of tasks.<benchmark>.items and a template of tasks.<benchmark>.templates (every pair present once); requests_sha256 as tasks.<benchmark>.requests_sha256. The pilot rows of every arm are the cells of pilot.rows (the requested arm's pilot); the stop control re-sends the forced pilot rows of the benchmarks whose forced stop is sent, without the stop.",
+  "arms": {
+   "requested": {
+    "gsm8k": {
+     "source_arm": "direct_answer",
+     "sources": [
+      {
+       "path": "data/requests/gsm8k/qwen3-8b.parquet",
+       "sha256": "2118a34e9d201d1877bafa2a7ee3497a574567bd30d85d4bad89b89f983529fd"
+      }
+     ],
+     "n_requests": 2900,
+     "requests_sha256": "50fc595066db8c80f3bb24a858abd71d4a126ab957d53fbceb66d90a7ffd9955",
+     "request_id_example": "ps-i00-f00|direct_answer|0"
+    },
+    "math": {
+     "source_arm": "direct_answer",
+     "sources": [
+      {
+       "path": "data/requests/math/qwen3-8b.parquet",
+       "sha256": "d22546b480729b7747ddb6cce4bab756b1b758ef1c8e0704b70a11f65cd9a2b0"
+      }
+     ],
+     "n_requests": 3100,
+     "requests_sha256": "c1ac5aa94030ce9fb8bc884a1a925370ad1e95c161ca544bde9910f108ff8ea7",
+     "request_id_example": "ps-i00-f01|direct_answer|test/algebra/109.json"
+    },
+    "bbh": {
+     "source_arm": "direct_answer",
+     "sources": [
+      {
+       "path": "data/requests/bbh/qwen3-8b.parquet",
+       "sha256": "0e4dd13edfaabb087fa25548e21dbc82a5e158ad32bfd950a87b6747fc465d04"
+      }
+     ],
+     "n_requests": 3500,
+     "requests_sha256": "83dd87d7321a37c1c8c51a677ec04970c8bfa0f5bfb0bf726995f6dcaf3e7d1b",
+     "request_id_example": "ps-i00-f04|direct_answer|boolean_expressions/144"
+    },
+    "hotpot": {
+     "source_arm": "direct_answer",
+     "sources": [
+      {
+       "path": "data/requests/hotpot/qwen3-8b.parquet",
+       "sha256": "6e9336b51af8bfadf173cfd6de0735d8369dcab9d0587abba49fa6949646d499"
+      }
+     ],
+     "n_requests": 3600,
+     "requests_sha256": "b1b2b6f811c6d6995de03e9c44f74560cbfc3caf2fdd2209fd979ff100f95778",
+     "request_id_example": "ps-i00-f00|direct_answer|5a712fca5542994082a3e641"
+    }
+   },
+   "forced": {
+    "gsm8k": {
+     "source_arm": "forced_direct",
+     "sources": [
+      {
+       "path": "data/requests/forced/gsm8k/qwen3-8b.parquet",
+       "sha256": "8816e35d8546e6a62a18893215a4538358290ec88a8760130cc355c77381865f"
+      }
+     ],
+     "n_requests": 2900,
+     "requests_sha256": "ced5fc5f96484f8f91259bd6b839fef77e5c5bae55469916721c62a5de05260b",
+     "request_id_example": "ps-i00-f00|direct_answer|0|fd",
+     "user_message_equals_requested": true
+    },
+    "math": {
+     "source_arm": "forced_direct",
+     "sources": [
+      {
+       "path": "data/requests/forced/math/qwen3-8b.parquet",
+       "sha256": "fdc772b0e64202d2bcb81db860de37b5d63eac7a9db599663070f51242f5365f"
+      }
+     ],
+     "n_requests": 3100,
+     "requests_sha256": "6082c67ae18cd710fc33bd3ad11d7a5024de2920736b8f1ccab0dfae0cf2d264",
+     "request_id_example": "ps-i00-f01|direct_answer|test/algebra/109.json|fd",
+     "user_message_equals_requested": true
+    },
+    "bbh": {
+     "source_arm": "forced_direct",
+     "sources": [
+      {
+       "path": "data/requests/forced/bbh/qwen3-8b.parquet",
+       "sha256": "b6beba78ddd9df1ca3f3a6c0a1dba4a0b04a640a021bb4a8e2a56dfe31c2c0ad"
+      }
+     ],
+     "n_requests": 3500,
+     "requests_sha256": "254e3ec60e2f679f3cd9e8626cab3c12e76a7aa03791f0d87cd78003f1091f81",
+     "request_id_example": "ps-i00-f04|direct_answer|boolean_expressions/144|fd",
+     "user_message_equals_requested": true
+    },
+    "hotpot": {
+     "source_arm": "forced_direct",
+     "sources": [
+      {
+       "path": "data/requests/hotpot/block_a/qwen3-8b.parquet",
+       "sha256": "fea5a5cadfccb74e71467115063087486941dcbaa76a7663939fb96be7df58cf"
+      },
+      {
+       "path": "data/requests/hotpot/block_b/qwen3-8b.parquet",
+       "sha256": "d176d92d15f9cda330e4264ccf2fed9edee03bdd5087470353c51f96795e1bd3"
+      }
+     ],
+     "n_requests": 3600,
+     "requests_sha256": "ec0a24fce8ac891ccf28f6929c4661067d43d7b72a63cfc32dff0f75009e278d",
+     "request_id_example": "ps-i00-f00|direct_answer|5a712fca5542994082a3e641|fd",
+     "user_message_equals_requested": true
+    }
+   },
+   "cot": {
+    "gsm8k": {
+     "source_arm": "zero_shot_cot",
+     "sources": [
+      {
+       "path": "data/requests/gsm8k/qwen3-8b.parquet",
+       "sha256": "2118a34e9d201d1877bafa2a7ee3497a574567bd30d85d4bad89b89f983529fd"
+      }
+     ],
+     "n_requests": 2900,
+     "requests_sha256": "04efcb0269392e4d69bab7572e0529a190bab47ce41acd59a714b433d42bd636",
+     "request_id_example": "ps-i00-f00|zero_shot_cot|0"
+    },
+    "math": {
+     "source_arm": "zero_shot_cot",
+     "sources": [
+      {
+       "path": "data/requests/math/qwen3-8b.parquet",
+       "sha256": "d22546b480729b7747ddb6cce4bab756b1b758ef1c8e0704b70a11f65cd9a2b0"
+      }
+     ],
+     "n_requests": 3100,
+     "requests_sha256": "fc91c5f41b0e84a94e7179a8bd82e8cdff4a75694ece2db6a3f37320e2ebd8fc",
+     "request_id_example": "ps-i00-f01|zero_shot_cot|test/algebra/109.json"
+    },
+    "bbh": {
+     "source_arm": "zero_shot_cot",
+     "sources": [
+      {
+       "path": "data/requests/bbh/qwen3-8b.parquet",
+       "sha256": "0e4dd13edfaabb087fa25548e21dbc82a5e158ad32bfd950a87b6747fc465d04"
+      }
+     ],
+     "n_requests": 3500,
+     "requests_sha256": "a2164005f39ae6843394eff1b666e867a9ab3710f52ae422b020368603f624c0",
+     "request_id_example": "ps-i00-f04|zero_shot_cot|boolean_expressions/144"
+    },
+    "hotpot": {
+     "source_arm": "zero_shot_cot",
+     "sources": [
+      {
+       "path": "data/requests/hotpot/qwen3-8b.parquet",
+       "sha256": "6e9336b51af8bfadf173cfd6de0735d8369dcab9d0587abba49fa6949646d499"
+      }
+     ],
+     "n_requests": 3600,
+     "requests_sha256": "0faeb2773e61a3e4d60073b24e1c545cc39d74936da0719d4ecf0b694d8862fb",
+     "request_id_example": "ps-i00-f00|zero_shot_cot|5a712fca5542994082a3e641"
+    }
+   }
+  },
+  "pilot": {
+   "requested": {
+    "gsm8k": [
+     {
+      "request_id": "ps-i03-f02|direct_answer|337",
+      "config_id": "ps-i03-f02",
+      "item_id": "337",
+      "n_bytes": 325,
+      "text_sha256": "95fe83dbcd1932fdc9d70b9a66af662c4ecd1242fb1f6f8b17f1c802161c50d3"
+     },
+     {
+      "request_id": "ps-i05-f05|direct_answer|556",
+      "config_id": "ps-i05-f05",
+      "item_id": "556",
+      "n_bytes": 316,
+      "text_sha256": "393091e4c4a8658d4701a847463976784dcac7b964dc99527aa32ca273f429db"
+     },
+     {
+      "request_id": "ps-i01-f02|direct_answer|409",
+      "config_id": "ps-i01-f02",
+      "item_id": "409",
+      "n_bytes": 478,
+      "text_sha256": "c97cb7769f8aa87146b24e3eaaa932df49cae4273a115e392652ca6a6740f106"
+     },
+     {
+      "request_id": "ps-i07-f01|direct_answer|1052",
+      "config_id": "ps-i07-f01",
+      "item_id": "1052",
+      "n_bytes": 467,
+      "text_sha256": "825e026315ba6a343e6fadef514fea9c685af611ca530ea797c1149b9a9bebd7"
+     },
+     {
+      "request_id": "ps-i04-f06|direct_answer|666",
+      "config_id": "ps-i04-f06",
+      "item_id": "666",
+      "n_bytes": 378,
+      "text_sha256": "eacc11c1dec0dfb15f0612dd06b508889ca946a1690ec9ee22476c8846038c68"
+     }
+    ],
+    "math": [
+     {
+      "request_id": "ps-i06-f06|direct_answer|test/intermediate_algebra/955.json",
+      "config_id": "ps-i06-f06",
+      "item_id": "test/intermediate_algebra/955.json",
+      "n_bytes": 323,
+      "text_sha256": "9ae37b19534cbb27edcd375a497c7ee37a40dddcf7d39b92d65c0b9563a9221a"
+     },
+     {
+      "request_id": "ps-i02-f03|direct_answer|test/algebra/2064.json",
+      "config_id": "ps-i02-f03",
+      "item_id": "test/algebra/2064.json",
+      "n_bytes": 239,
+      "text_sha256": "fbf3d912e547ed3933f255c6739deeede8d0e88a88a2521aa4bbcc899c079d3e"
+     },
+     {
+      "request_id": "ps-i03-f06|direct_answer|test/intermediate_algebra/986.json",
+      "config_id": "ps-i03-f06",
+      "item_id": "test/intermediate_algebra/986.json",
+      "n_bytes": 365,
+      "text_sha256": "73a0dad6faaa785a425ef73a9a5f79907626b57322b6084c586bccaa33fc7c86"
+     },
+     {
+      "request_id": "ps-i03-f02|direct_answer|test/algebra/988.json",
+      "config_id": "ps-i03-f02",
+      "item_id": "test/algebra/988.json",
+      "n_bytes": 252,
+      "text_sha256": "594b078974b0be4f8f84e7bcfc2f0837336db3994b416c562fdb7b55e5f6bb2f"
+     },
+     {
+      "request_id": "ps-i06-f01|direct_answer|test/intermediate_algebra/1422.json",
+      "config_id": "ps-i06-f01",
+      "item_id": "test/intermediate_algebra/1422.json",
+      "n_bytes": 347,
+      "text_sha256": "0e746a02a8ebd036b03e1803515b7033d285935c42feeb2fbf687a6f6b82cc1e"
+     }
+    ],
+    "bbh": [
+     {
+      "request_id": "ps-i03-f00|direct_answer|movie_recommendation/114",
+      "config_id": "ps-i03-f00",
+      "item_id": "movie_recommendation/114",
+      "n_bytes": 444,
+      "text_sha256": "51f2ba54405a9c0895f2e25afc9116eb5bd1f16c9d8fa7304b88e2c1360bb0a9"
+     },
+     {
+      "request_id": "ps-i05-f07|direct_answer|disambiguation_qa/31",
+      "config_id": "ps-i05-f07",
+      "item_id": "disambiguation_qa/31",
+      "n_bytes": 513,
+      "text_sha256": "122f1857e66a6ea7daacd803c22d2108fb2b91d30b661e5186d90068122ecf1a"
+     },
+     {
+      "request_id": "ps-i05-f03|direct_answer|hyperbaton/3",
+      "config_id": "ps-i05-f03",
+      "item_id": "hyperbaton/3",
+      "n_bytes": 358,
+      "text_sha256": "cb9d21c1e211e3ac86e0281a55367fe920dd7bd9ecd7ea01ab45d0e697bc8df5"
+     },
+     {
+      "request_id": "ps-i06-f07|direct_answer|sports_understanding/88",
+      "config_id": "ps-i06-f07",
+      "item_id": "sports_understanding/88",
+      "n_bytes": 353,
+      "text_sha256": "8d5432cb9c600afd834c4540ba153a658ff64b800094ced3fad078b480c1a949"
+     },
+     {
+      "request_id": "ps-i07-f03|direct_answer|causal_judgement/174",
+      "config_id": "ps-i07-f03",
+      "item_id": "causal_judgement/174",
+      "n_bytes": 766,
+      "text_sha256": "88b33f834ab5ca7e824768f9f37a5fff1bbb0768d6cd8198ff6efb9d59b571b1"
+     }
+    ],
+    "hotpot": [
+     {
+      "request_id": "ps-i02-f07|direct_answer|5ae64b1d55429929b0807b24",
+      "config_id": "ps-i02-f07",
+      "item_id": "5ae64b1d55429929b0807b24",
+      "n_bytes": 7939,
+      "text_sha256": "d7889774d4f02bdb6c27618f9a11d472892991c1d70f9c89b638280db8f5bc38"
+     },
+     {
+      "request_id": "ps-i03-f03|direct_answer|5adfcb5455429906c02daa48",
+      "config_id": "ps-i03-f03",
+      "item_id": "5adfcb5455429906c02daa48",
+      "n_bytes": 4597,
+      "text_sha256": "5353b177e0fc12857bcea28f603dba6b22872de81c263fc5fdb1e1eeef5e2145"
+     },
+     {
+      "request_id": "ps-i01-f06|direct_answer|5aba749055429901930fa7d8",
+      "config_id": "ps-i01-f06",
+      "item_id": "5aba749055429901930fa7d8",
+      "n_bytes": 3530,
+      "text_sha256": "5cc905d42097408cc04fce65b15eaba7248414c9e1a6243fc6c1217cd0f2faeb"
+     },
+     {
+      "request_id": "ps-i01-f07|direct_answer|5a882d9a5542997e5c09a599",
+      "config_id": "ps-i01-f07",
+      "item_id": "5a882d9a5542997e5c09a599",
+      "n_bytes": 5750,
+      "text_sha256": "c1e01324fdcdce7deaba07a0b58efb33afa75735df7a7c8bd1ba57872fae8baa"
+     },
+     {
+      "request_id": "ps-i06-f04|direct_answer|5adc82fc554299438c868dce",
+      "config_id": "ps-i06-f04",
+      "item_id": "5adc82fc554299438c868dce",
+      "n_bytes": 7491,
+      "text_sha256": "2115a7689a6bb7691135f61429481811f7b15af9a4ea03dc2ab3e5b4c869fb03"
+     }
+    ]
+   },
+   "forced": {
+    "gsm8k": [
+     {
+      "request_id": "ps-i03-f02|direct_answer|337|fd",
+      "config_id": "ps-i03-f02",
+      "item_id": "337",
+      "n_bytes": 325,
+      "text_sha256": "95fe83dbcd1932fdc9d70b9a66af662c4ecd1242fb1f6f8b17f1c802161c50d3"
+     },
+     {
+      "request_id": "ps-i05-f05|direct_answer|556|fd",
+      "config_id": "ps-i05-f05",
+      "item_id": "556",
+      "n_bytes": 316,
+      "text_sha256": "393091e4c4a8658d4701a847463976784dcac7b964dc99527aa32ca273f429db"
+     },
+     {
+      "request_id": "ps-i01-f02|direct_answer|409|fd",
+      "config_id": "ps-i01-f02",
+      "item_id": "409",
+      "n_bytes": 478,
+      "text_sha256": "c97cb7769f8aa87146b24e3eaaa932df49cae4273a115e392652ca6a6740f106"
+     },
+     {
+      "request_id": "ps-i07-f01|direct_answer|1052|fd",
+      "config_id": "ps-i07-f01",
+      "item_id": "1052",
+      "n_bytes": 467,
+      "text_sha256": "825e026315ba6a343e6fadef514fea9c685af611ca530ea797c1149b9a9bebd7"
+     },
+     {
+      "request_id": "ps-i04-f06|direct_answer|666|fd",
+      "config_id": "ps-i04-f06",
+      "item_id": "666",
+      "n_bytes": 378,
+      "text_sha256": "eacc11c1dec0dfb15f0612dd06b508889ca946a1690ec9ee22476c8846038c68"
+     }
+    ],
+    "math": [
+     {
+      "request_id": "ps-i06-f06|direct_answer|test/intermediate_algebra/955.json|fd",
+      "config_id": "ps-i06-f06",
+      "item_id": "test/intermediate_algebra/955.json",
+      "n_bytes": 323,
+      "text_sha256": "9ae37b19534cbb27edcd375a497c7ee37a40dddcf7d39b92d65c0b9563a9221a"
+     },
+     {
+      "request_id": "ps-i02-f03|direct_answer|test/algebra/2064.json|fd",
+      "config_id": "ps-i02-f03",
+      "item_id": "test/algebra/2064.json",
+      "n_bytes": 239,
+      "text_sha256": "fbf3d912e547ed3933f255c6739deeede8d0e88a88a2521aa4bbcc899c079d3e"
+     },
+     {
+      "request_id": "ps-i03-f06|direct_answer|test/intermediate_algebra/986.json|fd",
+      "config_id": "ps-i03-f06",
+      "item_id": "test/intermediate_algebra/986.json",
+      "n_bytes": 365,
+      "text_sha256": "73a0dad6faaa785a425ef73a9a5f79907626b57322b6084c586bccaa33fc7c86"
+     },
+     {
+      "request_id": "ps-i03-f02|direct_answer|test/algebra/988.json|fd",
+      "config_id": "ps-i03-f02",
+      "item_id": "test/algebra/988.json",
+      "n_bytes": 252,
+      "text_sha256": "594b078974b0be4f8f84e7bcfc2f0837336db3994b416c562fdb7b55e5f6bb2f"
+     },
+     {
+      "request_id": "ps-i06-f01|direct_answer|test/intermediate_algebra/1422.json|fd",
+      "config_id": "ps-i06-f01",
+      "item_id": "test/intermediate_algebra/1422.json",
+      "n_bytes": 347,
+      "text_sha256": "0e746a02a8ebd036b03e1803515b7033d285935c42feeb2fbf687a6f6b82cc1e"
+     }
+    ],
+    "bbh": [
+     {
+      "request_id": "ps-i03-f00|direct_answer|movie_recommendation/114|fd",
+      "config_id": "ps-i03-f00",
+      "item_id": "movie_recommendation/114",
+      "n_bytes": 444,
+      "text_sha256": "51f2ba54405a9c0895f2e25afc9116eb5bd1f16c9d8fa7304b88e2c1360bb0a9"
+     },
+     {
+      "request_id": "ps-i05-f07|direct_answer|disambiguation_qa/31|fd",
+      "config_id": "ps-i05-f07",
+      "item_id": "disambiguation_qa/31",
+      "n_bytes": 513,
+      "text_sha256": "122f1857e66a6ea7daacd803c22d2108fb2b91d30b661e5186d90068122ecf1a"
+     },
+     {
+      "request_id": "ps-i05-f03|direct_answer|hyperbaton/3|fd",
+      "config_id": "ps-i05-f03",
+      "item_id": "hyperbaton/3",
+      "n_bytes": 358,
+      "text_sha256": "cb9d21c1e211e3ac86e0281a55367fe920dd7bd9ecd7ea01ab45d0e697bc8df5"
+     },
+     {
+      "request_id": "ps-i06-f07|direct_answer|sports_understanding/88|fd",
+      "config_id": "ps-i06-f07",
+      "item_id": "sports_understanding/88",
+      "n_bytes": 353,
+      "text_sha256": "8d5432cb9c600afd834c4540ba153a658ff64b800094ced3fad078b480c1a949"
+     },
+     {
+      "request_id": "ps-i07-f03|direct_answer|causal_judgement/174|fd",
+      "config_id": "ps-i07-f03",
+      "item_id": "causal_judgement/174",
+      "n_bytes": 766,
+      "text_sha256": "88b33f834ab5ca7e824768f9f37a5fff1bbb0768d6cd8198ff6efb9d59b571b1"
+     }
+    ],
+    "hotpot": [
+     {
+      "request_id": "ps-i02-f07|direct_answer|5ae64b1d55429929b0807b24|fd",
+      "config_id": "ps-i02-f07",
+      "item_id": "5ae64b1d55429929b0807b24",
+      "n_bytes": 7939,
+      "text_sha256": "d7889774d4f02bdb6c27618f9a11d472892991c1d70f9c89b638280db8f5bc38"
+     },
+     {
+      "request_id": "ps-i03-f03|direct_answer|5adfcb5455429906c02daa48|fd",
+      "config_id": "ps-i03-f03",
+      "item_id": "5adfcb5455429906c02daa48",
+      "n_bytes": 4597,
+      "text_sha256": "5353b177e0fc12857bcea28f603dba6b22872de81c263fc5fdb1e1eeef5e2145"
+     },
+     {
+      "request_id": "ps-i01-f06|direct_answer|5aba749055429901930fa7d8|fd",
+      "config_id": "ps-i01-f06",
+      "item_id": "5aba749055429901930fa7d8",
+      "n_bytes": 3530,
+      "text_sha256": "5cc905d42097408cc04fce65b15eaba7248414c9e1a6243fc6c1217cd0f2faeb"
+     },
+     {
+      "request_id": "ps-i01-f07|direct_answer|5a882d9a5542997e5c09a599|fd",
+      "config_id": "ps-i01-f07",
+      "item_id": "5a882d9a5542997e5c09a599",
+      "n_bytes": 5750,
+      "text_sha256": "c1e01324fdcdce7deaba07a0b58efb33afa75735df7a7c8bd1ba57872fae8baa"
+     },
+     {
+      "request_id": "ps-i06-f04|direct_answer|5adc82fc554299438c868dce|fd",
+      "config_id": "ps-i06-f04",
+      "item_id": "5adc82fc554299438c868dce",
+      "n_bytes": 7491,
+      "text_sha256": "2115a7689a6bb7691135f61429481811f7b15af9a4ea03dc2ab3e5b4c869fb03"
+     }
+    ]
+   },
+   "cot": {
+    "gsm8k": [
+     {
+      "request_id": "ps-i03-f02|zero_shot_cot|337",
+      "config_id": "ps-i03-f02",
+      "item_id": "337",
+      "n_bytes": 302,
+      "text_sha256": "0ee09adf98309fb8896ed9fb71f12b2ce14e20b0ac8304f3a3cc112ec149676f"
+     },
+     {
+      "request_id": "ps-i05-f05|zero_shot_cot|556",
+      "config_id": "ps-i05-f05",
+      "item_id": "556",
+      "n_bytes": 293,
+      "text_sha256": "fdf3ba00c02a402ad72513c4316967f1c51897acac592060444ca741fc8434f1"
+     },
+     {
+      "request_id": "ps-i01-f02|zero_shot_cot|409",
+      "config_id": "ps-i01-f02",
+      "item_id": "409",
+      "n_bytes": 455,
+      "text_sha256": "bd37822eabf53f0a7e20d36b4b2d8fdf37f178540c8538146b3a9f94bc41aa29"
+     },
+     {
+      "request_id": "ps-i07-f01|zero_shot_cot|1052",
+      "config_id": "ps-i07-f01",
+      "item_id": "1052",
+      "n_bytes": 444,
+      "text_sha256": "d9e5a01607fbde7f889e7ab4283ca811c7be7aa5a8d895464760ab0d3435476f"
+     },
+     {
+      "request_id": "ps-i04-f06|zero_shot_cot|666",
+      "config_id": "ps-i04-f06",
+      "item_id": "666",
+      "n_bytes": 355,
+      "text_sha256": "c18d4ab8226215d93ec00d08e2a2d5218b6cae0c57bc7c81ea89f6b249bfc7bb"
+     }
+    ],
+    "math": [
+     {
+      "request_id": "ps-i06-f06|zero_shot_cot|test/intermediate_algebra/955.json",
+      "config_id": "ps-i06-f06",
+      "item_id": "test/intermediate_algebra/955.json",
+      "n_bytes": 300,
+      "text_sha256": "67928399d0ef66b7a7d531502c55cdb621be00aacd494b482e61a5e366d81a68"
+     },
+     {
+      "request_id": "ps-i02-f03|zero_shot_cot|test/algebra/2064.json",
+      "config_id": "ps-i02-f03",
+      "item_id": "test/algebra/2064.json",
+      "n_bytes": 216,
+      "text_sha256": "73d722d8fc1c28ac715cc60c79971004b3edde9a323508588abfddb554369ba8"
+     },
+     {
+      "request_id": "ps-i03-f06|zero_shot_cot|test/intermediate_algebra/986.json",
+      "config_id": "ps-i03-f06",
+      "item_id": "test/intermediate_algebra/986.json",
+      "n_bytes": 342,
+      "text_sha256": "13f3b1bd2ba80893df4d2a7465383f1bed08b6a17994a08bdadb67a12b134d00"
+     },
+     {
+      "request_id": "ps-i03-f02|zero_shot_cot|test/algebra/988.json",
+      "config_id": "ps-i03-f02",
+      "item_id": "test/algebra/988.json",
+      "n_bytes": 229,
+      "text_sha256": "ebaec81b440b452821983de16fb3d9e78c2877d427154833734b7e34de457f6c"
+     },
+     {
+      "request_id": "ps-i06-f01|zero_shot_cot|test/intermediate_algebra/1422.json",
+      "config_id": "ps-i06-f01",
+      "item_id": "test/intermediate_algebra/1422.json",
+      "n_bytes": 324,
+      "text_sha256": "aabd3d861bb7cb70d3c5ee56211cc7cf4cccdecaa8c7c94914995cf74417c3e1"
+     }
+    ],
+    "bbh": [
+     {
+      "request_id": "ps-i03-f00|zero_shot_cot|movie_recommendation/114",
+      "config_id": "ps-i03-f00",
+      "item_id": "movie_recommendation/114",
+      "n_bytes": 421,
+      "text_sha256": "63a304f7b6ca0f865256271ed86f4d36e36bd3d75f799558a52e450c73a4393a"
+     },
+     {
+      "request_id": "ps-i05-f07|zero_shot_cot|disambiguation_qa/31",
+      "config_id": "ps-i05-f07",
+      "item_id": "disambiguation_qa/31",
+      "n_bytes": 490,
+      "text_sha256": "aa11697d7cdb34b49ea42a442a38beff739ddce4db7c3e5cfb86226156b0b538"
+     },
+     {
+      "request_id": "ps-i05-f03|zero_shot_cot|hyperbaton/3",
+      "config_id": "ps-i05-f03",
+      "item_id": "hyperbaton/3",
+      "n_bytes": 335,
+      "text_sha256": "371b0977c8176daea3c195b45a362df874a626f5373a93ea8f34e15467da48f9"
+     },
+     {
+      "request_id": "ps-i06-f07|zero_shot_cot|sports_understanding/88",
+      "config_id": "ps-i06-f07",
+      "item_id": "sports_understanding/88",
+      "n_bytes": 330,
+      "text_sha256": "ab3335b4e47f7d5cc5aceed973c260d72484b8eb28d3f9d82c51b263c5bf8614"
+     },
+     {
+      "request_id": "ps-i07-f03|zero_shot_cot|causal_judgement/174",
+      "config_id": "ps-i07-f03",
+      "item_id": "causal_judgement/174",
+      "n_bytes": 743,
+      "text_sha256": "46368a76591d339d6255862774dfbf5e8bdf2fac6349b15c32419251750a1bea"
+     }
+    ],
+    "hotpot": [
+     {
+      "request_id": "ps-i02-f07|zero_shot_cot|5ae64b1d55429929b0807b24",
+      "config_id": "ps-i02-f07",
+      "item_id": "5ae64b1d55429929b0807b24",
+      "n_bytes": 7912,
+      "text_sha256": "d6c3ce45fa47a49320c1f01c4d86b1a0fc63e6945d617cc1c5273d80976b5450"
+     },
+     {
+      "request_id": "ps-i03-f03|zero_shot_cot|5adfcb5455429906c02daa48",
+      "config_id": "ps-i03-f03",
+      "item_id": "5adfcb5455429906c02daa48",
+      "n_bytes": 4570,
+      "text_sha256": "43a59f613f456385fb44aba02cfcf96fe11e1702546ff5224e796a08eb0691a9"
+     },
+     {
+      "request_id": "ps-i01-f06|zero_shot_cot|5aba749055429901930fa7d8",
+      "config_id": "ps-i01-f06",
+      "item_id": "5aba749055429901930fa7d8",
+      "n_bytes": 3503,
+      "text_sha256": "f949fb9bd3a3ff6754d067911ad331f91fd536bff5c6938c581fbd82744ba02b"
+     },
+     {
+      "request_id": "ps-i01-f07|zero_shot_cot|5a882d9a5542997e5c09a599",
+      "config_id": "ps-i01-f07",
+      "item_id": "5a882d9a5542997e5c09a599",
+      "n_bytes": 5723,
+      "text_sha256": "26eb014cb0b8cdf4e3be781cf8104847c1bf66c8d8050214376f8d04ece4a9ed"
+     },
+     {
+      "request_id": "ps-i06-f04|zero_shot_cot|5adc82fc554299438c868dce",
+      "config_id": "ps-i06-f04",
+      "item_id": "5adc82fc554299438c868dce",
+      "n_bytes": 7464,
+      "text_sha256": "ec89c4431c0abc11a90ed26c7fff4a0e34fd4de454065f9f6241bd2ca4b4ede5"
+     }
+    ]
+   }
+  },
+  "n_requests_per_arm": {
+   "requested": 13100,
+   "forced": 13100,
+   "cot": 13100
+  },
+  "stop_control": {
+   "benchmarks": [
+    "bbh",
+    "gsm8k"
+   ],
+   "rows": "pilot.forced.<benchmark>, sent once more without the stop"
+  },
+  "panel_decoding": {
+   "requested_cap": 1024,
+   "forced_caps": {
+    "gsm8k": 16,
+    "math": 16,
+    "bbh": 16,
+    "hotpot": 64
+   },
+   "cot_caps": {
+    "gsm8k": 3072,
+    "math": 3072,
+    "bbh": 3072,
+    "hotpot": 1900
+   },
+   "prefill": "\\boxed{",
+   "cut_at_first_brace": [
+    "bbh",
+    "gsm8k"
+   ],
+   "stop_sent": [
+    "bbh",
+    "gsm8k"
+   ],
+   "sources": [
+    "config/decoding.yaml",
+    "config/decoding_hotpot.yaml",
+    "config/decoding_forced.yaml",
+    "config/decoding_forced_math.yaml"
+   ]
+  }
+ },
+ "arms_added_on": "2026-11-24"
+}

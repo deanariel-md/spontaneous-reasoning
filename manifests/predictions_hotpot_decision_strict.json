@@ -1,0 +1,125 @@
+{
+ "label": "hotpot_decision_strict",
+ "created": "2026-11-21 20:51:17",
+ "models": [
+  "gemma-4-31b-it",
+  "meta-llama-3-8b-instruct",
+  "mistral-7b-instruct-v0.3",
+  "mistral-7b-instruct-v0.1",
+  "mistral-nemo-instruct-2407",
+  "mistral-small-3.1-24b-instruct-2503",
+  "phi-3-mini-4k-instruct",
+  "phi-3-medium-4k-instruct",
+  "phi-4",
+  "qwen2.5-7b-instruct",
+  "qwen3-8b",
+  "qwen3-30b-a3b-instruct-2507",
+  "qwen3.6-27b",
+  "gemma-2b-it",
+  "gemma-7b-it",
+  "gemma-3-12b-it",
+  "llama-3.1-8b-instruct",
+  "llama-2-7b-chat-hf",
+  "llama-2-13b-chat-hf",
+  "gemma-3-4b-it",
+  "gemma-2-9b-it",
+  "gemma-2-27b-it",
+  "gemma-3-27b-it",
+  "qwen3-30b-a3b",
+  "qwen3-14b",
+  "qwen3-32b",
+  "qwen3.5-9b",
+  "qwen3.5-35b-a3b",
+  "qwen3.6-35b-a3b"
+ ],
+ "n_chosen": 10,
+ "units": "pp; predictions uncentred; weights per model (ties share places)",
+ "design": {
+  "n_pilots": 200,
+  "n_items": 100,
+  "split_label": "decision-strict",
+  "n_target_items": 1000,
+  "streams": {
+   "shared": "sampling.rng_for('rule-budgets', 'hotpot', 1, 100)",
+   "disjoint": "sampling.rng_for('decision-strict', 'hotpot', 1, 100)"
+  },
+  "contrasts": {
+   "cot_req": [
+    "direct_answer",
+    "zero_shot_cot"
+   ],
+   "cot_forced": [
+    "forced_direct",
+    "zero_shot_cot"
+   ],
+   "fewshot": [
+    "forced_direct",
+    "fewshot_forced"
+   ]
+  },
+  "discovery_units": [
+   "ps-i07-f03",
+   "ps-i07-f02",
+   "ps-i05-f00",
+   "ps-i01-f00",
+   "ps-i05-f01",
+   "ps-i05-f06",
+   "ps-i01-f07",
+   "ps-i04-f00",
+   "ps-i03-f06",
+   "ps-i03-f04",
+   "ps-i02-f06",
+   "ps-i03-f00",
+   "ps-i05-f02",
+   "ps-i00-f01",
+   "ps-i07-f07",
+   "ps-i04-f06",
+   "ps-i03-f01",
+   "ps-i00-f00",
+   "ps-i03-f03",
+   "ps-i05-f06",
+   "ps-i06-f06",
+   "ps-i02-f07",
+   "ps-i01-f06",
+   "ps-i02-f01"
+  ],
+  "item_split_sha256": "b92d07a4b37b41413885d8229a2907b6d2b76244620bb7e6b4db14c36e96c5cd",
+  "designs": {
+   "shared": {
+    "evaluation_items": 1000,
+    "pilot_pool_items": 1000,
+    "ties": {
+     "cot_req/linear": 27,
+     "cot_req/quadratic_index": 0,
+     "cot_req/own_gain": 52,
+     "cot_forced/linear": 110,
+     "cot_forced/quadratic_index": 0,
+     "cot_forced/own_gain": 121,
+     "fewshot/linear": 60,
+     "fewshot/quadratic_index": 0,
+     "fewshot/own_gain": 129
+    }
+   },
+   "disjoint": {
+    "evaluation_items": 500,
+    "pilot_pool_items": 500,
+    "ties": {
+     "cot_req/linear": 25,
+     "cot_req/quadratic_index": 0,
+     "cot_req/own_gain": 81,
+     "cot_forced/linear": 101,
+     "cot_forced/quadratic_index": 0,
+     "cot_forced/own_gain": 123,
+     "fewshot/linear": 52,
+     "fewshot/quadratic_index": 0,
+     "fewshot/own_gain": 144
+    }
+   }
+  }
+ },
+ "note": "fitted on HotpotQA discovery rows only and saved before any HotpotQA validation draw is scored",
+ "content_sha256": "b83a3c7b122e58e1cb44e765229df083934d96c24f0f61b444fb30fe2fa930d7",
+ "npz": "predictions_hotpot_decision_strict.npz",
+ "npz_sha256": "4b040c2ba6a19fe89650e813dc4b2d494812b857fcbf9f23ed739bbf1571872a",
+ "sha256": "d818aa10a5ec96ee5b5a1afc4f1c9f9d97ff9dfd03d3a73fbd30c3a7b35ee663"
+}

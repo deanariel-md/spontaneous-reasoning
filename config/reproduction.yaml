@@ -1,0 +1,48 @@
+# Reproduction of Cheng et al. (2025), GSM8K zero-shot versus eight-exemplar chain of thought.
+# The protocol was fixed on 31 October 2026 before any run; this file
+# holds its machine-readable part. Nothing here is chosen from reproduction outcomes.
+status: fixed
+fixed_on: 2026-10-31
+source:
+  paper: "Cheng et al. 2025, Revisiting Chain-of-Thought Prompting: Zero-shot Can Be Stronger than Few-shot, Findings of EMNLP 2025; arXiv:2506.14641v3"
+  code: "github.com/small-xiangcheng/opencompass, branch my-changes, commit 40de49b9006c"
+prompts: manifests/cheng_exemplars.json
+registry: config/models_reproduction.yaml
+decoding:
+  default: config/decoding_reproduction.yaml
+  by_model:
+    llama-2-7b-chat-hf: config/decoding_reproduction_llama2.yaml
+arms: [zero_shot_cot, eight_shot_cot]
+parts:
+  numerical:
+    config_id: cheng            # the published frames
+  transport:
+    configurations_from: manifests/gsm8k_tranche.json   # the eight tranche configurations of the frozen bank
+    bank: manifests/gsm8k_bank.json
+split: test                     # all 1,319 GSM8K test items (src/gsm8k.py pinned revision)
+scorer: cheng-fixed/1.0.0       # src/reproduction.py, the authors' gsm8k_postprocess_fixed and Gsm8kEvaluator.is_equal
+interval_level: 0.95
+budget_gpu_hours: 60
+# Run order: Part A for every model, then Part B in increasing checkpoint size (the order below).
+models:
+  # key: [group, published zero-shot, published eight-shot, source]; values are percentages of 1,319 items.
+  # Bar heights read from the vector graphics of the v3 PDF (each equals k/1319 to two decimals); Table 1 is printed.
+  qwen2.5-0.5b-instruct:      {group: weak,   zero_shot: 47.46, eight_shot: 42.76, source: "Fig. 6"}
+  llama-3.2-1b-instruct:      {group: weak,   zero_shot: 44.88, eight_shot: 47.76, source: "Fig. 6"}
+  qwen2.5-1.5b-instruct:      {group: weak,   zero_shot: 74.98, eight_shot: 70.20, source: "Fig. 6"}
+  gemma-2-2b-it:              {group: weak,   zero_shot: 66.34, eight_shot: 55.88, source: "Fig. 6"}
+  llama-3.2-3b-instruct:      {group: weak,   zero_shot: 79.98, eight_shot: 79.08, source: "Fig. 6"}
+  llama-2-7b-chat-hf:         {group: weak,   zero_shot: 25.40, eight_shot: 28.58, source: "Fig. 6"}
+  qwen2.5-7b-instruct:        {group: strong, zero_shot: 92.34, eight_shot: 91.43, source: "Fig. 5"}
+  meta-llama-3-8b-instruct:   {group: weak,   zero_shot: 80.97, eight_shot: 81.50, source: "Fig. 6"}
+  llama-3.1-8b-instruct:      {group: strong, zero_shot: 86.13, eight_shot: 86.20, source: "Fig. 5"}
+  ministral-8b-instruct-2410: {group: strong, zero_shot: 88.32, eight_shot: 84.23, source: "Fig. 5"}
+  gemma-2-9b-it:              {group: strong, zero_shot: 89.01, eight_shot: 88.48, source: "Fig. 5"}
+  qwen2.5-14b-instruct:       {group: strong, zero_shot: 94.62, eight_shot: 94.47, source: "Fig. 5"}
+  qwen2.5-32b-instruct:       {group: strong, zero_shot: 95.68, eight_shot: 95.30, source: "Fig. 5"}
+  llama-3.3-70b-instruct-fp8: {group: strong, zero_shot: 96.13, eight_shot: 95.38, source: "Fig. 5", precision: fp8}
+  qwen2.5-72b-instruct-fp8:   {group: strong, zero_shot: 95.83, eight_shot: 95.75, source: "Fig. 5; Table 1", precision: fp8}
+not_run:
+  qwen-7b-chat: "needs the repository's own model code; the runner never executes it (trust_remote_code=False)"
+  qwen2.5-72b-base: "base model, Table 1 only; outside the instruction-tuned comparison and its configuration is missing from the released code"
+  qwen2.5-3b-instruct: "MATH panel of Fig. 6 only"

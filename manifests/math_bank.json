@@ -1,0 +1,2062 @@
+{
+  "generator": "PromptSuite",
+  "generator_version": "3.0.7",
+  "seed": 20261103,
+  "generation_record": {
+    "tool": "scripts/build_bank_candidates.py",
+    "config_status": "confirmed",
+    "config_name": "math_bank_v1",
+    "config_sha256": "3a28120fb35d892f1def6eba6e3e5911cce23914f9952b18cdc73cd19e6421fc",
+    "promptsuite_version": "3.0.7",
+    "python_version": "3.12.10",
+    "pandas_version": "3.0.6",
+    "numpy_version": "2.5.4",
+    "pythonhashseed": "0",
+    "seed": 20261103,
+    "variations_per_field": 8,
+    "max_variations_per_row": null,
+    "template": {
+      "instruction": "Solve the following math problem.",
+      "instruction variations": [
+        "paraphrase_with_llm"
+      ],
+      "prompt format": "Question: {question}\n{arm_clause} {answer_format}",
+      "prompt format variations": [
+        "format structure"
+      ]
+    },
+    "variation_types": {
+      "instruction": [
+        "paraphrase_with_llm"
+      ],
+      "prompt_format": [
+        "format structure"
+      ]
+    },
+    "placeholders": [
+      "{question}",
+      "{arm_clause}",
+      "{answer_format}"
+    ],
+    "arm_clauses": {
+      "direct_answer": "Give only the final answer, without any working.",
+      "zero_shot_cot": "Let's think step by step."
+    },
+    "answer_format": {
+      "scorer_candidate": "boxed",
+      "text": "End your reply with a final line that contains \\boxed{<number>}.",
+      "scorer_template": "\\\\boxed\\{<NUM>\\}",
+      "scorer_case_sensitive": true,
+      "scorer_version": "gsm8k-scorer/1.3.0"
+    },
+    "sampling_law": "uniform",
+    "required_literals": null,
+    "llm": {
+      "used": true,
+      "platform": "local_replay",
+      "model": "llama-3.3-70b-instruct-fp8",
+      "replay": {
+        "record": "manifests/math_paraphrases.json",
+        "record_sha256": "7620aadff9778542476a6cb38faf9e7a735d5e5ad8dba194e7ccb4ec05f7e538",
+        "request_sha256": "e6fd65aa4f5151a4a3cdfa0cca280da2d1204a751c282ec0e564cd84a579a155",
+        "response_sha256": "2594fdb079cb054811487e30a08d7bb737ca3c0dea3f3fadd1807ac6a208e988",
+        "replay_sha256": "daa6baedada676db55f91ca2fc8147992a8aeb2a0655d7eb997f8312b0dd4b41",
+        "code_fence_removed": true,
+        "paraphraser": {
+          "key": "llama-3.3-70b-instruct-fp8",
+          "hf_id": "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic",
+          "revision": "f50dbad2c84590ca17dc51e207c34321b65ff14b",
+          "kernels": "batch_invariant",
+          "quantization": "compressed-tensors",
+          "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+          "rendered_prompt_sha256": "41d7e7f45bcf245a52c868e4483457f6070620497fdaf9b7bdebc3a54c6fce9b",
+          "run_id": "20261103T145741Z-c84962",
+          "run_log": "data\\d2_out\\paraphrase_math\\run1\\llama-3.3-70b-instruct-fp8\\run_log-20261103T145741Z-c84962.json",
+          "run_log_sha256": "a434cedca6cb315bb69545df60c3ad55498eef653704b97eb44efcc375515e69",
+          "gpu": {
+            "count": 1,
+            "devices": [
+              {
+                "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+                "memory_mib": 97887
+              }
+            ],
+            "driver_version": "595.91.07",
+            "cuda_version_driver": "13.2",
+            "nvidia_smi": true
+          },
+          "versions": {
+            "vllm": "0.30.0",
+            "torch": "2.13.0",
+            "transformers": "5.16.1"
+          }
+        },
+        "review": "manifests/math_paraphrase_review.json",
+        "review_sha256": "8030f03eb0e5a2fa1e6e5ffdc5abb378dd335bfcd3f1ff0bee36d417917f567c",
+        "reviewers": [
+          "an AI assistant, for the authors (delegated on 30 October 2026; MATH-500 bank reviewed on 3 November 2026)"
+        ],
+        "dropped_in_review": {}
+      }
+    },
+    "instruction_placement": "user",
+    "variants": {
+      "instruction": [
+        "Solve the following math problem.",
+        "Can you solve the following math problem?",
+        "Please solve the following math problem.",
+        "The challenge is to solve the following math problem.",
+        "The task is to solve the following math problem.",
+        "We need you to solve the following math problem.",
+        "Your goal is to solve the following math problem."
+      ],
+      "prompt_format": [
+        "Question: {question}\n{arm_clause} {answer_format}",
+        "QUESTION ::{question}\n{arm_clause} {answer_format}",
+        "QUESTION: {question}\n{arm_clause} {answer_format}",
+        "Question\n{question}\n{arm_clause} {answer_format}",
+        "Question -- {question}\n{arm_clause} {answer_format}",
+        "Question {question}\n{arm_clause} {answer_format}",
+        "question :{question}\n{arm_clause} {answer_format}",
+        "question: {question}\n{arm_clause} {answer_format}"
+      ]
+    },
+    "variant_sha256": "e18070031efc19ea212a175bfce7865636041cb01d601d78498e08ca72f9bdf1",
+    "n_skeleton_pairs": 56,
+    "n_configurations": 56,
+    "dropped": [],
+    "fidelity_check": {
+      "rows_compared": [
+        "direct_answer",
+        "zero_shot_cot"
+      ],
+      "messages_compared": 112,
+      "result": "identical",
+      "compared_with": "prompt"
+    },
+    "warnings": [
+      "instruction: PromptSuite returned 7 of the 8 requested variants"
+    ]
+  },
+  "configurations": {
+    "ps-i00-f00": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f01": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQUESTION ::{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQUESTION ::{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f02": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f03": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQuestion\n{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQuestion\n{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f04": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQuestion -- {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQuestion -- {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f05": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f06": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nquestion :{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nquestion :{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i00-f07": {
+      "dimensions": {
+        "instruction_variant": 0,
+        "instruction_is_original": true,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Solve the following math problem.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f00": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f01": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQUESTION ::{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQUESTION ::{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f02": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f03": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQuestion\n{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQuestion\n{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f04": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQuestion -- {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQuestion -- {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f05": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f06": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nquestion :{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nquestion :{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i01-f07": {
+      "dimensions": {
+        "instruction_variant": 1,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Can you solve the following math problem?\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f00": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f01": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQUESTION ::{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQUESTION ::{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f02": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f03": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQuestion\n{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQuestion\n{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f04": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQuestion -- {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQuestion -- {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f05": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f06": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nquestion :{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nquestion :{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i02-f07": {
+      "dimensions": {
+        "instruction_variant": 2,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Please solve the following math problem.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f00": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f01": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQUESTION ::{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQUESTION ::{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f02": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f03": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQuestion\n{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQuestion\n{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f04": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQuestion -- {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQuestion -- {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f05": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f06": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nquestion :{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nquestion :{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i03-f07": {
+      "dimensions": {
+        "instruction_variant": 3,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The challenge is to solve the following math problem.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f00": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f01": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQUESTION ::{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQUESTION ::{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f02": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f03": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQuestion\n{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQuestion\n{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f04": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQuestion -- {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQuestion -- {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f05": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f06": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nquestion :{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nquestion :{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i04-f07": {
+      "dimensions": {
+        "instruction_variant": 4,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "The task is to solve the following math problem.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f00": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f01": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQUESTION ::{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQUESTION ::{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f02": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f03": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQuestion\n{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQuestion\n{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f04": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQuestion -- {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQuestion -- {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f05": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f06": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nquestion :{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nquestion :{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i05-f07": {
+      "dimensions": {
+        "instruction_variant": 5,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "We need you to solve the following math problem.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f00": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 0,
+        "prompt_format_is_original": true,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQuestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQuestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f01": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 1,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQUESTION ::{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQUESTION ::{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f02": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 2,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQUESTION: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQUESTION: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f03": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 3,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQuestion\n{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQuestion\n{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f04": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 4,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQuestion -- {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQuestion -- {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f05": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 5,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQuestion {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nQuestion {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f06": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 6,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nquestion :{question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nquestion :{question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    },
+    "ps-i06-f07": {
+      "dimensions": {
+        "instruction_variant": 6,
+        "instruction_is_original": false,
+        "instruction_variation_types": [
+          "paraphrase_with_llm"
+        ],
+        "prompt_format_variant": 7,
+        "prompt_format_is_original": false,
+        "prompt_format_variation_types": [
+          "format structure"
+        ],
+        "answer_format_scorer_candidate": "boxed"
+      },
+      "arms": {
+        "direct_answer": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nquestion: {question}\nGive only the final answer, without any working. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        },
+        "zero_shot_cot": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Your goal is to solve the following math problem.\n\nquestion: {question}\nLet's think step by step. End your reply with a final line that contains \\boxed{<number>}."
+            }
+          ]
+        }
+      }
+    }
+  },
+  "sampling_probabilities": {
+    "ps-i00-f00": 0.017857142857142856,
+    "ps-i00-f01": 0.017857142857142856,
+    "ps-i00-f02": 0.017857142857142856,
+    "ps-i00-f03": 0.017857142857142856,
+    "ps-i00-f04": 0.017857142857142856,
+    "ps-i00-f05": 0.017857142857142856,
+    "ps-i00-f06": 0.017857142857142856,
+    "ps-i00-f07": 0.017857142857142856,
+    "ps-i01-f00": 0.017857142857142856,
+    "ps-i01-f01": 0.017857142857142856,
+    "ps-i01-f02": 0.017857142857142856,
+    "ps-i01-f03": 0.017857142857142856,
+    "ps-i01-f04": 0.017857142857142856,
+    "ps-i01-f05": 0.017857142857142856,
+    "ps-i01-f06": 0.017857142857142856,
+    "ps-i01-f07": 0.017857142857142856,
+    "ps-i02-f00": 0.017857142857142856,
+    "ps-i02-f01": 0.017857142857142856,
+    "ps-i02-f02": 0.017857142857142856,
+    "ps-i02-f03": 0.017857142857142856,
+    "ps-i02-f04": 0.017857142857142856,
+    "ps-i02-f05": 0.017857142857142856,
+    "ps-i02-f06": 0.017857142857142856,
+    "ps-i02-f07": 0.017857142857142856,
+    "ps-i03-f00": 0.017857142857142856,
+    "ps-i03-f01": 0.017857142857142856,
+    "ps-i03-f02": 0.017857142857142856,
+    "ps-i03-f03": 0.017857142857142856,
+    "ps-i03-f04": 0.017857142857142856,
+    "ps-i03-f05": 0.017857142857142856,
+    "ps-i03-f06": 0.017857142857142856,
+    "ps-i03-f07": 0.017857142857142856,
+    "ps-i04-f00": 0.017857142857142856,
+    "ps-i04-f01": 0.017857142857142856,
+    "ps-i04-f02": 0.017857142857142856,
+    "ps-i04-f03": 0.017857142857142856,
+    "ps-i04-f04": 0.017857142857142856,
+    "ps-i04-f05": 0.017857142857142856,
+    "ps-i04-f06": 0.017857142857142856,
+    "ps-i04-f07": 0.017857142857142856,
+    "ps-i05-f00": 0.017857142857142856,
+    "ps-i05-f01": 0.017857142857142856,
+    "ps-i05-f02": 0.017857142857142856,
+    "ps-i05-f03": 0.017857142857142856,
+    "ps-i05-f04": 0.017857142857142856,
+    "ps-i05-f05": 0.017857142857142856,
+    "ps-i05-f06": 0.017857142857142856,
+    "ps-i05-f07": 0.017857142857142856,
+    "ps-i06-f00": 0.017857142857142856,
+    "ps-i06-f01": 0.017857142857142856,
+    "ps-i06-f02": 0.017857142857142856,
+    "ps-i06-f03": 0.017857142857142856,
+    "ps-i06-f04": 0.017857142857142856,
+    "ps-i06-f05": 0.017857142857142856,
+    "ps-i06-f06": 0.017857142857142856,
+    "ps-i06-f07": 0.017857142857142856
+  },
+  "frozen_from": {
+    "candidate_path": "data/bank_candidates/math_bank_v1.json",
+    "candidate_sha256": "c622154dbc2d15b1fc436512e78f20649c668a7a4d1f33b6a651b6ef2ddf44d4",
+    "admissibility": {
+      "path": "manifests/math_admissibility.json",
+      "sha256": "4aad6ebed464f81f94dad9075399b63244744f0aab9a22ffabf4d2b73965bb73"
+    },
+    "n_candidate_configurations": 56,
+    "n_retained": 56,
+    "excluded_configuration_ids": [],
+    "sampling_law": "uniform",
+    "sampling_law_rule": "uniform over the retained configurations"
+  }
+}

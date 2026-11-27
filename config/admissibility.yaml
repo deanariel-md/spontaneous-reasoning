@@ -1,0 +1,53 @@
+# Admissibility rules for the Dataset 2 prompt bank and model panel.
+# Sources: the study design (screen admissibility on separate calibration items; log
+# exclusions and scope the target to the retained bank) and the prompt rules (admissibility is
+# screened on calibration items from the training split, never on target items; exclusions are logged; models
+# without a meaningful direct-answer condition are excluded by rule).
+#
+# status: confirmed on 30 October 2026 by the authors.
+# Before that it was PENDING_REVIEW, with every threshold null.
+# While it is PENDING_REVIEW, scripts/screen_d2.py writes the metrics report only (results/screening/) and no
+# exclusion log. When it is `confirmed`, every threshold must be set (a null would silently disable a rule, so it
+# is refused; to disable a rule use its trivial bound, 0 for a minimum and 100 for a maximum) and the script
+# also writes manifests/gsm8k_admissibility.json.
+#
+# Hard rule 2 (no selection on outcomes): the rules use format and behaviour metrics only. Correctness,
+# accuracy and gains are never computed by the screening.
+#
+# All thresholds are percentages (0 to 100) of the outputs in the group. A value equal to a threshold passes.
+status: confirmed
+
+configurations:
+  # Evaluated per (configuration, arm), pooled over the models that survive the model rule below.
+  # Excluded when registered strict compliance falls MORE than this many percentage points below the median
+  # configuration of the same arm (median over the screened configurations, each pooled over the retained models).
+  # Decided on 30 October 2026, before the screen of the bank ran, replacing an absolute minimum of 80%:
+  # in the format screen (10 models, two configurations) pooled chain-of-thought compliance was 72-73% on both
+  # configurations, the models differed by up to 80 points and the configurations by less than one, so an
+  # absolute threshold would have screened the panel's format following and emptied the bank.
+  max_compliance_shortfall_pp:
+    direct_answer: 10
+    zero_shot_cot: 10
+  # Excluded when the share of outputs cut at the output cap (finish_reason length) is ABOVE the maximum.
+  max_truncation_pct:
+    direct_answer: 2
+    zero_shot_cot: 2
+  # Excluded when the share of outputs containing a <think> or </think> tag is ABOVE the maximum.
+  max_think_tag_pct:
+    direct_answer: 1
+    zero_shot_cot: 1
+
+models:
+  # Meaningful direct-answer condition (direct_answer arm only). A model is excluded when the share of its
+  # direct-arm outputs longer than `length_tokens` tokens is ABOVE `max_share_above_pct`: a model that reasons
+  # at length when asked for the answer alone has no direct-answer condition to contrast with chain of thought.
+  # Order (src/screening.py apply_rules): this model rule runs first, over every screened configuration, including
+  # configurations that the configuration rules above later exclude; the configuration rules then pool over the
+  # retained models. The reverse order would be circular, because the configuration rules pool over models.
+  direct_answer_meaningful:
+    length_tokens: 128           # one of 32, 64, 128 (the lengths the diagnostic reports)
+    max_share_above_pct: 50
+  # Native reasoning is off. A model is excluded when the share of ALL its
+  # screened outputs (both arms, every configuration) that contain a <think> or </think> tag is ABOVE the maximum.
+  thinking_off_holds:
+    max_think_tag_pct: 1

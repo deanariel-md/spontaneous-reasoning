@@ -1,0 +1,96 @@
+{
+ "kind": "paraphrase_record",
+ "config_name": "arm_wording_direct_v1",
+ "request": {
+  "promptsuite_version": "3.0.7",
+  "field": "instruction",
+  "text": "Give only the final answer, without any working.",
+  "variations_per_field": 8,
+  "n_augments": 7,
+  "prompt_sha256": "fb37a3d00e0845935d2d82d1ee2e9297533167890d7431a77f4e0fd52cdd3c78",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Can you help me write variations of an instruction prompt to an LLM for the following task description? \n\nIMPORTANT: The instruction may contain placeholders in curly braces like {subject}, {topic}, {field}, etc. These placeholders MUST be preserved EXACTLY as they appear in ALL variations.\n\nProvide 7 creative versions while:\n1. Preserving the original meaning and intent\n2. Keeping ALL placeholders {} unchanged in their exact positions\n3. Varying the instructional language around the placeholders\n4. NEVER introduce new placeholders - if the original has no placeholders, the variations must have none\n\nOutput only a Python list of strings with the alternatives. Do not include any explanation or additional text.\n\nOriginal instruction: '''Give only the final answer, without any working.'''"
+   }
+  ]
+ },
+ "response": {
+  "text": "```python\n[\n    \"Provide the solution, omitting any calculations or explanations.\",\n    \"State the answer only, excluding all intermediary steps.\",\n    \"The final result is all that is required, do not include any reasoning.\",\n    \"Just give the answer, without showing how you arrived at it.\",\n    \"Only the final solution is needed, leave out the working.\",\n    \"Supply the answer, but do not provide any supporting work.\",\n    \"The solution should be given on its own, without any accompanying calculations.\"\n]\n```",
+  "sha256": "181556cfc58c366e5cb2843476f5bee5f48c67ecedc05fbb58019e2f3356c274",
+  "finish_reason": "stop",
+  "n_output_tokens": 108
+ },
+ "replay": {
+  "text": "[\n    \"Provide the solution, omitting any calculations or explanations.\",\n    \"State the answer only, excluding all intermediary steps.\",\n    \"The final result is all that is required, do not include any reasoning.\",\n    \"Just give the answer, without showing how you arrived at it.\",\n    \"Only the final solution is needed, leave out the working.\",\n    \"Supply the answer, but do not provide any supporting work.\",\n    \"The solution should be given on its own, without any accompanying calculations.\"\n]",
+  "sha256": "0b3af9df83ac9bd21396de343ecf8dad5ff2eaa3079b07a5114c9a3960bccb2b",
+  "code_fence_removed": true,
+  "note": "the Markdown code fence around the list is removed, because PromptSuite's ast.literal_eval cannot parse it"
+ },
+ "parsed": [
+  "Provide the solution, omitting any calculations or explanations.",
+  "State the answer only, excluding all intermediary steps.",
+  "The final result is all that is required, do not include any reasoning.",
+  "Just give the answer, without showing how you arrived at it.",
+  "Only the final solution is needed, leave out the working.",
+  "Supply the answer, but do not provide any supporting work.",
+  "The solution should be given on its own, without any accompanying calculations."
+ ],
+ "variants": [
+  "Give only the final answer, without any working.",
+  "Provide the solution, omitting any calculations or explanations.",
+  "State the answer only, excluding all intermediary steps.",
+  "The final result is all that is required, do not include any reasoning.",
+  "Just give the answer, without showing how you arrived at it.",
+  "Only the final solution is needed, leave out the working.",
+  "Supply the answer, but do not provide any supporting work.",
+  "The solution should be given on its own, without any accompanying calculations."
+ ],
+ "model": {
+  "key": "llama-3.3-70b-instruct-fp8",
+  "hf_id": "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic",
+  "revision": "f50dbad2c84590ca17dc51e207c34321b65ff14b",
+  "kernels": "batch_invariant",
+  "quantization": "compressed-tensors",
+  "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+  "rendered_prompt_sha256": "30c61f0d88cffec00c2221af60d9386f6011cad4aba76267e08a60968fc284cd",
+  "run_id": "20261118T180931Z-711df8",
+  "run_log": "data\\d2_out\\arm_wording\\paraphrase\\run1\\llama-3.3-70b-instruct-fp8\\run_log-20261118T180931Z-711df8.json",
+  "run_log_sha256": "7db68eb34cd0519bf5e8e6f30f37542ec3140dafb9de2540270a777e7365a5ce",
+  "gpu": {
+   "count": 1,
+   "devices": [
+    {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+     "memory_mib": 97887
+    }
+   ],
+   "driver_version": "595.58.03",
+   "cuda_version_driver": "13.2",
+   "nvidia_smi": true
+  },
+  "versions": {
+   "vllm": "0.30.0",
+   "torch": "2.13.0",
+   "transformers": "5.16.1"
+  }
+ },
+ "repeat": {
+  "run_id": "20261118T181247Z-65ba0b",
+  "run_log": "data\\d2_out\\arm_wording\\paraphrase\\run2\\llama-3.3-70b-instruct-fp8\\run_log-20261118T181247Z-65ba0b.json",
+  "run_log_sha256": "f89726bac131b4a1d31468377682c8456e16d1c76e76804dd34f54ef0b4daff4",
+  "gpu": {
+   "count": 1,
+   "devices": [
+    {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+     "memory_mib": 97887
+    }
+   ],
+   "driver_version": "595.58.03",
+   "cuda_version_driver": "13.2",
+   "nvidia_smi": true
+  },
+  "identical": true
+ }
+}

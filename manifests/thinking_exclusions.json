@@ -1,0 +1,95 @@
+{
+ "rule": "excluded when more than 50% of the pilot outputs (both tasks) reach the pilot's cap of 30,720 tokens (decided 4 November)",
+ "threshold": 0.5,
+ "decided": "the authors, 4 November 2026",
+ "reads": "output lengths of the thinking pilot on training items; no correctness",
+ "source": "results/thinking_pilot/thinking_pilot.json",
+ "excluded": [
+  "qwen3.5-9b"
+ ],
+ "included": [
+  "gemma-4-31b-it",
+  "qwen3-14b",
+  "qwen3-30b-a3b",
+  "qwen3-32b",
+  "qwen3-8b",
+  "qwen3.5-35b-a3b",
+  "qwen3.6-27b",
+  "qwen3.6-35b-a3b"
+ ],
+ "pending": [],
+ "models": {
+  "gemma-4-31b-it": {
+   "at_cap": 5,
+   "outputs": 800,
+   "share": 0.00625,
+   "excluded": false,
+   "gsm8k_at_cap": 3,
+   "math_at_cap": 2
+  },
+  "qwen3-14b": {
+   "at_cap": 3,
+   "outputs": 800,
+   "share": 0.00375,
+   "excluded": false,
+   "gsm8k_at_cap": 0,
+   "math_at_cap": 3
+  },
+  "qwen3-30b-a3b": {
+   "at_cap": 4,
+   "outputs": 800,
+   "share": 0.005,
+   "excluded": false,
+   "gsm8k_at_cap": 0,
+   "math_at_cap": 4
+  },
+  "qwen3-32b": {
+   "at_cap": 6,
+   "outputs": 800,
+   "share": 0.0075,
+   "excluded": false,
+   "gsm8k_at_cap": 0,
+   "math_at_cap": 6
+  },
+  "qwen3-8b": {
+   "at_cap": 11,
+   "outputs": 800,
+   "share": 0.01375,
+   "excluded": false,
+   "gsm8k_at_cap": 1,
+   "math_at_cap": 10
+  },
+  "qwen3.5-35b-a3b": {
+   "at_cap": 297,
+   "outputs": 800,
+   "share": 0.37125,
+   "excluded": false,
+   "gsm8k_at_cap": 166,
+   "math_at_cap": 131
+  },
+  "qwen3.5-9b": {
+   "at_cap": 667,
+   "outputs": 800,
+   "share": 0.83375,
+   "excluded": true,
+   "gsm8k_at_cap": 347,
+   "math_at_cap": 320
+  },
+  "qwen3.6-27b": {
+   "at_cap": 182,
+   "outputs": 800,
+   "share": 0.2275,
+   "excluded": false,
+   "gsm8k_at_cap": 66,
+   "math_at_cap": 116
+  },
+  "qwen3.6-35b-a3b": {
+   "at_cap": 276,
+   "outputs": 800,
+   "share": 0.345,
+   "excluded": false,
+   "gsm8k_at_cap": 125,
+   "math_at_cap": 151
+  }
+ }
+}

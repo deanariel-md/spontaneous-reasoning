@@ -1,0 +1,847 @@
+{
+ "label": "fewshot_demos_hotpot",
+ "study_part": "HotpotQA",
+ "created": "2026-11-18 16:47:29",
+ "n_demos": 5,
+ "sampler": "manifests/sampler_hotpot.json",
+ "sampler_sha256": "ec8684bab1c13da5ce63d9b067a8fcaafaa97a39353fea461be5edb7e315df6b",
+ "configurations": [
+  "ps-i00-f00",
+  "ps-i00-f01",
+  "ps-i00-f05",
+  "ps-i01-f00",
+  "ps-i01-f02",
+  "ps-i01-f04",
+  "ps-i01-f05",
+  "ps-i01-f06",
+  "ps-i01-f07",
+  "ps-i02-f01",
+  "ps-i02-f02",
+  "ps-i02-f05",
+  "ps-i02-f06",
+  "ps-i02-f07",
+  "ps-i03-f00",
+  "ps-i03-f01",
+  "ps-i03-f02",
+  "ps-i03-f03",
+  "ps-i03-f04",
+  "ps-i03-f06",
+  "ps-i03-f07",
+  "ps-i04-f00",
+  "ps-i04-f01",
+  "ps-i04-f02",
+  "ps-i04-f06",
+  "ps-i05-f00",
+  "ps-i05-f01",
+  "ps-i05-f02",
+  "ps-i05-f06",
+  "ps-i06-f01",
+  "ps-i06-f04",
+  "ps-i06-f06",
+  "ps-i07-f01",
+  "ps-i07-f02",
+  "ps-i07-f03",
+  "ps-i07-f07"
+ ],
+ "rule": "per configuration, five demonstration-pool items drawn without replacement, in the order drawn, from the pool sorted by id with numpy.random.default_rng seeded by the first 8 bytes of sha256('fewshot/hotpot/<config_id>'); each holds its two supporting paragraphs and its question, and the answer turn is \\boxed{<gold as in the file>}",
+ "pool": {
+  "source": "manifests/hotpot_items.json, set demo_pool",
+  "n_pool": 2408,
+  "pool_sha256": "01a11f3251d7db1c7bd3a18946cb622c179be239963bcbbdd06afb84695f41fd"
+ },
+ "demos": {
+  "ps-i00-f00": [
+   {
+    "item_id": "5ae5fd395542996de7b71ab3",
+    "gold": "2 acre"
+   },
+   {
+    "item_id": "5a7efd2f5542994959419a9c",
+    "gold": "Blue Peter"
+   },
+   {
+    "item_id": "5a84d4555542992a431d1aac",
+    "gold": "Tony Award"
+   },
+   {
+    "item_id": "5ac281e355429963665199eb",
+    "gold": "Things You Say When You're in Love"
+   },
+   {
+    "item_id": "5adc983c5542990d50227cb6",
+    "gold": "Brazil"
+   }
+  ],
+  "ps-i00-f01": [
+   {
+    "item_id": "5a8a1a975542992e4fca8505",
+    "gold": "Preston County"
+   },
+   {
+    "item_id": "5ac52f8e5542996feb3fea14",
+    "gold": "New South Wales"
+   },
+   {
+    "item_id": "5a843cf35542996488c2e51b",
+    "gold": "film"
+   },
+   {
+    "item_id": "5a849cc95542997175ce1efa",
+    "gold": "Boston"
+   },
+   {
+    "item_id": "5adc6f6255429947ff173961",
+    "gold": "Morning glory"
+   }
+  ],
+  "ps-i00-f05": [
+   {
+    "item_id": "5a75092b55429916b0164242",
+    "gold": "Transporter 3"
+   },
+   {
+    "item_id": "5adfb10855429942ec259af9",
+    "gold": "Austrian Volksbanks"
+   },
+   {
+    "item_id": "5ac4f33355429924173fb507",
+    "gold": "Ochre Point Avenue"
+   },
+   {
+    "item_id": "5a8ccceb554299653c1aa128",
+    "gold": "City of Westminster"
+   },
+   {
+    "item_id": "5abbd85a5542993f40c73be1",
+    "gold": "Christopher \"Chris\" Tarbell"
+   }
+  ],
+  "ps-i01-f00": [
+   {
+    "item_id": "5ac2cdaa554299657fa29070",
+    "gold": "temperate climates,"
+   },
+   {
+    "item_id": "5a7a954855429941d65f26cd",
+    "gold": "John Lennon/Plastic Ono Band"
+   },
+   {
+    "item_id": "5ae43d7f5542996836b02c59",
+    "gold": "Barbara Albert"
+   },
+   {
+    "item_id": "5a7351785542994cef4bc539",
+    "gold": "erotic thriller film"
+   },
+   {
+    "item_id": "5abec9b25542997ec76fd366",
+    "gold": "Ravenna (] , also locally ] ; Romagnol: \"Ravèna\" ) is the capital city of the Province of Ravenna"
+   }
+  ],
+  "ps-i01-f02": [
+   {
+    "item_id": "5a87e5345542993e715abffb",
+    "gold": "Vienna"
+   },
+   {
+    "item_id": "5ac3bab155429939154138fb",
+    "gold": "Ernestine"
+   },
+   {
+    "item_id": "5ae71f06554299572ea54708",
+    "gold": "Ferdinand Magellan"
+   },
+   {
+    "item_id": "5a8bc0485542995d1e6f143d",
+    "gold": "the Americas"
+   },
+   {
+    "item_id": "5a7345185542992359bc32cb",
+    "gold": "Europe"
+   }
+  ],
+  "ps-i01-f04": [
+   {
+    "item_id": "5a8b120755429949d91db4a4",
+    "gold": "American"
+   },
+   {
+    "item_id": "5adc75525542994650320d0e",
+    "gold": "Russian Tracker"
+   },
+   {
+    "item_id": "5ab5b732554299494045f03c",
+    "gold": "Cody Miller"
+   },
+   {
+    "item_id": "5ac3dfee554299204fd21eab",
+    "gold": "Love Hina"
+   },
+   {
+    "item_id": "5ae28c0a554299495565daaa",
+    "gold": "1450 mi"
+   }
+  ],
+  "ps-i01-f05": [
+   {
+    "item_id": "5ac2b2e2554299218029dafa",
+    "gold": "National Hockey League (NHL)"
+   },
+   {
+    "item_id": "5ab9ccef55429955dce3ed86",
+    "gold": "Buddha's delight"
+   },
+   {
+    "item_id": "5ab520645542991779162d85",
+    "gold": "The Danny Kaye Show"
+   },
+   {
+    "item_id": "5ac1b3a75542994ab5c67dd2",
+    "gold": "1971"
+   },
+   {
+    "item_id": "5a798f8c5542994bb9457023",
+    "gold": "Port Moresby, Papua New Guinea"
+   }
+  ],
+  "ps-i01-f06": [
+   {
+    "item_id": "5a7471f655429979e2882955",
+    "gold": "Wayne Fitzgerald"
+   },
+   {
+    "item_id": "5ab2a186554299295394677b",
+    "gold": "2009"
+   },
+   {
+    "item_id": "5a8468c95542990548d0b2b1",
+    "gold": "Fredric John Warburg"
+   },
+   {
+    "item_id": "5ab71f7d554299110f219ab9",
+    "gold": "BBC"
+   },
+   {
+    "item_id": "5a7d115355429909bec76934",
+    "gold": "Sarah Kate Silverman"
+   }
+  ],
+  "ps-i01-f07": [
+   {
+    "item_id": "5ab9c292554299131ca423f5",
+    "gold": "Van Diemen's Land"
+   },
+   {
+    "item_id": "5ac2a23a55429967731025cc",
+    "gold": "David Michael Bautista Jr."
+   },
+   {
+    "item_id": "5ae5669755429960a22e02ec",
+    "gold": "presidential campaign of Donald Trump"
+   },
+   {
+    "item_id": "5ab2d15e554299545a2cfaa6",
+    "gold": "Kristen Carroll Wiig"
+   },
+   {
+    "item_id": "5ae5a3bb55429960a22e0314",
+    "gold": "novel"
+   }
+  ],
+  "ps-i02-f01": [
+   {
+    "item_id": "5ae47dd95542995ad6573d57",
+    "gold": "Barney Fife"
+   },
+   {
+    "item_id": "5ae55ec855429908b63265f5",
+    "gold": "modernized the outside"
+   },
+   {
+    "item_id": "5ac082535542992a796ded2f",
+    "gold": "Bolax"
+   },
+   {
+    "item_id": "5ae122465542997b2ef7d0f4",
+    "gold": "the Allies and Nazi Germany"
+   },
+   {
+    "item_id": "5ab741005542992aa3b8c800",
+    "gold": "Robert Matthew Hurley"
+   }
+  ],
+  "ps-i02-f02": [
+   {
+    "item_id": "5abeb7eb5542993fe9a41d1f",
+    "gold": "American"
+   },
+   {
+    "item_id": "5a8642045542991e771815e2",
+    "gold": "professor of cognitive science"
+   },
+   {
+    "item_id": "5a8f5be9554299458435d5ed",
+    "gold": "Killing Joke"
+   },
+   {
+    "item_id": "5a84c89a5542992a431d1a9c",
+    "gold": "\"Switzerland of England\""
+   },
+   {
+    "item_id": "5a7c6d98554299683c1c6304",
+    "gold": "Agent Carter"
+   }
+  ],
+  "ps-i02-f05": [
+   {
+    "item_id": "5ab2f50a55429929539468cd",
+    "gold": "Las Vegas Boulevard"
+   },
+   {
+    "item_id": "5a8bc03d5542996e8ac88a0b",
+    "gold": "Operation Neptune"
+   },
+   {
+    "item_id": "5a7a4ca955429941d65f25a3",
+    "gold": "the Dominican Republic"
+   },
+   {
+    "item_id": "5ab90d8955429916710eb0f1",
+    "gold": "Smoothie King Center"
+   },
+   {
+    "item_id": "5adc02445542994650320c4e",
+    "gold": "Jean Erdman"
+   }
+  ],
+  "ps-i02-f06": [
+   {
+    "item_id": "5ae361605542994393b9e69b",
+    "gold": "\"Home of the Submarine Force\""
+   },
+   {
+    "item_id": "5a7b192855429927d897bf39",
+    "gold": "James Stanley Brakhage"
+   },
+   {
+    "item_id": "5ac4efa85542991943173a04",
+    "gold": "Genesee River"
+   },
+   {
+    "item_id": "5ade895955429975fa854ef5",
+    "gold": "1999"
+   },
+   {
+    "item_id": "5a8efb5a55429918e830d172",
+    "gold": "Jamnagar"
+   }
+  ],
+  "ps-i02-f07": [
+   {
+    "item_id": "5ade9545554299728e26c741",
+    "gold": "Swiss made"
+   },
+   {
+    "item_id": "5a8da97c554299068b959d84",
+    "gold": "Western Institute of Technology"
+   },
+   {
+    "item_id": "5ab8848d55429916710eb07b",
+    "gold": "Australian"
+   },
+   {
+    "item_id": "5a77ca3955429967ab1052a3",
+    "gold": "Splendor"
+   },
+   {
+    "item_id": "5ab48a7c5542991751b4d7ab",
+    "gold": "Aircraft"
+   }
+  ],
+  "ps-i03-f00": [
+   {
+    "item_id": "5ac52fc35542994611c8b403",
+    "gold": "The Catholic Church in Ireland"
+   },
+   {
+    "item_id": "5a849cc95542997175ce1efa",
+    "gold": "Boston"
+   },
+   {
+    "item_id": "5abfa0285542990832d3a171",
+    "gold": "Hoobastank"
+   },
+   {
+    "item_id": "5a8ad8ed5542992d82986fa3",
+    "gold": "8,648"
+   },
+   {
+    "item_id": "5a809e9f5542996402f6a5b1",
+    "gold": "1991"
+   }
+  ],
+  "ps-i03-f01": [
+   {
+    "item_id": "5a7e02b75542997cc2c474f3",
+    "gold": "1970"
+   },
+   {
+    "item_id": "5ac3891f554299741d48a284",
+    "gold": "Jacksonville International Airport"
+   },
+   {
+    "item_id": "5a88f7bf5542997e5c09a6dd",
+    "gold": "The Interview"
+   },
+   {
+    "item_id": "5a874e9b554299211dda2bd3",
+    "gold": "fashion model"
+   },
+   {
+    "item_id": "5a80aeef5542992097ad301a",
+    "gold": "The Shins"
+   }
+  ],
+  "ps-i03-f02": [
+   {
+    "item_id": "5a724dc25542990c210a40df",
+    "gold": "Roving Mars"
+   },
+   {
+    "item_id": "5adf4a275542993a75d26498",
+    "gold": "middle America"
+   },
+   {
+    "item_id": "5a85cd295542997175ce202b",
+    "gold": "Athenion"
+   },
+   {
+    "item_id": "5abc17555542993a06baf858",
+    "gold": "William Finn"
+   },
+   {
+    "item_id": "5adfdef9554299025d62a36b",
+    "gold": "Bath, Maine"
+   }
+  ],
+  "ps-i03-f03": [
+   {
+    "item_id": "5ae690b055429908198fa622",
+    "gold": "Ellesmere Port"
+   },
+   {
+    "item_id": "5a7130365542994082a3e645",
+    "gold": "Las Vegas"
+   },
+   {
+    "item_id": "5a7f7ca25542994857a76747",
+    "gold": "first"
+   },
+   {
+    "item_id": "5a8b50475542997f31a41cd4",
+    "gold": "world wushu tournament"
+   },
+   {
+    "item_id": "5abd455c55429924427fcf5a",
+    "gold": "was a rock band"
+   }
+  ],
+  "ps-i03-f04": [
+   {
+    "item_id": "5ab2e8ad554299340b525562",
+    "gold": "Park Ye-jin"
+   },
+   {
+    "item_id": "5a85018d5542997b5ce3ff98",
+    "gold": "Barbara Niven"
+   },
+   {
+    "item_id": "5ae74fc45542997b22f6a6b4",
+    "gold": "severe acute respiratory syndrome"
+   },
+   {
+    "item_id": "5a8a12ae5542992d82986e92",
+    "gold": "Scotland"
+   },
+   {
+    "item_id": "5ac1ff2255429964131be2b3",
+    "gold": "26,788"
+   }
+  ],
+  "ps-i03-f06": [
+   {
+    "item_id": "5a82a1ae55429954d2e2eb89",
+    "gold": "Cyrtanthus"
+   },
+   {
+    "item_id": "5ab527205542996a3a96a03d",
+    "gold": "\"Give Up\""
+   },
+   {
+    "item_id": "5ae361605542994393b9e69b",
+    "gold": "\"Home of the Submarine Force\""
+   },
+   {
+    "item_id": "5abbaf6c554299660624171c",
+    "gold": "film director"
+   },
+   {
+    "item_id": "5a7e71ab55429949594199bc",
+    "gold": "Reunited Worlds"
+   }
+  ],
+  "ps-i03-f07": [
+   {
+    "item_id": "5a712af15542994082a3e614",
+    "gold": "My Cat from Hell"
+   },
+   {
+    "item_id": "5a7a73e45542996c55b2ddb6",
+    "gold": "J. R. R. Tolkien"
+   },
+   {
+    "item_id": "5a88dc5a5542993b751ca890",
+    "gold": "Division of Cook"
+   },
+   {
+    "item_id": "5ade74285542992fa25da78c",
+    "gold": "Browningia"
+   },
+   {
+    "item_id": "5ab925c755429919ba4e23d6",
+    "gold": "Kenneth Cooper \"Ken\" Annakin, OBE (10 August 1914 – 22 April 2009) was a prolific English film director."
+   }
+  ],
+  "ps-i04-f00": [
+   {
+    "item_id": "5ab2ed62554299166977413a",
+    "gold": "Luigi Segre"
+   },
+   {
+    "item_id": "5ae644cc55429908198fa568",
+    "gold": "Best Female Lead"
+   },
+   {
+    "item_id": "5a7a36e65542990198eaf0ea",
+    "gold": "3 May 1958"
+   },
+   {
+    "item_id": "5adcf3e35542994ed6169c3a",
+    "gold": "Rivington Moor"
+   },
+   {
+    "item_id": "5ab56f7a554299637185c59a",
+    "gold": "Philadelphia"
+   }
+  ],
+  "ps-i04-f01": [
+   {
+    "item_id": "5a7651825542992d0ec060a3",
+    "gold": "Ateneo de Davao University"
+   },
+   {
+    "item_id": "5ae7a8175542993210983ed8",
+    "gold": "Pedro Rodríguez"
+   },
+   {
+    "item_id": "5ae528ed5542993aec5ec16e",
+    "gold": "Revengers Tragedy"
+   },
+   {
+    "item_id": "5a7f87755542994857a76769",
+    "gold": "Australian"
+   },
+   {
+    "item_id": "5a8900c75542997e5c09a6ed",
+    "gold": "lime"
+   }
+  ],
+  "ps-i04-f02": [
+   {
+    "item_id": "5ae1681b554299422ee9967c",
+    "gold": "40 Acres and a Mule Filmworks"
+   },
+   {
+    "item_id": "5abfa5fb5542990832d3a183",
+    "gold": "northern Italy,"
+   },
+   {
+    "item_id": "5ab6c47e55429954757d3368",
+    "gold": "University of Oxford, England"
+   },
+   {
+    "item_id": "5a88b3b4554299206df2b336",
+    "gold": "music"
+   },
+   {
+    "item_id": "5a7249b85542990c210a40b9",
+    "gold": "Seti I"
+   }
+  ],
+  "ps-i04-f06": [
+   {
+    "item_id": "5ac29a835542990b17b1542f",
+    "gold": "Sarah Hurst in \"Easy Virtue\""
+   },
+   {
+    "item_id": "5a888b8e5542997e5c09a60a",
+    "gold": "New York City, Long Island, and Westchester"
+   },
+   {
+    "item_id": "5ae326d85542991a06ce9938",
+    "gold": "Dennis Potter."
+   },
+   {
+    "item_id": "5ae324e85542991a06ce9934",
+    "gold": "Mick Jackson,"
+   },
+   {
+    "item_id": "5ae50c345542993aec5ec11f",
+    "gold": "Bambi: Eine Lebensgeschichte aus dem Walde"
+   }
+  ],
+  "ps-i05-f00": [
+   {
+    "item_id": "5a7e0c045542995f4f4023c5",
+    "gold": "Douglas Eric \"Doug\" Liman"
+   },
+   {
+    "item_id": "5abbf9b355429931dba145fe",
+    "gold": "Timmy Sanders"
+   },
+   {
+    "item_id": "5abee75f5542993fe9a41d8e",
+    "gold": "HBO World Championship Boxing"
+   },
+   {
+    "item_id": "5ae6940e5542991bbc97613f",
+    "gold": "Pedieos"
+   },
+   {
+    "item_id": "5ab3d2595542992ade7c6ebf",
+    "gold": "Toronto"
+   }
+  ],
+  "ps-i05-f01": [
+   {
+    "item_id": "5ac116595542992a796dedd1",
+    "gold": "900000 km2"
+   },
+   {
+    "item_id": "5a74fd6d5542993748c8977d",
+    "gold": "Mondays"
+   },
+   {
+    "item_id": "5a8d838955429941ae14dfe5",
+    "gold": "United States"
+   },
+   {
+    "item_id": "5ae473545542995dadf2433d",
+    "gold": "April 8, 1943"
+   },
+   {
+    "item_id": "5add15d15542994ed6169c70",
+    "gold": "The Allies of World War I"
+   }
+  ],
+  "ps-i05-f02": [
+   {
+    "item_id": "5a734acf5542991f9a20c6ec",
+    "gold": "Shirley Ann Manson"
+   },
+   {
+    "item_id": "5ac002705542996f0d89cb05",
+    "gold": "county-level"
+   },
+   {
+    "item_id": "5a8b987f5542997f31a41d7a",
+    "gold": "C. W. Grafton"
+   },
+   {
+    "item_id": "5ae083b75542993d6555eb85",
+    "gold": "Jean Acker"
+   },
+   {
+    "item_id": "5a77ace855429967ab105223",
+    "gold": "Tamaulipas"
+   }
+  ],
+  "ps-i05-f06": [
+   {
+    "item_id": "5a8b3de95542997f31a41cc3",
+    "gold": "Tian Tan Buddha"
+   },
+   {
+    "item_id": "5a7fb1b25542992097ad2fb2",
+    "gold": "University of Nevada, Reno"
+   },
+   {
+    "item_id": "5a84c89a5542992a431d1a9c",
+    "gold": "\"Switzerland of England\""
+   },
+   {
+    "item_id": "5a722fae55429971e9dc9343",
+    "gold": "Chloë Alexandra Adele Emily Agnew"
+   },
+   {
+    "item_id": "5a77b6535542995d83181274",
+    "gold": "little hairs"
+   }
+  ],
+  "ps-i06-f01": [
+   {
+    "item_id": "5ae5ff845542996de7b71ad0",
+    "gold": "The Jeffersons"
+   },
+   {
+    "item_id": "5ae54eea5542993aec5ec19d",
+    "gold": "Social Code"
+   },
+   {
+    "item_id": "5a90a9a45542990a9849367e",
+    "gold": "Podocarpus"
+   },
+   {
+    "item_id": "5a7345185542992359bc32cb",
+    "gold": "Europe"
+   },
+   {
+    "item_id": "5ac4f9dc55429924173fb533",
+    "gold": "Louisiana."
+   }
+  ],
+  "ps-i06-f04": [
+   {
+    "item_id": "5ac249f55542992f1f2b3831",
+    "gold": "Australian"
+   },
+   {
+    "item_id": "5ac3165c5542995ef918c10a",
+    "gold": "John Waters"
+   },
+   {
+    "item_id": "5ac4e9ab5542996feb3fe974",
+    "gold": "Roger Jason Stone Jr."
+   },
+   {
+    "item_id": "5a818387554299260e20a291",
+    "gold": "Blake Shelton"
+   },
+   {
+    "item_id": "5ae0e0125542993d6555ec79",
+    "gold": "Pierre Louis Joseph Boulez"
+   }
+  ],
+  "ps-i06-f06": [
+   {
+    "item_id": "5a88940055429938390d3f7b",
+    "gold": "Port Vila"
+   },
+   {
+    "item_id": "5a732ab25542991f29ee2d25",
+    "gold": "Puyallup School District of Washington"
+   },
+   {
+    "item_id": "5ab741005542992aa3b8c800",
+    "gold": "Robert Matthew Hurley"
+   },
+   {
+    "item_id": "5ae37d265542994393b9e6e7",
+    "gold": "Tamara Ecclestone"
+   },
+   {
+    "item_id": "5a7b47765542992d025e67d8",
+    "gold": "wrestling"
+   }
+  ],
+  "ps-i07-f01": [
+   {
+    "item_id": "5ae22f4e5542996483e6492f",
+    "gold": "Betty Cohen"
+   },
+   {
+    "item_id": "5ab6bb575542995eadef0088",
+    "gold": "pop music and popular culture"
+   },
+   {
+    "item_id": "5ab58ee6554299488d4d99d6",
+    "gold": "February 13, 1946"
+   },
+   {
+    "item_id": "5a78e3b955429974737f78f1",
+    "gold": "Sherwood Stewart"
+   },
+   {
+    "item_id": "5a7306a655429901807daf67",
+    "gold": "Umaro Mokhtar Sissoco Embaló"
+   }
+  ],
+  "ps-i07-f02": [
+   {
+    "item_id": "5a85eed75542996432c5713b",
+    "gold": "Coahuila, Mexico"
+   },
+   {
+    "item_id": "5ac2943a55429921a00aafce",
+    "gold": "Kim Sung-su"
+   },
+   {
+    "item_id": "5ae4c96355429913cc204506",
+    "gold": "400 members"
+   },
+   {
+    "item_id": "5ac05310554299012d1db5e7",
+    "gold": "Ron Goldman"
+   },
+   {
+    "item_id": "5ae4b5935542995ad6573e27",
+    "gold": "Jonathan Howsmon Davis"
+   }
+  ],
+  "ps-i07-f03": [
+   {
+    "item_id": "5ae6097c55429929b0807a9a",
+    "gold": "Andaman Islands"
+   },
+   {
+    "item_id": "5a88a1e55542997e5c09a64d",
+    "gold": "Ericsson Stadium"
+   },
+   {
+    "item_id": "5ac292175542996366519a14",
+    "gold": "Billy Joel"
+   },
+   {
+    "item_id": "5ae530e355429908b6326561",
+    "gold": "What's My Line"
+   },
+   {
+    "item_id": "5adf715b5542992d7e9f9354",
+    "gold": "Sturt"
+   }
+  ],
+  "ps-i07-f07": [
+   {
+    "item_id": "5ab7bbbf55429928e1fe38bf",
+    "gold": "Kansas City crime family"
+   },
+   {
+    "item_id": "5a7cc28f554299452d57ba1c",
+    "gold": "50 best cities to live in"
+   },
+   {
+    "item_id": "5ae22f4e5542996483e6492f",
+    "gold": "Betty Cohen"
+   },
+   {
+    "item_id": "5adcf3e35542994ed6169c3a",
+    "gold": "Rivington Moor"
+   },
+   {
+    "item_id": "5a8f45ca5542997ba9cb320e",
+    "gold": "documentary"
+   }
+  ]
+ },
+ "demos_sha256": "870ae03d8167ab8245cf60112dafce60200021f6cce5bb0ea3e2558c2f7f290c"
+}
